@@ -19,7 +19,7 @@ public class knockback : MonoBehaviour
     void OnTriggerStay(Collider other){
         if (other.tag == "Enemy" && Input.GetKeyDown("a")){
             Rigidbody enemy_rb = other.GetComponent<Rigidbody>();
-            enemy_rb.AddForce(2000, 0 , 0);
+            enemy_rb.AddForce(1000, 0 , 0);
             StartCoroutine(stopPush(0.1f, enemy_rb));
             // Debug.Log(Time.time);
 
