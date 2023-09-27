@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class block : MonoBehaviour
 {
     float keyDownTime = 0.0f;
@@ -11,6 +12,9 @@ public class block : MonoBehaviour
     bool blockPressed = false;
     public float parryVelocity = 50.0f;
     // Start is called before the first frame update
+
+
+
     void Start()
     {
         
