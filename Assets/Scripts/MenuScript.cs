@@ -21,13 +21,8 @@ public class MenuScript : MonoBehaviour
         //should resume game
     }
 
-    public void volumeUPButton()
+    public void OnOptionsButton()
     {
-        //should add to volume
-    }
-    public void volumeDOWNButton()
-    {
-        //should subtract from volume
-    }
 
+    }
 }
