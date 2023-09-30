@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class MenuScript : MonoBehaviour
 {
+    public AudioMixer audioMixer;
+
      //used to load game first time (scene 1)
     public void OnPlayButton()
     {
@@ -18,11 +21,11 @@ public class MenuScript : MonoBehaviour
 
     public void onResumeButton()
     {
-        //should resume game
+        //should check resume game
     }
 
-    public void OnOptionsButton()
+    public void SetVolume(float volume)
     {
-
+        audioMixer.SetFloat("volume", volume);
     }
 }
