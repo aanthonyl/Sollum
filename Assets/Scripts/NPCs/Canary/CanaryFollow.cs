@@ -10,6 +10,8 @@ using UnityEngine;
 
 public class CanaryFollow : MonoBehaviour
 {
+    // SCRIPT TO BE PLACED ON CANARY PARENT
+
     public float MinDistance = 3;
     public float MaxDistance = 1;
     public float Speed = 3;
@@ -20,7 +22,7 @@ public class CanaryFollow : MonoBehaviour
 
     void Update()
     {
-        // CONTROLS 
+        // AXIS 
         moveX = Input.GetAxis("Horizontal");
         moveY = Input.GetAxis("Vertical");
 
@@ -32,7 +34,7 @@ public class CanaryFollow : MonoBehaviour
             this.transform.position = Vector3.MoveTowards(this.transform.position, follow, Speed * Time.deltaTime);
         }
 
-        // DIRECTION 
+        // FACING DIRECTION 
         if (moveX < 0.0f)
         {
             GetComponentInChildren<SpriteRenderer>().flipX = true;
