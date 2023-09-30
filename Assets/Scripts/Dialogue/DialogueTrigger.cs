@@ -98,7 +98,7 @@ public class DialogueTrigger : MonoBehaviour
         {
             manager.currentTrigger = this;
             TriggerDialogue();
-            Debug.Log("Dialogue Triggered");
+            Debug.Log("DIALOGUE TRIGGERED");
         }
     }
 
@@ -106,7 +106,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("PLAYER TAG HAS ENTERED DIALOGUE TRIGGER");
+            Debug.Log("DIALOGUE TRIGGERED");
             inArea = true;
         }
     }

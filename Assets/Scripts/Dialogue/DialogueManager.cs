@@ -44,13 +44,9 @@ public class DialogueManager : MonoBehaviour
     [HideInInspector]
     public DialogueTrigger currentTrigger;
 
-    //private bool levelBool = false;
-    //private int levelIndex;
-
     private bool isInDialogue = false;
     private bool isTyping = false;
     private bool cancelTyping = false;
-
 
     [Header("Speaker Library")]
     [Tooltip("Invisible/Placeholder sprite for when no one is talking")]
@@ -95,10 +91,8 @@ public class DialogueManager : MonoBehaviour
         if (freezePlayerOnDialogue)
         {
             FreezePlayer();
+            Debug.Log("FreezePlayer() HAS BEEN CALLED FROM DialogueManager.cs");
         }
-
-        // open the dialogue box
-        // isOpen = true;
 
         // STORES DIALOGUE FROM DIALOGUE TRIGGER
         inputStream = dialogue;
@@ -137,16 +131,6 @@ public class DialogueManager : MonoBehaviour
                 speakerName.text = name;
                 PrintDialogue(); // print the rest of this line
             }
-            /*
-            else if (inputStream.Peek().Contains("[LEVEL=")) //On dialogue finish, go to following level
-            {
-                string part = inputStream.Peek();
-                string level = inputStream.Dequeue().Substring(part.IndexOf('=') + 1, part.IndexOf(']') - (part.IndexOf('=') + 1));
-                int levelIndex = Convert.ToInt32(level); //Convert string to integer
-                levelBool = true;
-                PrintDialogue(); // print the rest of this line
-            }
-            */
             else if (inputStream.Peek().Contains("[SPEAKERSPRITE="))
             {
                 string part = inputStream.Peek();
@@ -172,11 +156,11 @@ public class DialogueManager : MonoBehaviour
                         // STARTS COROUTINE
                         scrollText = inputStream.Dequeue();
                         StartCoroutine(TextScroll(scrollText));
+                        Debug.Log("TextScroll COROUTINE HAS BEEN STARTED");
                     }
                 }
                 else
                 {
-
                     dialogueBody.text = inputStream.Dequeue();
                     continueImage.SetActive(true);
                 }
@@ -230,13 +214,9 @@ public class DialogueManager : MonoBehaviour
         if (freezePlayerOnDialogue)
         {
             UnFreezePlayer();
+            Debug.Log("UnFreezePlayer() HAS BEEN CALLED FROM DialogueManager");
         }
-        /*
-        if (levelBool)
-        {
-            GameObject.FindObjectOfType<GameSceneManager>().LoadScene(levelIndex);
-        }
-        */
+
         if (currentTrigger.singleUseDialogue)
         {
             currentTrigger.hasBeenUsed = true;
