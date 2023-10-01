@@ -63,10 +63,6 @@ public class DialogueTrigger : MonoBehaviour
         dialogue.Enqueue("EndQueue");
     }
 
-    // Version 2 // 
-    /*
-	Introduces the ability to have multiple tags on a single line. Allows for more functions to be programmed to unique text strings or general functions. 
-     	*/
     private void SearchForTags(string[] lines)
     {
         foreach (string line in lines) // For every line of dialogue
