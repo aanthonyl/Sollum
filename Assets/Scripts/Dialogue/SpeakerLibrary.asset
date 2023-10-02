@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59a4eb2d1e2323498ccd6bd50b8c7f1, type: 3}
   m_Name: SpeakerLibrary
   m_EditorClassIdentifier: 
-  speakerSpriteList: []
+  speakerSpriteList:
+  - name: Canary
+    sprite: {fileID: 21300000, guid: fdefb2cc78f29bb4985b7c87f7152457, type: 3}
