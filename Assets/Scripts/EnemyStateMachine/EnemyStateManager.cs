@@ -16,19 +16,19 @@ public class EnemyStateManager : MonoBehaviour
 
 	//All states
 	public EnemyStatePatrol PatrolState = new EnemyStatePatrol();
+	public EnemyStateSearch SearchState = new EnemyStateSearch();
 
 	//Public Variables ========================================================================
 	public bool isPlayerHidden = false;
 	public float radius = 5f;
-	public List<Transform> patrolPoints = new List<Transform>();
 	public NavMeshAgent agent;
 	public Transform target;
 
 	//Private Variables ========================================================================
+	private List<Transform> patrolPoints = new List<Transform>();
 	BoxCollider sight;
 	SpriteRenderer rend;
 	Animator anim;
-	Vector3 dir;
 
 	void Start()
 	{
@@ -86,6 +86,15 @@ public class EnemyStateManager : MonoBehaviour
 		target = player;
 	}
 
+	/* HeardNoise ====================================
+    *   - Called when enemy sees player (i.e. not blocked or in a hiding spot)
+    *   - Sets target to player, switches to chase state
+    *===========================================*/
+	public void HeardNoise(Transform noise)
+	{
+		target = noise;
+	}
+
 	/* SwitchState ====================================
     *   - Takes a vector 3 "spot" and finds the nearest spot on the navmesh
     *   - Returns a vector3
@@ -93,7 +102,8 @@ public class EnemyStateManager : MonoBehaviour
 	public Vector3 NearestOnNavmesh(Vector3 spot)
 	{
 		NavMeshHit nearestSpot;
-		NavMesh.SamplePosition(spot, out nearestSpot, radius, 1);
+		if (!(NavMesh.SamplePosition(spot, out nearestSpot, radius, 1)))
+			Debug.LogError("Failed to find spot on NavMesh near" + spot);
 		return nearestSpot.position;
 	}
 
@@ -102,5 +112,16 @@ public class EnemyStateManager : MonoBehaviour
 	{
 		yield return new WaitForSeconds(timePassed);
 		StopCoroutine(Delay(timePassed));
+	}
+
+	//Accessor Methods
+	public Transform getPatrolPoint(int iter)
+	{
+		return patrolPoints[iter];
+	}
+
+	public int getPatrolPointsCount()
+	{
+		return patrolPoints.Count;
 	}
 }
