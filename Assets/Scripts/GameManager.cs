@@ -78,7 +78,6 @@ public class GameManager : MonoBehaviour
             {
                 if(!sceneTransition)
                 {
-                    Debug.Log("Continue: " + continueGame);
                     if(continueGame)
                     {
                         LoadGameData();
