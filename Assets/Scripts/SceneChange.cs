@@ -27,7 +27,7 @@ public class SceneChange : MonoBehaviour
                 }
                 else
                 {
-                    GameManager.instance.sceneTransition = true;
+                    GameManager.instance.levelTransition = true;
                     GameManager.instance.savedScene = nextScene;
                     GameManager.instance.LoadGameWorld(false, nextScene);
                 }

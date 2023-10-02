@@ -179,12 +179,12 @@ public class SceneLoader : MonoBehaviour
                     }
 
                     GameManager.instance.dataLoaded = false;
-                    GameManager.instance.sceneTransition = false;
+                    GameManager.instance.levelTransition = false;
                 }
                 else if(scene == Scene.MainMenu) // LOAD MAIN MENU DATA AGAIN
                 {
                     GameManager.instance.EnableContinue();
-                    GameManager.instance.sceneTransition = false;
+                    GameManager.instance.levelTransition = false;
                 }
 
                 GameManager.instance.currentScene = scene;
@@ -215,14 +215,14 @@ public class SceneLoader : MonoBehaviour
         {
             if(scene == Scene.Aboveground || scene == Scene.Underground)
             {
-                // GameManager.instance.SaveGame(); // SAVE GAME DATA
+                GameManager.instance.SaveGame(); // SAVE GAME DATA
 
-                // while(!GameManager.instance.dataSaved)
-                // {
-                //     yield return null;
-                // }
+                while(!GameManager.instance.dataSaved)
+                {
+                    yield return null;
+                }
 
-                // GameManager.instance.dataSaved = false; 
+                GameManager.instance.dataSaved = false; 
 
                 GameManager.instance.SaveMainMenuData(); // SAVE MAIN MENU DATA
 

@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
             [HideInInspector] public bool continueGame = false;
             [HideInInspector] public bool dataSaved = false;
             [HideInInspector] public bool dataLoaded = false;
-            [HideInInspector] public bool sceneTransition = false;
+            [HideInInspector] public bool levelTransition = false;
         
         #endregion
 
@@ -76,11 +76,27 @@ public class GameManager : MonoBehaviour
 
             public void LoadGame()
             {
-                if(!sceneTransition)
+                if(!levelTransition)
                 {
                     if(continueGame)
                     {
                         LoadGameData();
+
+                        if(continueGame)
+                        {
+                            if(gameData != null)
+                            {
+                                StartCoroutine(LoadGameDataCoroutine());
+                            }
+                            else
+                            {
+                                dataLoaded = true;
+                            }
+                        }
+                        else
+                        {
+                            dataLoaded = true;
+                        }
                     }
                     else
                     {
@@ -128,7 +144,7 @@ public class GameManager : MonoBehaviour
             
             public void SaveGameData()
             {
-                if(!sceneTransition)
+                if(!levelTransition)
                 {
                     BinaryFormatter binaryFormatter = new BinaryFormatter();
                     string path = Application.persistentDataPath + "/game.data";
@@ -235,10 +251,12 @@ public class GameManager : MonoBehaviour
                     dataDeserialized = false;
                 }
 
-                if(dataDeserialized) // LOADS DATA BELOW
+                if(dataDeserialized)
                 {
+                    // LOADS MAIN MENU DATA
                     savedScene = mainMenuData.savedScene;
                     enableContinue = mainMenuData.enableContinue;
+                    EnableContinue();
                 }
 
                 dataLoaded = true;
@@ -259,6 +277,19 @@ public class GameManager : MonoBehaviour
             }
 
         #endregion
+
+    #endregion
+
+    #region Coroutines
+
+        private IEnumerator LoadGameDataCoroutine()
+        {
+            // LOADS GAME DATA
+
+            yield return null;
+
+            dataLoaded = true;
+        }
 
     #endregion
 }
