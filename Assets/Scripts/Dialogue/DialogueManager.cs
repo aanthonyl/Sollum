@@ -38,8 +38,12 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Player Interaction")]
     [Tooltip("Player Movement Script")]
-    public MonoBehaviour playerMovement;
+    public playerMovement playerMovement;
     public bool freezePlayerOnDialogue = true;
+
+    // ALLOWS DEVELOPER TO SELECT KEY FROM LIST
+    [Header("Continue Key")]
+    public KeyCode DialogueKey = KeyCode.E;
 
     [HideInInspector]
     public DialogueTrigger currentTrigger;
@@ -57,6 +61,9 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
+        //playerMovement = GetComponent<playerMovement>();
+        playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<playerMovement>();
+
         // GET SPEAKERS FROM LIBRARY & ADD TO LIST
         foreach (SpeakerLibrary.SpriteInfo info in speakerSprites.speakerSpriteList)
         {
@@ -68,13 +75,12 @@ public class DialogueManager : MonoBehaviour
     // HAULT PLAYER MOVEMENT WHILE DIALOGUE OPEN
     private void FreezePlayer()
     {
-        //playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<ThirdPMovement>();
-        //playerMovement.freezePlayer = true;
+        playerMovement.freezeMovement = true;
     }
 
     private void UnFreezePlayer()
     {
-        //playerMovement.freezePlayer = false;
+        playerMovement.freezeMovement = false;
     }
 
     // STARTS DIALOGUE
@@ -117,6 +123,7 @@ public class DialogueManager : MonoBehaviour
                 {
                     inputStream.Dequeue();
                     EndDialogue();
+                    Debug.Log("END DIALOGUE");
                 }
                 else
                 {
@@ -210,7 +217,7 @@ public class DialogueManager : MonoBehaviour
         isInDialogue = false;
         cancelTyping = false;
         isTyping = false;
-        // isOpen = false;
+
         if (freezePlayerOnDialogue)
         {
             UnFreezePlayer();

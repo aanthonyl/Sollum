@@ -35,8 +35,8 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Update()
     {
-        // ADVANCE DIALOGUE //
-        if (!hasBeenUsed && inArea && Input.GetKeyDown(KeyCode.E) && nextTime < Time.timeSinceLevelLoad)
+        // ADVANCE DIALOGUE USING SELECTED KEY FROM DialogueManager.cs //
+        if (!hasBeenUsed && inArea && Input.GetKeyDown(manager.DialogueKey) && nextTime < Time.timeSinceLevelLoad)
         {
             Debug.Log("Advance Dialogue");
             nextTime = Time.timeSinceLevelLoad + waitTime;
@@ -88,17 +88,16 @@ public class DialogueTrigger : MonoBehaviour
     }
 
     // TRIGGER DIALOGUE, UNTIL LEAVES AREA //
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter(Collider collider)
     {
-        if (other.gameObject.tag == "Player" && !hasBeenUsed)
+        if (collider.gameObject.tag == "Player" && !hasBeenUsed)
         {
             manager.currentTrigger = this;
             TriggerDialogue();
             Debug.Log("DIALOGUE TRIGGERED");
         }
     }
-
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
@@ -107,7 +106,7 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
