@@ -15,13 +15,16 @@ public class follow_character : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    void move()
+    void lookAtPlayer()
     {
         Vector3 playerPosition = player.transform.position;
         transform.LookAt(playerPosition);
-        rb.velocity = transform.forward * enemySpeed;
     }
 
+    void stepForward()
+    {
+        rb.velocity = transform.forward * enemySpeed;
+    }
 
     // Update is called once per frame
     void Update()
@@ -29,7 +32,8 @@ public class follow_character : MonoBehaviour
         knockedBackByPlayer = player.GetComponentInChildren<knockback>().knockedBack;
         if (!knockedBackByPlayer)
         {
-            move();
+            lookAtPlayer();
+            stepForward();
         }
             
         knockedBackByPlayer = false;

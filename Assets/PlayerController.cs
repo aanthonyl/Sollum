@@ -2,21 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class move_projectile : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    public Rigidbody rb;
-    
+    MousePosition mouse;
+    public GameObject mouseClass;
+
     // Start is called before the first frame update
     void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody>();
-        rb.AddForce(-100, 0, 0);
+        mouse= mouseClass.GetComponent<MousePosition>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        gameObject.transform.LookAt(mouse.worldPosition);
     }
-    
 }

@@ -7,22 +7,6 @@ public class knockback : MonoBehaviour
     public float thrust = 2000f;
     public float push_time = 0.1f;
     public bool knockedBack = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void knockBackForPeriod()
-    {
-
-    }
 
     void OnTriggerStay(Collider other){
         if (other.tag == "Enemy" && Input.GetKeyDown("a")){

@@ -33,7 +33,7 @@ public class moveEnemy : MonoBehaviour
 
     void moveRight() {rb.velocity = new Vector3(0 , 0, 10);}
     void moveLeft() {rb.velocity = new Vector3(0, 0, -10); }
-    void move()
+    void moveDirection()
     {
         if (rightMove)
         {
@@ -47,7 +47,7 @@ public class moveEnemy : MonoBehaviour
     void Update()
     {
         lookAtPlayer();
-        move();
+        moveDirection();
         walkTime -= Time.deltaTime;
         if (walkTime < 0.0f)
             walkComplete();
