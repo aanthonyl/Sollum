@@ -1,0 +1,6 @@
+[NAME=SpeakerA][SPEAKERSPRITE=SpeakerA]Hello
+[NAME=SpeakerB][SPEAKERSPRITE=SpeakerB]Hi
+[NAME=SpeakerC][SPEAKERSPRITE=SpeakerC]Hey there, how's it going? 
+[NAME=SpeakerA][SPEAKERSPRITE=SpeakerA]Goodbye
+[NAME=SpeakerB][SPEAKERSPRITE=SpeakerB]Bye
+[NAME=SpeakerC][SPEAKERSPRITE=SpeakerC]Until next time friends
