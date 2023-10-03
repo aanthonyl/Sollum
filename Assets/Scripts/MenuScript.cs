@@ -28,4 +28,9 @@ public class MenuScript : MonoBehaviour
     {
         audioMixer.SetFloat("volume", volume);
     }
+
+    public void OnCreditsButton()
+    {
+        //should show credits
+    }
 }
