@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
+using UnityEngine.Events;
 
-public class NoiseMaker_GUI : MonoBehaviour
+//Custom GUI button to make noise
+[CustomEditor(typeof(TempNoiseMaker))]
+public class NoiseMaker_GUI : Editor
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void OnInspectorGUI()
     {
-        
-    }
+        DrawDefaultInspector();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        TempNoiseMaker NoiseMaker = (TempNoiseMaker)target;
+        if (GUILayout.Button("Make noise"))
+        {
+            NoiseMaker.MakeNoise();
+        }
     }
 }

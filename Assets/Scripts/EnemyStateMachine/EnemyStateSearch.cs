@@ -11,13 +11,15 @@ public class EnemyStateSearch : I_EnemyBaseState
      *   - What will stop this   : Enemy reaches noise point
      *===========================================*/
 
+
+    bool isPausing;
+
     /* Enter State =============================
     *   - When the state is entered, what happens?
     ============================================*/
     public override void EnterState(EnemyStateManager enemy)
     {
-
-
+        isPausing = false;
     }
 
     /* Update State =============================
@@ -25,7 +27,18 @@ public class EnemyStateSearch : I_EnemyBaseState
     ============================================*/
     public override void UpdateState(EnemyStateManager enemy)
     {
-        
+        if (Vector3.Distance(enemy.transform.position, enemy.target.position) - 1f < 1f)
+        {
+            isPausing = true;
+            enemy.CallReturnToPatrol();
+        }
+        if (!isPausing)
+        {
+            //Move towards noise event
+            enemy.agent.destination = enemy.target.position;
+        }
 
     }
+
+
 }

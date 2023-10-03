@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+public delegate void PauseAction();
 
 public class EnemyStateManager : MonoBehaviour
 {
@@ -15,20 +16,34 @@ public class EnemyStateManager : MonoBehaviour
 	I_EnemyBaseState currentState;
 
 	//All states
-	public EnemyStatePatrol PatrolState = new EnemyStatePatrol();
-	public EnemyStateSearch SearchState = new EnemyStateSearch();
+	public EnemyStatePatrol PatrolState = new();
+	public EnemyStateSearch SearchState = new();
 
 	//Public Variables ========================================================================
 	public bool isPlayerHidden = false;
-	public float radius = 5f;
+	public bool drawHearingDistance = false;
 	public NavMeshAgent agent;
 	public Transform target;
+	public PauseAction pauseAction = null;
 
 	//Private Variables ========================================================================
-	private List<Transform> patrolPoints = new List<Transform>();
+	private List<Transform> patrolPoints = new();
 	BoxCollider sight;
 	SpriteRenderer rend;
 	Animator anim;
+	float navRadius = 5f;
+	[SerializeField]
+	float maxHearingDist = 5f;
+	[SerializeField]
+	float pauseTime = 1f;
+
+	private void OnDrawGizmos()
+	{
+		if (drawHearingDistance)
+		{
+			Gizmos.DrawWireSphere(transform.position, maxHearingDist);
+		}
+	}
 
 	void Start()
 	{
@@ -36,7 +51,7 @@ public class EnemyStateManager : MonoBehaviour
 		Transform pathsParent = this.transform.parent.GetChild(this.transform.GetSiblingIndex() + 1); //gets Paths gameobject
 		for (int childIter = 0; childIter < pathsParent.childCount; childIter++) //Loop through paths children
 		{
-			Debug.Log("Added" + pathsParent.GetChild(childIter).name);
+			// Debug.Log("Added" + pathsParent.GetChild(childIter).name);
 			patrolPoints.Add(pathsParent.GetChild(childIter)); //Add patrol points (Children) to list
 		}
 
@@ -84,6 +99,7 @@ public class EnemyStateManager : MonoBehaviour
 	public void SawPlayer(Transform player)
 	{
 		target = player;
+		//SWITCH TO CHASE STATE HERE
 	}
 
 	/* HeardNoise ====================================
@@ -92,36 +108,49 @@ public class EnemyStateManager : MonoBehaviour
     *===========================================*/
 	public void HeardNoise(Transform noise)
 	{
-		target = noise;
+		Debug.Log("Invoked");
+		if (Vector3.Distance(transform.position, noise.position) <= maxHearingDist)
+		{
+			target = noise;
+			SwitchState(SearchState);
+		}
 	}
 
 	/* SwitchState ====================================
-    *   - Takes a vector 3 "spot" and finds the nearest spot on the navmesh
+    *   - Takes a vector 3 "spot" and finds the nearest spot on the navmesh within radius
     *   - Returns a vector3
     *===========================================*/
 	public Vector3 NearestOnNavmesh(Vector3 spot)
 	{
-		NavMeshHit nearestSpot;
-		if (!(NavMesh.SamplePosition(spot, out nearestSpot, radius, 1)))
+		if (!NavMesh.SamplePosition(spot, out NavMeshHit nearestSpot, navRadius, 1))
 			Debug.LogError("Failed to find spot on NavMesh near" + spot);
 		return nearestSpot.position;
 	}
 
-
-	public IEnumerator Delay(float timePassed)
+	public void CallReturnToPatrol()
 	{
-		yield return new WaitForSeconds(timePassed);
-		StopCoroutine(Delay(timePassed));
+		StartCoroutine(ReturnToPatrol());
+	}
+
+	public IEnumerator ReturnToPatrol()
+	{
+		yield return new WaitForSeconds(pauseTime);
+		SwitchState(PatrolState);
 	}
 
 	//Accessor Methods
-	public Transform getPatrolPoint(int iter)
+	public Transform GetPatrolPoint(int iter)
 	{
 		return patrolPoints[iter];
 	}
 
-	public int getPatrolPointsCount()
+	public int GetPatrolPointsCount()
 	{
 		return patrolPoints.Count;
+	}
+
+	public float GetPauseTime()
+	{
+		return pauseTime;
 	}
 }

@@ -19,7 +19,7 @@ public class EnemyStatePatrol : I_EnemyBaseState
 	{
 		// Debug.Log("Patrolling");
 		patrolPointIter = 1;
-		enemy.target = enemy.getPatrolPoint(patrolPointIter); //set First target point to the next patrol point in the list
+		enemy.target = enemy.GetPatrolPoint(patrolPointIter); //set First target point to the next patrol point in the list
 															  //The enemy will always start out at the first point in the list. 
 	}
 
@@ -33,14 +33,14 @@ public class EnemyStatePatrol : I_EnemyBaseState
 
 		// Debug.Log(Vector3.Distance(enemy.agent.transform.position, targetPoint.position));
 		//Once at at target point...
-		if (Vector3.Distance(enemy.agent.transform.position, enemy.target.position) - 1f < 1)
+		if (Vector3.Distance(enemy.transform.position, enemy.target.position) - 1f < 1)
 		{
 			//Select next target point
 			patrolPointIter++;
-			if (patrolPointIter >= enemy.getPatrolPointsCount())
+			if (patrolPointIter >= enemy.GetPatrolPointsCount())
 				patrolPointIter = 0;
 
-			enemy.target = enemy.getPatrolPoint(patrolPointIter);
+			enemy.target = enemy.GetPatrolPoint(patrolPointIter);
 			enemy.transform.LookAt(enemy.target.position);
 		}
 
