@@ -26,6 +26,7 @@ public class CanaryFollow : MonoBehaviour
         moveX = Input.GetAxis("Horizontal");
         moveY = Input.GetAxis("Vertical");
 
+
         // FOLLOW 
         if (Vector3.Distance(transform.position, Player.position) >= MinDistance)
         {
