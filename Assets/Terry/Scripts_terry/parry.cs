@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Parry : MonoBehaviour
@@ -10,6 +11,7 @@ public class Parry : MonoBehaviour
     public GameObject mousePosition;
     Rigidbody rb;
     MousePosition mouse;
+    
 
     Vector3 getShootPosition() { return shootPositionObj.transform.position; }
     Vector3 ForwardVelocity() { return forwardVector * moveSpeed; }
@@ -24,9 +26,9 @@ public class Parry : MonoBehaviour
     {
         GameObject projectile = Instantiate(projectile_prefab, getShootPosition(), gameObject.transform.rotation);
         rb = projectile.GetComponent<Rigidbody>();
-        Debug.Log(mouse.worldPosition.normalized);
         setForwardVector(mouse.worldPosition.normalized);
         rb.velocity = ForwardVelocity();
+        
     }
 
 }

@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class EnemyProjectile : MonoBehaviour
 {
-    public GameObject shootPositionObj, projectile_prefab; 
+    public GameObject shootPositionObj, projectile_prefab;
     float moveSpeed = 10.0f;
     Vector3 forwardVector;
     Rigidbody rb;
@@ -12,10 +12,10 @@ public class Projectile : MonoBehaviour
 
     void EnemyShoot()
     {
-            GameObject projectile = Instantiate(projectile_prefab, getShootPosition(), gameObject.transform.rotation);
-            rb = projectile.GetComponent<Rigidbody>();
-            setForwardVector(transform.forward);
-            rb.velocity = ForwardVelocity();
+        GameObject projectile = Instantiate(projectile_prefab, getShootPosition(), gameObject.transform.rotation);
+        rb = projectile.GetComponent<Rigidbody>();
+        setForwardVector(transform.forward);
+        rb.velocity = ForwardVelocity();
     }
 
     void Update()
@@ -25,6 +25,4 @@ public class Projectile : MonoBehaviour
             EnemyShoot();
         }
     }
-
-
 }

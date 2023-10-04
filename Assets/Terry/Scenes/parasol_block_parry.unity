@@ -318,8 +318,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 381083564}
-  - component: {fileID: 381083565}
   - component: {fileID: 381083566}
+  - component: {fileID: 381083568}
+  - component: {fileID: 381083567}
   m_Layer: 3
   m_Name: Character
   m_TagString: Player
@@ -344,19 +345,6 @@ Transform:
   - {fileID: 815675227}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &381083565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 381083562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a161362f2c73f946909d6fa2675c8cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseClass: {fileID: 1950667283}
 --- !u!54 &381083566
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -384,6 +372,33 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &381083567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381083562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a161362f2c73f946909d6fa2675c8cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseClass: {fileID: 1950667283}
+--- !u!114 &381083568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381083562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 633afcc8f6a01774f826aaae1f30b075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockbackTime: 0.1
+  knockBackScale: 10
 --- !u!1 &521832354
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,7 +425,7 @@ Transform:
   m_GameObject: {fileID: 521832354}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.4499997, z: 0}
+  m_LocalPosition: {x: 0, y: 0.91, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -429,8 +444,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootPositionObj: {fileID: 521832354}
-  projectile_prefab: {fileID: 8462127569867068774, guid: ab20ffa0c1e551b4aa67a9938c8c39dd, type: 3}
+  projectile_prefab: {fileID: 8462127569867068774, guid: 5a3b9521032a5224dbdb7af7394e4e0e, type: 3}
   mousePosition: {fileID: 1950667283}
+  parryBlockClass: {fileID: 381083562}
 --- !u!1 &815675226
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,7 +691,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1317202165}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a290520c4d87d06499553eddf6578ae9, type: 3}
+  m_Script: {fileID: 11500000, guid: 87f1e40a47afa994e9883af9b6baae0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shootPositionObj: {fileID: 1317202165}
@@ -735,8 +751,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.50000006
-  m_Height: 2.0000002
+  m_Radius: 1
+  m_Height: 1
   m_Direction: 1
   m_Center: {x: -3.5527137e-15, y: 0, z: 0}
 --- !u!114 &1591571856
@@ -754,6 +770,7 @@ MonoBehaviour:
   parryModeTime: 0.5
   parryVelocity: 30
   parryClass: {fileID: 521832354}
+  parryBlockClass: {fileID: 381083562}
 --- !u!114 &1591571857
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class AimAtMouse : MonoBehaviour
 {
     MousePosition mouse;
     public GameObject mouseClass;
@@ -13,9 +13,13 @@ public class PlayerController : MonoBehaviour
         mouse= mouseClass.GetComponent<MousePosition>();
     }
 
+  
+
     // Update is called once per frame
     void Update()
     {
         gameObject.transform.LookAt(mouse.worldPosition);
     }
+
+  
 }
