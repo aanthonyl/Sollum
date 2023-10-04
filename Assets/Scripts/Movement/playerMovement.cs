@@ -20,6 +20,9 @@ public class playerMovement : MonoBehaviour
     private SpriteRenderer sr;
     private Animator anim;
 
+    // Added for dialogue system //
+    public bool freezeMovement = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,10 +43,12 @@ public class playerMovement : MonoBehaviour
     }
 
     void FixedUpdate() {
-        
-        //applies movement force//
-        rb.AddForce(forceVector);
-
+        // Boolean for dialogue system //
+        if (freezeMovement == false)
+        {
+            //applies movement force//
+            rb.AddForce(forceVector);
+        }
         //applies deceleration when no input//
         if (inputMagnitude == 0 && speed > 0) {
             Vector2 decelerationVelocity = new Vector2(rb.velocity.x, rb.velocity.z).normalized * ms.GetDeceleration() * new Vector2(rb.velocity.x, rb.velocity.z).magnitude;
