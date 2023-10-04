@@ -777,6 +777,7 @@ MonoBehaviour:
   typeSpeed: 0.05
   playerMovement: {fileID: 0}
   freezePlayerOnDialogue: 1
+  DialogueKey: 101
   currentTrigger: {fileID: 0}
   invisSprite: {fileID: 21300000, guid: 6a19a04fe820476468d44000a1fcaa35, type: 3}
   speakerSprites: {fileID: 11400000, guid: 64cab72b40bbf034b8af4c209a84a5af, type: 2}
