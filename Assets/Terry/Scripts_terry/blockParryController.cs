@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class BlockParryController : MonoBehaviour
 {
-    public float parryModeTime = 0.3f; 
+    public float parryModeTime = 0.4f;
     bool parryWindow = false;
     bool blockPressed = false;
     public float parryVelocity = 50.0f;
@@ -15,6 +15,9 @@ public class BlockParryController : MonoBehaviour
     Parry parry;
     ParryBlockKnockback knockback;
     [SerializeField] GameObject parryBlockClass;
+    [SerializeField] AttackPlayer enemyAttack;
+    bool meleeParrySuccess = false;
+    bool meleeBlockSuccess = false;
 
 
     void Start()
@@ -29,16 +32,41 @@ public class BlockParryController : MonoBehaviour
         if (Input.GetKeyDown("space")){
             parryWindow = true;
             blockPressed = true;
+            meleeBlockSuccess = false;
+            meleeParrySuccess = false;
             StartCoroutine(ParryWindow());
         }
        
         if (Input.GetKeyUp("space")){ 
             blockPressed = false;
         }
+
+        if ((blockPressed && enemyAttack.attacking) || (parryWindow && enemyAttack.attacking))
+        {
+            Debug.Log("block or parry sucessful");
+
+            if (!parryWindow)
+            {
+                Debug.Log("Melee attack blocked");
+                meleeBlockSuccess = true;
+                // player blocks incoming damage?
+                // player takes reduced damage 
+            }
+            else if (parryWindow)
+            {
+                Debug.Log("Melee attack parried");
+                meleeBlockSuccess = true;
+                // player blocks incoming damage
+                // enemy is stunned
+            }
+        }
     }
 
+
+
     void OnTriggerStay(Collider other){
-        if ((other.tag == "EnemyProjectile" && blockPressed) || (other.tag == "EnemyProjectile" && parryWindow))
+        if ((other.tag == "EnemyProjectile" && blockPressed) || 
+            (other.tag == "EnemyProjectile" && parryWindow))
         {
             if(!parryWindow){
                 Debug.Log("blocked");     

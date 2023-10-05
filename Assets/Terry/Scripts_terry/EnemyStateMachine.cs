@@ -8,6 +8,10 @@ public class EnemyStateMachine : MonoBehaviour
     [SerializeField] GameObject enemyKnockbackClass;
     [SerializeField] GameObject followPlayerClass;
     EnemyKnockback knockbackInteraction;
+    Follow_Player followPlayer;
+    [SerializeField] GameObject attackPlayerClass;
+    AttackPlayer attack;
+    EnemyStateMachine esm;
     public enum State
     {
         FollowPlayer,
@@ -15,12 +19,15 @@ public class EnemyStateMachine : MonoBehaviour
         AttackPlayer,
         NoUpdate
     }
-    Follow_Player followPlayer;
     // Start is called before the first frame update
     void Start()
     {
-        knockbackInteraction= enemyKnockbackClass.GetComponent<EnemyKnockback>();
-        followPlayer = followPlayerClass.GetComponent<Follow_Player>();
+        knockbackInteraction= 
+            enemyKnockbackClass.GetComponent<EnemyKnockback>();
+        followPlayer = 
+            followPlayerClass.GetComponent<Follow_Player>();
+        attack = 
+            attackPlayerClass.GetComponent<AttackPlayer>();
         currrentState= 0;
     }
 
@@ -31,12 +38,14 @@ public class EnemyStateMachine : MonoBehaviour
         {
             case State.FollowPlayer:
                 followPlayer.WalkToPlayer();
+                followPlayer.CheckIfInRange();
                 break;
             case State.KnockedBack:
                 knockbackInteraction.Knockback();
                 currrentState = (State)3;
                 break;
             case State.AttackPlayer:
+                attack.Attack();
                 break;
             case State.NoUpdate: 
                 break;
