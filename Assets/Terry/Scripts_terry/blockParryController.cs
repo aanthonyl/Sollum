@@ -55,7 +55,7 @@ public class BlockParryController : MonoBehaviour
             else if (parryWindow)
             {
                 Debug.Log("Melee attack parried");
-                meleeBlockSuccess = true;
+                meleeParrySuccess = true;
                 // player blocks incoming damage
                 // enemy is stunned
             }
