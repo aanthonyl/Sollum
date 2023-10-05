@@ -5,15 +5,25 @@ using UnityEngine;
 public class HealingZone : MonoBehaviour
 {
 
-    GameObject Player;
+    public float healAmount = 10.0f;
+    private bool isHealing = false;
 
-    [SerializeField] float health;
+    public AudioClip healingSound; 
+    private AudioSource audioSource;
 
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = healingSound;
+        audioSource.loop = true; //loop sound while healing
+    }
     private void OnTriggerEnter(Collider col)
     {
-        if(col.gameObject.CompareTag("Player") && health < 100)
+        if(col.gameObject.CompareTag("Player"))
         {
-            StartCoroutine("Heal");
+            isHealing = true;
+            audioSource.Play();
         }
 
     }
@@ -22,20 +32,21 @@ public class HealingZone : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player)"))
         {
-            StopCoroutine("Heal");
+            isHealing = false;
+            audioSource.Stop();
         }
     }
 
-    IEnumerator Heal()
+    private void OnTriggerStay(Collider col)
     {
-        for(float currentHealth = health; currentHealth <= 100; currentHealth += 0.05f)
+        if (isHealing && col.CompareTag("Player"))
         {
-            health = currentHealth;
-            yield return new WaitForSeconds(Time.deltaTime);
+            // Heal the player over time.
+            PlayerHealth playerHealth = col.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.Heal(healAmount * Time.deltaTime);
+            }
         }
-
-        health = 100f;
     }
-
-
 }
