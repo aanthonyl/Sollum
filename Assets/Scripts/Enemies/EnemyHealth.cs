@@ -1,10 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-
     public enum EnemyType
     {
         GruntEnemy,
@@ -15,23 +15,15 @@ public class EnemyHealth : MonoBehaviour
 
     private SpriteRenderer sprite;
 
-    public int enemyHealth;
+    public float enemyHealth;
+    public float whipDamageAmount = 10;
 
-    [HideInInspector]
-    public WhipManager whipManager;
+    private bool damageCoolDown = false;
 
-    //public Alignment alignmnent = Alignment.Player;
-
-    // Start is called before the first frame update
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
-        whipManager = GameObject.Find("WhipManager").GetComponent<WhipManager>();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
         if (enemyType == EnemyType.GruntEnemy)
         {
             enemyHealth = 20;
@@ -44,26 +36,32 @@ public class EnemyHealth : MonoBehaviour
         {
             enemyHealth = 60;
         }
-
-        if (enemyHealth <= 0)
-        {
-            EnemyDie();
-        }
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Whip")
+        if (other.gameObject.name == "WhipAttackZone")
         {
-            whipManager.enemyInWhipZone = true;
+            Debug.Log("ENTERED WHIP ZONE");
+            TakeWhipDamage();
         }
     }
-
+    
     public void TakeWhipDamage()
     {
-        Debug.Log("ENEMY TAKE WHIP DAMAGE");
-        enemyHealth -= 10;
-        StartCoroutine(FlashRed());
+        if (damageCoolDown == false)
+        {
+            Debug.Log("ENEMY TAKE WHIP DAMAGE");
+
+            enemyHealth -= whipDamageAmount;
+
+            StartCoroutine(FlashRed());
+
+            if (enemyHealth <= 0)
+            {
+                EnemyDie();
+            }
+        }
     }
 
     public void EnemyDie()
@@ -74,8 +72,11 @@ public class EnemyHealth : MonoBehaviour
 
     private IEnumerator FlashRed()
     {
+        damageCoolDown = true;
         sprite.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         sprite.color = Color.white;
+        yield return new WaitForSeconds(0.8f);
+        damageCoolDown = false;
     }
 }
