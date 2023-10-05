@@ -14,7 +14,8 @@ public class MainMenu : MonoBehaviour
 
             public GameObject continueButton;
             public GameObject newGameButton;
-            public GameObject quitButton;
+            public GameObject creditsButton;
+            public GameObject exitButton;
 
         #endregion
 
@@ -51,10 +52,15 @@ public class MainMenu : MonoBehaviour
             GameManager.instance.LoadGameWorld(true, SceneLoader.Scene.Aboveground);
         }
 
-        public void Quit()
+        public void Exit()
         {
             SceneLoader.instance.EnableMainMenuButtons(false);
             Application.Quit();
+        }
+
+        public void Credits()
+        {
+            // LOAD CREDITS
         }
 
     #endregion

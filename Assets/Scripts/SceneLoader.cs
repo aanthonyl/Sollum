@@ -108,20 +108,16 @@ public class SceneLoader : MonoBehaviour
             if(enableButtons)
             {
                 MainMenu.instance.continueButton.GetComponent<Button>().enabled = true;
-                MainMenu.instance.continueButton.GetComponent<Image>().enabled = true;
                 MainMenu.instance.newGameButton.GetComponent<Button>().enabled = true;
-                MainMenu.instance.newGameButton.GetComponent<Image>().enabled = true;
-                MainMenu.instance.quitButton.GetComponent<Button>().enabled = true;
-                MainMenu.instance.quitButton.GetComponent<Image>().enabled = true;
+                MainMenu.instance.creditsButton.GetComponent<Button>().enabled = true;
+                MainMenu.instance.exitButton.GetComponent<Button>().enabled = true;
             }
             else
             {
-                MainMenu.instance.continueButton.GetComponent<Image>().enabled = false;
                 MainMenu.instance.continueButton.GetComponent<Button>().enabled = false;
-                MainMenu.instance.newGameButton.GetComponent<Image>().enabled = false;
                 MainMenu.instance.newGameButton.GetComponent<Button>().enabled = false;
-                MainMenu.instance.quitButton.GetComponent<Image>().enabled = false;
-                MainMenu.instance.quitButton.GetComponent<Button>().enabled = false;
+                MainMenu.instance.creditsButton.GetComponent<Button>().enabled = false;
+                MainMenu.instance.exitButton.GetComponent<Button>().enabled = false;
             }
         }
 
