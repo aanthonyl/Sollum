@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class HealingZone : MonoBehaviour
 {
+
+    GameObject Player;
+
+    [SerializeField] float health;
+
     private void OnTriggerEnter(Collider col)
     {
-        if(col.gameObject.name.Equals("Player") && Player.health < 100)
+        if(col.gameObject.CompareTag("Player") && health < 100)
         {
             StartCoroutine("Heal");
         }
@@ -15,7 +20,7 @@ public class HealingZone : MonoBehaviour
 
     private void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.name.Equals("Player)"))
+        if (col.gameObject.CompareTag("Player)"))
         {
             StopCoroutine("Heal");
         }
@@ -23,12 +28,13 @@ public class HealingZone : MonoBehaviour
 
     IEnumerator Heal()
     {
-        for(float currentHealth = Player.health; currentHealth <= 100; currentHealth += 0.05f)
+        for(float currentHealth = health; currentHealth <= 100; currentHealth += 0.05f)
         {
-            Player.health = currentHealth;
+            health = currentHealth;
             yield return new WaitForSeconds(Time.deltaTime);
         }
-        Player.health = 100f;
+
+        health = 100f;
     }
 
 
