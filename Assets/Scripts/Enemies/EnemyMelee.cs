@@ -20,7 +20,7 @@ public class EnemyMelee : MonoBehaviour
 
     private void Update()
     {
-        // Check if the player is within attack range.
+        
         if (!isPaused)
         {
             float distanceToPlayer = Vector3.Distance(transform.position, player.position);
