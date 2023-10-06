@@ -12,10 +12,15 @@ public class EnemyMelee : MonoBehaviour
 
     private Transform player; 
     private float nextAttackTime; // Time when the next attack can occur.
+    private AudioSource audioSource;
+    public AudioClip meleeAttackSound;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = meleeAttackSound;
+
     }
 
     private void Update()
@@ -41,6 +46,8 @@ public class EnemyMelee : MonoBehaviour
 
     private void AttackPlayer()
     {
+        audioSource.Play();
+
         PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
         if (playerHealth != null)
         {
