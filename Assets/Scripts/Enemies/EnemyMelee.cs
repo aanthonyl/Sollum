@@ -6,7 +6,9 @@ public class EnemyMelee : MonoBehaviour
 {
     public int damage = 10;           
     public float attackRange = 2.0f; 
-    public float attackCooldown = 2.0f; 
+    public float attackCooldown = 2.0f;
+
+    private bool isPaused = false;
 
     private Transform player; 
     private float nextAttackTime; // Time when the next attack can occur.
@@ -19,17 +21,20 @@ public class EnemyMelee : MonoBehaviour
     private void Update()
     {
         // Check if the player is within attack range.
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-
-        if (distanceToPlayer <= attackRange)
+        if (!isPaused)
         {
-            // Check if enough time has passed for the next attack.
-            if (Time.time >= nextAttackTime)
-            {
-                
-                AttackPlayer();
+            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-                nextAttackTime = Time.time + attackCooldown;
+            if (distanceToPlayer <= attackRange)
+            {
+                // Check if enough time has passed for the next attack.
+                if (Time.time >= nextAttackTime)
+                {
+
+                    AttackPlayer();
+
+                    nextAttackTime = Time.time + attackCooldown;
+                }
             }
         }
     }
@@ -42,4 +47,6 @@ public class EnemyMelee : MonoBehaviour
             playerHealth.TakeDamage(damage);
         }
     }
+
+    
 }
