@@ -14,7 +14,7 @@ public class PauseMenu : MonoBehaviour
         #region References
 
             [SerializeField] private GameObject resumeButton;
-            [SerializeField] private GameObject quitButton;
+            [SerializeField] private GameObject exitButton;
             [SerializeField] private GameObject pauseBackground;
 
         #endregion
@@ -67,7 +67,7 @@ public class PauseMenu : MonoBehaviour
         private void PauseGame()
         {
             resumeButton.SetActive(true);
-            quitButton.SetActive(true);
+            exitButton.SetActive(true);
             pauseBackground.SetActive(true);
 
             gameIsPaused = true;
@@ -76,7 +76,7 @@ public class PauseMenu : MonoBehaviour
         public void ResumeGame()
         {
             resumeButton.SetActive(false);
-            quitButton.SetActive(false);
+            exitButton.SetActive(false);
             pauseBackground.SetActive(false);
 
             gameIsPaused = false;
@@ -91,10 +91,8 @@ public class PauseMenu : MonoBehaviour
 
         private void DisableButtons()
         {
-            resumeButton.GetComponent<Image>().enabled = false;
             resumeButton.GetComponent<Button>().enabled = false;
-            quitButton.GetComponent<Image>().enabled = false;
-            quitButton.GetComponent<Button>().enabled = false;
+            exitButton.GetComponent<Button>().enabled = false;
         }
 
     #endregion
