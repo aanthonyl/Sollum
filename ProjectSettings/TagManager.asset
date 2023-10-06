@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Walkable
   - NoiseEvents
+  - Managers
   layers:
   - Default
   - TransparentFX
