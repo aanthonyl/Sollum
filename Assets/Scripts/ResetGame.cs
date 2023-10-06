@@ -18,7 +18,7 @@ public class ResetGame : Editor
             if(GUILayout.Button("Reset Game"))
             {
                 gameManager.DeleteGameData();
-                gameManager.DeleteMenuData();
+                gameManager.DeleteMainMenuData();
             }
         }
 

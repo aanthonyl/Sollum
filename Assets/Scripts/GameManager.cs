@@ -262,7 +262,7 @@ public class GameManager : MonoBehaviour
                 dataLoaded = true;
             }
 
-            public void DeleteMenuData()
+            public void DeleteMainMenuData()
             {
                 string path = Application.persistentDataPath + "/menu.data";
 

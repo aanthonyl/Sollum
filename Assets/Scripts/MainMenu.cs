@@ -52,15 +52,15 @@ public class MainMenu : MonoBehaviour
             GameManager.instance.LoadGameWorld(true, SceneLoader.Scene.Aboveground);
         }
 
+        public void Credits()
+        {
+            // LOAD CREDITS
+        }
+
         public void Exit()
         {
             SceneLoader.instance.EnableMainMenuButtons(false);
             Application.Quit();
-        }
-
-        public void Credits()
-        {
-            // LOAD CREDITS
         }
 
     #endregion
