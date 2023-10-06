@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// used for testing. moves an enemy on one axis for x amount of time and then back 
+// for the same amount of time. this script is used in combination with the 
+// enemy projectile shooting mechanic to test the player's ability to parry and 
+// block projectiles at different angles
 public class moveEnemy : MonoBehaviour
 {
     public float enemySpeed = 10.0f;

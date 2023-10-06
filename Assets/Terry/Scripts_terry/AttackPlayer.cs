@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEditor.U2D;
 using UnityEngine;
 
+// enemy script for testing
+// Attack state of the enemy state machine
 public class AttackPlayer : MonoBehaviour
 {
     public bool attacking = false;
     float waitTime = 2.0f;
     Rigidbody rb;
     [SerializeField] GameObject weapon;
-    //[SerializeField] GameObject stateMachineClass;
     [SerializeField] GameObject player;
     [SerializeField]EnemyStateMachine enemyStateMachine;
     [SerializeField]GameObject sp;
@@ -51,7 +52,9 @@ public class AttackPlayer : MonoBehaviour
     {
         if (attacking)
         {
-            //Debug.Log("Hit");
+            // this needs to be tweaked 
+            // makes the melee block and parry a little unreliable
+            // possibly wait a few seconds before setting bool false
             attacking = false;
         }
     }

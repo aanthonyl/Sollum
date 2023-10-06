@@ -1,5 +1,7 @@
 using UnityEngine;
 
+// Example Projectile class for the enemy
+// Primarily for testing
 public class EnemyProjectile : MonoBehaviour
 {
     public GameObject shootPositionObj, projectile_prefab;

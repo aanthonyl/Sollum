@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Example interaction when enemy is knocked back by the parasol
+// Primarily for testing
 public class EnemyKnockback : MonoBehaviour
 {
     [SerializeField] GameObject stateMachineClass;

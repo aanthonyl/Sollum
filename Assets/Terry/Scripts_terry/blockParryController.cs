@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
-
+// block & parry mechanics
 public class BlockParryController : MonoBehaviour
 {
     public float parryModeTime = 0.4f;
@@ -28,7 +28,9 @@ public class BlockParryController : MonoBehaviour
     }
     void FixedUpdate()
     {
-
+        // detecting block and parry button press
+        // the parry window is a fixed amount of time where
+        // the player is locked in the parry state
         if (Input.GetKeyDown("space")){
             parryWindow = true;
             blockPressed = true;
@@ -41,6 +43,8 @@ public class BlockParryController : MonoBehaviour
             blockPressed = false;
         }
 
+        // checks if player is in the block or parry state when hit
+        // enemyAttack.attacking is a bool from the AttackPlayer class
         if ((blockPressed && enemyAttack.attacking) || (parryWindow && enemyAttack.attacking))
         {
             Debug.Log("block or parry sucessful");
@@ -63,7 +67,14 @@ public class BlockParryController : MonoBehaviour
     }
 
 
-
+    // projectile block & parry mechanic.
+    // checks if parasol is in block or parry state
+    // when projectile collides with it.
+    // Destroys the projectile when blocked or parried.
+    // the projectile is created again by the parasol and
+    // shot toward the mouse.
+    // player is knocked in the opposite direction they are 
+    // facing on a sucessful block or parry. 
     void OnTriggerStay(Collider other){
         if ((other.tag == "EnemyProjectile" && blockPressed) || 
             (other.tag == "EnemyProjectile" && parryWindow))

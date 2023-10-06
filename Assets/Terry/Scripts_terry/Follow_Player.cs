@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Follow Player State of the Enemy State machine
+// An example used mostly for testing
 public class Follow_Player : MonoBehaviour
 {
     public GameObject player;

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// this script defines how the player is knocked back after
+// each successful parry and block 
 public class ParryBlockKnockback : MonoBehaviour
 {
     [SerializeField] float knockbackTime = 1.0f;

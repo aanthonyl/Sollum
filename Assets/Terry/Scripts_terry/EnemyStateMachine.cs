@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Example State Machine for enemy behavior 
+// Primarily for testing
+// Behaviors include: 
+//  following the player, being knockedback, Attacking, and an idle state
 public class EnemyStateMachine : MonoBehaviour
 {
     public State currrentState;

@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+
+// this class is called when a parry has been successful
+// the projectile parried is destroyed
+// and a new projectile is instantiated then shot toward the mouse
 public class Parry : MonoBehaviour
 {
     public GameObject shootPositionObj, projectile_prefab;
