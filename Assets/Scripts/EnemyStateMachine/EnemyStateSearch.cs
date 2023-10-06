@@ -30,7 +30,7 @@ public class EnemyStateSearch : I_EnemyBaseState
         if (Vector3.Distance(enemy.transform.position, enemy.target.position) - 1f < 1f)
         {
             isPausing = true;
-            enemy.CallReturnToPatrol();
+            enemy.StartCoroutine(enemy.ReturnToPatrol());
         }
         if (!isPausing)
         {

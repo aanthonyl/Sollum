@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemyStatePatrol : I_EnemyBaseState
@@ -11,6 +12,7 @@ public class EnemyStatePatrol : I_EnemyBaseState
 
 	//Private Variables
 	int patrolPointIter;
+	bool isPatrolling;
 
 	/* Enter State =============================
     *   - When the state is entered, what happens?
@@ -21,6 +23,7 @@ public class EnemyStatePatrol : I_EnemyBaseState
 		patrolPointIter = 1;
 		enemy.target = enemy.GetPatrolPoint(patrolPointIter); //set First target point to the next patrol point in the list
 															  //The enemy will always start out at the first point in the list. 
+		isPatrolling = true;
 	}
 
 	/* Update State =============================
@@ -28,8 +31,8 @@ public class EnemyStatePatrol : I_EnemyBaseState
     ============================================*/
 	public override void UpdateState(EnemyStateManager enemy)
 	{
-		//Move to target point
-		enemy.agent.destination = enemy.target.position;
+		if (isPatrolling) //Move to target point
+			enemy.agent.destination = enemy.target.position;
 
 		// Debug.Log(Vector3.Distance(enemy.agent.transform.position, targetPoint.position));
 		//Once at at target point...
@@ -42,7 +45,15 @@ public class EnemyStatePatrol : I_EnemyBaseState
 
 			enemy.target = enemy.GetPatrolPoint(patrolPointIter);
 			enemy.transform.LookAt(enemy.target.position);
+			isPatrolling = false;
+			enemy.StartCoroutine(TestCoroutine(enemy));
 		}
 
+	}
+
+	IEnumerator TestCoroutine(EnemyStateManager enemy)
+	{
+		yield return new WaitForSeconds(enemy.GetPausePatrolTime());
+		isPatrolling = true;
 	}
 }
