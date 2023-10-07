@@ -10,21 +10,20 @@ public class HealingZone : MonoBehaviour
 
     private PlayerHealth playerHealth;
 
-    public AudioClip healingSound; 
-   // private AudioSource audioSource;
+    
+    //public AudioSource audioSource;
     
 
 
     private void Start()
     {
-        // audioSource = GetComponent<AudioSource>();
-        // audioSource.clip = healingSound;
-        //audioSource.loop = true; //loop sound while healing
+         Debug.Log("Start");
 
     }
     private void OnTriggerEnter(Collider col)
     {
-        if(col.gameObject.CompareTag("Player"))
+        Debug.Log("before if OnTriggerEnter");
+        if (col.gameObject.CompareTag("Player"))
         {
             isHealing = true;
 
@@ -37,8 +36,9 @@ public class HealingZone : MonoBehaviour
 
     private void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.CompareTag("Player)")) 
+        if (col.gameObject.CompareTag("Player")) 
         {
+            Debug.Log("OnTriggerExit");
             isHealing = false;
             //audioSource.Stop();
         }
@@ -48,7 +48,7 @@ public class HealingZone : MonoBehaviour
     {
         if (isHealing && col.CompareTag("Player"))
         {
-            Debug.Log("inside healing zone");
+            Debug.Log("OnTriggerStay");
 
             PlayerHealth playerHealth = col.GetComponent<PlayerHealth>();
             if (playerHealth != null)
