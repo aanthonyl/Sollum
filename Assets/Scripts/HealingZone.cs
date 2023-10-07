@@ -9,7 +9,7 @@ public class HealingZone : MonoBehaviour
     private bool isHealing = false;
 
     private PlayerHealth playerHealth;
-
+    public bool isPaused = false;
     
     //public AudioSource audioSource;
     
@@ -23,7 +23,7 @@ public class HealingZone : MonoBehaviour
     private void OnTriggerEnter(Collider col)
     {
         Debug.Log("before if OnTriggerEnter");
-        if (col.gameObject.CompareTag("Player"))
+        if (col.gameObject.CompareTag("Player") && isPaused == false)
         {
             isHealing = true;
 
@@ -36,7 +36,7 @@ public class HealingZone : MonoBehaviour
 
     private void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.CompareTag("Player")) 
+        if (col.gameObject.CompareTag("Player") && isPaused == false) 
         {
             Debug.Log("OnTriggerExit");
             isHealing = false;
@@ -46,7 +46,7 @@ public class HealingZone : MonoBehaviour
 
     private void OnTriggerStay(Collider col)
     {
-        if (isHealing && col.CompareTag("Player"))
+        if (isHealing && col.CompareTag("Player") && isPaused == false)
         {
             Debug.Log("OnTriggerStay");
 
