@@ -9,11 +9,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class LocationLibrary : MonoBehaviour
+public class LocationLibrary : ScriptableObject
 {
     // TO BE USED AS AN INPUT IN THE PauseManager.cs SCRIPT
 
-    public List<SpriteInfo> speakerSpriteList = new List<SpriteInfo>();
+    public List<SpriteInfo> locationSpriteList = new List<SpriteInfo>();
 
     [System.Serializable]
     public class SpriteInfo

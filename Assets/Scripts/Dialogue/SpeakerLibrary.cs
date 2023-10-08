@@ -4,7 +4,6 @@
 	// SPEAKER LIBRARY MAKES SCRIPTABLE OBJECT OPTION //
 */
 
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

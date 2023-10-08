@@ -12,7 +12,7 @@ public class DialogueTrigger : MonoBehaviour
 {
     // SCRIPT TO BE PLACED ON BOX TRIGGER GAME OBJECT WHERE PLAYER WILL ACTIVATE DIALOGUE
 
-    DialogueManager manager; // Dialogue manager can be placed on empty game object
+    DialogueManager manager;
     public TextAsset DialogueTextFile; // Your imported text file
 
     private Queue<string> dialogue = new Queue<string>(); // Stores the dialogue
