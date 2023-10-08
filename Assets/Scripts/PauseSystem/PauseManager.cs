@@ -81,6 +81,10 @@ public class PauseManager : MonoBehaviour
         // PRINTS FIRST LINE OF DIALOGUE
         PrintObjective();
     }
+    public void AdvanceText()
+    {
+        PrintObjective();
+    }
 
     private void PrintObjective()
     {
@@ -123,6 +127,10 @@ public class PauseManager : MonoBehaviour
                     locationSprite.sprite = invisSprite;
                 }
                 PrintObjective(); // print the rest of this line
+            }
+            else
+            {
+                currentObjective.text = inputStream.Dequeue();
             }
         }
     }

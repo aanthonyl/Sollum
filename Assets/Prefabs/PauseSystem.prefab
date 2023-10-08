@@ -1261,8 +1261,10 @@ MonoBehaviour:
   PauseUI: {fileID: 8419002807816005555}
   locationSprite: {fileID: 3164506406665895953}
   locationName: {fileID: 3731746947680662471}
+  currentObjective: {fileID: 2789400476669049331}
   playerMovement: {fileID: 0}
   levelToLoad: 
   invisSprite: {fileID: 21300000, guid: 6a19a04fe820476468d44000a1fcaa35, type: 3}
   locationLibrary: {fileID: 11400000, guid: dd182bc98dc36914a9db90f51848b4a6, type: 2}
   locationNames: []
+  currentTrigger: {fileID: 0}
