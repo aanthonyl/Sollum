@@ -1,0 +1,1 @@
+[LOCATION=Cathedral][SPRITE=Cathedral]Find a way through the cathedral to safety

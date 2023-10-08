@@ -3,12 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Walkable
+  - NoiseEvents
+  - Enemy
+  - Tool
+  - EnemyTool
+  - EnemyProjectile
+  - PlayerProjectile
+  - Managers
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Gameplay
   - Water
   - UI
   - 

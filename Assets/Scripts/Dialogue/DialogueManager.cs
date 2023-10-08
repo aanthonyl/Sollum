@@ -61,7 +61,6 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
-        //playerMovement = GetComponent<playerMovement>();
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<playerMovement>();
 
         // GET SPEAKERS FROM LIBRARY & ADD TO LIST
