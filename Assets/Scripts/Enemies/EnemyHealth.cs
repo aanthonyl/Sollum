@@ -1,3 +1,9 @@
+/*
+    Script Added by Aurora Russell
+	10/05/2023
+	// ENEMY HEALTH SYSTEM //
+*/
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,6 +11,7 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    // TYPES OF ENEMIES THAT CAN BE SELECTED AND CUSTOMIZED
     public enum EnemyType
     {
         GruntEnemy,
@@ -16,6 +23,7 @@ public class EnemyHealth : MonoBehaviour
     private SpriteRenderer sprite;
 
     public float enemyHealth;
+    // WHIP DAMAGE AMOUNT CAN BE CHANGED IF NEED BE
     public float whipDamageAmount = 10;
 
     private bool damageCoolDown = false;
@@ -24,6 +32,7 @@ public class EnemyHealth : MonoBehaviour
     {
         sprite = GetComponent<SpriteRenderer>();
 
+        // DIFFERENT ENEMY HEALTH AMOUNTS
         if (enemyType == EnemyType.GruntEnemy)
         {
             enemyHealth = 20;
@@ -40,6 +49,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        // ENTERED WHIP ATTACK TRIGGER
         if (other.gameObject.name == "WhipAttackZone")
         {
             Debug.Log("ENTERED WHIP ZONE");
@@ -47,6 +57,7 @@ public class EnemyHealth : MonoBehaviour
         }
     }
     
+    // ENEMY TAKES DAMAGE AND DIES IF HEALTH HITS 0
     public void TakeWhipDamage()
     {
         if (damageCoolDown == false)
@@ -64,12 +75,14 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
+    // ENEMY DIES, OBJECT DESTROYED
     public void EnemyDie()
     {
         Debug.Log("ENEMY DIE");
         Destroy(this.gameObject);
     }
 
+    // ENEMY FLASHES RED TO SIGNIFY DAMAGE TAKEN
     private IEnumerator FlashRed()
     {
         damageCoolDown = true;
