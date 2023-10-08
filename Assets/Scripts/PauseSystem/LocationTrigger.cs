@@ -1,3 +1,9 @@
+/*
+    Script Added by Aurora Russell
+	10/08/2023
+	// LOCATION TRIGGER SENDS LOCATION INFO TO LOCATION MANAGER //
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,11 +20,6 @@ public class LocationTrigger : MonoBehaviour
     private void Start()
     {
         manager = FindObjectOfType<PauseManager>();
-    }
-
-    private void Update()
-    {
-
     }
 
     // START OBJECTIVE //
@@ -53,7 +54,6 @@ public class LocationTrigger : MonoBehaviour
                     objective.Enqueue(special); // adds on to be printed
                     string[] remainder = curr.Split(System.Environment.NewLine.ToCharArray());
                     SearchForTags(remainder);
-                    //dialogue.Enqueue(curr);
                 }
                 else
                 {
@@ -64,12 +64,11 @@ public class LocationTrigger : MonoBehaviour
 
     }
 
-    // TRIGGER DIALOGUE, UNTIL LEAVES AREA //
+    // TRIGGER NEW LOCATION, NEW OBJECTIVE //
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.tag == "Player")
         {
-            //manager.currentTrigger = this;
             TriggerLocation();
             this.gameObject.SetActive(false);
             Debug.Log("NEW LOCATION TRIGGERED");

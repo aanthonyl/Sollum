@@ -1,3 +1,9 @@
+/*
+    Script Added by Aurora Russell
+	10/08/2023
+	// PAUSE MANAGER ENABLES PAUSE UI, UPDATES LOCATION INFO //
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,6 +34,7 @@ public class PauseManager : MonoBehaviour
     //[Tooltip("Save Script")]
     //public SaveSystem saveSystem;
 
+    // THIS IS WHERE THE START SCENE NAME NEEDS TO BE ENTERED
     [Header("Scene Change")]
     [Tooltip("Main Menu")]
     public string levelToLoad;
@@ -44,14 +51,15 @@ public class PauseManager : MonoBehaviour
     private bool isTyping = false;
     private bool cancelTyping = false;
 
-    [HideInInspector]
-    public DialogueTrigger currentTrigger;
-    private Queue<string> inputStream = new Queue<string>(); // stores dialogue
+    // STORES DIALOGUE
+    private Queue<string> inputStream = new Queue<string>();
 
     void Start()
     {
+        // ACCESS PLAYER MOVEMENT FOR FREEZE MOVEMENT
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<playerMovement>();
 
+        // UPDATES LIST OF LOCATIONS FROM LOCATION LIBRARY
         foreach (LocationLibrary.SpriteInfo info in locationLibrary.locationSpriteList)
         {
             locationNames.Add(info.name);
@@ -61,11 +69,12 @@ public class PauseManager : MonoBehaviour
 
     void Update()
     {
-        // ADVANCE DIALOGUE USING SELECTED KEY FROM DialogueManager.cs //
+        // ENABLES PAUSE UI
         if (Input.GetKeyDown(PauseKey) && pauseActive == false)
         {
             ActivatePause();
         }
+        // DISABLES PAUSE UI
         else if (Input.GetKeyDown(PauseKey) && pauseActive == true)
         {
             ContinueButton();
@@ -74,11 +83,11 @@ public class PauseManager : MonoBehaviour
 
     public void NewLocation(Queue<string> objective)
     {
-        // CLEARS THE SPEAKER
+        // CLEARS THE LOCATION
         locationSprite.sprite = invisSprite;
-        // STORES DIALOGUE FROM DIALOGUE TRIGGER
+        // STORES LOCATION FROM LOCATION TRIGGER
         inputStream = objective;
-        // PRINTS FIRST LINE OF DIALOGUE
+        // PRINTS FIRST LINE OF OBJECTIVE
         PrintObjective();
     }
     public void AdvanceText()
@@ -104,6 +113,7 @@ public class PauseManager : MonoBehaviour
                     cancelTyping = true;
                 }
             }
+            // READS LOCATION NAME
             else if (inputStream.Peek().Contains("[LOCATION="))
             {
                 // SETS SPEAKER NAME TO NAME UI
@@ -112,6 +122,7 @@ public class PauseManager : MonoBehaviour
                 locationName.text = name;
                 PrintObjective(); // print the rest of this line
             }
+            // READS LOCATION SPRITE
             else if (inputStream.Peek().Contains("[SPRITE="))
             {
                 string part = inputStream.Peek();
@@ -126,16 +137,18 @@ public class PauseManager : MonoBehaviour
                     // RETURNS SPEAKER SPRITE TO INVISIBLE SPRITE
                     locationSprite.sprite = invisSprite;
                 }
-                PrintObjective(); // print the rest of this line
+                // PRINTS THE REST OF OBJECTIVE
+                PrintObjective();
             }
             else
             {
+                // PRINTS OBJECTIVE
                 currentObjective.text = inputStream.Dequeue();
             }
         }
     }
 
-    // CLOSES DIALOGUE
+    // ENDS TYPING
     public void EndObjective()
     {
         currentObjective.text = "";
@@ -146,17 +159,17 @@ public class PauseManager : MonoBehaviour
         inputStream.Clear();
     }
 
-    // HAULT PLAYER MOVEMENT WHILE DIALOGUE OPEN
+    // HAULT PLAYER MOVEMENT WHILE PAUSE ACTIVE
     private void FreezePlayer()
     {
         playerMovement.freezeMovement = true;
     }
-
+    // RESTORE PLAYER MOVEMENT
     private void UnFreezePlayer()
     {
         playerMovement.freezeMovement = false;
     }
-
+    // PAUSE GAME
     public void ActivatePause()
     {
         Debug.Log("PAUSE GAME");
@@ -164,7 +177,7 @@ public class PauseManager : MonoBehaviour
         PauseUI.SetActive(true);
         pauseActive = true;
     }
-
+    // UNPAUSE GAME
     public void ContinueButton()
     {
         Debug.Log("UNPAUSE GAME");
@@ -177,7 +190,7 @@ public class PauseManager : MonoBehaviour
     {
         // Access save system
     }
-
+    // SCENE CHANGE TO START MENU
     public void MainMenuButton()
     {
         SceneManager.LoadScene(levelToLoad);
