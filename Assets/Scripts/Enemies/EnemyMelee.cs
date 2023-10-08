@@ -48,11 +48,11 @@ public class EnemyMelee : MonoBehaviour
     {
         audioSource.Play();
 
-        PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
-        if (playerHealth != null)
-        {
-            playerHealth.TakeDamage(damage);
-        }
+        //PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+        //if (playerHealth != null)
+        //{
+        //    playerHealth.TakeDamage(damage);
+        //}
     }
 
     
