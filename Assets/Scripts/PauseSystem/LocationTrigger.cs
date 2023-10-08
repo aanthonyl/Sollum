@@ -71,6 +71,7 @@ public class LocationTrigger : MonoBehaviour
         {
             //manager.currentTrigger = this;
             TriggerLocation();
+            this.gameObject.SetActive(false);
             Debug.Log("NEW LOCATION TRIGGERED");
         }
     }
