@@ -26,13 +26,10 @@ public class PauseManager : MonoBehaviour
     [Tooltip("Current Objective Text")]
     public Text currentObjective;
 
-    [Header("Player Interaction")]
-    [Tooltip("Player Movement Script")]
+    [HideInInspector]
     public playerMovement playerMovement;
-
-    //[Header("Save System")]
-    //[Tooltip("Save Script")]
-    //public SaveSystem saveSystem;
+    [HideInInspector]
+    public WhipManager whipManager;
 
     // THIS IS WHERE THE START SCENE NAME NEEDS TO BE ENTERED
     [Header("Scene Change")]
@@ -50,6 +47,8 @@ public class PauseManager : MonoBehaviour
     private bool pauseActive = false;
     private bool isTyping = false;
     private bool cancelTyping = false;
+    [HideInInspector]
+    public bool dialogueOpen = false;
 
     // STORES DIALOGUE
     private Queue<string> inputStream = new Queue<string>();
@@ -58,6 +57,7 @@ public class PauseManager : MonoBehaviour
     {
         // ACCESS PLAYER MOVEMENT FOR FREEZE MOVEMENT
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<playerMovement>();
+        whipManager = GameObject.Find("WhipManager").GetComponent<WhipManager>();
 
         // UPDATES LIST OF LOCATIONS FROM LOCATION LIBRARY
         foreach (LocationLibrary.SpriteInfo info in locationLibrary.locationSpriteList)
@@ -66,11 +66,10 @@ public class PauseManager : MonoBehaviour
         }
         locationSprite.sprite = invisSprite;
     }
-
     void Update()
     {
         // ENABLES PAUSE UI
-        if (Input.GetKeyDown(PauseKey) && pauseActive == false)
+        if (Input.GetKeyDown(PauseKey) && dialogueOpen == false && pauseActive == false)
         {
             ActivatePause();
         }
@@ -163,11 +162,13 @@ public class PauseManager : MonoBehaviour
     private void FreezePlayer()
     {
         playerMovement.freezeMovement = true;
+        whipManager.pauseOpen = true;
     }
     // RESTORE PLAYER MOVEMENT
     private void UnFreezePlayer()
     {
         playerMovement.freezeMovement = false;
+        whipManager.pauseOpen = false;
     }
     // PAUSE GAME
     public void ActivatePause()
@@ -189,6 +190,7 @@ public class PauseManager : MonoBehaviour
     public void SaveButton()
     {
         // Access save system
+        GameManager.instance.SaveMainMenuData(); // SAVE MAIN MENU DATA
     }
     // SCENE CHANGE TO START MENU
     public void MainMenuButton()

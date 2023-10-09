@@ -36,9 +36,13 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> inputStream = new Queue<string>(); // stores dialogue
 
-    [Header("Player Interaction")]
-    [Tooltip("Player Movement Script")]
+    [HideInInspector]
     public playerMovement playerMovement;
+    [HideInInspector]
+    public PauseManager pauseManager;
+    [HideInInspector]
+    public WhipManager whipManager;
+
     public bool freezePlayerOnDialogue = true;
 
     // ALLOWS DEVELOPER TO SELECT KEY FROM LIST
@@ -62,6 +66,8 @@ public class DialogueManager : MonoBehaviour
     private void Start()
     {
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<playerMovement>();
+        pauseManager = GameObject.Find("PauseManager").GetComponent<PauseManager>();
+        whipManager = GameObject.Find("WhipManager").GetComponent<WhipManager>();
 
         // GET SPEAKERS FROM LIBRARY & ADD TO LIST
         foreach (SpeakerLibrary.SpriteInfo info in speakerSprites.speakerSpriteList)
@@ -75,11 +81,15 @@ public class DialogueManager : MonoBehaviour
     private void FreezePlayer()
     {
         playerMovement.freezeMovement = true;
+        pauseManager.dialogueOpen = true;
+        whipManager.dialogueOpen = true;
     }
 
     private void UnFreezePlayer()
     {
         playerMovement.freezeMovement = false;
+        pauseManager.dialogueOpen = false;
+        whipManager.dialogueOpen = false;
     }
 
     // STARTS DIALOGUE

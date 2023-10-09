@@ -25,10 +25,6 @@ public class EnemyStateManager : MonoBehaviour
 	public float playerHeight = 1f;
 	public float loseAggroDist = 5f;
 
-	public bool meleeType = false;
-	public bool shootType = false;
-	public bool throwType = false;
-
 	[Space()]
 	[Header("Public for States")]
 	public NavMeshAgent agent;
@@ -140,7 +136,7 @@ public class EnemyStateManager : MonoBehaviour
 	{
 		isAggro = true;
 		target = player;
-		//SWITCH TO CHASE STATE HERE
+		SwitchState(ChaseState);
 	}
 
 	/* HeardNoise ====================================
@@ -152,6 +148,7 @@ public class EnemyStateManager : MonoBehaviour
 		// Debug.Log("Invoked");
 		if (Vector3.Distance(transform.position, e.noiseTrans.position) <= maxHearingDist && !isAggro)
 		{
+			// Debug.Log("Shouldn't switch state");
 			target = e.noiseTrans;
 			SwitchState(SearchState);
 		}
