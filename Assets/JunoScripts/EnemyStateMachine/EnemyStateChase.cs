@@ -19,23 +19,7 @@ public class EnemyStateChase : I_EnemyBaseState
     ============================================*/
     public override void EnterState(EnemyStateManager enemy)
     {
-        if (enemy.meleeType)
-        {
-            stoppingDistance = 1f;
-        }
-        else if (enemy.shootType)
-        {
-            stoppingDistance = 5f;
-        }
-        else if (enemy.throwType)
-        {
-            stoppingDistance = 3f;
-        }
-        else
-        {
-            Debug.Log("No enemy type selected");
-            stoppingDistance = 1f;
-        }
+
     }
 
     /* Update State =============================

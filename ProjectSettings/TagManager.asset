@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Walkable
   - NoiseEvents
-  - Enemy
   - Tool
   - EnemyTool
   - EnemyProjectile
@@ -23,7 +22,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Walkable
   - 
   - 
   - 
