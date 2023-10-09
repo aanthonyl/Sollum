@@ -18,6 +18,7 @@ public class EnemyStateManager : MonoBehaviour
 	public EnemyStatePatrol PatrolState = new();
 	public EnemyStateSearch SearchState = new();
 	public EnemyStateChase ChaseState = new();
+	public EnemyStateKnockback KnockedState = new();
 
 	//Public Variables ========================================================================
 	[Header("Parameters")]
@@ -37,6 +38,17 @@ public class EnemyStateManager : MonoBehaviour
 	BoxCollider sight;
 	SpriteRenderer rend;
 	Animator anim;
+	public Rigidbody rb;
+
+	//Temporarily Public
+	[Header("Knockback Properties")]
+	[SerializeField]
+	public float push_time = 0.1f;
+	[SerializeField]
+	public float pushVelocity = 50.0f;
+	[SerializeField]
+	public float stunTime = 1.0f;
+
 	[Header("Distances")]
 	[SerializeField]
 	float navRadius = 5f;
@@ -61,6 +73,7 @@ public class EnemyStateManager : MonoBehaviour
 	void Start()
 	{
 		sight = GetComponent<BoxCollider>();
+		rb = GetComponent<Rigidbody>();
 		//Get patrol points
 		Transform pathsParent = this.transform.parent.GetChild(this.transform.GetSiblingIndex() + 1); //gets Paths gameobject
 		for (int childIter = 0; childIter < pathsParent.childCount; childIter++) //Loop through paths children
@@ -93,6 +106,7 @@ public class EnemyStateManager : MonoBehaviour
 
 	void Update()
 	{
+		Debug.Log(target.name);
 		currentState.UpdateState(this);
 	}
 
@@ -154,6 +168,14 @@ public class EnemyStateManager : MonoBehaviour
 		}
 	}
 
+	/* KnockedBack ====================================
+	*   - Called when enemy collides with parasol
+	*===========================================*/
+	public void KnockedBack()
+	{
+		SwitchState(KnockedState);
+	}
+
 	/* SwitchState ====================================
 	*   - Takes a vector 3 "spot" and finds the nearest spot on the navmesh within radius
 	*   - Returns a vector3
@@ -170,6 +192,12 @@ public class EnemyStateManager : MonoBehaviour
 		yield return new WaitForSeconds(pauseSearchTime);
 		isAggro = false;
 		SwitchState(PatrolState);
+	}
+	public IEnumerator ReturnToChase()
+	{
+		yield return new WaitForSeconds(pauseSearchTime);
+		isAggro = true;
+		SwitchState(ChaseState);
 	}
 
 	//Accessor Methods
