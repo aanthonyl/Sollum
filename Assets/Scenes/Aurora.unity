@@ -598,6 +598,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1683357719}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &862326223 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2900301654024339532, guid: 101f49fb58f75a544a4575e8ab5f2574, type: 3}
+  m_PrefabInstance: {fileID: 1627202269}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &899552887
 GameObject:
   m_ObjectHideFlags: 0
@@ -1308,6 +1313,11 @@ MonoBehaviour:
   acceleration: 100
   deceleration: -10
   friction: 0
+--- !u!1 &1917899981 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8419002807816005555, guid: 3f79fef6613bd2941a7ec0973e129f02, type: 3}
+  m_PrefabInstance: {fileID: 2036675106}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1991958301
 GameObject:
   m_ObjectHideFlags: 0
@@ -1575,6 +1585,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5670086914724500534, guid: 3f79fef6613bd2941a7ec0973e129f02, type: 3}
+      propertyPath: dialogueUI
+      value: 
+      objectReference: {fileID: 862326223}
+    - target: {fileID: 5670086914724500534, guid: 3f79fef6613bd2941a7ec0973e129f02, type: 3}
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 1683357724}
@@ -1831,6 +1845,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7023455044882869281, guid: 9b8110309fa37b1419ec6a17c4daf601, type: 3}
+      propertyPath: pauseUI
+      value: 
+      objectReference: {fileID: 1917899981}
+    - target: {fileID: 7023455044882869281, guid: 9b8110309fa37b1419ec6a17c4daf601, type: 3}
+      propertyPath: dialogueUI
+      value: 
+      objectReference: {fileID: 862326223}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

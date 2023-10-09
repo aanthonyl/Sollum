@@ -17,11 +17,15 @@ public class WhipManager : MonoBehaviour
     public KeyCode WhipAttackKey = KeyCode.Mouse0;
 
     private bool whipCoolDown = false;
+    [HideInInspector]
+    public bool dialogueOpen = false;
+    [HideInInspector]
+    public bool pauseOpen = false;
 
     void Update()
     {
         // ACTIVATE WHIP ATTACK ZONE
-        if (whipZone.activeInHierarchy != true && Input.GetKeyDown(WhipAttackKey) && whipCoolDown == false)
+        if (whipZone.activeInHierarchy != true && dialogueOpen == false && pauseOpen == false && Input.GetKeyDown(WhipAttackKey) && whipCoolDown == false)
         {
             Debug.Log("START WHIP ATTACK");
             StartCoroutine(AttackDuration());
