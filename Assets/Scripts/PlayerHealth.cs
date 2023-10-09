@@ -30,7 +30,7 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth += amount;
         currentHealth = Mathf.Clamp(currentHealth, 0.0f, maxHealth);
-
+        UpdateHealthBar();
     }
 
     private void UpdateHealthBar()
