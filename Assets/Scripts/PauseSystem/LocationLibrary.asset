@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b5ce54f6c5f1fa44bb9dca85bde836c, type: 3}
+  m_Name: LocationLibrary
+  m_EditorClassIdentifier: 
+  locationSpriteList:
+  - name: Mayor's Mansion
+    sprite: {fileID: 21300000, guid: 636a698bd7361cf46943908684cf6de9, type: 3}
+  - name: Graveyard
+    sprite: {fileID: 0}
+  - name: Market
+    sprite: {fileID: 0}
+  - name: Cathedral
+    sprite: {fileID: 21300000, guid: e6923c8da25d23a48a29f756cdfd4bfd, type: 3}
+  - name: Tunnel System
+    sprite: {fileID: 0}
+  - name: Greenhouse
+    sprite: {fileID: 0}

@@ -36,10 +36,18 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> inputStream = new Queue<string>(); // stores dialogue
 
-    [Header("Player Interaction")]
-    [Tooltip("Player Movement Script")]
-    public MonoBehaviour playerMovement;
+    [HideInInspector]
+    public playerMovement playerMovement;
+    [HideInInspector]
+    public PauseManager pauseManager;
+    [HideInInspector]
+    public WhipManager whipManager;
+
     public bool freezePlayerOnDialogue = true;
+
+    // ALLOWS DEVELOPER TO SELECT KEY FROM LIST
+    [Header("Continue Key")]
+    public KeyCode DialogueKey = KeyCode.E;
 
     [HideInInspector]
     public DialogueTrigger currentTrigger;
@@ -57,6 +65,10 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
+        playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<playerMovement>();
+        pauseManager = GameObject.Find("PauseManager").GetComponent<PauseManager>();
+        whipManager = GameObject.Find("WhipManager").GetComponent<WhipManager>();
+
         // GET SPEAKERS FROM LIBRARY & ADD TO LIST
         foreach (SpeakerLibrary.SpriteInfo info in speakerSprites.speakerSpriteList)
         {
@@ -68,13 +80,16 @@ public class DialogueManager : MonoBehaviour
     // HAULT PLAYER MOVEMENT WHILE DIALOGUE OPEN
     private void FreezePlayer()
     {
-        //playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<ThirdPMovement>();
-        //playerMovement.freezePlayer = true;
+        playerMovement.freezeMovement = true;
+        pauseManager.dialogueOpen = true;
+        whipManager.dialogueOpen = true;
     }
 
     private void UnFreezePlayer()
     {
-        //playerMovement.freezePlayer = false;
+        playerMovement.freezeMovement = false;
+        pauseManager.dialogueOpen = false;
+        whipManager.dialogueOpen = false;
     }
 
     // STARTS DIALOGUE
@@ -117,6 +132,7 @@ public class DialogueManager : MonoBehaviour
                 {
                     inputStream.Dequeue();
                     EndDialogue();
+                    Debug.Log("END DIALOGUE");
                 }
                 else
                 {
@@ -210,7 +226,7 @@ public class DialogueManager : MonoBehaviour
         isInDialogue = false;
         cancelTyping = false;
         isTyping = false;
-        // isOpen = false;
+
         if (freezePlayerOnDialogue)
         {
             UnFreezePlayer();
