@@ -14,11 +14,13 @@ public class knockback : MonoBehaviour
         enemyStateMachine = stateMachineClass.GetComponent<EnemyStateMachine>();
     }
 
-    void OnTriggerStay(Collider other){
-        if (other.tag == "Enemy" && Input.GetKeyDown("a")){
+    void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Enemy" && Input.GetKeyDown("a"))
+        {
             enemyStateMachine.currrentState = (EnemyStateMachine.State)1;
         }
     }
 
-    
+
 }

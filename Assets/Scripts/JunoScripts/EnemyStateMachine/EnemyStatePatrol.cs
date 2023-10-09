@@ -12,7 +12,8 @@ public class EnemyStatePatrol : I_EnemyBaseState
 
 	//Private Variables
 	int patrolPointIter;
-	bool isPatrolling;
+	bool isPatrolling = false;
+	bool stationary = false;
 
 	/* Enter State =============================
     *   - When the state is entered, what happens?
@@ -20,9 +21,13 @@ public class EnemyStatePatrol : I_EnemyBaseState
 	public override void EnterState(EnemyStateManager enemy)
 	{
 		// Debug.Log("Patrolling");
-		patrolPointIter = 1;
+		if (enemy.GetPatrolPointsCount() <= 1)
+		{
+			stationary = true;
+		}
+
+		patrolPointIter = 0;
 		enemy.target = enemy.GetPatrolPoint(patrolPointIter); //set First target point to the next patrol point in the list
-															  //The enemy will always start out at the first point in the list. 
 		isPatrolling = true;
 	}
 
@@ -34,19 +39,13 @@ public class EnemyStatePatrol : I_EnemyBaseState
 		if (isPatrolling) //Move to target point
 			enemy.agent.destination = enemy.target.position;
 
-		// Debug.Log(Vector3.Distance(enemy.agent.transform.position, targetPoint.position));
+		// Debug.Log(Vector3.Distance(enemy.agent.transform.position, enemy.target.position));
 		//Once at at target point...
-		if (Vector3.Distance(enemy.transform.position, enemy.target.position) - 1f < 1)
+		if (isPatrolling && Vector3.Distance(enemy.transform.position, enemy.target.position) - 1f < 1)
 		{
-			//Select next target point
-			patrolPointIter++;
-			if (patrolPointIter >= enemy.GetPatrolPointsCount())
-				patrolPointIter = 0;
-
-			enemy.target = enemy.GetPatrolPoint(patrolPointIter);
-			enemy.transform.LookAt(enemy.target.position);
 			isPatrolling = false;
-			enemy.StartCoroutine(TestCoroutine(enemy));
+			if (!stationary)
+				enemy.StartCoroutine(TestCoroutine(enemy));
 		}
 
 	}
@@ -54,6 +53,13 @@ public class EnemyStatePatrol : I_EnemyBaseState
 	IEnumerator TestCoroutine(EnemyStateManager enemy)
 	{
 		yield return new WaitForSeconds(enemy.GetPausePatrolTime());
+		//Select next target point
+		patrolPointIter++;
+		if (patrolPointIter >= enemy.GetPatrolPointsCount())
+			patrolPointIter = 0;
+
+		enemy.target = enemy.GetPatrolPoint(patrolPointIter);
+		enemy.transform.LookAt(enemy.target.position);
 		isPatrolling = true;
 	}
 }
