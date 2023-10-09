@@ -193,7 +193,7 @@ public class PauseManager : MonoBehaviour
     public void SaveButton()
     {
         // Access save system
-        //GameManager.instance.SaveGame(); // SAVE GAME DATA
+        GameManager.instance.SaveGame(); // SAVE GAME DATA
     }
     // SCENE CHANGE TO START MENU
     public void MainMenuButton()
