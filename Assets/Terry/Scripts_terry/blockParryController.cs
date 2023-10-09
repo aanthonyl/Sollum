@@ -9,6 +9,7 @@ public class BlockParryController : MonoBehaviour
 {
     public float parryModeTime = 0.4f;
     bool parryWindow = false;
+    bool attacking = false;
     bool blockPressed = false;
     public float parryVelocity = 50.0f;
     public GameObject parryClass;
@@ -19,19 +20,23 @@ public class BlockParryController : MonoBehaviour
     bool meleeParrySuccess = false;
     bool meleeBlockSuccess = false;
 
+    public SpriteRenderer protoSprite;
+
 
     void Start()
     {
         parry = parryClass.GetComponent<Parry>();
         knockback = parryBlockClass.GetComponent<ParryBlockKnockback>();
 
+
     }
-    void FixedUpdate()
+    void Update()
     {
+
         // detecting block and parry button press
         // the parry window is a fixed amount of time where
         // the player is locked in the parry state
-        if (Input.GetKeyDown("space")){
+        if (Input.GetMouseButtonDown(1)){
             parryWindow = true;
             blockPressed = true;
             meleeBlockSuccess = false;
@@ -39,12 +44,47 @@ public class BlockParryController : MonoBehaviour
             StartCoroutine(ParryWindow());
         }
        
-        if (Input.GetKeyUp("space")){ 
+        if (Input.GetMouseButtonUp(1)){ 
             blockPressed = false;
+        }
+
+        if (blockPressed){
+            protoSprite.color = Color.red;
+            if(transform.parent.GetComponent<playerMovement>().facingForward){
+                transform.localPosition = new Vector3(1.0f, 0, transform.localPosition.z);
+            }else{
+                transform.localPosition = new Vector3(-1.0f, 0, transform.localPosition.z);
+            }
+
+        }else if (Input.GetMouseButtonDown(0) && !attacking){
+            protoSprite.color = Color.green;
+            StartCoroutine(AttackWindow());
+            if(transform.parent.GetComponent<playerMovement>().facingForward){
+                transform.localPosition = new Vector3(1.0f, 0, transform.localPosition.z);
+                transform.rotation = Quaternion.Euler(0, 0, 30);
+            }else{
+                transform.localPosition = new Vector3(-1.0f, 0, transform.localPosition.z);
+                transform.rotation = Quaternion.Euler(0, 0, -30);
+            }
+
+
+        }else{
+            if (attacking == false){ 
+                protoSprite.color = Color.white;
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            if(transform.parent.GetComponent<playerMovement>().facingForward){
+                transform.localPosition = new Vector3(-0.7f, -0.2f, transform.localPosition.z);
+            }else{
+                transform.localPosition = new Vector3(0.4f, -0.2f, transform.localPosition.z);
+            }
+            }
+
+            
         }
 
         // checks if player is in the block or parry state when hit
         // enemyAttack.attacking is a bool from the AttackPlayer class
+        /*
         if ((blockPressed && enemyAttack.attacking) || (parryWindow && enemyAttack.attacking))
         {
             Debug.Log("block or parry sucessful");
@@ -64,6 +104,7 @@ public class BlockParryController : MonoBehaviour
                 // enemy is stunned
             }
         }
+        */
     }
 
 
@@ -97,6 +138,13 @@ public class BlockParryController : MonoBehaviour
     {
         yield return new WaitForSeconds(parryModeTime);
         parryWindow = false;
+    }
+
+    IEnumerator AttackWindow()
+    {
+        attacking = true;
+        yield return new WaitForSeconds(1);
+        attacking = false;
     }
 }
 

@@ -19,6 +19,7 @@ public class playerMovement : MonoBehaviour
     private CapsuleCollider cc;
     private SpriteRenderer sr;
     private Animator anim;
+    public bool facingForward = true;
 
     // Added for dialogue system //
     public bool freezeMovement = false;
@@ -40,6 +41,14 @@ public class playerMovement : MonoBehaviour
         inputMagnitude = inputVector.magnitude;
         forceVector = new Vector3(inputVector.x * ms.GetAcceleration(), 0, inputVector.y * ms.GetAcceleration());
         speed = new Vector2(rb.velocity.x, rb.velocity.z).magnitude;
+        
+        if(xInput != 0){
+            if(xInput > 0){
+                facingForward = true;
+            }else{
+                facingForward = false;
+            }
+        }
     }
 
     void FixedUpdate() {
