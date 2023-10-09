@@ -25,18 +25,14 @@ public class PauseManager : MonoBehaviour
     public Text locationName;
     [Tooltip("Current Objective Text")]
     public Text currentObjective;
-    [Tooltip("From Dialogue System")]
-    public GameObject dialogueUI;
 
     [Header("Player Interaction")]
     [Tooltip("Player Movement Script")]
     public playerMovement playerMovement;
 
-    /*
-    [Header("Save System")]
-    [Tooltip("Save Script")]
-    public SceneLoader sceneLoader;
-    */
+    //[Header("Save System")]
+    //[Tooltip("Save Script")]
+    //public SaveSystem saveSystem;
 
     // THIS IS WHERE THE START SCENE NAME NEEDS TO BE ENTERED
     [Header("Scene Change")]
@@ -74,7 +70,7 @@ public class PauseManager : MonoBehaviour
     void Update()
     {
         // ENABLES PAUSE UI
-        if (Input.GetKeyDown(PauseKey) && dialogueUI.activeInHierarchy != true && pauseActive == false)
+        if (Input.GetKeyDown(PauseKey) && pauseActive == false)
         {
             ActivatePause();
         }
@@ -193,7 +189,6 @@ public class PauseManager : MonoBehaviour
     public void SaveButton()
     {
         // Access save system
-        GameManager.instance.SaveGame(); // SAVE GAME DATA
     }
     // SCENE CHANGE TO START MENU
     public void MainMenuButton()
