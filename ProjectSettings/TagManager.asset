@@ -50,3 +50,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: assets
+    uniqueID: 3831070083
+    locked: 0
+  - name: map
+    uniqueID: 2848837715
+    locked: 0
