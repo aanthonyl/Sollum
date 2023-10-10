@@ -20,7 +20,7 @@ public class EnemyStatePatrol : I_EnemyBaseState
     ============================================*/
 	public override void EnterState(EnemyStateManager enemy)
 	{
-		// Debug.Log("Patrolling");
+		Debug.Log("Patrolling");
 		if (enemy.GetPatrolPointsCount() <= 1)
 		{
 			stationary = true;
@@ -41,16 +41,16 @@ public class EnemyStatePatrol : I_EnemyBaseState
 
 		// Debug.Log(Vector3.Distance(enemy.agent.transform.position, enemy.target.position));
 		//Once at at target point...
-		if (isPatrolling && Vector3.Distance(enemy.transform.position, enemy.target.position) - 1f < 1)
+		if (isPatrolling && Vector3.Distance(enemy.transform.position, enemy.target.position) - enemy.playerHeight < 1)
 		{
 			isPatrolling = false;
 			if (!stationary)
-				enemy.StartCoroutine(TestCoroutine(enemy));
+				enemy.StartCoroutine(PauseAtPoint(enemy));
 		}
 
 	}
 
-	IEnumerator TestCoroutine(EnemyStateManager enemy)
+	IEnumerator PauseAtPoint(EnemyStateManager enemy)
 	{
 		yield return new WaitForSeconds(enemy.GetPausePatrolTime());
 		//Select next target point

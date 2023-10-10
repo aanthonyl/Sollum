@@ -27,7 +27,7 @@ public class EnemyStateSearch : I_EnemyBaseState
     ============================================*/
     public override void UpdateState(EnemyStateManager enemy)
     {
-        if (Vector3.Distance(enemy.transform.position, enemy.target.position) - 1f < 1f)
+        if (Vector3.Distance(enemy.transform.position, enemy.target.position) - enemy.playerHeight < 1f)
         {
             isPausing = true;
             enemy.StartCoroutine(enemy.ReturnToPatrol());
