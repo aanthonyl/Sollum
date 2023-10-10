@@ -19,7 +19,7 @@ public class EnemyStateChase : I_EnemyBaseState
     ============================================*/
     public override void EnterState(EnemyStateManager enemy)
     {
-        Debug.Log("Chasing");
+        // Debug.Log("Chasing");
         //set stopping distance based on enemy type
         stoppingDistance = 0f;
     }
