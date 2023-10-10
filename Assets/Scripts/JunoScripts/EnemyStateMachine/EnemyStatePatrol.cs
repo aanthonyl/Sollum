@@ -20,7 +20,7 @@ public class EnemyStatePatrol : I_EnemyBaseState
     ============================================*/
 	public override void EnterState(EnemyStateManager enemy)
 	{
-		Debug.Log("Patrolling");
+		// Debug.Log("Patrolling");
 		if (enemy.GetPatrolPointsCount() <= 1)
 		{
 			stationary = true;

@@ -106,7 +106,7 @@ public class EnemyStateManager : MonoBehaviour
 
 	void Update()
 	{
-		Debug.Log(target.name);
+		// Debug.Log(target.name);
 		currentState.UpdateState(this);
 	}
 
@@ -159,10 +159,8 @@ public class EnemyStateManager : MonoBehaviour
 	*===========================================*/
 	private void HeardNoise(object sender, NoiseEvents.OnNoiseMadeArgs e)
 	{
-		// Debug.Log("Invoked");
 		if (Vector3.Distance(transform.position, e.noiseTrans.position) <= maxHearingDist && !isAggro)
 		{
-			// Debug.Log("Shouldn't switch state");
 			target = e.noiseTrans;
 			SwitchState(SearchState);
 		}

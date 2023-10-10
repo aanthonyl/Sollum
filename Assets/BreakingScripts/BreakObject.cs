@@ -88,6 +88,7 @@ public class BreakObject : MonoBehaviour
 
             // Start particles
             GameObject child = new GameObject("Break particles", typeof(ParticleSystem));
+            child.transform.position = transform.position;
             child.transform.parent = transform;
             child.transform.Rotate(new Vector3(0, 0, 45));
 
@@ -115,6 +116,15 @@ public class BreakObject : MonoBehaviour
         }
 
         // Destroy object
-        Destroy(gameObject, 1);
+        // Breaks the enemy pathing towards noise.
+        // Destroy(gameObject, 2);
+
+        StartCoroutine(waitToTurnOff());
+    }
+
+    IEnumerator waitToTurnOff()
+    {
+        yield return new WaitForSeconds(2f);
+        gameObject.SetActive(false);
     }
 }
