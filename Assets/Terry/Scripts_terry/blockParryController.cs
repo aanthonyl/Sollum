@@ -36,50 +36,67 @@ public class BlockParryController : MonoBehaviour
         // detecting block and parry button press
         // the parry window is a fixed amount of time where
         // the player is locked in the parry state
-        if (Input.GetMouseButtonDown(1)){
+        if (Input.GetMouseButtonDown(1))
+        {
             parryWindow = true;
             blockPressed = true;
             meleeBlockSuccess = false;
             meleeParrySuccess = false;
             StartCoroutine(ParryWindow());
         }
-       
-        if (Input.GetMouseButtonUp(1)){ 
+
+        if (Input.GetMouseButtonUp(1))
+        {
             blockPressed = false;
         }
 
-        if (blockPressed){
+        if (blockPressed)
+        {
             protoSprite.color = Color.red;
-            if(transform.parent.GetComponent<playerMovement>().facingForward){
-                transform.localPosition = new Vector3(1.0f, 0, transform.localPosition.z);
-            }else{
-                transform.localPosition = new Vector3(-1.0f, 0, transform.localPosition.z);
+            if (transform.parent.GetComponent<playerMovement>().facingForward)
+            {
+                transform.localPosition = new Vector3(1.0f, 1f, transform.localPosition.z);
+            }
+            else
+            {
+                transform.localPosition = new Vector3(-1.0f, 1f, transform.localPosition.z);
             }
 
-        }else if (Input.GetMouseButtonDown(0) && !attacking){
+        }
+        else if (Input.GetMouseButtonDown(0) && !attacking)
+        {
             protoSprite.color = Color.green;
             StartCoroutine(AttackWindow());
-            if(transform.parent.GetComponent<playerMovement>().facingForward){
-                transform.localPosition = new Vector3(1.0f, 0, transform.localPosition.z);
+            if (transform.parent.GetComponent<playerMovement>().facingForward)
+            {
+                transform.localPosition = new Vector3(1.0f, 1f, transform.localPosition.z);
                 transform.rotation = Quaternion.Euler(0, 0, 30);
-            }else{
-                transform.localPosition = new Vector3(-1.0f, 0, transform.localPosition.z);
+            }
+            else
+            {
+                transform.localPosition = new Vector3(-1.0f, 1f, transform.localPosition.z);
                 transform.rotation = Quaternion.Euler(0, 0, -30);
             }
 
 
-        }else{
-            if (attacking == false){ 
+        }
+        else
+        {
+            if (attacking == false)
+            {
                 protoSprite.color = Color.white;
                 transform.rotation = Quaternion.Euler(0, 0, 0);
-            if(transform.parent.GetComponent<playerMovement>().facingForward){
-                transform.localPosition = new Vector3(-0.7f, -0.2f, transform.localPosition.z);
-            }else{
-                transform.localPosition = new Vector3(0.4f, -0.2f, transform.localPosition.z);
-            }
+                if (transform.parent.GetComponent<playerMovement>().facingForward)
+                {
+                    transform.localPosition = new Vector3(-0.7f, .5f, transform.localPosition.z);
+                }
+                else
+                {
+                    transform.localPosition = new Vector3(0.4f, .5f, transform.localPosition.z);
+                }
             }
 
-            
+
         }
 
         // checks if player is in the block or parry state when hit
@@ -116,16 +133,19 @@ public class BlockParryController : MonoBehaviour
     // shot toward the mouse.
     // player is knocked in the opposite direction they are 
     // facing on a sucessful block or parry. 
-    void OnTriggerStay(Collider other){
-        if ((other.tag == "EnemyProjectile" && blockPressed) || 
+    void OnTriggerEnter(Collider other)
+    {
+        if ((other.tag == "EnemyProjectile" && blockPressed) ||
             (other.tag == "EnemyProjectile" && parryWindow))
         {
-            if(!parryWindow){
-                Debug.Log("blocked");     
+            if (!parryWindow)
+            {
+                Debug.Log("blocked");
                 Destroy(other.gameObject);
                 knockback.BlockParryKnockback();
             }
-            else if(parryWindow){
+            else if (parryWindow)
+            {
                 Debug.Log("parried");
                 Destroy(other.gameObject);
                 parry.PlayerShoot();

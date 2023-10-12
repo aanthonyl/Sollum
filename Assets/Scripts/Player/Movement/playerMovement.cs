@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class playerMovement : MonoBehaviour
@@ -41,17 +39,22 @@ public class playerMovement : MonoBehaviour
         inputMagnitude = inputVector.magnitude;
         forceVector = new Vector3(inputVector.x * ms.GetAcceleration(), 0, inputVector.y * ms.GetAcceleration());
         speed = new Vector2(rb.velocity.x, rb.velocity.z).magnitude;
-        
-        if(xInput != 0){
-            if(xInput > 0){
+
+        if (xInput != 0)
+        {
+            if (xInput > 0)
+            {
                 facingForward = true;
-            }else{
+            }
+            else
+            {
                 facingForward = false;
             }
         }
     }
 
-    void FixedUpdate() {
+    void FixedUpdate()
+    {
         // Boolean for dialogue system //
         if (freezeMovement == false)
         {
@@ -59,7 +62,8 @@ public class playerMovement : MonoBehaviour
             rb.AddForce(forceVector);
         }
         //applies deceleration when no input//
-        if (inputMagnitude == 0 && speed > 0) {
+        if (inputMagnitude == 0 && speed > 0)
+        {
             Vector2 decelerationVelocity = new Vector2(rb.velocity.x, rb.velocity.z).normalized * ms.GetDeceleration() * new Vector2(rb.velocity.x, rb.velocity.z).magnitude;
             rb.AddForce(new Vector3(decelerationVelocity.x, 0, decelerationVelocity.y));
         }
@@ -67,7 +71,8 @@ public class playerMovement : MonoBehaviour
         if (rb.velocity.magnitude > 0) rb.AddForce(-transform.up * ms.GetFriction());
 
         //velocity limiter//
-        if (speed > maxSpeed) {
+        if (speed > maxSpeed)
+        {
             float brakeSpeed = speed - maxSpeed;
             Vector2 brakeVelocity = new Vector2(rb.velocity.x, rb.velocity.z).normalized * brakeSpeed;
             rb.AddForce(new Vector3(-brakeVelocity.x, 0, -brakeVelocity.y), ForceMode.Impulse);
