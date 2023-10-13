@@ -4,15 +4,16 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Break
   - Walkable
   - NoiseEvents
-  - Enemy
   - Tool
   - EnemyTool
   - EnemyProjectile
   - PlayerProjectile
   - Managers
   - Enemy
+  - Parasol
   layers:
   - Default
   - TransparentFX
@@ -21,9 +22,9 @@ TagManager:
   - Water
   - UI
   - 
+  - Reflective
   - 
-  - 
-  - 
+  - Walkable
   - 
   - 
   - 

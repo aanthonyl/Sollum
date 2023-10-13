@@ -12,6 +12,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     // TYPES OF ENEMIES THAT CAN BE SELECTED AND CUSTOMIZED
+    // Note: Do not reorder this enum, only append to the end. Weird unity quirk.
     public enum EnemyType
     {
         GruntEnemy,
@@ -56,7 +57,7 @@ public class EnemyHealth : MonoBehaviour
             TakeWhipDamage();
         }
     }
-    
+
     // ENEMY TAKES DAMAGE AND DIES IF HEALTH HITS 0
     public void TakeWhipDamage()
     {
