@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 public class playerMovement : MonoBehaviour
 {
 
     private float xInput;
     private float zInput;
+    private bool grounded = true;
     private Vector2 inputVector;
     private Vector3 forceVector;
     float speed;
@@ -37,9 +42,14 @@ public class playerMovement : MonoBehaviour
         inputMagnitude = inputVector.magnitude;
         forceVector = new Vector3(inputVector.x * ms.GetAcceleration(), 0, inputVector.y * ms.GetAcceleration());
         speed = new Vector2(rb.velocity.x, rb.velocity.z).magnitude;
+        CheckGrounded();
+        CheckJump();
     }
 
     void FixedUpdate() {
+        if (!GetGrounded()) {
+            rb.AddForce(-transform.up * ms.GetGravity());
+        }
         
         //applies movement force//
         rb.AddForce(forceVector);
@@ -60,5 +70,30 @@ public class playerMovement : MonoBehaviour
         }
 
     }
+
+    void CheckJump() {
+        if (Input.GetButtonDown("Jump")) {
+                if (GetGrounded()) {
+                    Jump();
+                }
+            }
+    }
+
+    public void Jump() {
+        rb.AddForce(transform.up * ms.GetThrust(), ForceMode.Impulse);
+    }
+
+    void CheckGrounded() {
+        RaycastHit hit;
+        grounded = Physics.Raycast(transform.position, Vector3.down, out hit, 1);
+        Debug.DrawRay(transform.position, Vector3.down, Color.black);
+        Debug.Log(grounded);
+    }
+    
+    public bool GetGrounded() {
+        return grounded;
+    }
+
+    
 
 }
