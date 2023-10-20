@@ -10,17 +10,32 @@ public class MovementSettings : MonoBehaviour
     [SerializeField] float acceleration;
     [SerializeField] float deceleration;
     [SerializeField] float friction;
+    [SerializeField] float thrust;
+    [SerializeField] float gravity;
 
-    public float GetMaxSpeed() {
+    public float GetMaxSpeed()
+    {
         return maxSpeed;
     }
-    public float GetAcceleration(){
+    public float GetAcceleration()
+    {
         return acceleration;
     }
-    public float GetDeceleration(){
+    public float GetDeceleration()
+    {
         return deceleration;
     }
-    public float GetFriction() {
+    public float GetFriction()
+    {
         return friction;
+    }
+
+    public float GetThrust()
+    {
+        return thrust;
+    }
+    public float GetGravity()
+    {
+        return gravity;
     }
 }
