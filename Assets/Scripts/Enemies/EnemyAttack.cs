@@ -33,6 +33,8 @@ public class EnemyAttack : MonoBehaviour
 
     private Transform player;
     public bool freezeAttack = false;
+    public PauseManager pauseManager;
+    public DialogueManager dialogueManager;
 
     //private AudioSource audioSource;
     //[HideInInspector]
@@ -41,6 +43,8 @@ public class EnemyAttack : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
+        pauseManager = GameObject.Find("PauseManager").GetComponent<PauseManager>();
         //audioSource = GetComponent<AudioSource>();
 
         if (enemyType == EnemyType.GruntEnemy)
@@ -68,7 +72,7 @@ public class EnemyAttack : MonoBehaviour
 
     private void Update()
     {
-        if (!freezeAttack)
+        if (pauseManager.gamePaused == false && dialogueManager.dialogueActive == false)
         {
             float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 

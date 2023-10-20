@@ -41,10 +41,10 @@ public class DialogueManager : MonoBehaviour
     public playerMovement playerMovement;
     [HideInInspector]
     public PauseManager pauseManager;
-    [HideInInspector]
-    public WhipManager whipManager;
-    [HideInInspector]
-    public EnemyAttack enemyAttack;
+    //[HideInInspector]
+    //public WhipManager whipManager;
+    //[HideInInspector]
+    //public EnemyAttack enemyAttack;
 
     // ALLOWS DEVELOPER TO SELECT KEY FROM LIST
     [Header("Continue Key")]
@@ -54,10 +54,13 @@ public class DialogueManager : MonoBehaviour
     public DialogueTrigger currentTrigger;
 
     // BOOLEANS
+    [HideInInspector]
     public bool freezePlayerOnDialogue = true;
     private bool isInDialogue = false;
     private bool isTyping = false;
     private bool cancelTyping = false;
+    [HideInInspector]
+    public bool dialogueActive = false;
 
     [Header("Speaker Library")]
     [Tooltip("Invisible/Placeholder sprite for when no one is talking")]
@@ -71,8 +74,8 @@ public class DialogueManager : MonoBehaviour
         // ACCESS PLAYER MOVEMENT, WHIP ATTACK, PAUSE MENU, ENEMY ATTACK FOR FREEZE MOVEMENT
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<playerMovement>();
         pauseManager = GameObject.Find("PauseManager").GetComponent<PauseManager>();
-        whipManager = GameObject.Find("WhipManager").GetComponent<WhipManager>();
-        enemyAttack = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyAttack>();
+        //whipManager = GameObject.Find("WhipManager").GetComponent<WhipManager>();
+        //enemyAttack = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyAttack>();
 
         // GET SPEAKERS FROM LIBRARY & ADD TO LIST
         foreach (SpeakerLibrary.SpriteInfo info in speakerSprites.speakerSpriteList)
@@ -85,19 +88,21 @@ public class DialogueManager : MonoBehaviour
     // HAULT PLAYER MOVEMENT, WHIP ATTACK, ENEMY ATTACKS, PAUSE MENU
     private void FreezePlayer()
     {
+        dialogueActive = true;
         playerMovement.freezeMovement = true;
         pauseManager.dialogueOpen = true;
-        whipManager.dialogueOpen = true;
-        enemyAttack.freezeAttack = true;
+        //whipManager.dialogueOpen = true;
+        //enemyAttack.freezeAttack = true;
     }
 
     // RESTORE PLAYER MOVEMENT, WHIP ATTACK, ENEMY ATTACKS
     private void UnFreezePlayer()
     {
+        dialogueActive = false;
         playerMovement.freezeMovement = false;
         pauseManager.dialogueOpen = false;
-        whipManager.dialogueOpen = false;
-        enemyAttack.freezeAttack = false;
+        //whipManager.dialogueOpen = false;
+        //enemyAttack.freezeAttack = false;
     }
 
     // STARTS DIALOGUE

@@ -11,25 +11,35 @@ using UnityEngine;
 public class WhipManager : MonoBehaviour
 {
     public GameObject whipZone;
-
+    public PauseManager pauseManager;
+    public DialogueManager dialogueManager;
 
     // ALLOWS DEVELOPER TO SELECT KEY FROM LIST
     [Header("Whip Attack Key")]
     public KeyCode WhipAttackKey = KeyCode.Mouse0;
 
     private bool whipCoolDown = false;
-    [HideInInspector]
-    public bool dialogueOpen = false;
+    //[HideInInspector]
+    //public bool dialogueOpen = false;
     [HideInInspector]
     public bool pauseOpen = false;
 
+    private void Start()
+    {
+        dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
+        pauseManager = GameObject.Find("PauseManager").GetComponent<PauseManager>();
+    }
+
     void Update()
     {
-        // ACTIVATE WHIP ATTACK ZONE
-        if (whipZone.activeInHierarchy != true && dialogueOpen == false && pauseOpen == false && Input.GetKeyDown(WhipAttackKey) && whipCoolDown == false)
+        if (pauseManager.gamePaused == false && dialogueManager.dialogueActive == false)
         {
-            Debug.Log("START WHIP ATTACK");
-            StartCoroutine(AttackDuration());
+            // ACTIVATE WHIP ATTACK ZONE
+            if (whipZone.activeInHierarchy != true && Input.GetKeyDown(WhipAttackKey) && whipCoolDown == false)//&& dialogueOpen == false && pauseOpen == false && Input.GetKeyDown(WhipAttackKey) && whipCoolDown == false)
+            {
+                Debug.Log("START WHIP ATTACK");
+                StartCoroutine(AttackDuration());
+            }
         }
     }
     
