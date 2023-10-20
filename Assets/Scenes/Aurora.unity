@@ -394,9 +394,10 @@ GameObject:
   - component: {fileID: 663977879}
   - component: {fileID: 663977878}
   - component: {fileID: 663977877}
+  - component: {fileID: 663977881}
   m_Layer: 0
   m_Name: TestEnemy (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -415,7 +416,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 0
   enemyHealth: 0
-  whipDamageAmount: 10
 --- !u!136 &663977878
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -506,6 +506,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &663977881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663977876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 845ef36ac63bb6f41b91d3f0c6f93baa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 0
+  attackDamage: 0
+  attackRange: 0
+  attackCooldown: 2
+  nextAttackTime: 0
+  freezeAttack: 0
 --- !u!1 &721859996
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,6 +1176,7 @@ GameObject:
   - component: {fileID: 1683357722}
   - component: {fileID: 1683357725}
   - component: {fileID: 1683357724}
+  - component: {fileID: 1683357726}
   m_Layer: 0
   m_Name: TestPlayer
   m_TagString: Player
@@ -1314,6 +1333,21 @@ MonoBehaviour:
   acceleration: 100
   deceleration: -10
   friction: 0
+--- !u!114 &1683357726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683357714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13793b6e07317c44dacba01a734c1698, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  HealthBar: {fileID: 1991958303}
 --- !u!1 &1917899981 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8419002807816005555, guid: 3f79fef6613bd2941a7ec0973e129f02, type: 3}
@@ -1614,9 +1648,10 @@ GameObject:
   - component: {fileID: 2125904507}
   - component: {fileID: 2125904506}
   - component: {fileID: 2125904509}
+  - component: {fileID: 2125904510}
   m_Layer: 0
   m_Name: TestEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1725,7 +1760,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 0
   enemyHealth: 0
-  whipDamageAmount: 10
+--- !u!114 &2125904510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125904504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 845ef36ac63bb6f41b91d3f0c6f93baa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 0
+  attackDamage: 0
+  attackRange: 0
+  attackCooldown: 2
+  nextAttackTime: 0
+  freezeAttack: 0
 --- !u!1 &2142730292
 GameObject:
   m_ObjectHideFlags: 0
