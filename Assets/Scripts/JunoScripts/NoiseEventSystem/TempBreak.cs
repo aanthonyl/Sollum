@@ -18,8 +18,8 @@ public class TempBreak : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.E) && breakable)
 		{
-			particleBreak.Break();
 			noise.MakeNoise();
+			particleBreak.Break();
 			// this.gameObject.SetActive(false);
 		}
 	}
