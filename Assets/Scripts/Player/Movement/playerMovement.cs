@@ -59,7 +59,6 @@ public class playerMovement : MonoBehaviour
                 facingForward = true;
                 myAnim.SetBool("Right", true);
                 myAnim.SetBool("Left", false);
-                myAnim.SetBool("Idle", false);
                 myAnim.SetBool("Forward", false);
                 myAnim.SetBool("Backward", false);
             }
@@ -69,7 +68,6 @@ public class playerMovement : MonoBehaviour
                 facingForward = false;
                 myAnim.SetBool("Left", true);
                 myAnim.SetBool("Right", false);
-                myAnim.SetBool("Idle", false);
                 myAnim.SetBool("Forward", false);
                 myAnim.SetBool("Backward", false);
             }
@@ -79,7 +77,6 @@ public class playerMovement : MonoBehaviour
                 myAnim.SetBool("Backward", true);
                 myAnim.SetBool("Left", false);
                 myAnim.SetBool("Right", false);
-                myAnim.SetBool("Idle", false);
                 myAnim.SetBool("Forward", false);
             }
             if (zInput < 0)
@@ -89,13 +86,11 @@ public class playerMovement : MonoBehaviour
                 myAnim.SetBool("Backward", false);
                 myAnim.SetBool("Left", false);
                 myAnim.SetBool("Right", false);
-                myAnim.SetBool("Idle", false);
             }
         }
         else
         {
-            //idle
-            myAnim.SetBool("Idle", true);
+            //idle           
             myAnim.SetBool("Right", false);
             myAnim.SetBool("Left", false);
             myAnim.SetBool("Forward", false);
