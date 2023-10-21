@@ -52,7 +52,7 @@ public class DialogueManager : MonoBehaviour
     [HideInInspector]
     public DialogueTrigger currentTrigger;
 
-    private bool isInDialogue = false;
+    // private bool isInDialogue = false;
     private bool isTyping = false;
     private bool cancelTyping = false;
 
@@ -96,7 +96,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Queue<string> dialogue)
     {
         // SETS BOOL
-        isInDialogue = true;
+        // isInDialogue = true;
         // CLEARS THE SPEAKER
         speakerSprite.sprite = invisSprite;
         // ENABLES UI
@@ -223,7 +223,7 @@ public class DialogueManager : MonoBehaviour
         inputStream.Clear();
         DialogueUI.SetActive(false);
 
-        isInDialogue = false;
+        // isInDialogue = false;
         cancelTyping = false;
         isTyping = false;
 

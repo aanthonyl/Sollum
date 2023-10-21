@@ -17,8 +17,8 @@ public class BlockParryController : MonoBehaviour
     PlayerKnockback knockback;
     [SerializeField] GameObject parryBlockClass;
     [SerializeField] AttackPlayer enemyAttack;
-    bool meleeParrySuccess = false;
-    bool meleeBlockSuccess = false;
+    // bool meleeParrySuccess = false;
+    // bool meleeBlockSuccess = false;
 
     public SpriteRenderer protoSprite;
 
@@ -41,8 +41,6 @@ public class BlockParryController : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             blockPressed = true;
-            meleeBlockSuccess = false;
-            meleeParrySuccess = false;
             playerHealth.SetInvincibility(true);
             StartCoroutine(ParryWindow());
         }

@@ -97,19 +97,19 @@ public class playerMovement : MonoBehaviour
             myAnim.SetBool("Forward", false);
             myAnim.SetBool("Backward", false);
         }
-    
-    /*
-        if (xInput != 0)
-        {
-            if (xInput > 0)
+
+        /*
+            if (xInput != 0)
             {
-                facingForward = true;
-            }
-            else
-            {
-                facingForward = false;
-            }
-        }*/
+                if (xInput > 0)
+                {
+                    facingForward = true;
+                }
+                else
+                {
+                    facingForward = false;
+                }
+            }*/
 
         CheckGrounded();
         CheckJump();
@@ -171,7 +171,7 @@ public class playerMovement : MonoBehaviour
         RaycastHit hit;
         grounded = Physics.Raycast(transform.position, Vector3.down, out hit, 1);
         Debug.DrawRay(transform.position, Vector3.down, Color.black);
-        Debug.Log(grounded);
+        // Debug.Log(grounded);
     }
 
     public bool GetGrounded()
