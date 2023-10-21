@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class LevelChange : MonoBehaviour
 {
-    bool isBossDefeat = true; //for when miniboss is defeated 
-   
+    bool isMiniBossDefeat = true; //for when miniboss is defeated 
+    bool isBossDefeat = true; //for when final boss is defeated 
+
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Cathedral")
@@ -14,9 +16,17 @@ public class LevelChange : MonoBehaviour
             SceneManager.LoadScene("Cathedral");
 
         }
+        if (isBossDefeat && collision.gameObject.tag == "CathedralExit")
+        {
+            SceneManager.LoadScene("Gabrielle-Level 1");
+        }
         if (isBossDefeat && collision.gameObject.tag == "Sewer")
         {
             SceneManager.LoadScene("Level 2");
+        }
+        if (isBossDefeat && collision.gameObject.tag == "Exit")
+        {
+            SceneManager.LoadScene("Credits");
         }
     }  
 }

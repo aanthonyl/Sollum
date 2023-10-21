@@ -16,6 +16,8 @@ TagManager:
   - Parasol
   - Sewer
   - Cathedral
+  - Exit
+  - CathedralExit
   layers:
   - Default
   - TransparentFX
