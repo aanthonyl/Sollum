@@ -26,6 +26,9 @@ public class playerMovement : MonoBehaviour
     private Animator anim;
     public bool facingForward = true;
 
+    //animator
+    private Animator myAnim;
+
     // Added for dialogue system //
     public bool freezeMovement = false;
 
@@ -35,6 +38,8 @@ public class playerMovement : MonoBehaviour
         ms = GetComponent<MovementSettings>();
         rb = GetComponent<Rigidbody>();
         maxSpeed = ms.GetMaxSpeed();
+        myAnim = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
@@ -47,6 +52,53 @@ public class playerMovement : MonoBehaviour
         forceVector = new Vector3(inputVector.x * ms.GetAcceleration(), 0, inputVector.y * ms.GetAcceleration());
         speed = new Vector2(rb.velocity.x, rb.velocity.z).magnitude;
 
+        if (zInput != 0 || xInput != 0)
+        {
+            if (xInput > 0)
+            {
+                //to the right
+                facingForward = true;
+                myAnim.SetBool("Right", true);
+                myAnim.SetBool("Left", false);
+                myAnim.SetBool("Forward", false);
+                myAnim.SetBool("Backward", false);
+            }
+            else
+            {
+                //left
+                facingForward = false;
+                myAnim.SetBool("Left", true);
+                myAnim.SetBool("Right", false);
+                myAnim.SetBool("Forward", false);
+                myAnim.SetBool("Backward", false);
+            }
+            if (zInput > 0)
+            {
+                //backwards                
+                myAnim.SetBool("Backward", true);
+                myAnim.SetBool("Left", false);
+                myAnim.SetBool("Right", false);
+                myAnim.SetBool("Forward", false);
+            }
+            if (zInput < 0)
+            {
+                //front                
+                myAnim.SetBool("Forward", true);
+                myAnim.SetBool("Backward", false);
+                myAnim.SetBool("Left", false);
+                myAnim.SetBool("Right", false);
+            }
+        }
+        else
+        {
+            //idle           
+            myAnim.SetBool("Right", false);
+            myAnim.SetBool("Left", false);
+            myAnim.SetBool("Forward", false);
+            myAnim.SetBool("Backward", false);
+        }
+    
+    /*
         if (xInput != 0)
         {
             if (xInput > 0)
@@ -57,7 +109,7 @@ public class playerMovement : MonoBehaviour
             {
                 facingForward = false;
             }
-        }
+        }*/
 
         CheckGrounded();
         CheckJump();
