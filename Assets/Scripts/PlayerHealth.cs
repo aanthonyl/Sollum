@@ -9,17 +9,27 @@ public class PlayerHealth : MonoBehaviour
     public float currentHealth;
 
     public Image HealthBar;
+    private bool invincible;
 
     private void Start()
     {
+        invincible = false;
         currentHealth = maxHealth;
+    }
+
+    public void SetInvincibility(bool state)
+    {
+        invincible = state;
     }
 
     public void TakeDamage(int damageAmount)
     {
-        // Reduce the player's health by the damage amount.
-        currentHealth -= damageAmount;
-        UpdateHealthBar();
+        if (!invincible)
+        {
+            // Reduce the player's health by the damage amount.
+            currentHealth -= damageAmount;
+            UpdateHealthBar();
+        }
 
         if (currentHealth <= 0)
         {

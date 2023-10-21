@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 public class playerMovement : MonoBehaviour
 {
 
     private float xInput;
     private float zInput;
+    private bool grounded = true;
     private Vector2 inputVector;
     private Vector3 forceVector;
     float speed;
@@ -20,9 +25,9 @@ public class playerMovement : MonoBehaviour
     private SpriteRenderer sr;
     private Animator anim;
     public bool facingForward = true;
+
     //animator
     private Animator myAnim;
-
 
     // Added for dialogue system //
     public bool freezeMovement = false;
@@ -40,10 +45,6 @@ public class playerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //animations floats
-        ///myAnim.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
-        // myAnim.SetFloat("Vertical", Input.GetAxis("Vertical"));
-
         xInput = Input.GetAxis("Horizontal");
         zInput = Input.GetAxis("Vertical");
         inputVector = new Vector2(xInput, zInput);
@@ -96,37 +97,43 @@ public class playerMovement : MonoBehaviour
             myAnim.SetBool("Forward", false);
             myAnim.SetBool("Backward", false);
         }
+    
+    /*
+        if (xInput != 0)
+        {
+            if (xInput > 0)
+            {
+                facingForward = true;
+            }
+            else
+            {
+                facingForward = false;
+            }
+        }*/
+
+        CheckGrounded();
+        CheckJump();
     }
 
-    /* myAnim.SetFloat("Horizontal", xInput);
-     myAnim.SetFloat("Vertical", zInput);
-     myAnim.SetFloat("Magnitude", inputVector.magnitude);*/
-
-
-    /*if (xInput != 0)
+    void FixedUpdate()
     {
-        if (xInput > 0)
-        {
-            facingForward = true;
-
-        }
-        else
-        {
-            facingForward = false;
-
-        }
-    }*/
-    
-    
-    void FixedUpdate() {
         // Boolean for dialogue system //
         if (freezeMovement == false)
         {
             //applies movement force//
             rb.AddForce(forceVector);
         }
+        if (!GetGrounded())
+        {
+            rb.AddForce(-transform.up * ms.GetGravity());
+        }
+
+        //applies movement force//
+        rb.AddForce(forceVector);
+
         //applies deceleration when no input//
-        if (inputMagnitude == 0 && speed > 0) {
+        if (inputMagnitude == 0 && speed > 0)
+        {
             Vector2 decelerationVelocity = new Vector2(rb.velocity.x, rb.velocity.z).normalized * ms.GetDeceleration() * new Vector2(rb.velocity.x, rb.velocity.z).magnitude;
             rb.AddForce(new Vector3(decelerationVelocity.x, 0, decelerationVelocity.y));
         }
@@ -134,12 +141,42 @@ public class playerMovement : MonoBehaviour
         if (rb.velocity.magnitude > 0) rb.AddForce(-transform.up * ms.GetFriction());
 
         //velocity limiter//
-        if (speed > maxSpeed) {
+        if (speed > maxSpeed)
+        {
             float brakeSpeed = speed - maxSpeed;
             Vector2 brakeVelocity = new Vector2(rb.velocity.x, rb.velocity.z).normalized * brakeSpeed;
             rb.AddForce(new Vector3(-brakeVelocity.x, 0, -brakeVelocity.y), ForceMode.Impulse);
         }
 
+    }
+
+    void CheckJump()
+    {
+        if (Input.GetButtonDown("Jump"))
+        {
+            if (GetGrounded())
+            {
+                Jump();
+            }
+        }
+    }
+
+    public void Jump()
+    {
+        rb.AddForce(transform.up * ms.GetThrust(), ForceMode.Impulse);
+    }
+
+    void CheckGrounded()
+    {
+        RaycastHit hit;
+        grounded = Physics.Raycast(transform.position, Vector3.down, out hit, 1);
+        Debug.DrawRay(transform.position, Vector3.down, Color.black);
+        Debug.Log(grounded);
+    }
+
+    public bool GetGrounded()
+    {
+        return grounded;
     }
 
 }
