@@ -4732,7 +4732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8359595a0cc89c4d93399ff9342cf3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  facingForward: 1
+  facingForward: 0
   freezeMovement: 0
 --- !u!114 &579998112
 MonoBehaviour:
@@ -4746,7 +4746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51e7051c23cd17c46bce8a66b705022a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 3.5
+  maxSpeed: 6
   acceleration: 100
   deceleration: -10
   friction: 0

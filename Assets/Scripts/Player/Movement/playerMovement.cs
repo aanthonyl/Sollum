@@ -20,6 +20,9 @@ public class playerMovement : MonoBehaviour
     private SpriteRenderer sr;
     private Animator anim;
     public bool facingForward = true;
+    //animator
+    private Animator myAnim;
+
 
     // Added for dialogue system //
     public bool freezeMovement = false;
@@ -30,27 +33,96 @@ public class playerMovement : MonoBehaviour
         ms = GetComponent<MovementSettings>();
         rb = GetComponent<Rigidbody>();
         maxSpeed = ms.GetMaxSpeed();
+        myAnim = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        //animations floats
+        ///myAnim.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
+        // myAnim.SetFloat("Vertical", Input.GetAxis("Vertical"));
+
         xInput = Input.GetAxis("Horizontal");
         zInput = Input.GetAxis("Vertical");
         inputVector = new Vector2(xInput, zInput);
         inputMagnitude = inputVector.magnitude;
         forceVector = new Vector3(inputVector.x * ms.GetAcceleration(), 0, inputVector.y * ms.GetAcceleration());
         speed = new Vector2(rb.velocity.x, rb.velocity.z).magnitude;
-        
-        if(xInput != 0){
-            if(xInput > 0){
+
+        if (zInput != 0 || xInput != 0)
+        {
+            if (xInput > 0)
+            {
+                //to the right
                 facingForward = true;
-            }else{
-                facingForward = false;
+                myAnim.SetBool("Right", true);
+                myAnim.SetBool("Left", false);
+                myAnim.SetBool("Idle", false);
+                myAnim.SetBool("Forward", false);
+                myAnim.SetBool("Backward", false);
             }
+            else
+            {
+                //left
+                facingForward = false;
+                myAnim.SetBool("Left", true);
+                myAnim.SetBool("Right", false);
+                myAnim.SetBool("Idle", false);
+                myAnim.SetBool("Forward", false);
+                myAnim.SetBool("Backward", false);
+            }
+            if (zInput > 0)
+            {
+                //backwards                
+                myAnim.SetBool("Backward", true);
+                myAnim.SetBool("Left", false);
+                myAnim.SetBool("Right", false);
+                myAnim.SetBool("Idle", false);
+                myAnim.SetBool("Forward", false);
+            }
+            if (zInput < 0)
+            {
+                //front                
+                myAnim.SetBool("Forward", true);
+                myAnim.SetBool("Backward", false);
+                myAnim.SetBool("Left", false);
+                myAnim.SetBool("Right", false);
+                myAnim.SetBool("Idle", false);
+            }
+        }
+        else
+        {
+            //idle
+            myAnim.SetBool("Idle", true);
+            myAnim.SetBool("Right", false);
+            myAnim.SetBool("Left", false);
+            myAnim.SetBool("Forward", false);
+            myAnim.SetBool("Backward", false);
         }
     }
 
+    /* myAnim.SetFloat("Horizontal", xInput);
+     myAnim.SetFloat("Vertical", zInput);
+     myAnim.SetFloat("Magnitude", inputVector.magnitude);*/
+
+
+    /*if (xInput != 0)
+    {
+        if (xInput > 0)
+        {
+            facingForward = true;
+
+        }
+        else
+        {
+            facingForward = false;
+
+        }
+    }*/
+    
+    
     void FixedUpdate() {
         // Boolean for dialogue system //
         if (freezeMovement == false)
