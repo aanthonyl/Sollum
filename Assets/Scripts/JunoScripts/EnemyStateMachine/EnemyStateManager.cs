@@ -104,6 +104,10 @@ public class EnemyStateManager : MonoBehaviour
 	{
 		NoiseEvents.instance.OnNoiseMade -= HeardNoise;
 	}
+	private void OnDestroy()
+	{
+		NoiseEvents.instance.OnNoiseMade -= HeardNoise;
+	}
 
 	void Update()
 	{
@@ -161,7 +165,7 @@ public class EnemyStateManager : MonoBehaviour
 	*===========================================*/
 	private void HeardNoise(object sender, NoiseEvents.OnNoiseMadeArgs e)
 	{
-		if (Vector3.Distance(transform.position, e.noiseTrans.position) <= maxHearingDist && !isAggro)
+		if (Vector3.Distance(e.noiseTrans.position, transform.position) - playerHeight <= maxHearingDist && !isAggro)
 		{
 			target = e.noiseTrans;
 			SwitchState(SearchState);

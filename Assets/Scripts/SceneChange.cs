@@ -5,34 +5,47 @@ using UnityEngine;
 public class SceneChange : MonoBehaviour
 {
     #region Variables
+    bool inSceneLoadingArea = false;
 
-        #region Settings
+    #region Settings
 
-            public SceneLoader.Scene nextScene;
+    public SceneLoader.Scene nextScene;
 
-        #endregion
+    #endregion
 
     #endregion
 
     #region Built-in Methods
 
-        private void Update()
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && inSceneLoadingArea)
         {
-            if(Input.GetKeyDown(KeyCode.Space))
+            if (nextScene == SceneLoader.Scene.MainMenu)
             {
-                if(nextScene == SceneLoader.Scene.MainMenu)
-                {
-                    GameManager.instance.enableContinue = false;
-                    GameManager.instance.LoadMainMenu();
-                }
-                else
-                {
-                    GameManager.instance.levelTransition = true;
-                    GameManager.instance.savedScene = nextScene;
-                    GameManager.instance.LoadGameWorld(false, nextScene);
-                }
+                GameManager.instance.enableContinue = false;
+                GameManager.instance.LoadMainMenu();
+            }
+            else
+            {
+                GameManager.instance.levelTransition = true;
+                GameManager.instance.savedScene = nextScene;
+                GameManager.instance.LoadGameWorld(false, nextScene);
             }
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+            inSceneLoadingArea = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+            inSceneLoadingArea = false;
+    }
 
     #endregion
 }
