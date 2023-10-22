@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.U2D;
 using UnityEngine;
 
 // enemy script for testing
@@ -12,8 +11,8 @@ public class AttackPlayer : MonoBehaviour
     Rigidbody rb;
     [SerializeField] GameObject weapon;
     [SerializeField] GameObject player;
-    [SerializeField]EnemyStateMachine enemyStateMachine;
-    [SerializeField]GameObject sp;
+    [SerializeField] EnemyStateMachine enemyStateMachine;
+    [SerializeField] GameObject sp;
     SpriteRenderer sprite;
     AttackPlayer attackPlayer;
 
@@ -29,7 +28,7 @@ public class AttackPlayer : MonoBehaviour
         sprite.color = Color.yellow;
         enemyStateMachine.currrentState = (EnemyStateMachine.State)3;
         StartCoroutine(Attacking());
-        
+
     }
 
     IEnumerator Attacking()
@@ -44,7 +43,7 @@ public class AttackPlayer : MonoBehaviour
             enemyStateMachine.currrentState = 0;
         else
             Attack();
-        
+
 
     }
 

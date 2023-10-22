@@ -21,7 +21,6 @@ public abstract class Singleton<T> : MonoBehaviour
         if (_instance == null)
         {
             _instance = newInstance;
-            DontDestroyOnLoad(this.gameObject);
         }
     }
 

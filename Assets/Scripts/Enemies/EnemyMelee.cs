@@ -6,6 +6,7 @@ public class EnemyMelee : MonoBehaviour
 {
     public int damage = 10;
     public float attackRange = 2.0f;
+    public bool drawAttackRange = false;
     public float attackCooldown = 2.0f;
 
     private bool isPaused = false;
@@ -14,6 +15,14 @@ public class EnemyMelee : MonoBehaviour
     private float nextAttackTime; // Time when the next attack can occur.
     private AudioSource audioSource;
     public AudioClip meleeAttackSound;
+
+    private void OnDrawGizmos()
+    {
+        if (drawAttackRange)
+        {
+            Gizmos.DrawWireSphere(transform.position, attackRange);
+        }
+    }
 
     private void Start()
     {
