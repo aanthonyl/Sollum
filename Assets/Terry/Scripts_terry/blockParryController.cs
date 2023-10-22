@@ -16,7 +16,6 @@ public class BlockParryController : MonoBehaviour
     Parry parry;
     PlayerKnockback knockback;
     [SerializeField] GameObject parryBlockClass;
-    [SerializeField] AttackPlayer enemyAttack;
     // bool meleeParrySuccess = false;
     // bool meleeBlockSuccess = false;
 
@@ -93,7 +92,7 @@ public class BlockParryController : MonoBehaviour
     // facing on a sucessful block or parry. 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "EnemyProjectile")
+        if (other.CompareTag("EnemyProjectile"))
         {
             if (parryWindow)
             {
@@ -109,11 +108,18 @@ public class BlockParryController : MonoBehaviour
                 knockback.BlockParryKnockback();
             }
         }
-        else if (other.tag == "Enemy")
+        else if (other.CompareTag("Enemy"))
         {
             if (blockPressed)
             {
                 other.gameObject.GetComponent<EnemyStateManager>().KnockedBack();
+            }
+        }
+        else if (other.CompareTag("Break"))
+        {
+            if (attacking)
+            {
+                other.gameObject.GetComponent<TempBreak>().Break();
             }
         }
     }
