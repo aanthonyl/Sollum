@@ -23,15 +23,21 @@ public class EnemyHealth : MonoBehaviour
 
     private SpriteRenderer sprite;
 
+    [Header("Health Stats")]
+    [Tooltip("Updates Automatically")]
     public float enemyHealth;
-    // WHIP DAMAGE AMOUNT CAN BE CHANGED IF NEED BE
-    public float whipDamageAmount = 10;
 
+    // WHIP DAMAGE AMOUNT CAN BE CHANGED IF NEEDED
+    private float playerWhipDamage = 10;
     private bool damageCoolDown = false;
+
+    //private AudioSource audioSource;
+    //public AudioClip enemyDamagedSound;
 
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
+        //audioSource = GetComponent<AudioSource>();
 
         // DIFFERENT ENEMY HEALTH AMOUNTS
         if (enemyType == EnemyType.GruntEnemy)
@@ -46,6 +52,7 @@ public class EnemyHealth : MonoBehaviour
         {
             enemyHealth = 60;
         }
+        //audioSource.clip = enemyDamagedSound;
     }
 
     public void OnTriggerEnter(Collider other)
@@ -65,7 +72,7 @@ public class EnemyHealth : MonoBehaviour
         {
             Debug.Log("ENEMY TAKE WHIP DAMAGE");
 
-            enemyHealth -= whipDamageAmount;
+            enemyHealth -= playerWhipDamage;
 
             StartCoroutine(FlashRed());
 
@@ -73,6 +80,7 @@ public class EnemyHealth : MonoBehaviour
             {
                 EnemyDie();
             }
+            //audioSource.Play();
         }
     }
 
@@ -80,6 +88,7 @@ public class EnemyHealth : MonoBehaviour
     public void EnemyDie()
     {
         Debug.Log("ENEMY DIE");
+
         Destroy(this.gameObject);
     }
 
@@ -87,9 +96,9 @@ public class EnemyHealth : MonoBehaviour
     private IEnumerator FlashRed()
     {
         damageCoolDown = true;
-        sprite.color = Color.red;
+        //sprite.color = Color.red;
         yield return new WaitForSeconds(0.1f);
-        sprite.color = Color.white;
+        //sprite.color = Color.white;
         yield return new WaitForSeconds(0.8f);
         damageCoolDown = false;
     }

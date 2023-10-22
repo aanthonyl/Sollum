@@ -12,6 +12,9 @@ using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour
 {
+
+    // SCRIPT TO BE PLACED ON EMPTY GAME OBJECT CALLED "PauseManager"
+
     // ALLOWS DEVELOPER TO SELECT KEY FROM LIST
     [Header("Pause Key")]
     public KeyCode PauseKey = KeyCode.Escape;
@@ -26,10 +29,13 @@ public class PauseManager : MonoBehaviour
     [Tooltip("Current Objective Text")]
     public Text currentObjective;
 
+    // SYSTEMS TO BE FROZEN WHILE DIALOGUE IS OPEN
     [HideInInspector]
     public playerMovement playerMovement;
-    [HideInInspector]
-    public WhipManager whipManager;
+    //[HideInInspector]
+    //public WhipManager whipManager;
+    //[HideInInspector]
+    //public EnemyAttack enemyAttack;
 
     // THIS IS WHERE THE START SCENE NAME NEEDS TO BE ENTERED
     [Header("Scene Change")]
@@ -44,20 +50,24 @@ public class PauseManager : MonoBehaviour
     [HideInInspector]
     public List<string> locationNames;
 
+    // BOOLEANS
     private bool pauseActive = false;
     private bool isTyping = false;
     private bool cancelTyping = false;
     [HideInInspector]
     public bool dialogueOpen = false;
+    [HideInInspector]
+    public bool gamePaused = false;
 
     // STORES DIALOGUE
     private Queue<string> inputStream = new Queue<string>();
 
     void Start()
     {
-        // ACCESS PLAYER MOVEMENT FOR FREEZE MOVEMENT
+        // ACCESS PLAYER MOVEMENT, WHIP ATTACK, ENEMY ATTACK FOR FREEZE MOVEMENT
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<playerMovement>();
-        whipManager = GameObject.Find("WhipManager").GetComponent<WhipManager>();
+        //whipManager = GameObject.Find("WhipManager").GetComponent<WhipManager>();
+        //enemyAttack = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyAttack>();
 
         // UPDATES LIST OF LOCATIONS FROM LOCATION LIBRARY
         foreach (LocationLibrary.SpriteInfo info in locationLibrary.locationSpriteList)
@@ -71,6 +81,7 @@ public class PauseManager : MonoBehaviour
         // ENABLES PAUSE UI
         if (Input.GetKeyDown(PauseKey) && dialogueOpen == false && pauseActive == false)
         {
+            Debug.Log("PAUSE KEY PRESSED");
             ActivatePause();
         }
         // DISABLES PAUSE UI
@@ -78,6 +89,23 @@ public class PauseManager : MonoBehaviour
         {
             ContinueButton();
         }
+    }
+
+    // HAULT PLAYER MOVEMENT, WHIP ATTACK, ENEMY ATTACKS
+    private void FreezePlayer()
+    {
+        gamePaused = true;
+        playerMovement.freezeMovement = true;
+        //whipManager.pauseOpen = true;
+        //enemyAttack.freezeAttack = true;
+    }
+    // RESTORE PLAYER MOVEMENT, WHIP ATTACK, ENEMY ATTACKS
+    private void UnFreezePlayer()
+    {
+        gamePaused = false;
+        playerMovement.freezeMovement = false;
+        //whipManager.pauseOpen = false;
+        //enemyAttack.freezeAttack = false;
     }
 
     public void NewLocation(Queue<string> objective)
@@ -158,18 +186,6 @@ public class PauseManager : MonoBehaviour
         inputStream.Clear();
     }
 
-    // HAULT PLAYER MOVEMENT WHILE PAUSE ACTIVE
-    private void FreezePlayer()
-    {
-        playerMovement.freezeMovement = true;
-        whipManager.pauseOpen = true;
-    }
-    // RESTORE PLAYER MOVEMENT
-    private void UnFreezePlayer()
-    {
-        playerMovement.freezeMovement = false;
-        whipManager.pauseOpen = false;
-    }
     // PAUSE GAME
     public void ActivatePause()
     {
@@ -190,7 +206,7 @@ public class PauseManager : MonoBehaviour
     public void SaveButton()
     {
         // Access save system
-        GameManager.instance.SaveMainMenuData(); // SAVE MAIN MENU DATA
+        GameManager.instance.SaveGame(); // SAVE GAME
     }
     // SCENE CHANGE TO START MENU
     public void MainMenuButton()
