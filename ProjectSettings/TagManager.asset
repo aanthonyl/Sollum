@@ -14,6 +14,10 @@ TagManager:
   - Managers
   - Enemy
   - Parasol
+  - Sewer
+  - Cathedral
+  - Exit
+  - CathedralExit
   layers:
   - Default
   - TransparentFX
@@ -56,4 +60,7 @@ TagManager:
     locked: 0
   - name: map
     uniqueID: 2848837715
+    locked: 0
+  - name: particle
+    uniqueID: 1017196315
     locked: 0
