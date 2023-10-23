@@ -132,6 +132,11 @@ public class GameManager : MonoBehaviour
                 sceneLoader.Load(SceneLoader.Scene.MainMenu);
             }
 
+            public void LoadCredits()
+            {
+                sceneLoader.Load(SceneLoader.Scene.Credits);
+            }
+
             public void LoadGameWorld(bool newGame, SceneLoader.Scene scene)
             {
                 continueGame = !newGame;

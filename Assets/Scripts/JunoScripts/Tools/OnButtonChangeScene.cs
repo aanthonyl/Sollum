@@ -5,10 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class OnButtonChangeScene : MonoBehaviour
 {
-    public string sceneName;
-
     public void ChangeScene()
     {
-        SceneManager.LoadScene(sceneName);
+        GameManager.instance.enableContinue = false;
+        GameManager.instance.LoadMainMenu();
     }
 }

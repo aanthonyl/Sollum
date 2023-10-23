@@ -54,7 +54,7 @@ public class MainMenu : MonoBehaviour
 
         public void Credits()
         {
-            // LOAD CREDITS
+            GameManager.instance.LoadCredits();
         }
 
         public void Exit()

@@ -26,6 +26,10 @@ public class SceneChange : MonoBehaviour
                 GameManager.instance.enableContinue = false;
                 GameManager.instance.LoadMainMenu();
             }
+            else if (nextScene == SceneLoader.Scene.Credits)
+            {
+                GameManager.instance.LoadCredits();
+            }
             else
             {
                 GameManager.instance.levelTransition = true;
