@@ -5,17 +5,16 @@ using UnityEngine;
 public class TempParasolManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    GameObject parasolHitArea;
+    public GameObject parasolHitArea;
     void Start()
     {
-        parasolHitArea = transform.parent.GetChild(1).gameObject; //second child
         parasolHitArea.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetMouseButtonDown(1))
         {
             StartCoroutine(OpenParasolHitArea());
         }

@@ -322,6 +322,7 @@ MonoBehaviour:
   continueGame: 1
   dataSaved: 0
   dataLoaded: 0
+  levelTransition: 0
   savedScene: 0
   enableContinue: 0
 --- !u!1 &1241695007

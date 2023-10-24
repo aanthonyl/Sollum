@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 104248716}
   - component: {fileID: 104248715}
   - component: {fileID: 104248714}
+  - component: {fileID: 104248717}
   m_Layer: 5
   m_Name: Back to Menu
   m_TagString: Untagged
@@ -149,17 +150,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104248712}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.077848, y: 3.511, z: 3.511}
+  m_LocalScale: {x: 3.1489632, y: 3.5921237, z: 3.5921237}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 949003480}
-  m_Father: {fileID: 1455815941}
+  m_Father: {fileID: 1284277227}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -708, y: 376}
+  m_AnchoredPosition: {x: -559.76685, y: 344.24}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &104248714
@@ -206,9 +207,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1455815942}
-        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
-        m_MethodName: MainMenuButton
+      - m_Target: {fileID: 104248717}
+        m_TargetAssemblyTypeName: OnButtonChangeScene, Assembly-CSharp
+        m_MethodName: ChangeScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -256,6 +257,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104248712}
   m_CullTransparentMesh: 1
+--- !u!114 &104248717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104248712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a940db135090bd419c85ea04eb4053f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Base
 --- !u!1 &144750956
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,8 +305,8 @@ Camera:
   m_GameObject: {fileID: 144750956}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -581,7 +595,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289520606}
   m_CullTransparentMesh: 1
---- !u!1 &305847815
+--- !u!1 &1284277226
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -589,9 +603,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 305847816}
-  - component: {fileID: 305847818}
-  - component: {fileID: 305847817}
+  - component: {fileID: 1284277227}
+  m_Layer: 5
+  m_Name: Credits
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1284277227
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284277226}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1862063213}
+  - {fileID: 104248713}
+  m_Father: {fileID: 1455815941}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -51.03711, y: 20}
+  m_SizeDelta: {x: 1623.3679, y: 897.3107}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1455815937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1455815941}
+  - component: {fileID: 1455815940}
+  - component: {fileID: 1455815939}
+  - component: {fileID: 1455815938}
   m_Layer: 5
   m_Name: DesignDept
   m_TagString: Untagged
