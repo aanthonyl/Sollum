@@ -21,7 +21,7 @@ public class CreditManager : MonoBehaviour
 
     public void ProductionNext(int number)
     {
-        production[number + 1].SetActive(true);
+            production[number + 1].SetActive(true);
 
         if (number == 4)
         {
@@ -29,12 +29,13 @@ public class CreditManager : MonoBehaviour
             productionUI.SetActive(false);
             //production[0].SetActive(false);
             design[0].SetActive(true);
+            Debug.Log("Number 4 Production Done");
         }
     }
 
     public void DesignNext(int number)
     {
-        if (number >= 2)
+        if (number >= 1)
         {
             StartCoroutine("WaitTime");
             design[number - 1].SetActive(false);
