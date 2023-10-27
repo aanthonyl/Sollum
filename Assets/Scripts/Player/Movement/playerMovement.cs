@@ -10,12 +10,12 @@ using Vector3 = UnityEngine.Vector3;
 public class playerMovement : MonoBehaviour
 {
 
-    private float xInput;
-    private float zInput;
+    public float xInput;
+    public float zInput;
     private bool grounded = true;
     private Vector2 inputVector;
     private Vector3 forceVector;
-    float speed;
+    public float speed;
     float maxSpeed;
     float inputMagnitude;
     private MovementSettings ms;
@@ -24,6 +24,12 @@ public class playerMovement : MonoBehaviour
     private SpriteRenderer sr;
     private Animator anim;
     public bool facingForward = true;
+    bool canMove = true;
+    
+
+    bool paused;
+    Vector3 currentVelocity;
+    float currentAnimSpeed;
 
     //animator
     private Animator myAnim;
@@ -44,14 +50,31 @@ public class playerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        xInput = Input.GetAxis("Horizontal");
-        zInput = Input.GetAxis("Vertical");
+        if (Input.GetKeyDown("1")) {
+            Time.timeScale -= 0.2f;
+        }
+        if (Input.GetKeyDown("2")) {
+            Time.timeScale += 0.2f;
+        }
+        if (canMove){
+            xInput = Input.GetAxisRaw("Horizontal");
+            zInput = Input.GetAxisRaw("Vertical");
+        } else {
+            xInput = 0;
+            zInput = 0;
+        }
+        
+        
         inputVector = new Vector2(xInput, zInput);
+
         inputMagnitude = inputVector.magnitude;
         forceVector = new Vector3(inputVector.x * ms.GetAcceleration(), 0, inputVector.y * ms.GetAcceleration());
-        speed = new Vector2(rb.velocity.x, rb.velocity.z).magnitude;
 
-        if (zInput != 0 || xInput != 0)
+        speed = new Vector2(rb.velocity.x, rb.velocity.z).magnitude;
+        CheckGrounded();
+        CheckJump();  
+        //Debug.Log(speed);
+        if ((zInput != 0 || xInput != 0) && !paused)
         {
             if (xInput > 0)
             {
@@ -62,9 +85,10 @@ public class playerMovement : MonoBehaviour
                 myAnim.SetBool("Forward", false);
                 myAnim.SetBool("Backward", false);
             }
-            else
+            else if (xInput < 0)
             {
                 //left
+                //Debug.Log("face left");
                 facingForward = false;
                 myAnim.SetBool("Left", true);
                 myAnim.SetBool("Right", false);
@@ -88,7 +112,7 @@ public class playerMovement : MonoBehaviour
                 myAnim.SetBool("Right", false);
             }
         }
-        else
+        else if (!paused)
         {
             //idle           
             myAnim.SetBool("Right", false);
@@ -109,42 +133,47 @@ public class playerMovement : MonoBehaviour
                     facingForward = false;
                 }
             }*/
-
-        CheckGrounded();
-        CheckJump();
     }
 
     void FixedUpdate()
     {
         // Boolean for dialogue system //
-        if (freezeMovement == false)
-        {
+        if (!paused) {
+            if (!GetGrounded())
+            {
+                Debug.Log("Adding Gravity");
+                rb.AddForce(-transform.up * ms.GetGravity());
+            }
+
             //applies movement force//
+            Debug.Log("Adding Force vector");
+            Debug.Log(forceVector);
             rb.AddForce(forceVector);
-        }
-        if (!GetGrounded())
-        {
-            rb.AddForce(-transform.up * ms.GetGravity());
-        }
+            
 
-        //applies movement force//
-        rb.AddForce(forceVector);
+            //applies deceleration when no input//
+            if ((inputMagnitude == 0 || !canMove) && speed > 0)
+            {
+                Debug.Log("Decelerating");
+                Vector2 decelerationVelocity = new Vector2(rb.velocity.x, rb.velocity.z).normalized * ms.GetDeceleration() * new Vector2(rb.velocity.x, rb.velocity.z).magnitude;
+                rb.AddForce(new Vector3(decelerationVelocity.x, 0, decelerationVelocity.y));
+            }
+            //applies movement friction//
+            if (speed > 0) {
+                Debug.Log("Adding friction");
+                rb.AddForce(-transform.up * ms.GetFriction());
+            } 
 
-        //applies deceleration when no input//
-        if (inputMagnitude == 0 && speed > 0)
-        {
-            Vector2 decelerationVelocity = new Vector2(rb.velocity.x, rb.velocity.z).normalized * ms.GetDeceleration() * new Vector2(rb.velocity.x, rb.velocity.z).magnitude;
-            rb.AddForce(new Vector3(decelerationVelocity.x, 0, decelerationVelocity.y));
-        }
-        //applies movement friction//
-        if (rb.velocity.magnitude > 0) rb.AddForce(-transform.up * ms.GetFriction());
-
-        //velocity limiter//
-        if (speed > maxSpeed)
-        {
-            float brakeSpeed = speed - maxSpeed;
-            Vector2 brakeVelocity = new Vector2(rb.velocity.x, rb.velocity.z).normalized * brakeSpeed;
-            rb.AddForce(new Vector3(-brakeVelocity.x, 0, -brakeVelocity.y), ForceMode.Impulse);
+            //velocity limiter//
+            if (speed > (maxSpeed * ms.GetMovementMultiplier()))
+            {
+                Debug.Log("Max Speed reached");
+                float brakeSpeed = speed - (maxSpeed * ms.GetMovementMultiplier());
+                Vector2 brakeVelocity = new Vector2(rb.velocity.x, rb.velocity.z).normalized * brakeSpeed;
+                rb.AddForce(new Vector3(-brakeVelocity.x, 0, -brakeVelocity.y), ForceMode.Impulse);
+            }
+        } else {
+            rb.velocity = new Vector3(0,0,0);
         }
 
     }
@@ -177,5 +206,28 @@ public class playerMovement : MonoBehaviour
     {
         return grounded;
     }
+
+    public void PausePlayer() {
+        paused = true;
+        currentVelocity = rb.velocity;
+        currentAnimSpeed = myAnim.speed;
+        myAnim.speed = 0;
+    }
+
+    public void UnpausePlayer() {
+        paused = false;
+        rb.velocity = currentVelocity;
+        Debug.Log(rb.velocity);
+        myAnim.speed = currentAnimSpeed;
+    }
+
+    public bool GetCanMove() {
+        return canMove;
+    }
+
+    public void SetCanMove(bool cm) {
+        canMove = cm;
+    }
+
 
 }

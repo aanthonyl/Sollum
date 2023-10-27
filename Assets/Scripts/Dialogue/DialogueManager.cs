@@ -89,7 +89,7 @@ public class DialogueManager : MonoBehaviour
     private void FreezePlayer()
     {
         dialogueActive = true;
-        playerMovement.freezeMovement = true;
+        if (playerMovement.GetCanMove()) playerMovement.SetCanMove(false);
         pauseManager.dialogueOpen = true;
         //whipManager.dialogueOpen = true;
         //enemyAttack.freezeAttack = true;
@@ -99,7 +99,7 @@ public class DialogueManager : MonoBehaviour
     private void UnFreezePlayer()
     {
         dialogueActive = false;
-        playerMovement.freezeMovement = false;
+        if (!playerMovement.GetCanMove()) playerMovement.SetCanMove(true);
         pauseManager.dialogueOpen = false;
         //whipManager.dialogueOpen = false;
         //enemyAttack.freezeAttack = false;

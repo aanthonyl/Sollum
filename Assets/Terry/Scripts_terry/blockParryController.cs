@@ -8,14 +8,21 @@ using UnityEngine;
 public class BlockParryController : MonoBehaviour
 {
     public float parryModeTime = 0.4f;
-    bool parryWindow = false;
+
+    [SerializeField] float blockingMovementSpeedMultiplier;
+    float currMovementSpeedMultiplier;
+    bool parrying = false;
     bool attacking = false;
-    bool blockPressed = false;
+    bool blocking = false;
     public float parryVelocity = 50.0f;
     public GameObject parryClass;
     Parry parry;
     PlayerKnockback knockback;
     Collider col;
+    bool attackBuffer;
+    bool blockBuffer;
+    playerMovement pm;
+    MovementSettings ms;
     [SerializeField] GameObject parryBlockClass;
     // bool meleeParrySuccess = false;
     // bool meleeBlockSuccess = false;
@@ -32,6 +39,9 @@ public class BlockParryController : MonoBehaviour
         knockback = parryBlockClass.GetComponent<PlayerKnockback>();
         col = transform.GetChild(0).GetComponent<Collider>();
         col.gameObject.SetActive(false);
+        pm = transform.parent.parent.GetComponent<playerMovement>();
+        ms = transform.parent.parent.GetComponent<MovementSettings>();
+
     }
     void Update()
     {
@@ -39,45 +49,52 @@ public class BlockParryController : MonoBehaviour
         // detecting block and parry button press
         // the parry window is a fixed amount of time where
         // the player is locked in the parry state
-        if (Input.GetMouseButtonDown(1))
+        if (pm.GetCanMove())
         {
-            blockPressed = true;
-            col.gameObject.SetActive(true);
-            playerHealth.SetInvincibility(true);
-            StartCoroutine(ParryWindow());
+            if (Input.GetButtonDown("Block"))
+            {
+                if (attacking) {
+                    blockBuffer = true;
+                } else if (!blocking) {
+                    Block();
+                }
+            }
+
+            if (Input.GetButtonUp("Block") && !parrying && blocking)
+            {
+                Unblock();
+            }
+
+            if (Input.GetButtonDown("Primary"))
+            {
+                if (parrying) {
+                    attackBuffer = true;
+                } else if (!attacking) {
+                    StartCoroutine(Attack());
+                }
+                
+            }
+
+            if (!blocking && !attacking) protoSprite.color = Color.white;
         }
 
-        if (Input.GetMouseButtonUp(1))
-        {
-            blockPressed = false;
-            col.gameObject.SetActive(false);
-            playerHealth.SetInvincibility(false);
-            protoSprite.color = Color.white;
-        }
-
-        if (Input.GetMouseButtonDown(0) && !attacking)
-        {
-            StartCoroutine(AttackWindow());
-        }
-
-        if (!blockPressed && !attacking)
-            protoSprite.color = Color.white;
+        
 
         // checks if player is in the block or parry state when hit
         // enemyAttack.attacking is a bool from the AttackPlayer class
         /*
-        if ((blockPressed && enemyAttack.attacking) || (parryWindow && enemyAttack.attacking))
+        if ((blockPressed && enemyAttack.attacking) || (parrying && enemyAttack.attacking))
         {
             Debug.Log("block or parry sucessful");
 
-            if (!parryWindow)
+            if (!parrying)
             {
                 Debug.Log("Melee attack blocked");
                 meleeBlockSuccess = true;
                 // player blocks incoming damage?
                 // player takes reduced damage 
             }
-            else if (parryWindow)
+            else if (parrying)
             {
                 Debug.Log("Melee attack parried");
                 meleeParrySuccess = true;
@@ -101,7 +118,7 @@ public class BlockParryController : MonoBehaviour
     // {
     //     if (other.CompareTag("EnemyProjectile"))
     //     {
-    //         if (parryWindow)
+    //         if (parrying)
     //         {
     //             Debug.Log("parried");
     //             Destroy(other.gameObject);
@@ -139,12 +156,12 @@ public class BlockParryController : MonoBehaviour
 
     public bool isParrying()
     {
-        return parryWindow;
+        return parrying;
     }
 
     public bool isBlocking()
     {
-        return blockPressed;
+        return blocking;
     }
 
     public void ParryProj()
@@ -157,23 +174,51 @@ public class BlockParryController : MonoBehaviour
         knockback.BlockParryKnockback();
     }
 
-    IEnumerator ParryWindow()
+    IEnumerator Parry()
     {
         protoSprite.color = Color.yellow;
-        parryWindow = true;
+        parrying = true;
         yield return new WaitForSeconds(parryModeTime);
-        parryWindow = false;
-        protoSprite.color = Color.red;
+        parrying = false;
+        if (!Input.GetButton("Block")) Unblock();
+        if (attackBuffer) {
+            Unblock();
+            StartCoroutine(Attack());
+        }
+        if (Input.GetButton("Block")) protoSprite.color = Color.red;
     }
 
-    IEnumerator AttackWindow()
+    IEnumerator Attack()
     {
+        if (attackBuffer) attackBuffer = false;   
         protoSprite.color = Color.green;
         col.gameObject.SetActive(true);
         attacking = true;
-        yield return new WaitForSeconds(1);
+        bool currCanMove = pm.GetCanMove();
+        pm.SetCanMove(false);
+        yield return new WaitForSeconds(.3f);
+        pm.SetCanMove(currCanMove);
         attacking = false;
         col.gameObject.SetActive(false);
+        protoSprite.color = Color.white;
+        if (blockBuffer) Block();
+    }
+
+    void Block() {
+        if (blockBuffer) blockBuffer = false;
+        blocking = true;
+        col.gameObject.SetActive(true);
+        playerHealth.SetInvincibility(true);
+        currMovementSpeedMultiplier = ms.GetMovementMultiplier();
+        ms.SetMovementMultiplier(blockingMovementSpeedMultiplier);
+        StartCoroutine(Parry());
+    }
+
+    void Unblock() {
+        blocking = false;
+        col.gameObject.SetActive(false);
+        playerHealth.SetInvincibility(false);
+        ms.SetMovementMultiplier(currMovementSpeedMultiplier);
         protoSprite.color = Color.white;
     }
 }

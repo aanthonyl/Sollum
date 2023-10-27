@@ -12,6 +12,7 @@ public class MovementSettings : MonoBehaviour
     [SerializeField] float friction;
     [SerializeField] float thrust;
     [SerializeField] float gravity;
+    [SerializeField] float movementMultiplier;
 
     public float GetMaxSpeed()
     {
@@ -36,6 +37,14 @@ public class MovementSettings : MonoBehaviour
     public float GetGravity()
     {
         return gravity;
+    }
+    public float GetMovementMultiplier()
+    {
+        return movementMultiplier;
+    }
+    public void SetMovementMultiplier(float mm)
+    {
+        movementMultiplier = mm;
     }
     public void SetThrust(float t)
     {

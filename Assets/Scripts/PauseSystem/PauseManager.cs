@@ -95,8 +95,9 @@ public class PauseManager : MonoBehaviour
     // HAULT PLAYER MOVEMENT, WHIP ATTACK, ENEMY ATTACKS
     private void FreezePlayer()
     {
+        Debug.Log("Freeze plaeyr called");
         gamePaused = true;
-        playerMovement.freezeMovement = true;
+        playerMovement.PausePlayer();
         //whipManager.pauseOpen = true;
         //enemyAttack.freezeAttack = true;
     }
@@ -104,7 +105,7 @@ public class PauseManager : MonoBehaviour
     private void UnFreezePlayer()
     {
         gamePaused = false;
-        playerMovement.freezeMovement = false;
+        playerMovement.UnpausePlayer();
         //whipManager.pauseOpen = false;
         //enemyAttack.freezeAttack = false;
     }

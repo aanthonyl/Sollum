@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 {
     #region Variables
 
+    
+
         #region Singleton
 
             public static GameManager instance = null;
@@ -42,7 +44,7 @@ public class GameManager : MonoBehaviour
     #endregion
     
     #region Built-in Methods
-    
+
         private void Awake()
         {
             if(instance == null)
