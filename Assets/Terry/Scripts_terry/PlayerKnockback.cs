@@ -6,18 +6,33 @@ public class PlayerKnockback : MonoBehaviour
 {
     [SerializeField] float knockBackScale = 10.0f;
     [SerializeField] Transform parasol;
+    [SerializeField] float  decelerationReductionTime = 0.5f;
     Rigidbody rb;
+    playerMovement pm;
+    MovementSettings ms;
 
     public void BlockParryKnockback()
     {
         Debug.Log("BlockParryKnockback called");
+
         rb.AddForce(-parasol.forward * knockBackScale, ForceMode.Impulse);
+        StartCoroutine(DecelerationReduction());
         // hi
     }
     // Start is called before the first frame update
     void Start()
     {
+        ms = gameObject.GetComponent<MovementSettings>();
+        pm = gameObject.GetComponent<playerMovement>();
         rb = gameObject.GetComponent<Rigidbody>();
+    }
+
+    IEnumerator DecelerationReduction() {
+
+        float ogDecel = ms.GetDeceleration();
+        ms.SetDeceleration(ogDecel/5f);
+        yield return new WaitForSeconds(decelerationReductionTime);
+        ms.SetDeceleration(ogDecel);
     }
 
 }

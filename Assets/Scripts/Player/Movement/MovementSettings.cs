@@ -29,7 +29,6 @@ public class MovementSettings : MonoBehaviour
     {
         return friction;
     }
-
     public float GetThrust()
     {
         return thrust;
@@ -37,5 +36,30 @@ public class MovementSettings : MonoBehaviour
     public float GetGravity()
     {
         return gravity;
+    }
+    public void SetThrust(float t)
+    {
+        thrust = t;
+    }
+    public void SetGravity(float g)
+    {
+        gravity = g;
+    }
+
+    public void SetMaxSpeed(float ms)
+    {
+        maxSpeed = ms;
+    }
+    public void SetAcceleration(float a)
+    {
+        acceleration = a;
+    }
+    public void SetDeceleration(float d)
+    {
+        deceleration = d;
+    }
+    public void SetFriction(float f)
+    {
+        friction = f;
     }
 }
