@@ -21,7 +21,7 @@ public class MiniBoss : Boss
 
         if (newPhase == Phase.Phase2)
         {
-            bossCharge.ChargeTowards(chargeTarget.position);
+            bossCharge.ChargeTowards();
         }
     }
 
