@@ -12,7 +12,8 @@ public class ParasolColDetection : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("EnemyProjectile"))
+        Debug.Log(other.gameObject.tag);
+        if (other.gameObject.CompareTag("EnemyProjectile"))
         {
             if (controller.isParrying())
             {
@@ -28,17 +29,25 @@ public class ParasolColDetection : MonoBehaviour
                 controller.KnockPlayer();
             }
         }
-        else if (other.CompareTag("Enemy"))
+        else if (other.gameObject.CompareTag("Enemy"))
         {
-            if (controller.isBlocking())
-            {
-                other.gameObject.GetComponent<EnemyStateManager>().KnockedBack();
+            if (other.GetType() == typeof(CapsuleCollider)) {
+                Debug.Log("is capsule");
+                if (controller.isBlocking())
+                {
+                    Debug.Log("Should be knocked back");
+                    controller.KnockPlayer();
+                }
+            } else {
+                Debug.Log("is not capsule");
             }
         }
-        else if (other.CompareTag("Break"))
+        else if (other.gameObject.CompareTag("Break"))
         {
+            Debug.Log("Breakable");
             if (controller.isAttacking())
             {
+                Debug.Log("Should break");
                 other.gameObject.GetComponent<TempBreak>().Break();
             }
         }

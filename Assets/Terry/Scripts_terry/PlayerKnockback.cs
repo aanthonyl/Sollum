@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class PlayerKnockback : MonoBehaviour
 {
-    [SerializeField] float knockbackTime = 0.1f;
     [SerializeField] float knockBackScale = 10.0f;
+    [SerializeField] Transform parasol;
     Rigidbody rb;
 
     public void BlockParryKnockback()
     {
-        rb.velocity = -gameObject.transform.forward * knockBackScale;
-        StartCoroutine(KnockbackTime());
+        Debug.Log("BlockParryKnockback called");
+        rb.AddForce(-parasol.forward * knockBackScale, ForceMode.Impulse);
+        // hi
     }
     // Start is called before the first frame update
     void Start()
@@ -19,9 +20,4 @@ public class PlayerKnockback : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody>();
     }
 
-    IEnumerator KnockbackTime()
-    {
-        yield return new WaitForSeconds(knockbackTime);
-        rb.velocity = Vector3.zero;
-    }
 }
