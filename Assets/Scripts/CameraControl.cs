@@ -12,9 +12,8 @@ public class CameraControl : MonoBehaviour
     public float maxX = 999;
     public float minY = -0;
     public float maxY = 10;
-    public float minZ = -22;
+    public float minZ = -7;
     public float maxZ = 10;
-
     public float offsetX = 0;
     public float offsetY = 7;
     public float offsetZ = -15;
@@ -32,6 +31,17 @@ public class CameraControl : MonoBehaviour
         float camY = player.transform.position.y + offsetY;
         float camZ = player.transform.position.z + offsetZ;
 
+        Debug.Log("CamZ pre: " + camZ);
+
+        if (camX > maxX) camX = maxX;
+        if (camX < minX) camX = minX;
+        if (camY > maxY) camY = maxY;
+        if (camY < minY) camY = minY;
+        if (camZ > maxZ) camZ = maxZ;
+        if (camZ < minZ) camZ = minZ;
+
+        Debug.Log("CamZ post: " + camZ); 
+        
         // camX = camX > maxX ? maxX : camX;
         // camX = camX < minX ? minX : camX;
         // camY = camY > maxY ? maxY : camY;
