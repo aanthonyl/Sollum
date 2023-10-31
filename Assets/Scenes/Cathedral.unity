@@ -1519,7 +1519,6 @@ MonoBehaviour:
   whipZone: {fileID: 2002873017}
   pauseManager: {fileID: 2213850549795801171}
   dialogueManager: {fileID: 5450731548760166172}
-  WhipAttackKey: 323
   pauseOpen: 0
 --- !u!1 &698442181
 GameObject:
@@ -2021,6 +2020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parryModeTime: 0.4
+  blockingMovementSpeedMultiplier: 0
   parryVelocity: 50
   parryClass: {fileID: 1499563483}
   parryBlockClass: {fileID: 1903816954}
@@ -4419,8 +4419,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d13bd9f22bfe4f1fa69f0dfd7e6fbaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackTime: 0.1
   knockBackScale: 10
+  parasol: {fileID: 613847770}
+  decelerationReductionTime: 0.5
 --- !u!114 &1903816960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4439,6 +4440,7 @@ MonoBehaviour:
   friction: 0
   thrust: 0
   gravity: 0
+  movementMultiplier: 0
 --- !u!114 &1903816961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4451,6 +4453,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8359595a0cc89c4d93399ff9342cf3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xInput: 0
+  zInput: 0
+  speed: 0
   facingForward: 1
   freezeMovement: 0
 --- !u!136 &1903816962
