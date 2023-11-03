@@ -11,6 +11,7 @@ public class AimAtMouse : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        mouseClass = GameObject.Find("MousePosition");
         mouse = mouseClass.GetComponent<MousePosition>();
     }
 
