@@ -43,7 +43,7 @@ public class EnemyStateManager : MonoBehaviour
 	//Temporarily Public
 	[Header("Knockback Properties")]
 	[SerializeField]
-	public float push_time = 0.1f;
+	public float push_time = .5f;
 	[SerializeField]
 	public float pushVelocity = 50.0f;
 	[SerializeField]
@@ -175,8 +175,9 @@ public class EnemyStateManager : MonoBehaviour
 	/* KnockedBack ====================================
 	*   - Called when enemy collides with parasol
 	*===========================================*/
-	public void KnockedBack()
+	public void KnockedBack(Vector3 parasolForward)
 	{
+		rb.velocity = parasolForward * pushVelocity;
 		SwitchState(KnockedState);
 	}
 
