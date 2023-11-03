@@ -26,7 +26,6 @@ public class DialogueManager : MonoBehaviour
     public Image speakerSprite;
     [Tooltip("Continue Button")]
     public GameObject continueImage;
-
     [Header("Scrolling Options")]
     [Tooltip("Scroll Through Dialogue?")]
     public bool isScrollingText = true;
@@ -41,10 +40,6 @@ public class DialogueManager : MonoBehaviour
     public playerMovement playerMovement;
     [HideInInspector]
     public PauseManager pauseManager;
-    //[HideInInspector]
-    //public WhipManager whipManager;
-    //[HideInInspector]
-    //public EnemyAttack enemyAttack;
 
     // ALLOWS DEVELOPER TO SELECT KEY FROM LIST
     [Header("Continue Key")]
@@ -54,9 +49,6 @@ public class DialogueManager : MonoBehaviour
     public DialogueTrigger currentTrigger;
 
     // BOOLEANS
-    [HideInInspector]
-    public bool freezePlayerOnDialogue = true;
-    private bool isInDialogue = false;
     private bool isTyping = false;
     private bool cancelTyping = false;
     [HideInInspector]
@@ -74,8 +66,6 @@ public class DialogueManager : MonoBehaviour
         // ACCESS PLAYER MOVEMENT, WHIP ATTACK, PAUSE MENU, ENEMY ATTACK FOR FREEZE MOVEMENT
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<playerMovement>();
         pauseManager = GameObject.Find("PauseManager").GetComponent<PauseManager>();
-        //whipManager = GameObject.Find("WhipManager").GetComponent<WhipManager>();
-        //enemyAttack = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyAttack>();
 
         // GET SPEAKERS FROM LIBRARY & ADD TO LIST
         foreach (SpeakerLibrary.SpriteInfo info in speakerSprites.speakerSpriteList)
@@ -88,39 +78,32 @@ public class DialogueManager : MonoBehaviour
     // HAULT PLAYER MOVEMENT, WHIP ATTACK, ENEMY ATTACKS, PAUSE MENU
     private void FreezePlayer()
     {
+        playerMovement.enabled = false;
         dialogueActive = true;
-        playerMovement.freezeMovement = true;
+        //playerMovement.freezeMovement = true;
         pauseManager.dialogueOpen = true;
-        //whipManager.dialogueOpen = true;
-        //enemyAttack.freezeAttack = true;
     }
 
     // RESTORE PLAYER MOVEMENT, WHIP ATTACK, ENEMY ATTACKS
     private void UnFreezePlayer()
     {
+        playerMovement.enabled = true;
         dialogueActive = false;
-        playerMovement.freezeMovement = false;
+        //playerMovement.freezeMovement = false;
         pauseManager.dialogueOpen = false;
-        //whipManager.dialogueOpen = false;
-        //enemyAttack.freezeAttack = false;
     }
 
     // STARTS DIALOGUE
     public void StartDialogue(Queue<string> dialogue)
     {
-        // SETS BOOL
-        isInDialogue = true;
         // CLEARS THE SPEAKER
         speakerSprite.sprite = invisSprite;
         // ENABLES UI
         DialogueUI.SetActive(true);
         continueImage.SetActive(false);
         // FREEZE PLAYER
-        if (freezePlayerOnDialogue)
-        {
-            FreezePlayer();
-            Debug.Log("FreezePlayer() HAS BEEN CALLED FROM DialogueManager.cs");
-        }
+        FreezePlayer();
+        Debug.Log("FreezePlayer() HAS BEEN CALLED FROM DialogueManager.cs");
 
         // STORES DIALOGUE FROM DIALOGUE TRIGGER
         inputStream = dialogue;
@@ -138,7 +121,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (!isTyping)
         {
-            if (inputStream.Peek().Contains("EndQueue")) // special phrase to stop dialogue
+            if (inputStream.Peek().Contains("EndQueue"))
             {
                 // ENDS DIALOGUE
                 if (!isTyping)
@@ -158,7 +141,7 @@ public class DialogueManager : MonoBehaviour
                 string name = inputStream.Peek();
                 name = inputStream.Dequeue().Substring(name.IndexOf('=') + 1, name.IndexOf(']') - (name.IndexOf('=') + 1));
                 speakerName.text = name;
-                PrintDialogue(); // print the rest of this line
+                PrintDialogue();
             }
             else if (inputStream.Peek().Contains("[SPEAKERSPRITE="))
             {
@@ -236,15 +219,12 @@ public class DialogueManager : MonoBehaviour
         inputStream.Clear();
         DialogueUI.SetActive(false);
 
-        isInDialogue = false;
+        //isInDialogue = false;
         cancelTyping = false;
         isTyping = false;
 
-        if (freezePlayerOnDialogue)
-        {
-            UnFreezePlayer();
-            Debug.Log("UnFreezePlayer() HAS BEEN CALLED FROM DialogueManager");
-        }
+        UnFreezePlayer();
+        Debug.Log("UnFreezePlayer() HAS BEEN CALLED FROM DialogueManager");
 
         if (currentTrigger.singleUseDialogue)
         {
