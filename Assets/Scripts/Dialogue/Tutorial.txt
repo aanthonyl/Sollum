@@ -1,0 +1,3 @@
+[NAME=Canary][SPEAKERSPRITE=Canary]*chirp* (Victoria, look beyond that stall.)
+[NAME=Victoria][SPEAKERSPRITE=Canary]The police..looks like I’ll have to fight.
+[NAME=Canary][SPEAKERSPRITE=Canary]*chirp!* Press left click to swing your whip/parasol. You can switch between parasol and whip with F. When you have the parasol equipped, press right click to block and parry! 
