@@ -67,7 +67,6 @@ public class DialogueTrigger : MonoBehaviour
                 }
             }
         }
-
     }
 
     // TRIGGER DIALOGUE, UNTIL LEAVES AREA //

@@ -38,6 +38,8 @@ public class DialogueManager : MonoBehaviour
     public playerMovement playerMovement;
     [HideInInspector]
     public PauseManager pauseManager;
+    [HideInInspector]
+    public Typewriter typewriter;
 
     // ALLOWS DEVELOPER TO SELECT KEY FROM LIST
     [Header("Continue Key")]
@@ -66,6 +68,7 @@ public class DialogueManager : MonoBehaviour
         // ACCESS PLAYER MOVEMENT, WHIP ATTACK, PAUSE MENU, ENEMY ATTACK FOR FREEZE MOVEMENT
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<playerMovement>();
         pauseManager = GameObject.Find("PauseManager").GetComponent<PauseManager>();
+        //typewriter = FindObjectOfType<Typewriter>();
 
         // GET SPEAKERS FROM LIBRARY & ADD TO LIST
         foreach (SpeakerLibrary.SpriteInfo info in speakerSprites.speakerSpriteList)
@@ -127,6 +130,7 @@ public class DialogueManager : MonoBehaviour
     // CONTINUE BUTTON TO ADVANCE DIALOGUE
     public void AdvanceDialogue()
     {
+        //typewriter.enabled = true;
         PrintDialogue();
     }
 
@@ -175,13 +179,12 @@ public class DialogueManager : MonoBehaviour
             else
             {
                 dialogueBody.text = inputStream.Dequeue();
-                /*
-                if (dialogueBody.text == "")
-                {
-                    StartCoroutine(Wait());
+                //if (dialogueBody.text == "")
+                //{
+                //    typewriter.enabled = false;
+                    //StartCoroutine(Wait());
                     //continueImage.SetActive(true);
-                }
-                */
+                //}
             }
         }
         else
