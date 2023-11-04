@@ -26,12 +26,10 @@ public class DialogueManager : MonoBehaviour
     public Image speakerSprite;
     [Tooltip("Continue Button")]
     public GameObject continueImage;
-    [Header("Scrolling Options")]
-    [Tooltip("Scroll Through Dialogue?")]
-    public bool isScrollingText = true;
-    [Tooltip("Scroll Speed")]
+
+    [Tooltip("Type Speed")]
     public float typeSpeed = 0.05f;
-    private string scrollText;
+
 
     private Queue<string> inputStream = new Queue<string>(); // stores dialogue
 
@@ -48,11 +46,13 @@ public class DialogueManager : MonoBehaviour
     [HideInInspector]
     public DialogueTrigger currentTrigger;
 
-    // BOOLEANS
-    private bool isTyping = false;
+    // BOOLS
+    public bool isTyping = false;
     private bool cancelTyping = false;
     [HideInInspector]
     public bool dialogueActive = false;
+    public bool inDialogueZone = false;
+
 
     [Header("Speaker Library")]
     [Tooltip("Invisible/Placeholder sprite for when no one is talking")]
@@ -75,21 +75,31 @@ public class DialogueManager : MonoBehaviour
         speakerSprite.sprite = invisSprite;
     }
 
+    private void Update()
+    {
+        if (inDialogueZone && Input.GetKeyDown(DialogueKey))
+        {
+            AdvanceDialogue();
+        }
+    }
+
     // HAULT PLAYER MOVEMENT, WHIP ATTACK, ENEMY ATTACKS, PAUSE MENU
     private void FreezePlayer()
     {
-        playerMovement.enabled = false;
+        playerMovement.freezeMovement = true;
+        //playerMovement.enabled = false;
         dialogueActive = true;
-        //playerMovement.freezeMovement = true;
+
         pauseManager.dialogueOpen = true;
     }
 
     // RESTORE PLAYER MOVEMENT, WHIP ATTACK, ENEMY ATTACKS
     private void UnFreezePlayer()
     {
-        playerMovement.enabled = true;
+        playerMovement.freezeMovement = false;
+        //playerMovement.enabled = true;
         dialogueActive = false;
-        //playerMovement.freezeMovement = false;
+
         pauseManager.dialogueOpen = false;
     }
 
@@ -98,15 +108,18 @@ public class DialogueManager : MonoBehaviour
     {
         // CLEARS THE SPEAKER
         speakerSprite.sprite = invisSprite;
+
         // ENABLES UI
         DialogueUI.SetActive(true);
-        continueImage.SetActive(false);
+        //continueImage.SetActive(true);
+
         // FREEZE PLAYER
         FreezePlayer();
         Debug.Log("FreezePlayer() HAS BEEN CALLED FROM DialogueManager.cs");
 
         // STORES DIALOGUE FROM DIALOGUE TRIGGER
         inputStream = dialogue;
+
         // PRINTS FIRST LINE OF DIALOGUE
         PrintDialogue();
     }
@@ -161,21 +174,14 @@ public class DialogueManager : MonoBehaviour
             }
             else
             {
-                if (isScrollingText)
+                dialogueBody.text = inputStream.Dequeue();
+                /*
+                if (dialogueBody.text == "")
                 {
-                    if (!isTyping)
-                    {
-                        // STARTS COROUTINE
-                        scrollText = inputStream.Dequeue();
-                        StartCoroutine(TextScroll(scrollText));
-                        Debug.Log("TextScroll COROUTINE HAS BEEN STARTED");
-                    }
+                    StartCoroutine(Wait());
+                    //continueImage.SetActive(true);
                 }
-                else
-                {
-                    dialogueBody.text = inputStream.Dequeue();
-                    continueImage.SetActive(true);
-                }
+                */
             }
         }
         else
@@ -183,33 +189,23 @@ public class DialogueManager : MonoBehaviour
             if (isTyping && !cancelTyping)
             {
                 cancelTyping = true;
-                dialogueBody.text = scrollText;
             }
         }
     }
-
-    // COROUTINE TO HANDLE SCROLLING TIMEFRAME
-    private IEnumerator TextScroll(string lineOfText)
+    /*
+    IEnumerator Wait()
     {
-        // CANNOT HIT CONTINUE WHILE TEXT SCROLLING
-        continueImage.SetActive(false);
-        int letter = 0;
-        dialogueBody.text = "";
-        isTyping = true;
-        cancelTyping = false;
-        while (isTyping && !cancelTyping && (letter < lineOfText.Length - 1))
-        {
-            dialogueBody.text += lineOfText[letter];
-            letter++;
-            yield return new WaitForSeconds(typeSpeed);
-        }
-
-        dialogueBody.text = lineOfText;
-        // ENABLES CONTINUE BUTTON
-        continueImage.SetActive(true);
-        isTyping = false;
-        cancelTyping = false;
+        yield return new WaitForSeconds(4);
+        ContinueButton();
     }
+    */
+    /*
+    public void ContinueButton()
+    {
+        continueImage.SetActive(true);
+        AdvanceDialogue();
+    }
+    */
 
     // CLOSES DIALOGUE
     public void EndDialogue()
@@ -218,8 +214,7 @@ public class DialogueManager : MonoBehaviour
         speakerName.text = "";
         inputStream.Clear();
         DialogueUI.SetActive(false);
-
-        //isInDialogue = false;
+        
         cancelTyping = false;
         isTyping = false;
 

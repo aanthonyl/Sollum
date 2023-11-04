@@ -22,8 +22,7 @@ public class Typewriter : MonoBehaviour
 	[SerializeField] string leadingChar = "";
 	[SerializeField] bool leadingCharBeforeDelay = false;
 
-	[HideInInspector]
-	public DialogueManager dialogueManager;
+	private bool cancelTyping = false;
 
 	void Start()
 	{
@@ -40,8 +39,8 @@ public class Typewriter : MonoBehaviour
 
 	private void Update()
     {
-        if (Input.GetKeyDown(DialogueKey))
-        {
+		if (Input.GetKeyDown(KeyCode.E))
+		{
 			_text = GetComponent<Text>()!;
 
 			if (_text != null)
@@ -52,7 +51,7 @@ public class Typewriter : MonoBehaviour
 				StartCoroutine("TypeWriterText");
 			}
 		}
-    }
+	}
 
     IEnumerator TypeWriterText()
 	{

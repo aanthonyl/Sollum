@@ -128,7 +128,7 @@ public class playerMovement : MonoBehaviour
         }
 
         //applies movement force//
-        rb.AddForce(forceVector);
+        //rb.AddForce(forceVector); // * This needs to be connected to the freezeMovement bool to stop movement in dialogue
 
         //applies deceleration when no input//
         if (inputMagnitude == 0 && speed > 0)
