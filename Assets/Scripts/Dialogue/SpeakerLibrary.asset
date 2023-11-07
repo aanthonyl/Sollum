@@ -15,3 +15,5 @@ MonoBehaviour:
   speakerSpriteList:
   - name: Canary
     sprite: {fileID: 21300000, guid: fdefb2cc78f29bb4985b7c87f7152457, type: 3}
+  - name: Victoria
+    sprite: {fileID: 21300000, guid: fdefb2cc78f29bb4985b7c87f7152457, type: 3}
