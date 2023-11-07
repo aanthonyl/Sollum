@@ -1,0 +1,4 @@
+[NAME=Victoria][SPEAKERSPRITE=Victoria]“Potatoes: Five for two cents”
+[NAME=Victoria][SPEAKERSPRITE=Victoria]I used to buy my potatoes from here before...everything.
+[NAME=Victoria][SPEAKERSPRITE=Victoria]Now the blight and rot has forced this stand to close down.
+[NAME=Fitzwilliam][SPEAKERSPRITE=Canary]*chirp...* (How sad...)

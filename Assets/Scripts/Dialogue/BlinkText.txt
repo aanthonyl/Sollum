@@ -1,0 +1,2 @@
+[NAME=Victoria][SPEAKERSPRITE=Victoria]Wh- Did that eye just blink?!
+[NAME=Fitzwilliam][SPEAKERSPRITE=Canary]*chirp???* How??? Strickland’s influence truly has warped this world.
