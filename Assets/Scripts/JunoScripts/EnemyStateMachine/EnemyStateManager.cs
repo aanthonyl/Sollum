@@ -153,6 +153,7 @@ public class EnemyStateManager : MonoBehaviour
 	*===========================================*/
 	public void SawPlayer(Transform player)
 	{
+		StopAllCoroutines();
 		isAggro = true;
 		target = player;
 		rend.color = Color.red;
@@ -165,8 +166,12 @@ public class EnemyStateManager : MonoBehaviour
 	*===========================================*/
 	private void HeardNoise(object sender, NoiseEvents.OnNoiseMadeArgs e)
 	{
+		StopAllCoroutines();
+		// Debug.Log("Recieved Event");
+		// Debug.Log(Vector3.Distance(e.noiseTrans.position, transform.position));
 		if (Vector3.Distance(e.noiseTrans.position, transform.position) - playerHeight <= maxHearingDist && !isAggro)
 		{
+			// Debug.Log("Within Distance");
 			target = e.noiseTrans;
 			SwitchState(SearchState);
 		}
