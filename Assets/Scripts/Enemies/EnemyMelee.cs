@@ -58,7 +58,7 @@ public class EnemyMelee : MonoBehaviour
     {
         if (audioSource != null)
             audioSource.Play();
-
+        //attack animation
         PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
         if (playerHealth != null)
         {
