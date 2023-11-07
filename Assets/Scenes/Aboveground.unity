@@ -7075,7 +7075,7 @@ MonoBehaviour:
   maxX: 999
   minY: 0
   maxY: 10
-  minZ: -22
+  minZ: -7
   maxZ: 10
   offsetX: 0
   offsetY: 3
@@ -32225,8 +32225,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.718506, y: 1, z: 0.41447142}
-  m_Center: {x: 1.3592525, y: 0, z: 0.2927643}
+  m_Size: {x: 3.718506, y: 1, z: 0.28021806}
+  m_Center: {x: 1.3592525, y: 0, z: 0.2256376}
 --- !u!1 &1713019720
 GameObject:
   m_ObjectHideFlags: 0

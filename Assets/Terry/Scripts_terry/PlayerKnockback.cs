@@ -15,7 +15,7 @@ public class PlayerKnockback : MonoBehaviour
     {
         Debug.Log("BlockParryKnockback called");
 
-        rb.AddForce(-parasol.forward * knockBackScale, ForceMode.Impulse);
+        
         StartCoroutine(DecelerationReduction());
         // hi
     }
@@ -28,9 +28,9 @@ public class PlayerKnockback : MonoBehaviour
     }
 
     IEnumerator DecelerationReduction() {
-
         float ogDecel = ms.GetDeceleration();
-        ms.SetDeceleration(ogDecel/5f);
+        ms.SetDeceleration(ogDecel/100f);
+        rb.AddForce(-parasol.forward * knockBackScale, ForceMode.Impulse);
         yield return new WaitForSeconds(decelerationReductionTime);
         ms.SetDeceleration(ogDecel);
     }

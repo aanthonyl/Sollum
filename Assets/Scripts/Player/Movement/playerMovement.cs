@@ -146,7 +146,7 @@ public class playerMovement : MonoBehaviour
             }
 
             //applies movement force//
-            Debug.Log("Adding Force vector");
+            //Debug.Log("Adding Force vector");
             Debug.Log(forceVector);
             rb.AddForce(forceVector);
             
@@ -154,13 +154,13 @@ public class playerMovement : MonoBehaviour
             //applies deceleration when no input//
             if ((inputMagnitude == 0 || !canMove) && speed > 0)
             {
-                Debug.Log("Decelerating");
+                //Debug.Log("Decelerating");
                 Vector2 decelerationVelocity = new Vector2(rb.velocity.x, rb.velocity.z).normalized * ms.GetDeceleration() * new Vector2(rb.velocity.x, rb.velocity.z).magnitude;
                 rb.AddForce(new Vector3(decelerationVelocity.x, 0, decelerationVelocity.y));
             }
             //applies movement friction//
             if (speed > 0) {
-                Debug.Log("Adding friction");
+                //Debug.Log("Adding friction");
                 rb.AddForce(-transform.up * ms.GetFriction());
             } 
 
