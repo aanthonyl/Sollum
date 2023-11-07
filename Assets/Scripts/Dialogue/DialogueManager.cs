@@ -68,7 +68,7 @@ public class DialogueManager : MonoBehaviour
         // ACCESS PLAYER MOVEMENT, WHIP ATTACK, PAUSE MENU, ENEMY ATTACK FOR FREEZE MOVEMENT
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<playerMovement>();
         pauseManager = GameObject.Find("PauseManager").GetComponent<PauseManager>();
-        //typewriter = FindObjectOfType<Typewriter>();
+        //typewriter = dialogueBody.GetComponent<Typewriter>();
 
         // GET SPEAKERS FROM LIBRARY & ADD TO LIST
         foreach (SpeakerLibrary.SpriteInfo info in speakerSprites.speakerSpriteList)
@@ -80,9 +80,20 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if (inDialogueZone && Input.GetKeyDown(DialogueKey))
+        if (inDialogueZone)
         {
-            AdvanceDialogue();
+            if (Input.GetKeyDown(DialogueKey))
+            {
+                if (isTyping)
+                {
+                    // If 'E' is pressed while typing, set the cancelTyping flag
+                    cancelTyping = true;
+                }
+                else
+                {
+                    AdvanceDialogue();
+                }
+            }
         }
     }
 
@@ -90,7 +101,6 @@ public class DialogueManager : MonoBehaviour
     private void FreezePlayer()
     {
         playerMovement.freezeMovement = true;
-        //playerMovement.enabled = false;
         dialogueActive = true;
 
         pauseManager.dialogueOpen = true;
@@ -100,7 +110,6 @@ public class DialogueManager : MonoBehaviour
     private void UnFreezePlayer()
     {
         playerMovement.freezeMovement = false;
-        //playerMovement.enabled = true;
         dialogueActive = false;
 
         pauseManager.dialogueOpen = false;
@@ -114,7 +123,6 @@ public class DialogueManager : MonoBehaviour
 
         // ENABLES UI
         DialogueUI.SetActive(true);
-        //continueImage.SetActive(true);
 
         // FREEZE PLAYER
         FreezePlayer();
@@ -130,7 +138,6 @@ public class DialogueManager : MonoBehaviour
     // CONTINUE BUTTON TO ADVANCE DIALOGUE
     public void AdvanceDialogue()
     {
-        //typewriter.enabled = true;
         PrintDialogue();
     }
 
@@ -138,19 +145,17 @@ public class DialogueManager : MonoBehaviour
     {
         if (!isTyping)
         {
-            if (inputStream.Peek().Contains("EndQueue"))
+            if (inputStream.Count == 0)
+            {
+                // If there is no more dialogue left in the queue, end the dialogue
+                EndDialogue();
+            }
+            else if (inputStream.Peek().Contains("EndQueue"))
             {
                 // ENDS DIALOGUE
-                if (!isTyping)
-                {
-                    inputStream.Dequeue();
-                    EndDialogue();
-                    Debug.Log("END DIALOGUE");
-                }
-                else
-                {
-                    cancelTyping = true;
-                }
+                inputStream.Dequeue();
+                EndDialogue();
+                Debug.Log("END DIALOGUE");
             }
             else if (inputStream.Peek().Contains("[NAME="))
             {
@@ -178,13 +183,11 @@ public class DialogueManager : MonoBehaviour
             }
             else
             {
+                // Set the dialogue text and start typing
+                //dialogueBody.text = "";
+                //dialogueBody.text = inputStream.Peek();
+                //StartCoroutine(TypeText(inputStream.Dequeue()));
                 dialogueBody.text = inputStream.Dequeue();
-                //if (dialogueBody.text == "")
-                //{
-                //    typewriter.enabled = false;
-                    //StartCoroutine(Wait());
-                    //continueImage.SetActive(true);
-                //}
             }
         }
         else
@@ -193,22 +196,17 @@ public class DialogueManager : MonoBehaviour
             {
                 cancelTyping = true;
             }
+            
+            if (cancelTyping)
+            {
+                // If 'E' is pressed, stop typing and show the complete line of text
+                //dialogueBody.text = inputStream.Peek();
+                isTyping = false;
+                cancelTyping = false;
+                dialogueBody.text = "";
+            }
         }
     }
-    /*
-    IEnumerator Wait()
-    {
-        yield return new WaitForSeconds(4);
-        ContinueButton();
-    }
-    */
-    /*
-    public void ContinueButton()
-    {
-        continueImage.SetActive(true);
-        AdvanceDialogue();
-    }
-    */
 
     // CLOSES DIALOGUE
     public void EndDialogue()
@@ -230,4 +228,48 @@ public class DialogueManager : MonoBehaviour
         }
         inputStream.Clear();
     }
+
+    /*
+    // Coroutine to type text letter by letter
+    private IEnumerator TypeText(string text)
+    {
+        isTyping = true;
+        dialogueBody.text = "";
+
+        for (int i = 0; i < text.Length; i++)
+        {
+            if (cancelTyping)
+            {
+                // If 'E' is pressed, break out of typing loop immediately
+                dialogueBody.text = text;
+                isTyping = false;
+                cancelTyping = false;
+                yield break;
+            }
+
+            dialogueBody.text += text[i];
+            yield return new WaitForSeconds(typeSpeed);
+        }
+
+        isTyping = false;
+        /////
+        isTyping = true;
+        dialogueBody.text = "";
+        foreach (char letter in text)
+        {
+            if (cancelTyping)
+            {
+                // If 'E' is pressed, break out of typing loop
+                dialogueBody.text = text;
+                isTyping = false;
+                cancelTyping = false;
+                yield break;
+            }
+            dialogueBody.text += letter;
+            yield return new WaitForSeconds(typeSpeed);
+        }
+        isTyping = false;
+        
+    }
+    */
 }
