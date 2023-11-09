@@ -38,7 +38,7 @@ public class Typewriter : MonoBehaviour
 	}
 
 	private void Update()
-    {
+	{
 		if (Input.GetKeyDown(KeyCode.E))
 		{
 			_text = GetComponent<Text>()!;
@@ -53,7 +53,7 @@ public class Typewriter : MonoBehaviour
 		}
 	}
 
-    IEnumerator TypeWriterText()
+	IEnumerator TypeWriterText()
 	{
 		_text.text = leadingCharBeforeDelay ? leadingChar : "";
 

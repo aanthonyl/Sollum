@@ -13,6 +13,7 @@ using System;
 
 public class DialogueManager : MonoBehaviour
 {
+
     // SCRIPT TO BE PLACED ON EMPTY GAME OBJECT CALLED "DialogueManager"
 
     [Header("UI Elements")]
@@ -54,7 +55,7 @@ public class DialogueManager : MonoBehaviour
     [HideInInspector]
     public bool dialogueActive = false;
     public bool inDialogueZone = false;
-
+    private bool continueTyping = true;
 
     [Header("Speaker Library")]
     [Tooltip("Invisible/Placeholder sprite for when no one is talking")]
@@ -80,14 +81,23 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
+        /*
+        if (continueTyping && Input.GetKeyDown(DialogueKey))
+    {
+        // If 'E' is pressed after typing, clear the text and print the next line
+        dialogueBody.text = "";
+        PrintDialogue();
+    }
+        */
+        
         if (inDialogueZone)
         {
             if (Input.GetKeyDown(DialogueKey))
             {
                 if (isTyping)
                 {
-                    // If 'E' is pressed while typing, set the cancelTyping flag
-                    cancelTyping = true;
+                    // If 'E' is pressed while typing, set the flag to false
+                    continueTyping = false;
                 }
                 else
                 {
@@ -95,6 +105,7 @@ public class DialogueManager : MonoBehaviour
                 }
             }
         }
+        
     }
 
     // HAULT PLAYER MOVEMENT, WHIP ATTACK, ENEMY ATTACKS, PAUSE MENU
@@ -184,29 +195,34 @@ public class DialogueManager : MonoBehaviour
             else
             {
                 // Set the dialogue text and start typing
-                //dialogueBody.text = "";
-                //dialogueBody.text = inputStream.Peek();
-                //StartCoroutine(TypeText(inputStream.Dequeue()));
-                dialogueBody.text = inputStream.Dequeue();
-            }
-        }
-        else
-        {
-            if (isTyping && !cancelTyping)
-            {
-                cancelTyping = true;
-            }
-            
-            if (cancelTyping)
-            {
-                // If 'E' is pressed, stop typing and show the complete line of text
-                //dialogueBody.text = inputStream.Peek();
-                isTyping = false;
-                cancelTyping = false;
-                dialogueBody.text = "";
+                StartCoroutine(TypeText(inputStream.Dequeue()));
             }
         }
     }
+
+    private IEnumerator TypeText(string text)
+    {
+        isTyping = true;
+        continueTyping = true;
+        dialogueBody.text = "";
+
+        foreach (char c in text)
+        {
+            if (!continueTyping)
+            {
+                // If continueTyping is false, break out of the loop
+                break;
+            }
+
+            dialogueBody.text += c;
+            yield return new WaitForSeconds(typeSpeed);
+        }
+
+        isTyping = false;
+
+        // Wait for 'E' key in the Update function
+    }
+
 
     // CLOSES DIALOGUE
     public void EndDialogue()
@@ -215,7 +231,7 @@ public class DialogueManager : MonoBehaviour
         speakerName.text = "";
         inputStream.Clear();
         DialogueUI.SetActive(false);
-        
+
         cancelTyping = false;
         isTyping = false;
 
@@ -228,48 +244,4 @@ public class DialogueManager : MonoBehaviour
         }
         inputStream.Clear();
     }
-
-    /*
-    // Coroutine to type text letter by letter
-    private IEnumerator TypeText(string text)
-    {
-        isTyping = true;
-        dialogueBody.text = "";
-
-        for (int i = 0; i < text.Length; i++)
-        {
-            if (cancelTyping)
-            {
-                // If 'E' is pressed, break out of typing loop immediately
-                dialogueBody.text = text;
-                isTyping = false;
-                cancelTyping = false;
-                yield break;
-            }
-
-            dialogueBody.text += text[i];
-            yield return new WaitForSeconds(typeSpeed);
-        }
-
-        isTyping = false;
-        /////
-        isTyping = true;
-        dialogueBody.text = "";
-        foreach (char letter in text)
-        {
-            if (cancelTyping)
-            {
-                // If 'E' is pressed, break out of typing loop
-                dialogueBody.text = text;
-                isTyping = false;
-                cancelTyping = false;
-                yield break;
-            }
-            dialogueBody.text += letter;
-            yield return new WaitForSeconds(typeSpeed);
-        }
-        isTyping = false;
-        
-    }
-    */
 }
