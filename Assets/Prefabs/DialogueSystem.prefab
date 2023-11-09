@@ -823,7 +823,6 @@ GameObject:
   - component: {fileID: 5897589744502632159}
   - component: {fileID: 2881339648883139356}
   - component: {fileID: 1923773523179597388}
-  - component: {fileID: 1779100467147692985}
   m_Layer: 5
   m_Name: DialogueBody
   m_TagString: Untagged
@@ -894,23 +893,6 @@ MonoBehaviour:
   m_Text: 'Dialogue body written here ...
 
 '
---- !u!114 &1779100467147692985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8898129839294020188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6016d844f1747f242a0f27b60d49acd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delayBeforeStart: 0
-  timeBtwChars: 0.08
-  leadingChar: 
-  leadingCharBeforeDelay: 0
-  dialogueManager: {fileID: 405221358107190260}
 --- !u!1 &9104684917790413681
 GameObject:
   m_ObjectHideFlags: 0
@@ -963,11 +945,8 @@ MonoBehaviour:
   typeSpeed: 0.05
   playerMovement: {fileID: 0}
   pauseManager: {fileID: 0}
-  typewriter: {fileID: 0}
   DialogueKey: 101
   currentTrigger: {fileID: 0}
-  isTyping: 0
-  cancelTyping: 0
   dialogueActive: 0
   inDialogueZone: 0
   invisSprite: {fileID: 21300000, guid: 6a19a04fe820476468d44000a1fcaa35, type: 3}

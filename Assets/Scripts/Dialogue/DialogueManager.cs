@@ -1,15 +1,15 @@
 /*
     Script Added by Aurora Russell
 	09/30/2023
-	// MANAGES DIALOGUE SYSTEM //
+	// MANAGES DIALOGUE SYSTEM - TYPEWRITER EFFECT //
 */
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using System;
+//using UnityEngine.SceneManagement;
+//using System;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -39,8 +39,6 @@ public class DialogueManager : MonoBehaviour
     public playerMovement playerMovement;
     [HideInInspector]
     public PauseManager pauseManager;
-    [HideInInspector]
-    public Typewriter typewriter;
 
     // ALLOWS DEVELOPER TO SELECT KEY FROM LIST
     [Header("Continue Key")]
@@ -50,13 +48,14 @@ public class DialogueManager : MonoBehaviour
     public DialogueTrigger currentTrigger;
 
     // BOOLS
-    public bool isTyping = false;
-    private bool cancelTyping = false;
+    private bool isTyping = false;
+    //private bool cancelTyping = false;
     [HideInInspector]
     public bool dialogueActive = false;
     public bool inDialogueZone = false;
     private bool continueTyping = true;
 
+    // SPEAKERS
     [Header("Speaker Library")]
     [Tooltip("Invisible/Placeholder sprite for when no one is talking")]
     public Sprite invisSprite;
@@ -69,7 +68,6 @@ public class DialogueManager : MonoBehaviour
         // ACCESS PLAYER MOVEMENT, WHIP ATTACK, PAUSE MENU, ENEMY ATTACK FOR FREEZE MOVEMENT
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<playerMovement>();
         pauseManager = GameObject.Find("PauseManager").GetComponent<PauseManager>();
-        //typewriter = dialogueBody.GetComponent<Typewriter>();
 
         // GET SPEAKERS FROM LIBRARY & ADD TO LIST
         foreach (SpeakerLibrary.SpriteInfo info in speakerSprites.speakerSpriteList)
@@ -80,32 +78,23 @@ public class DialogueManager : MonoBehaviour
     }
 
     private void Update()
-    {
-        /*
-        if (continueTyping && Input.GetKeyDown(DialogueKey))
-    {
-        // If 'E' is pressed after typing, clear the text and print the next line
-        dialogueBody.text = "";
-        PrintDialogue();
-    }
-        */
-        
+    {   
         if (inDialogueZone)
         {
             if (Input.GetKeyDown(DialogueKey))
             {
                 if (isTyping)
                 {
-                    // If 'E' is pressed while typing, set the flag to false
+                    // If 'E' is pressed while typing, set to false
                     continueTyping = false;
+                    StartCoroutine(Wait());
                 }
                 else
                 {
                     AdvanceDialogue();
                 }
             }
-        }
-        
+        } 
     }
 
     // HAULT PLAYER MOVEMENT, WHIP ATTACK, ENEMY ATTACKS, PAUSE MENU
@@ -219,8 +208,12 @@ public class DialogueManager : MonoBehaviour
         }
 
         isTyping = false;
+    }
 
-        // Wait for 'E' key in the Update function
+    private IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(typeSpeed);
+        AdvanceDialogue();
     }
 
 
@@ -232,7 +225,6 @@ public class DialogueManager : MonoBehaviour
         inputStream.Clear();
         DialogueUI.SetActive(false);
 
-        cancelTyping = false;
         isTyping = false;
 
         UnFreezePlayer();
