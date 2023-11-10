@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class IntroCutScene : MonoBehaviour
 {
     private void OnEnable()
     {
-        SceneManager.LoadScene("Loading", LoadSceneMode.Single);
+        //SceneManager.LoadScene("Aboveground", LoadSceneMode.Single);
+        SceneLoader.instance.Load(Aboveground);
     }
 }
