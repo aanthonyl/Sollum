@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68807315af2b42547bcf46cb5509602c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 0
+  delayBeforeStart: 0.7
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
@@ -757,7 +757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68807315af2b42547bcf46cb5509602c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 0
+  delayBeforeStart: 0.8
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
@@ -1778,7 +1778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68807315af2b42547bcf46cb5509602c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 0
+  delayBeforeStart: 1.3
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
@@ -2145,7 +2145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68807315af2b42547bcf46cb5509602c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 1
+  delayBeforeStart: 0
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
@@ -2457,9 +2457,6 @@ GameObject:
   m_Component:
   - component: {fileID: 357338307}
   - component: {fileID: 357338306}
-  - component: {fileID: 357338308}
-  - component: {fileID: 357338310}
-  - component: {fileID: 357338309}
   - component: {fileID: 357338311}
   m_Layer: 5
   m_Name: CreditsManager
@@ -2500,204 +2497,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &357338308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 357338305}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e45852f10315dde4999d3ab865bc4553, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftObjects:
-  - {fileID: 132366574}
-  - {fileID: 294474050}
-  - {fileID: 1009714766}
-  - {fileID: 553410404}
-  - {fileID: 2138354478}
-  - {fileID: 1088584316}
-  - {fileID: 1452764351}
-  - {fileID: 1232585252}
-  - {fileID: 1426949480}
-  - {fileID: 1477160165}
-  - {fileID: 577892310}
-  - {fileID: 102628053}
-  - {fileID: 965120437}
-  - {fileID: 1338088285}
-  - {fileID: 1232585252}
-  - {fileID: 305993658}
-  - {fileID: 31765917}
-  - {fileID: 1071646872}
-  - {fileID: 1009972316}
-  - {fileID: 1548349555}
-  - {fileID: 1232585252}
-  - {fileID: 1954105465}
-  - {fileID: 814119672}
-  - {fileID: 817497138}
-  - {fileID: 122844094}
-  - {fileID: 1202579131}
-  - {fileID: 1539567374}
-  - {fileID: 1232585252}
-  - {fileID: 1625033753}
-  - {fileID: 1857235558}
-  - {fileID: 70457405}
-  - {fileID: 1824191431}
-  - {fileID: 1022776035}
-  rightObjects:
-  - {fileID: 311470870}
-  - {fileID: 412818558}
-  - {fileID: 1030418437}
-  - {fileID: 1282780975}
-  - {fileID: 442386426}
-  - {fileID: 827075088}
-  - {fileID: 311470870}
-  - {fileID: 1343889651}
-  - {fileID: 2129346323}
-  - {fileID: 1173215889}
-  - {fileID: 1104899354}
-  - {fileID: 759795671}
-  - {fileID: 740319218}
-  - {fileID: 430645361}
-  - {fileID: 311470870}
-  - {fileID: 1853532399}
-  - {fileID: 284099699}
-  - {fileID: 58744092}
-  - {fileID: 688747168}
-  - {fileID: 1900143940}
-  - {fileID: 1242979024}
-  - {fileID: 372705168}
-  - {fileID: 515345179}
-  - {fileID: 1352451734}
-  - {fileID: 1242979024}
-  - {fileID: 372705168}
-  - {fileID: 1013715508}
-  - {fileID: 985028570}
-  - {fileID: 1138098363}
-  - {fileID: 1242979024}
-  - {fileID: 1215349436}
-  - {fileID: 1994612720}
-  - {fileID: 1328098982}
-  - {fileID: 1242979024}
-  - {fileID: 1215349436}
-  - {fileID: 1676818640}
-  - {fileID: 2019090110}
-  - {fileID: 568817823}
-  activationDelay: 8
-  waitTimeBetweenActivations: 1
-  leftBatches: 0700000007000000060000000700000006000000
-  rightBatches: 06000000080000000600000004000000050000000400000005000000
-  timeBetweenObjects: 0.5
-  textPrintSpeed: 0.05
---- !u!114 &357338309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 357338305}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1a0e90bab52ec04aad588905fd6e806, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rightObjects:
-  - {fileID: 311470870}
-  - {fileID: 412818558}
-  - {fileID: 1030418437}
-  - {fileID: 1282780975}
-  - {fileID: 442386426}
-  - {fileID: 827075088}
-  - {fileID: 311470870}
-  - {fileID: 1343889651}
-  - {fileID: 2129346323}
-  - {fileID: 1173215889}
-  - {fileID: 1104899354}
-  - {fileID: 759795671}
-  - {fileID: 740319218}
-  - {fileID: 430645361}
-  - {fileID: 311470870}
-  - {fileID: 1853532399}
-  - {fileID: 284099699}
-  - {fileID: 58744092}
-  - {fileID: 688747168}
-  - {fileID: 1900143940}
-  - {fileID: 1242979024}
-  - {fileID: 372705168}
-  - {fileID: 515345179}
-  - {fileID: 1352451734}
-  - {fileID: 1242979024}
-  - {fileID: 372705168}
-  - {fileID: 1013715508}
-  - {fileID: 985028570}
-  - {fileID: 1138098363}
-  - {fileID: 1242979024}
-  - {fileID: 1215349436}
-  - {fileID: 1994612720}
-  - {fileID: 1328098982}
-  - {fileID: 1242979024}
-  - {fileID: 1215349436}
-  - {fileID: 1676818640}
-  - {fileID: 2019090110}
-  - {fileID: 568817823}
-  activationDelay: 8
-  waitTimeBetweenActivations: 1
-  rightBatches: 06000000080000000600000004000000050000000400000005000000
-  timeBetweenObjects: 0.5
-  textPrintSpeed: 0.05
---- !u!114 &357338310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 357338305}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09045a8b21e47bd46af59b311dbfa589, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftObjects:
-  - {fileID: 132366574}
-  - {fileID: 294474050}
-  - {fileID: 1009714766}
-  - {fileID: 553410404}
-  - {fileID: 2138354478}
-  - {fileID: 1088584316}
-  - {fileID: 1452764351}
-  - {fileID: 1232585252}
-  - {fileID: 1426949480}
-  - {fileID: 1477160165}
-  - {fileID: 577892310}
-  - {fileID: 102628053}
-  - {fileID: 965120437}
-  - {fileID: 1338088285}
-  - {fileID: 1232585252}
-  - {fileID: 305993658}
-  - {fileID: 31765917}
-  - {fileID: 1071646872}
-  - {fileID: 1009972316}
-  - {fileID: 1548349555}
-  - {fileID: 1232585252}
-  - {fileID: 1954105465}
-  - {fileID: 814119672}
-  - {fileID: 817497138}
-  - {fileID: 122844094}
-  - {fileID: 1202579131}
-  - {fileID: 1539567374}
-  - {fileID: 1232585252}
-  - {fileID: 1625033753}
-  - {fileID: 1857235558}
-  - {fileID: 70457405}
-  - {fileID: 1824191431}
-  - {fileID: 1022776035}
-  activationDelay: 8
-  waitTimeBetweenActivations: 1
-  leftBatches: 0700000007000000060000000700000006000000
-  timeBetweenObjects: 0.5
-  textPrintSpeed: 0.05
 --- !u!114 &357338311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2712,56 +2511,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textObjects:
   - {fileID: 132366574}
+  - {fileID: 311470870}
   - {fileID: 294474050}
-  - {fileID: 1009714766}
-  - {fileID: 553410404}
-  - {fileID: 2138354478}
-  - {fileID: 1088584316}
-  - {fileID: 1452764351}
-  - {fileID: 311470870}
   - {fileID: 412818558}
+  - {fileID: 1009714766}
   - {fileID: 1030418437}
+  - {fileID: 553410404}
   - {fileID: 1282780975}
+  - {fileID: 2138354478}
   - {fileID: 442386426}
+  - {fileID: 1088584316}
   - {fileID: 827075088}
+  - {fileID: 1452764351}
   - {fileID: 1232585252}
-  - {fileID: 1426949480}
-  - {fileID: 1477160165}
-  - {fileID: 577892310}
-  - {fileID: 102628053}
-  - {fileID: 965120437}
-  - {fileID: 1338088285}
   - {fileID: 311470870}
+  - {fileID: 1426949480}
   - {fileID: 1343889651}
+  - {fileID: 1477160165}
   - {fileID: 2129346323}
+  - {fileID: 577892310}
   - {fileID: 1173215889}
+  - {fileID: 102628053}
   - {fileID: 1104899354}
+  - {fileID: 965120437}
   - {fileID: 759795671}
+  - {fileID: 1338088285}
   - {fileID: 740319218}
   - {fileID: 430645361}
   - {fileID: 1232585252}
-  - {fileID: 305993658}
-  - {fileID: 31765917}
-  - {fileID: 1071646872}
-  - {fileID: 1009972316}
-  - {fileID: 1548349555}
   - {fileID: 311470870}
+  - {fileID: 305993658}
   - {fileID: 1853532399}
+  - {fileID: 31765917}
   - {fileID: 284099699}
+  - {fileID: 1071646872}
   - {fileID: 58744092}
+  - {fileID: 1009972316}
   - {fileID: 688747168}
+  - {fileID: 1548349555}
   - {fileID: 1900143940}
   - {fileID: 1232585252}
+  - {fileID: 1242979024}
   - {fileID: 1954105465}
+  - {fileID: 372705168}
   - {fileID: 814119672}
+  - {fileID: 515345179}
   - {fileID: 817497138}
+  - {fileID: 1352451734}
   - {fileID: 122844094}
   - {fileID: 1202579131}
   - {fileID: 1539567374}
-  - {fileID: 1242979024}
-  - {fileID: 372705168}
-  - {fileID: 515345179}
-  - {fileID: 1352451734}
   - {fileID: 1232585252}
   - {fileID: 1625033753}
   - {fileID: 1857235558}
@@ -2773,8 +2572,8 @@ MonoBehaviour:
   - {fileID: 985028570}
   - {fileID: 1138098363}
   creditsBatches: 0d0000000f0000000c0000000b0000000a000000
-  activationDelay: 7
-  waitTimeBetweenActivations: 0.5
+  activationDelay: 7.5
+  waitTimeBetweenActivations: 0.1
   timeBetweenObjects: 0
   textPrintSpeed: 0.03
 --- !u!1 &362714779
@@ -3602,7 +3401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68807315af2b42547bcf46cb5509602c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 0
+  delayBeforeStart: 5
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
@@ -3743,7 +3542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68807315af2b42547bcf46cb5509602c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 0
+  delayBeforeStart: 0.8
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
@@ -3919,7 +3718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68807315af2b42547bcf46cb5509602c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 0
+  delayBeforeStart: 0.9
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
@@ -5028,7 +4827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68807315af2b42547bcf46cb5509602c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 0
+  delayBeforeStart: 2
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
@@ -5205,7 +5004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68807315af2b42547bcf46cb5509602c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 0
+  delayBeforeStart: 4.5
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
@@ -5416,7 +5215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68807315af2b42547bcf46cb5509602c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 0
+  delayBeforeStart: 4
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
@@ -6840,7 +6639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68807315af2b42547bcf46cb5509602c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 0
+  delayBeforeStart: 1.4
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
@@ -8794,7 +8593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68807315af2b42547bcf46cb5509602c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 0
+  delayBeforeStart: 0.9
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
@@ -11964,7 +11763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68807315af2b42547bcf46cb5509602c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 1
+  delayBeforeStart: 0
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
@@ -13649,7 +13448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68807315af2b42547bcf46cb5509602c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 1
+  delayBeforeStart: 0
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0

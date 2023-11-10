@@ -8,8 +8,8 @@ public class CreditsManager : MonoBehaviour
     public GameObject[] textObjects;
     public int[] creditsBatches;
 
-    public float activationDelay = 1.0f;
-    public float waitTimeBetweenActivations = 2.0f;
+    public float activationDelay;
+    public float waitTimeBetweenActivations;
     public float timeBetweenObjects = 0.5f;
     public float textPrintSpeed = 0.05f;
     private Text textComponent;
@@ -22,12 +22,13 @@ public class CreditsManager : MonoBehaviour
     private IEnumerator ActivateObjects()
     {
         int currentIndex = 0;
+        float currentActivationDelay = 5.0f;
 
         for (int batchIndex = 0; batchIndex < creditsBatches.Length; batchIndex++)
         {
             int batchSize = creditsBatches[batchIndex];
 
-            for (int i = 0; i < batchSize; i++)
+            for (int i = 0; i < batchSize; i += 2)
             {
                 if (currentIndex < textObjects.Length)
                 {
@@ -40,10 +41,20 @@ public class CreditsManager : MonoBehaviour
                     textObjects[currentIndex].SetActive(true);
                     yield return new WaitForSeconds(timeBetweenObjects);
                     currentIndex++;
+
+                    if (i + 1 < batchSize && currentIndex < textObjects.Length)
+                    {
+                        textComponent = textObjects[currentIndex].GetComponent<Text>();
+                        yield return StartCoroutine(PrintText(textComponent));
+
+                        textObjects[currentIndex].SetActive(true);
+                        currentIndex++;
+                    }
+
                 }
             }
 
-            yield return new WaitForSeconds(activationDelay);
+            yield return new WaitForSeconds(currentActivationDelay);
 
             for (int i = currentIndex - batchSize; i < currentIndex; i++)
             {
@@ -51,6 +62,11 @@ public class CreditsManager : MonoBehaviour
                 {
                     textObjects[i].SetActive(false);
                 }
+            }
+
+            if (batchIndex == 0)
+            {
+                currentActivationDelay = 7.5f;
             }
 
             yield return new WaitForSeconds(waitTimeBetweenActivations);
