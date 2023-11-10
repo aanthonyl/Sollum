@@ -1,23 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class RunCredits : MonoBehaviour
+public class LeftCredits : MonoBehaviour
 {
     public GameObject[] leftObjects;
-    public GameObject[] rightObjects;
     public float activationDelay = 1.0f;
     public float waitTimeBetweenActivations = 2.0f;
     public int[] leftBatches;
-    public int[] rightBatches;
     public float timeBetweenObjects = 0.5f;
+    public float textPrintSpeed = 0.05f;
+    private Text textComponent;
 
     private void Start()
     {
-        StartCoroutine(ActivateObjects());
+        StartCoroutine(ActivateLeftObjects());
     }
 
-    private IEnumerator ActivateObjects()
+    private IEnumerator ActivateLeftObjects()
     {
         int currentIndex = 0;
 
@@ -29,6 +30,12 @@ public class RunCredits : MonoBehaviour
             {
                 if (currentIndex < leftObjects.Length)
                 {
+                    // Get the Text component from the current text object
+                    textComponent = leftObjects[currentIndex].GetComponent<Text>();
+
+                    // Print text gradually
+                    yield return StartCoroutine(PrintText(textComponent));
+
                     leftObjects[currentIndex].SetActive(true);
                     yield return new WaitForSeconds(timeBetweenObjects);
                     currentIndex++;
@@ -47,32 +54,17 @@ public class RunCredits : MonoBehaviour
 
             yield return new WaitForSeconds(waitTimeBetweenActivations);
         }
+    }
 
-        for (int batchIndex = 0; batchIndex < rightBatches.Length; batchIndex++)
+    private IEnumerator PrintText(Text textComponent)
+    {
+        string originalText = textComponent.text;
+        textComponent.text = "";
+
+        foreach (char c in originalText)
         {
-            int batchSize = rightBatches[batchIndex];
-
-            for (int i = 0; i < batchSize; i++)
-            {
-                if (currentIndex < rightObjects.Length)
-                {
-                    rightObjects[currentIndex].SetActive(true);
-                    yield return new WaitForSeconds(timeBetweenObjects);
-                    currentIndex++;
-                }
-            }
-
-            yield return new WaitForSeconds(activationDelay);
-
-            for (int i = currentIndex - batchSize; i < currentIndex; i++)
-            {
-                if (i >= 0 && i < rightObjects.Length)
-                {
-                    rightObjects[i].SetActive(false);
-                }
-            }
-
-            yield return new WaitForSeconds(waitTimeBetweenActivations);
+            textComponent.text += c;
+            yield return new WaitForSeconds(textPrintSpeed);
         }
     }
 }

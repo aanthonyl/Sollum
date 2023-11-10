@@ -13,12 +13,6 @@ public class Typewriter : MonoBehaviour
 	[SerializeField] float timeBtwChars = 0.1f;
 	[SerializeField] string leadingChar = "";
 	[SerializeField] bool leadingCharBeforeDelay = false;
-	[SerializeField] int creditsNumber;
-
-	[SerializeField] private bool production = false;
-	[SerializeField] private bool design = false;
-	[SerializeField] private bool art = false;
-	[SerializeField] private bool engineering = false;
 
 	[HideInInspector]
 	public CreditManager creditsManager;
@@ -61,6 +55,7 @@ public class Typewriter : MonoBehaviour
 			_text.text = _text.text.Substring(0, _text.text.Length - leadingChar.Length);
 		}
 
+		/*
 		if (production)
 		{
 			creditsManager.ProductionNext(creditsNumber);
@@ -77,5 +72,6 @@ public class Typewriter : MonoBehaviour
 		{
 			creditsManager.EngineeringNext(creditsNumber);
 		}
+		*/
 	}
 }
