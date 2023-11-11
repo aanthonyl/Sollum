@@ -68,6 +68,14 @@ public class CreditsManager : MonoBehaviour
             {
                 currentActivationDelay = 7.5f;
             }
+            else if (batchIndex == 2)
+            {
+                currentActivationDelay = 11f;
+            }
+            else if (batchIndex == 3)
+            {
+                currentActivationDelay = 15f;
+            }
 
             yield return new WaitForSeconds(waitTimeBetweenActivations);
         }
