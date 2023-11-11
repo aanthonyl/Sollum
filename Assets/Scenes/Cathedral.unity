@@ -1935,7 +1935,7 @@ MonoBehaviour:
   maxZ: 10
   offsetX: 0
   offsetY: 3
-  offsetZ: -8
+  offsetZ: -5.5
 --- !u!81 &1011485786
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2632,7 +2632,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
