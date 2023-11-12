@@ -1,0 +1,2 @@
+[NAME=Victoria][SPEAKERSPRITE=Victoria]Hello? Is anyone there?
+[NAME=Resident][SPEAKERSPRITE=]Go away! We do not want any trouble!
