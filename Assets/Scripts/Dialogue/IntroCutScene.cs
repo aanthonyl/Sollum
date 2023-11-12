@@ -8,7 +8,6 @@ public class IntroCutScene : MonoBehaviour
 {
     private void OnEnable()
     {
-        //SceneManager.LoadScene("Aboveground", LoadSceneMode.Single);
         SceneLoader.instance.Load(Aboveground);
     }
 }
