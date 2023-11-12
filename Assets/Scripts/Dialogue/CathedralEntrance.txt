@@ -1,0 +1,2 @@
+[NAME=Victoria][SPEAKERSPRITE=Victoria]We made it. There is the cathedral!
+[NAME=Fitzwilliam][SPEAKERSPRITE=Canary]*chirp!* (Finally! When you are ready, go up to the entrance and press Space to enter.)
