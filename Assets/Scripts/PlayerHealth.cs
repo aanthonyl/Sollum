@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
 
     public Image HealthBar;
     private bool invincible;
+    private bool isDead = false;
 
     private void Start()
     {
@@ -34,6 +35,7 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             Debug.Log("Die");
+            Die();
         }
     }
     public void Heal(float amount)
@@ -41,6 +43,13 @@ public class PlayerHealth : MonoBehaviour
         currentHealth += amount;
         currentHealth = Mathf.Clamp(currentHealth, 0.0f, maxHealth);
         UpdateHealthBar();
+    }
+
+    public void ResetHealth()
+    {
+        currentHealth = maxHealth;
+        UpdateHealthBar();
+        SetInvincibility(false);
     }
 
     private void UpdateHealthBar()
@@ -52,5 +61,15 @@ public class PlayerHealth : MonoBehaviour
         }
 
         HealthBar.fillAmount = fillAmount;
+    }
+
+    private void Die()
+    {
+        if (!isDead)
+        {
+            isDead = true;
+            StartCoroutine(RespawnManager.instance.RespawnPlayer(gameObject));
+            invincible = true;
+        }
     }
 }
