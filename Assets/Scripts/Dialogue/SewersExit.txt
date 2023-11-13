@@ -1,0 +1,2 @@
+[NAME=Fitzwilliam][SPEAKERSPRITE=Canary]*chirp?* I think this ladder will take us out of here.. 
+[NAME=Victoria][SPEAKERSPRITE=Victoria]Great! Let's go.
