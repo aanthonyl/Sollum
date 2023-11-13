@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f39d337faceb83044a8fda984637fa41
+guid: 9b4be609fbe59024b90fad01b538a570
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: npcsprite01 - recolor-Sheet_0
+      name: CathedralBlink-Sheet_0
       rect:
         serializedVersion: 2
-        x: 110
-        y: 10
-        width: 110
-        height: 210
+        x: 699
+        y: 349
+        width: 138
+        height: 122
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae3b6a8ccea854445b4af00d2531fc25
-      internalID: -378071051
+      spriteID: 5f24ea4a67258a247943d22ecbf2fe25
+      internalID: -1301062688
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npcsprite01 - recolor-Sheet_1
+      name: CathedralBlink-Sheet_1
       rect:
         serializedVersion: 2
-        x: 430
-        y: 10
-        width: 110
-        height: 200
+        x: 2141
+        y: 349
+        width: 133
+        height: 122
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +145,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f218f5cf8933bf84b901e11f4c1cba5a
-      internalID: 1665974800
+      spriteID: 5b72bee71d7222041ab614dd780c9782
+      internalID: -845522102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CathedralBlink-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 3583
+        y: 349
+        width: 133
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca4c65d0b370d1840a4643a9c162ea79
+      internalID: 2112014627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CathedralBlink-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 5020
+        y: 349
+        width: 133
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2857cc4a63bb2fe4bbae50868dfec1ba
+      internalID: -875000829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CathedralBlink-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 6462
+        y: 349
+        width: 133
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72cb60c7060b9c74cb46762ef6a380fe
+      internalID: 362987752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CathedralBlink-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 7900
+        y: 349
+        width: 137
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e2914ea81cc377499b1a479d2f781cd
+      internalID: 887500901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CathedralBlink-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 9342
+        y: 349
+        width: 133
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c598e22dd572b1748a52868e3a89896e
+      internalID: 1147929650
       vertices: []
       indices: 
       edges: []
@@ -162,8 +267,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      npcsprite01 - recolor-Sheet_0: -378071051
-      npcsprite01 - recolor-Sheet_1: 1665974800
+      CathedralBlink-Sheet_0: -1301062688
+      CathedralBlink-Sheet_1: -845522102
+      CathedralBlink-Sheet_2: 2112014627
+      CathedralBlink-Sheet_3: -875000829
+      CathedralBlink-Sheet_4: 362987752
+      CathedralBlink-Sheet_5: 887500901
+      CathedralBlink-Sheet_6: 1147929650
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
