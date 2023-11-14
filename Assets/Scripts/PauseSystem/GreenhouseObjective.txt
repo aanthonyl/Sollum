@@ -1,0 +1,1 @@
+[LOCATION=Greenhouse][SPRITE=Greenhouse]Head to the market to blend in with the crowds

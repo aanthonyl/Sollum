@@ -15,6 +15,7 @@ public class CanaryFollow : MonoBehaviour
     public float MinDistance = 3;
     public float MaxDistance = 1;
     public float Speed = 3;
+    public float playerHeightOffset = 1f;
     public Transform Player;
 
     private float moveX;
@@ -30,7 +31,7 @@ public class CanaryFollow : MonoBehaviour
         // FOLLOW 
         if (Vector3.Distance(transform.position, Player.position) >= MinDistance)
         {
-            Vector3 follow = Player.position;
+            Vector3 follow = new Vector3(Player.position.x, Player.position.y + playerHeightOffset, Player.position.z);
 
             this.transform.position = Vector3.MoveTowards(this.transform.position, follow, Speed * Time.deltaTime);
         }

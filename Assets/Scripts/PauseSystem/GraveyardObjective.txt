@@ -1,0 +1,1 @@
+[LOCATION=Graveyard][SPRITE=Graveyard]Defeat the mini-boss and get to the sewers

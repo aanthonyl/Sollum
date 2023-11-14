@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 6586307841538987558}
   - component: {fileID: 2698121650311201279}
   - component: {fileID: 4765785475300616680}
+  - component: {fileID: -4501714103497507095}
   m_Layer: 3
   m_Name: EnemyProjectile
   m_TagString: EnemyProjectile
@@ -179,3 +180,15 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-4501714103497507095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8462127569867068774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4dd26cee614d0942b120186c1854e83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

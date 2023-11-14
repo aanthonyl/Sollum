@@ -4,28 +4,38 @@ using UnityEngine;
 
 public class EnemyMelee : MonoBehaviour
 {
-    public int damage = 10;           
-    public float attackRange = 2.0f; 
+    public int damage = 10;
+    public float attackRange = 2.0f;
+    public bool drawAttackRange = false;
     public float attackCooldown = 2.0f;
 
     private bool isPaused = false;
 
-    private Transform player; 
+    private Transform player;
     private float nextAttackTime; // Time when the next attack can occur.
     private AudioSource audioSource;
     public AudioClip meleeAttackSound;
+
+    private void OnDrawGizmos()
+    {
+        if (drawAttackRange)
+        {
+            Gizmos.DrawWireSphere(transform.position, attackRange);
+        }
+    }
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         audioSource = GetComponent<AudioSource>();
-        audioSource.clip = meleeAttackSound;
+        if (audioSource != null)
+            audioSource.clip = meleeAttackSound;
 
     }
 
     private void Update()
     {
-        
+
         if (!isPaused)
         {
             float distanceToPlayer = Vector3.Distance(transform.position, player.position);
@@ -46,8 +56,9 @@ public class EnemyMelee : MonoBehaviour
 
     private void AttackPlayer()
     {
-        audioSource.Play();
-
+        if (audioSource != null)
+            audioSource.Play();
+        //attack animation
         PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
         if (playerHealth != null)
         {
@@ -55,5 +66,5 @@ public class EnemyMelee : MonoBehaviour
         }
     }
 
-    
+
 }
