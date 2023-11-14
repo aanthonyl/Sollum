@@ -65,6 +65,15 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("PlayerProjectile"))
+        {
+            Debug.Log("HIT BY BULLET");
+            TakeWhipDamage(); //just using whip function for now
+        }
+    }
+
     // ENEMY TAKES DAMAGE AND DIES IF HEALTH HITS 0
     public void TakeWhipDamage()
     {

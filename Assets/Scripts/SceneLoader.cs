@@ -33,7 +33,8 @@ public class SceneLoader : MonoBehaviour
         Loading,
         Aboveground,
         Underground,
-        Cathedral
+        Cathedral,
+        Graveyard
     }
 
     [HideInInspector] public bool crossfadeComplete = false;

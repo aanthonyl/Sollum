@@ -28,6 +28,7 @@ public class BlockParryController : MonoBehaviour
 
     void Start()
     {
+        protoSprite = transform.GetChild(2).GetComponent<SpriteRenderer>();
         parry = parryClass.GetComponent<Parry>();
         knockback = parryBlockClass.GetComponent<PlayerKnockback>();
         col = transform.GetChild(0).GetComponent<Collider>();

@@ -47,7 +47,7 @@ public class EnemyStateManager : MonoBehaviour
 	[SerializeField]
 	public float pushVelocity = 50.0f;
 	[SerializeField]
-	public float stunTime = 1.0f;
+	public float stunTime = .5f;
 
 	[Header("Distances")]
 	[SerializeField]
@@ -182,6 +182,8 @@ public class EnemyStateManager : MonoBehaviour
 	*===========================================*/
 	public void KnockedBack(Vector3 parasolForward)
 	{
+		StopAllCoroutines();
+		agent.ResetPath();
 		rb.velocity = parasolForward * pushVelocity;
 		SwitchState(KnockedState);
 	}
@@ -206,7 +208,7 @@ public class EnemyStateManager : MonoBehaviour
 	}
 	public IEnumerator ReturnToChase()
 	{
-		yield return new WaitForSeconds(pauseSearchTime);
+		yield return new WaitForSeconds(stunTime);
 		isAggro = true;
 		SwitchState(ChaseState);
 	}
