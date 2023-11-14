@@ -26,7 +26,7 @@ public class LevelChange : MonoBehaviour
         }
         if (isBossDefeat && collision.gameObject.tag == "Exit")
         {
-            SceneManager.LoadScene("Credits");
+            GameManager.instance.LoadCredits();
         }
     }  
 }

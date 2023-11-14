@@ -15,7 +15,7 @@ public class Parry : MonoBehaviour
     public GameObject mousePosition;
     Rigidbody rb;
     MousePosition mouse;
-    
+
 
     Vector3 getShootPosition() { return shootPositionObj.transform.position; }
     Vector3 ForwardVelocity() { return forwardVector * moveSpeed; }
@@ -23,6 +23,7 @@ public class Parry : MonoBehaviour
 
     void Start()
     {
+        mousePosition = GameObject.Find("MousePosition");
         mouse = mousePosition.GetComponent<MousePosition>();
     }
 
@@ -32,7 +33,7 @@ public class Parry : MonoBehaviour
         rb = projectile.GetComponent<Rigidbody>();
         setForwardVector(mouse.worldPosition.normalized);
         rb.velocity = ForwardVelocity();
-        
+
     }
 
 }

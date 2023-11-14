@@ -38,9 +38,9 @@ public class PauseManager : MonoBehaviour
     //public EnemyAttack enemyAttack;
 
     // THIS IS WHERE THE START SCENE NAME NEEDS TO BE ENTERED
-    [Header("Scene Change")]
-    [Tooltip("Main Menu")]
-    public string levelToLoad;
+    // [Header("Scene Change")]
+    // [Tooltip("Main Menu")]
+    // public string levelToLoad;
 
     // HOLDS LIST OF LOCATIONS NAMES AND SPRITES
     [Header("Location Library")]
@@ -49,6 +49,7 @@ public class PauseManager : MonoBehaviour
     public LocationLibrary locationLibrary;
     [HideInInspector]
     public List<string> locationNames;
+    public GameObject hideOtherUI;
 
     // BOOLEANS
     private bool pauseActive = false;
@@ -191,6 +192,8 @@ public class PauseManager : MonoBehaviour
     {
         Debug.Log("PAUSE GAME");
         FreezePlayer();
+        if (hideOtherUI != null)
+            hideOtherUI.SetActive(false);
         PauseUI.SetActive(true);
         pauseActive = true;
     }
@@ -198,6 +201,8 @@ public class PauseManager : MonoBehaviour
     public void ContinueButton()
     {
         Debug.Log("UNPAUSE GAME");
+        if (hideOtherUI != null)
+            hideOtherUI.SetActive(true);
         PauseUI.SetActive(false);
         UnFreezePlayer();
         pauseActive = false;
@@ -211,6 +216,7 @@ public class PauseManager : MonoBehaviour
     // SCENE CHANGE TO START MENU
     public void MainMenuButton()
     {
-        SceneManager.LoadScene(levelToLoad);
+        GameManager.instance.enableContinue = true;
+        GameManager.instance.LoadMainMenu();
     }
 }

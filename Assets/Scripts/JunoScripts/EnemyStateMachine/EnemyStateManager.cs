@@ -43,7 +43,7 @@ public class EnemyStateManager : MonoBehaviour
 	//Temporarily Public
 	[Header("Knockback Properties")]
 	[SerializeField]
-	public float push_time = 0.1f;
+	public float push_time = .5f;
 	[SerializeField]
 	public float pushVelocity = 50.0f;
 	[SerializeField]
@@ -74,6 +74,7 @@ public class EnemyStateManager : MonoBehaviour
 	{
 		sight = GetComponent<BoxCollider>();
 		rb = GetComponent<Rigidbody>();
+		rend = transform.GetChild(0).GetComponent<SpriteRenderer>();
 		//Get patrol points
 		Transform pathsParent = this.transform.parent.GetChild(this.transform.GetSiblingIndex() + 1); //gets Paths gameobject
 		for (int childIter = 0; childIter < pathsParent.childCount; childIter++) //Loop through paths children
@@ -100,6 +101,10 @@ public class EnemyStateManager : MonoBehaviour
 	}
 
 	private void OnDisable()
+	{
+		NoiseEvents.instance.OnNoiseMade -= HeardNoise;
+	}
+	private void OnDestroy()
 	{
 		NoiseEvents.instance.OnNoiseMade -= HeardNoise;
 	}
@@ -150,6 +155,7 @@ public class EnemyStateManager : MonoBehaviour
 	{
 		isAggro = true;
 		target = player;
+		rend.color = Color.red;
 		SwitchState(ChaseState);
 	}
 
@@ -159,7 +165,7 @@ public class EnemyStateManager : MonoBehaviour
 	*===========================================*/
 	private void HeardNoise(object sender, NoiseEvents.OnNoiseMadeArgs e)
 	{
-		if (Vector3.Distance(transform.position, e.noiseTrans.position) <= maxHearingDist && !isAggro)
+		if (Vector3.Distance(e.noiseTrans.position, transform.position) - playerHeight <= maxHearingDist && !isAggro)
 		{
 			target = e.noiseTrans;
 			SwitchState(SearchState);
@@ -169,8 +175,9 @@ public class EnemyStateManager : MonoBehaviour
 	/* KnockedBack ====================================
 	*   - Called when enemy collides with parasol
 	*===========================================*/
-	public void KnockedBack()
+	public void KnockedBack(Vector3 parasolForward)
 	{
+		rb.velocity = parasolForward * pushVelocity;
 		SwitchState(KnockedState);
 	}
 
@@ -188,6 +195,7 @@ public class EnemyStateManager : MonoBehaviour
 	public IEnumerator ReturnToPatrol()
 	{
 		yield return new WaitForSeconds(pauseSearchTime);
+		rend.color = Color.white;
 		isAggro = false;
 		SwitchState(PatrolState);
 	}

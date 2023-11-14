@@ -29,7 +29,6 @@ public class EnemyStateKnockback : I_EnemyBaseState
 
     IEnumerator StopPush(EnemyStateManager enemy)
     {
-        enemy.rb.velocity = -enemy.gameObject.transform.forward * enemy.pushVelocity;
         yield return new WaitForSeconds(enemy.push_time);
         enemy.rb.velocity = Vector3.zero;
         enemy.StartCoroutine(enemy.ReturnToChase());

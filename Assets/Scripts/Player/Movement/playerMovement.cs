@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Numerics;
 using Unity.VisualScripting;
 using UnityEditor;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
@@ -52,7 +51,7 @@ public class playerMovement : MonoBehaviour
         forceVector = new Vector3(inputVector.x * ms.GetAcceleration(), 0, inputVector.y * ms.GetAcceleration());
         speed = new Vector2(rb.velocity.x, rb.velocity.z).magnitude;
 
-        if (zInput != 0 || xInput != 0)
+        if ((zInput != 0 || xInput != 0) && !freezeMovement)
         {
             if (xInput > 0)
             {
@@ -97,19 +96,19 @@ public class playerMovement : MonoBehaviour
             myAnim.SetBool("Forward", false);
             myAnim.SetBool("Backward", false);
         }
-    
-    /*
-        if (xInput != 0)
-        {
-            if (xInput > 0)
+
+        /*
+            if (xInput != 0)
             {
-                facingForward = true;
-            }
-            else
-            {
-                facingForward = false;
-            }
-        }*/
+                if (xInput > 0)
+                {
+                    facingForward = true;
+                }
+                else
+                {
+                    facingForward = false;
+                }
+            }*/
 
         CheckGrounded();
         CheckJump();
@@ -118,7 +117,7 @@ public class playerMovement : MonoBehaviour
     void FixedUpdate()
     {
         // Boolean for dialogue system //
-        if (freezeMovement == false)
+        if (!freezeMovement)
         {
             //applies movement force//
             rb.AddForce(forceVector);
@@ -129,7 +128,7 @@ public class playerMovement : MonoBehaviour
         }
 
         //applies movement force//
-        rb.AddForce(forceVector);
+        //rb.AddForce(forceVector); // * This needs to be connected to the freezeMovement bool to stop movement in dialogue
 
         //applies deceleration when no input//
         if (inputMagnitude == 0 && speed > 0)
@@ -152,7 +151,7 @@ public class playerMovement : MonoBehaviour
 
     void CheckJump()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && !freezeMovement)
         {
             if (GetGrounded())
             {
@@ -171,7 +170,7 @@ public class playerMovement : MonoBehaviour
         RaycastHit hit;
         grounded = Physics.Raycast(transform.position, Vector3.down, out hit, 1);
         Debug.DrawRay(transform.position, Vector3.down, Color.black);
-        Debug.Log(grounded);
+        // Debug.Log(grounded);
     }
 
     public bool GetGrounded()

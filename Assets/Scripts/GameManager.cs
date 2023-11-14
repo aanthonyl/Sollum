@@ -45,11 +45,12 @@ public class GameManager : MonoBehaviour
     
         private void Awake()
         {
-            if(instance == null)
+            if (instance == null)
             {
                 instance = this;
+                DontDestroyOnLoad(gameObject);
             }
-            else
+            else if (instance != this)
             {
                 Destroy(gameObject);
             }
@@ -130,6 +131,11 @@ public class GameManager : MonoBehaviour
             public void LoadMainMenu()
             {
                 sceneLoader.Load(SceneLoader.Scene.MainMenu);
+            }
+
+            public void LoadCredits()
+            {
+                sceneLoader.Load(SceneLoader.Scene.Credits);
             }
 
             public void LoadGameWorld(bool newGame, SceneLoader.Scene scene)

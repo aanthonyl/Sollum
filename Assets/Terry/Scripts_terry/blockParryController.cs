@@ -15,22 +15,23 @@ public class BlockParryController : MonoBehaviour
     public GameObject parryClass;
     Parry parry;
     PlayerKnockback knockback;
+    Collider col;
     [SerializeField] GameObject parryBlockClass;
-    [SerializeField] AttackPlayer enemyAttack;
-    bool meleeParrySuccess = false;
-    bool meleeBlockSuccess = false;
+    // bool meleeParrySuccess = false;
+    // bool meleeBlockSuccess = false;
 
     public SpriteRenderer protoSprite;
 
     //Replace with developer friendly way to get this
     public PlayerHealth playerHealth;
 
+
     void Start()
     {
         parry = parryClass.GetComponent<Parry>();
         knockback = parryBlockClass.GetComponent<PlayerKnockback>();
-
-
+        col = transform.GetChild(0).GetComponent<Collider>();
+        col.gameObject.SetActive(false);
     }
     void Update()
     {
@@ -41,8 +42,7 @@ public class BlockParryController : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             blockPressed = true;
-            meleeBlockSuccess = false;
-            meleeParrySuccess = false;
+            col.gameObject.SetActive(true);
             playerHealth.SetInvincibility(true);
             StartCoroutine(ParryWindow());
         }
@@ -50,6 +50,7 @@ public class BlockParryController : MonoBehaviour
         if (Input.GetMouseButtonUp(1))
         {
             blockPressed = false;
+            col.gameObject.SetActive(false);
             playerHealth.SetInvincibility(false);
             protoSprite.color = Color.white;
         }
@@ -58,6 +59,9 @@ public class BlockParryController : MonoBehaviour
         {
             StartCoroutine(AttackWindow());
         }
+
+        if (!blockPressed && !attacking)
+            protoSprite.color = Color.white;
 
         // checks if player is in the block or parry state when hit
         // enemyAttack.attacking is a bool from the AttackPlayer class
@@ -93,31 +97,64 @@ public class BlockParryController : MonoBehaviour
     // shot toward the mouse.
     // player is knocked in the opposite direction they are 
     // facing on a sucessful block or parry. 
-    void OnTriggerEnter(Collider other)
+    // void OnTriggerEnter(Collider other)
+    // {
+    //     if (other.CompareTag("EnemyProjectile"))
+    //     {
+    //         if (parryWindow)
+    //         {
+    //             Debug.Log("parried");
+    //             Destroy(other.gameObject);
+    //             parry.PlayerShoot();
+    //             knockback.BlockParryKnockback();
+    //         }
+    //         else if (blockPressed)
+    //         {
+    //             Debug.Log("blocked");
+    //             Destroy(other.gameObject);
+    //             knockback.BlockParryKnockback();
+    //         }
+    //     }
+    //     else if (other.CompareTag("Enemy"))
+    //     {
+    //         if (blockPressed)
+    //         {
+    //             other.gameObject.GetComponent<EnemyStateManager>().KnockedBack();
+    //         }
+    //     }
+    //     else if (other.CompareTag("Break"))
+    //     {
+    //         Debug.Log("Detect");
+    //         if (attacking)
+    //         {
+    //             other.gameObject.GetComponent<TempBreak>().Break();
+    //         }
+    //     }
+    // }
+
+    public bool isAttacking()
     {
-        if (other.tag == "EnemyProjectile")
-        {
-            if (parryWindow)
-            {
-                Debug.Log("parried");
-                Destroy(other.gameObject);
-                parry.PlayerShoot();
-                knockback.BlockParryKnockback();
-            }
-            else if (blockPressed)
-            {
-                Debug.Log("blocked");
-                Destroy(other.gameObject);
-                knockback.BlockParryKnockback();
-            }
-        }
-        else if (other.tag == "Enemy")
-        {
-            if (blockPressed)
-            {
-                other.gameObject.GetComponent<EnemyStateManager>().KnockedBack();
-            }
-        }
+        return attacking;
+    }
+
+    public bool isParrying()
+    {
+        return parryWindow;
+    }
+
+    public bool isBlocking()
+    {
+        return blockPressed;
+    }
+
+    public void ParryProj()
+    {
+        parry.PlayerShoot();
+    }
+
+    public void KnockPlayer()
+    {
+        knockback.BlockParryKnockback();
     }
 
     IEnumerator ParryWindow()
@@ -132,9 +169,11 @@ public class BlockParryController : MonoBehaviour
     IEnumerator AttackWindow()
     {
         protoSprite.color = Color.green;
+        col.gameObject.SetActive(true);
         attacking = true;
         yield return new WaitForSeconds(1);
         attacking = false;
+        col.gameObject.SetActive(false);
         protoSprite.color = Color.white;
     }
 }

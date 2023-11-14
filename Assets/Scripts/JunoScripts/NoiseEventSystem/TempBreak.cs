@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TempBreak : MonoBehaviour
 {
-	bool breakable = false;
 	NoiseMaker noise;
 	BreakObject particleBreak;
 
@@ -14,29 +13,9 @@ public class TempBreak : MonoBehaviour
 		particleBreak = GetComponent<BreakObject>();
 	}
 
-	private void Update()
+	public void Break()
 	{
-		if (Input.GetKeyDown(KeyCode.E) && breakable)
-		{
-			particleBreak.Break();
-			noise.MakeNoise();
-			// this.gameObject.SetActive(false);
-		}
-	}
-
-	private void OnTriggerEnter(Collider other)
-	{
-		if (other.CompareTag("Player"))
-		{
-			breakable = true;
-		}
-	}
-
-	private void OnTriggerExit(Collider other)
-	{
-		if (other.CompareTag("Player"))
-		{
-			breakable = true;
-		}
+		noise.MakeNoise();
+		particleBreak.Break();
 	}
 }
