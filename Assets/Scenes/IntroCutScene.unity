@@ -365,7 +365,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 11993014
+    rgba: 4290183094
   m_fontColor: {r: 0.7137255, g: 1, b: 0.7137255, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -834,7 +834,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 11993014
+    rgba: 4290183094
   m_fontColor: {r: 0.7137255, g: 1, b: 0.7137255, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -1144,7 +1144,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 11993014
+    rgba: 4290183094
   m_fontColor: {r: 0.7122642, g: 1, b: 0.7141259, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -1393,7 +1393,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 11993014
+    rgba: 4290183094
   m_fontColor: {r: 0.7137255, g: 1, b: 0.7137255, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -1586,6 +1586,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1898504862}
   - component: {fileID: 1898504861}
+  - component: {fileID: 1898504863}
   m_Layer: 0
   m_Name: NextSceneLoader
   m_TagString: Untagged
@@ -1600,7 +1601,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1898504860}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41cb9aa7824318843aea4b5a40c22196, type: 3}
   m_Name: 
@@ -1620,6 +1621,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1898504863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898504860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfaab76339c7d6c4d8cc5682abddbf4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changeSceneOnActive: 1
+  nextScene: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
