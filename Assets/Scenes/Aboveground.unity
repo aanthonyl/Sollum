@@ -12838,6 +12838,7 @@ GameObject:
   m_Component:
   - component: {fileID: 552873318}
   - component: {fileID: 552873317}
+  - component: {fileID: 552873319}
   m_Layer: 0
   m_Name: gate
   m_TagString: Untagged
@@ -12912,6 +12913,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 436930272}
   m_LocalEulerAnglesHint: {x: 0, y: -89.722, z: 0}
+--- !u!65 &552873319
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552873316}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 8.339716, y: 3.9855719, z: 0.13945617}
+  m_Center: {x: 2.5798597, y: -1.3010014, z: -0.030271664}
 --- !u!1 &563092404
 GameObject:
   m_ObjectHideFlags: 0
@@ -24422,6 +24444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 909573949}
   - component: {fileID: 909573948}
+  - component: {fileID: 909573950}
   m_Layer: 0
   m_Name: FenceGRYSides1 (1)
   m_TagString: Untagged
@@ -24496,6 +24519,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 436930272}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &909573950
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909573947}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.1799998, y: 1.8757865, z: 0.13945617}
+  m_Center: {x: 0.00000009754603, y: -0.7271086, z: -0.03027169}
 --- !u!1 &913076469
 GameObject:
   m_ObjectHideFlags: 0
@@ -26020,6 +26064,7 @@ GameObject:
   m_Component:
   - component: {fileID: 957754678}
   - component: {fileID: 957754677}
+  - component: {fileID: 957754679}
   m_Layer: 0
   m_Name: FenceGRYSides1 (2)
   m_TagString: Untagged
@@ -26094,6 +26139,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 436930272}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &957754679
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957754676}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.1799998, y: 1.8757865, z: 0.13945617}
+  m_Center: {x: 0.00000009754603, y: -0.7271086, z: -0.03027169}
 --- !u!1 &960082827
 GameObject:
   m_ObjectHideFlags: 0
@@ -28194,6 +28260,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1025873634}
   - component: {fileID: 1025873633}
+  - component: {fileID: 1025873635}
   m_Layer: 0
   m_Name: FenceGRYSides1 (5)
   m_TagString: Untagged
@@ -28268,6 +28335,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 436930272}
   m_LocalEulerAnglesHint: {x: 0, y: -90.618, z: 0}
+--- !u!65 &1025873635
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025873632}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.1799998, y: 1.8757865, z: 0.13945617}
+  m_Center: {x: 0.00000009754603, y: -0.7271086, z: -0.03027169}
 --- !u!1 &1033206697
 GameObject:
   m_ObjectHideFlags: 0
@@ -50411,6 +50499,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1455890062}
   - component: {fileID: 1455890061}
+  - component: {fileID: 1455890063}
   m_Layer: 0
   m_Name: FenceGRYSides1
   m_TagString: Untagged
@@ -50485,6 +50574,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 436930272}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1455890063
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455890060}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.1799998, y: 1.8757865, z: 0.13945617}
+  m_Center: {x: 0.00000009754603, y: -0.7271086, z: -0.03027169}
 --- !u!1 &1465802594
 GameObject:
   m_ObjectHideFlags: 0
@@ -58993,6 +59103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1926249098}
   - component: {fileID: 1926249097}
+  - component: {fileID: 1926249099}
   m_Layer: 0
   m_Name: FenceGRYSides1 (7)
   m_TagString: Untagged
@@ -59067,6 +59178,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 436930272}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1926249099
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926249096}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.1799998, y: 1.8757865, z: 0.13945617}
+  m_Center: {x: 0.00000009754603, y: -0.7271086, z: -0.03027169}
 --- !u!1001 &1929478894
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59163,6 +59295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1934534333}
   - component: {fileID: 1934534332}
+  - component: {fileID: 1934534334}
   m_Layer: 0
   m_Name: FenceGRYSides1 (4)
   m_TagString: Untagged
@@ -59237,6 +59370,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 436930272}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1934534334
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934534331}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.1799998, y: 1.8757865, z: 0.13945617}
+  m_Center: {x: 0.00000009754603, y: -0.7271086, z: -0.03027169}
 --- !u!1 &1940054113
 GameObject:
   m_ObjectHideFlags: 0
