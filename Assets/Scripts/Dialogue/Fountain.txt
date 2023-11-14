@@ -1,0 +1,2 @@
+[NAME=Canary][SPEAKERSPRITE=Canary]Oh look a fountain! I bet we can take a rest there and get some health back!
+[NAME=Canary][SPEAKERSPRITE=Canary]*chirp* (Stand next to the fountain to heal!)
