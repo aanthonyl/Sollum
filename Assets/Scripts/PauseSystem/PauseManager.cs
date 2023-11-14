@@ -38,9 +38,9 @@ public class PauseManager : MonoBehaviour
     //public EnemyAttack enemyAttack;
 
     // THIS IS WHERE THE START SCENE NAME NEEDS TO BE ENTERED
-    [Header("Scene Change")]
-    [Tooltip("Main Menu")]
-    public string levelToLoad;
+    // [Header("Scene Change")]
+    // [Tooltip("Main Menu")]
+    // public string levelToLoad;
 
     // HOLDS LIST OF LOCATIONS NAMES AND SPRITES
     [Header("Location Library")]
@@ -216,6 +216,7 @@ public class PauseManager : MonoBehaviour
     // SCENE CHANGE TO START MENU
     public void MainMenuButton()
     {
-        SceneManager.LoadScene(levelToLoad);
+        GameManager.instance.enableContinue = true;
+        GameManager.instance.LoadMainMenu();
     }
 }
