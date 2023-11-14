@@ -4,100 +4,100 @@ public class MainMenu : MonoBehaviour
 {
     #region Variables
 
-        #region Singleton
+    #region Singleton
 
-            public static MainMenu instance = null;
+    public static MainMenu instance = null;
 
-        #endregion
+    #endregion
 
-        #region References
+    #region References
 
-            public GameObject continueButton;
-            public GameObject newGameButton;
-            public GameObject creditsButton;
-            public GameObject exitButton;
+    public GameObject continueButton;
+    public GameObject newGameButton;
+    public GameObject creditsButton;
+    public GameObject exitButton;
 
     //Audio
-            public AudioSource audioSource;
-            //public AudioClip hoverButton;
-            public AudioClip pressButton;
-            public AudioClip startGameChime;
-            
-            //This is used to prevent the startGameChime sound from being interrupted if the player clicks a button while the scene is transitioning
-            public bool gameStarting = false;
-            
-        #endregion
+    public AudioSource audioSource;
+    //public AudioClip hoverButton;
+    public AudioClip pressButton;
+    public AudioClip startGameChime;
+
+    //This is used to prevent the startGameChime sound from being interrupted if the player clicks a button while the scene is transitioning
+    public bool gameStarting = false;
+
+    #endregion
 
     #endregion
 
     #region Built-in Methods
 
-        private void Awake()
+    private void Awake()
+    {
+        if (instance == null)
         {
-            if(instance == null)
-            {
-                instance = this;
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
+            instance = this;
         }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     #endregion
 
     #region Custom Methods
 
-        public void Continue()
+    public void Continue()
+    {
+        if (!gameStarting)
         {
-            if (!gameStarting)
-            {
-                audioSource.clip = startGameChime;
-                audioSource.Play();
-                gameStarting = true;
-            }
-        
-        SceneLoader.instance.EnableMainMenuButtons(false);
-            GameManager.instance.LoadGameWorld(false, GameManager.instance.savedScene);
+            audioSource.clip = startGameChime;
+            audioSource.Play();
+            gameStarting = true;
         }
 
-        public void NewGame()
+        SceneLoader.instance.EnableMainMenuButtons(false);
+        GameManager.instance.LoadGameWorld(false, GameManager.instance.savedScene);
+    }
+
+    public void NewGame()
+    {
+        //UNTESTED:
+        //I was unable to test if there is already a Crossfade transition here, and whether it is long enough for the full sound to play out (so that the sound doesn't get awkwardly cut off).
+        //If this is not the case, the Crossfade transition could be lengthened, or a WaitForSeconds coroutine could be placed below, in between the audio playing and the scene loading.
+
+        if (!gameStarting)
         {
-            //UNTESTED:
-                //I was unable to test if there is already a Crossfade transition here, and whether it is long enough for the full sound to play out (so that the sound doesn't get awkwardly cut off).
-                //If this is not the case, the Crossfade transition could be lengthened, or a WaitForSeconds coroutine could be placed below, in between the audio playing and the scene loading.
-
-            if (!gameStarting)
-            {
-                audioSource.clip = startGameChime;
-                audioSource.Play();
-                gameStarting = true;
-            }
+            audioSource.clip = startGameChime;
+            audioSource.Play();
+            gameStarting = true;
+        }
 
 
 
-            GameManager.instance.savedScene = SceneLoader.Scene.Aboveground;
-            SceneLoader.instance.EnableMainMenuButtons(false);
-            GameManager.instance.LoadGameWorld(true, SceneLoader.Scene.Aboveground);
+        GameManager.instance.savedScene = SceneLoader.Scene.Aboveground;
+        SceneLoader.instance.EnableMainMenuButtons(false);
+        GameManager.instance.LoadGameWorld(true, SceneLoader.Scene.IntroCutScene);
 
 
     }
 
-        public void Credits()
-        {
+    public void Credits()
+    {
         // LOAD CREDITS
-            if (!gameStarting)
-            {
-                audioSource.clip = pressButton;
-                audioSource.Play();
-            }  
-        }
-
-        public void Exit()
+        if (!gameStarting)
         {
-            SceneLoader.instance.EnableMainMenuButtons(false);
-            Application.Quit();
+            audioSource.clip = pressButton;
+            audioSource.Play();
         }
+    }
+
+    public void Exit()
+    {
+        SceneLoader.instance.EnableMainMenuButtons(false);
+        Application.Quit();
+    }
 
     #endregion
 }
