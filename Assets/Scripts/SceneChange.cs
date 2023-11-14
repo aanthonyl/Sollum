@@ -5,6 +5,7 @@ using UnityEngine;
 public class SceneChange : MonoBehaviour
 {
     #region Variables
+    public bool changeSceneOnActive = false;
     bool inSceneLoadingArea = false;
 
     #region Settings
@@ -32,6 +33,16 @@ public class SceneChange : MonoBehaviour
                 GameManager.instance.savedScene = nextScene;
                 GameManager.instance.LoadGameWorld(false, nextScene);
             }
+        }
+    }
+
+    private void OnEnable()
+    {
+        if (changeSceneOnActive)
+        {
+            GameManager.instance.levelTransition = true;
+            GameManager.instance.savedScene = nextScene;
+            GameManager.instance.LoadGameWorld(false, nextScene);
         }
     }
 
