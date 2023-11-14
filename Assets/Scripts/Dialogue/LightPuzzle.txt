@@ -1,3 +1,3 @@
 [NAME=Victoria][SPEAKERSPRITE=Victoria]Oh it seems the way ahead is blocked.
 [NAME=Fitzwilliam][SPEAKERSPRITE=Canary]*chirp?* (If you stand in the light you will be able to reflect the light!)
-[NAME=Victoria][SPEAKERSPRITE=Victoria]Interesting.. maybe if I reflect the light on those lanterns it wil clear the way. 
+[NAME=Victoria][SPEAKERSPRITE=Victoria]Interesting.. maybe if I reflect the light onto those lanterns it will clear the way. 

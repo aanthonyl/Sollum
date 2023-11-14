@@ -1,3 +1,3 @@
 [NAME=Fitzwilliam][SPEAKERSPRITE=Canary]*chirp!* Alright we made it to the graveyard.
-[NAME=Victoria][SPEAKERSPRITE=Victoria]Wow.. It's kinda spooky here...
-[NAME=Fitzwilliam][SPEAKERSPRITE=Canary]*chirp!* Yeah.. I sense a strong presence ahead... We should be careful.
+[NAME=Victoria][SPEAKERSPRITE=Victoria]Wow, it's kinda spooky here.
+[NAME=Fitzwilliam][SPEAKERSPRITE=Canary]*chirp!* Yeah. I sense a strong presence ahead... We should be careful.
