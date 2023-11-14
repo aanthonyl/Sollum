@@ -8,7 +8,7 @@ public class TempParasol : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            other.gameObject.GetComponent<EnemyStateManager>().KnockedBack();
+            other.gameObject.GetComponent<EnemyStateManager>().KnockedBack(transform.forward);
         }
     }
 }

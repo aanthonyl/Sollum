@@ -32,7 +32,7 @@ public class ParasolColDetection : MonoBehaviour
         {
             if (controller.isBlocking())
             {
-                other.gameObject.GetComponent<EnemyStateManager>().KnockedBack();
+                other.gameObject.GetComponent<EnemyStateManager>().KnockedBack(transform.forward);
             }
         }
         else if (other.CompareTag("Break"))
