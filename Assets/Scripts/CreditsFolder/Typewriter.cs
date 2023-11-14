@@ -1,9 +1,3 @@
-/*
-    Script Added by Aurora Russell
-	10/01/2023
-	// TYPEWRITER EFFECT FOR UI TEXT //
-*/
-
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,8 +5,6 @@ using TMPro;
 
 public class Typewriter : MonoBehaviour
 {
-
-	// SCRIPT TO BE PLACED ON A TEXT OBJECT //
 
 	Text _text;
 	string writer;
@@ -22,10 +14,13 @@ public class Typewriter : MonoBehaviour
 	[SerializeField] string leadingChar = "";
 	[SerializeField] bool leadingCharBeforeDelay = false;
 
-	private bool cancelTyping = false;
+	[HideInInspector]
+	public CreditManager creditsManager;
 
 	void Start()
 	{
+		creditsManager = GameObject.Find("CreditsManager").GetComponent<CreditManager>();
+
 		_text = GetComponent<Text>()!;
 
 		if (_text != null)
@@ -34,22 +29,6 @@ public class Typewriter : MonoBehaviour
 			_text.text = "";
 
 			StartCoroutine("TypeWriterText");
-		}
-	}
-
-	private void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.E))
-		{
-			_text = GetComponent<Text>()!;
-
-			if (_text != null)
-			{
-				writer = _text.text;
-				_text.text = "";
-
-				StartCoroutine("TypeWriterText");
-			}
 		}
 	}
 
@@ -75,5 +54,24 @@ public class Typewriter : MonoBehaviour
 		{
 			_text.text = _text.text.Substring(0, _text.text.Length - leadingChar.Length);
 		}
+
+		/*
+		if (production)
+		{
+			creditsManager.ProductionNext(creditsNumber);
+		}
+		else if (design)
+		{
+			creditsManager.DesignNext(creditsNumber);
+		}
+		else if (art)
+		{
+			creditsManager.ArtNext(creditsNumber);
+		}
+		else if (engineering)
+		{
+			creditsManager.EngineeringNext(creditsNumber);
+		}
+		*/
 	}
 }
