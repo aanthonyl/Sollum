@@ -15,6 +15,7 @@ public class MiniBoss : Boss
     {
         base.Start();
         bossCharge = GetComponent<BossCharge>();
+        chargeTarget = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     protected override void ChangePhase(Phase newPhase)

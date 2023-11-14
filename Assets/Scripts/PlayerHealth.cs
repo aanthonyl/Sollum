@@ -11,9 +11,11 @@ public class PlayerHealth : MonoBehaviour
     public Image HealthBar;
     private bool invincible;
     private bool isDead = false;
+    private Transform respawnPoint;
 
     private void Start()
     {
+        respawnPoint = GameObject.FindGameObjectWithTag("Respawn").transform;
         invincible = false;
         currentHealth = maxHealth;
     }

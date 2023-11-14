@@ -13,6 +13,7 @@ public class BlockParryController : MonoBehaviour
     bool blockPressed = false;
     public float parryVelocity = 50.0f;
     public GameObject parryClass;
+    public Animator anim;
     Parry parry;
     PlayerKnockback knockback;
     Collider col;
@@ -58,6 +59,7 @@ public class BlockParryController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && !attacking)
         {
+            anim.SetTrigger("ParasolAttack");
             StartCoroutine(AttackWindow());
         }
 
