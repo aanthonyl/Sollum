@@ -17,6 +17,15 @@ public class MainMenu : MonoBehaviour
             public GameObject creditsButton;
             public GameObject exitButton;
 
+    //Audio
+            public AudioSource audioSource;
+            //public AudioClip hoverButton;
+            public AudioClip pressButton;
+            public AudioClip startGameChime;
+            
+            //This is used to prevent the startGameChime sound from being interrupted if the player clicks a button while the scene is transitioning
+            public bool gameStarting = false;
+            
         #endregion
 
     #endregion
@@ -41,20 +50,47 @@ public class MainMenu : MonoBehaviour
 
         public void Continue()
         {
-            SceneLoader.instance.EnableMainMenuButtons(false);
+            if (!gameStarting)
+            {
+                audioSource.clip = startGameChime;
+                audioSource.Play();
+                gameStarting = true;
+            }
+        
+        SceneLoader.instance.EnableMainMenuButtons(false);
             GameManager.instance.LoadGameWorld(false, GameManager.instance.savedScene);
         }
 
         public void NewGame()
         {
+            //UNTESTED:
+                //I was unable to test if there is already a Crossfade transition here, and whether it is long enough for the full sound to play out (so that the sound doesn't get awkwardly cut off).
+                //If this is not the case, the Crossfade transition could be lengthened, or a WaitForSeconds coroutine could be placed below, in between the audio playing and the scene loading.
+
+            if (!gameStarting)
+            {
+                audioSource.clip = startGameChime;
+                audioSource.Play();
+                gameStarting = true;
+            }
+
+
+
             GameManager.instance.savedScene = SceneLoader.Scene.Aboveground;
             SceneLoader.instance.EnableMainMenuButtons(false);
             GameManager.instance.LoadGameWorld(true, SceneLoader.Scene.Aboveground);
-        }
+
+
+    }
 
         public void Credits()
         {
-            GameManager.instance.LoadCredits();
+        // LOAD CREDITS
+            if (!gameStarting)
+            {
+                audioSource.clip = pressButton;
+                audioSource.Play();
+            }  
         }
 
         public void Exit()

@@ -699,8 +699,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 144.64429, y: -0.66703796}
-  m_SizeDelta: {x: 335.63745, y: 61.894592}
+  m_AnchoredPosition: {x: 144.062, y: -26}
+  m_SizeDelta: {x: 334.473, y: 50.126}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7559670726017853200
 CanvasRenderer:
@@ -952,7 +952,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000030517578, y: 0.000015258789}
+  m_AnchoredPosition: {x: 0.000030517578, y: -25.299929}
   m_SizeDelta: {x: 21.764, y: 27.583}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8379714367243027474
@@ -1257,7 +1257,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 143.56195, y: -0.7000427}
+  m_AnchoredPosition: {x: 143.56195, y: -25.999987}
   m_SizeDelta: {x: 358.42883, y: 50.126038}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4032415525376127848
@@ -2191,13 +2191,13 @@ MonoBehaviour:
   locationName: {fileID: 3731746947680662471}
   currentObjective: {fileID: 2789400476669049331}
   playerMovement: {fileID: 0}
-  whipManager: {fileID: 0}
-  enemyAttack: {fileID: 0}
   levelToLoad: MainMenu
   invisSprite: {fileID: 21300000, guid: 6a19a04fe820476468d44000a1fcaa35, type: 3}
   locationLibrary: {fileID: 11400000, guid: dd182bc98dc36914a9db90f51848b4a6, type: 2}
   locationNames: []
+  hideOtherUI: {fileID: 0}
   dialogueOpen: 0
+  gamePaused: 0
 --- !u!1 &8645082447552275135
 GameObject:
   m_ObjectHideFlags: 0

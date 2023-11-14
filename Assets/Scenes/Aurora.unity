@@ -240,8 +240,8 @@ Transform:
   m_GameObject: {fileID: 202513854}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.21229553, z: -0.0749}
-  m_LocalScale: {x: 1.4245, y: 1.4245, z: 5.9796066}
+  m_LocalPosition: {x: 0.9722, y: 0.8422, z: -0.0749}
+  m_LocalScale: {x: 3.3689425, y: 2.6843278, z: 5.9796066}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -524,6 +524,8 @@ MonoBehaviour:
   attackCooldown: 2
   nextAttackTime: 0
   freezeAttack: 0
+  pauseManager: {fileID: 0}
+  dialogueManager: {fileID: 0}
 --- !u!1 &721859996
 GameObject:
   m_ObjectHideFlags: 0
@@ -1077,6 +1079,14 @@ PrefabInstance:
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 1683357724}
+    - target: {fileID: 1779100467147692985, guid: 101f49fb58f75a544a4575e8ab5f2574, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1779100467147692985, guid: 101f49fb58f75a544a4575e8ab5f2574, type: 3}
+      propertyPath: timeBtwChars
+      value: 0.06
+      objectReference: {fileID: 0}
     - target: {fileID: 8364716090247475050, guid: 101f49fb58f75a544a4575e8ab5f2574, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1333,6 +1343,8 @@ MonoBehaviour:
   acceleration: 100
   deceleration: -10
   friction: 0
+  thrust: 0
+  gravity: 0
 --- !u!114 &1683357726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1620,6 +1632,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5670086914724500534, guid: 3f79fef6613bd2941a7ec0973e129f02, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670086914724500534, guid: 3f79fef6613bd2941a7ec0973e129f02, type: 3}
       propertyPath: dialogueUI
       value: 
       objectReference: {fileID: 862326223}
@@ -1778,6 +1794,8 @@ MonoBehaviour:
   attackCooldown: 2
   nextAttackTime: 0
   freezeAttack: 0
+  pauseManager: {fileID: 0}
+  dialogueManager: {fileID: 0}
 --- !u!1 &2142730292
 GameObject:
   m_ObjectHideFlags: 0
