@@ -34,7 +34,8 @@ public class SceneLoader : MonoBehaviour
         Aboveground,
         Underground,
         Cathedral,
-        Graveyard
+        IntroCutScene,
+        Credits
     }
 
     [HideInInspector] public bool crossfadeComplete = false;
@@ -167,7 +168,7 @@ public class SceneLoader : MonoBehaviour
         }
         else  // FADE OUT OF LOADING SCENE
         {
-            if (scene == Scene.Aboveground || scene == Scene.Underground) // LOAD GAME DATA
+            if (scene == Scene.Aboveground || scene == Scene.Underground || scene == Scene.Cathedral) // LOAD GAME DATA
             {
                 GameManager.instance.LoadGame();
 
@@ -211,7 +212,7 @@ public class SceneLoader : MonoBehaviour
 
     private IEnumerator UnloadSceneAsync(Scene scene)
     {
-        if (scene == Scene.Aboveground || scene == Scene.Underground)
+        if (scene == Scene.Aboveground || scene == Scene.Underground || scene == Scene.Cathedral)
         {
             GameManager.instance.SaveGame(); // SAVE GAME DATA
 
@@ -258,7 +259,7 @@ public class SceneLoader : MonoBehaviour
             {
                 EnableMainMenuButtons(true); // ENABLE MAIN MENU
             }
-            else if (GameManager.instance.currentScene == Scene.Aboveground || GameManager.instance.currentScene == Scene.Underground)
+            else if (GameManager.instance.currentScene == Scene.Aboveground || GameManager.instance.currentScene == Scene.Underground || GameManager.instance.currentScene == Scene.Cathedral)
             {
                 // START GAME
             }

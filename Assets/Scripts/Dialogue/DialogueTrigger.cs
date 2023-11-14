@@ -17,37 +17,21 @@ public class DialogueTrigger : MonoBehaviour
 
     private Queue<string> dialogue = new Queue<string>(); // Stores the dialogue
     public float waitTime = 0.5f; // Lag time for advancing dialogue so you can actually read it
-    private float nextTime = 0f; // Used with waitTime to create a timer system
 
     public bool singleUseDialogue = false; // Set true if they should be able to enter dialogue again
     [HideInInspector]
     public bool hasBeenUsed = false;
-    bool inArea = false;
-
-
-    // public bool useCollision; // unused for now
 
     private void Start()
     {
         manager = FindObjectOfType<DialogueManager>();
     }
 
-
-    private void Update()
-    {
-        // ADVANCE DIALOGUE USING SELECTED KEY FROM DialogueManager.cs //
-        if (!hasBeenUsed && inArea && Input.GetKeyDown(manager.DialogueKey) && nextTime < Time.timeSinceLevelLoad)
-        {
-            Debug.Log("Advance Dialogue");
-            nextTime = Time.timeSinceLevelLoad + waitTime;
-            manager.AdvanceDialogue();
-        }
-    }
-
     // START DIALOGUE //
     void TriggerDialogue()
     {
         ReadTextFile(); // Loads in the text file
+        manager.inDialogueZone = true;
         manager.StartDialogue(dialogue); // Accesses Dialogue Manager and Starts Dialogue
     }
 
@@ -76,7 +60,6 @@ public class DialogueTrigger : MonoBehaviour
                     dialogue.Enqueue(special); // adds to the dialogue to be printed
                     string[] remainder = curr.Split(System.Environment.NewLine.ToCharArray());
                     SearchForTags(remainder);
-                    //dialogue.Enqueue(curr);
                 }
                 else
                 {
@@ -84,7 +67,6 @@ public class DialogueTrigger : MonoBehaviour
                 }
             }
         }
-
     }
 
     // TRIGGER DIALOGUE, UNTIL LEAVES AREA //
@@ -97,21 +79,13 @@ public class DialogueTrigger : MonoBehaviour
             Debug.Log("DIALOGUE TRIGGERED");
         }
     }
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            Debug.Log("DIALOGUE TRIGGERED");
-            inArea = true;
-        }
-    }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
+            manager.inDialogueZone = false;
             manager.EndDialogue();
         }
-        inArea = false;
     }
 }

@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Loading.unity
     guid: 8bf810ac81480a24a8faa85834276653
   - enabled: 1
+    path: Assets/Scenes/IntroCutScene.unity
+    guid: a2f5de3ed7b6e3e41ac4dae4a62fb14a
+  - enabled: 1
     path: Assets/Scenes/Aboveground.unity
     guid: d41c65fb1d875b743aadde46fe38731b
   - enabled: 1
@@ -24,9 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Cathedral.unity
     guid: ce3be607dd7f9a04f95226a772710a8f
   - enabled: 1
+    path: Assets/Scenes/Graveyard.unity
+    guid: b70a2c4428e4ada47a8538a46db46643
+  - enabled: 1
     path: Assets/Scenes/Underground.unity
     guid: a92a04fade9d75f45992d0cca149f83b
-  - enabled: 1
-    path: Assets/Scenes/Credits.unity
-    guid: 89f9a17de8f53eb45b6d68a18a4be38e
   m_configObjects: {}
