@@ -2617,7 +2617,7 @@ Transform:
   m_GameObject: {fileID: 105760954}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.3871813, y: 3.1811395, z: -7.4123898}
+  m_LocalPosition: {x: 15.060819, y: 3.3311396, z: -3.6063898}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2625,7 +2625,7 @@ Transform:
   - {fileID: 1549178652}
   - {fileID: 618398860}
   - {fileID: 89073496}
-  m_Father: {fileID: 950472483}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &114209803
 GameObject:
@@ -25936,7 +25936,6 @@ Transform:
   - {fileID: 722358784}
   - {fileID: 1711991740}
   - {fileID: 1801620085}
-  - {fileID: 105760955}
   - {fileID: 803735904}
   - {fileID: 436930272}
   - {fileID: 197604830}
@@ -59571,7 +59570,7 @@ Transform:
   m_GameObject: {fileID: 1916982739}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.529999, y: -1.33, z: -11.59}
+  m_LocalPosition: {x: -16.529999, y: -1.08, z: -11.59}
   m_LocalScale: {x: 127.94092, y: 0.0778564, z: 14.7293415}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -63129,6 +63128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7117c6bf7c5fe3d45808e19fad3a0d9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  locked: 0
   myAnimR: {fileID: 1480416495}
   myAnimL: {fileID: 1997903666}
 --- !u!65 &2071055729
@@ -64968,6 +64968,7 @@ SceneRoots:
   - {fileID: 1915417296}
   - {fileID: 2000328052}
   - {fileID: 4851792103767570282}
+  - {fileID: 105760955}
   - {fileID: 1405081965}
   - {fileID: 950472483}
   - {fileID: 1372903138}

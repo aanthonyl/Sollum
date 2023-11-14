@@ -1,0 +1,2 @@
+[NAME=Canary][SPEAKERSPRITE=Canary]It looks like that tree dropped a key.
+[NAME=Canary][SPEAKERSPRITE=Canary]~ Chirp chirp ~

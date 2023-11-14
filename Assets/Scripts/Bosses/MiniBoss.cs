@@ -9,6 +9,8 @@ public class MiniBoss : Boss
 
     private BossCharge bossCharge;
 
+    bool isCharging = false;
+
     protected override void Start()
     {
         base.Start();
@@ -25,13 +27,28 @@ public class MiniBoss : Boss
         }
     }
 
-    // testing
-    void OnGUI()
+    private void Update()
     {
-        if (GUI.Button(new Rect(10, 10, 150, 40), "Test Charge"))
-        {
-            TakeDamage(51);  
-        }
-
+        if (!isCharging)
+            StartCoroutine(charge());
     }
+
+    IEnumerator charge()
+    {
+        isCharging = true;
+        bossCharge.ChargeTowards(chargeTarget.position);
+        yield return new WaitForSeconds(3f);
+        isCharging = false;
+    }
+
+    // testing
+    // void OnGUI()
+    // {
+    //     if (GUI.Button(new Rect(10, 10, 150, 40), "Test Charge"))
+    //     {
+    //         // TakeDamage(51); 
+    //         bossCharge.ChargeTowards(chargeTarget.position);
+    //     }
+
+    // }
 }

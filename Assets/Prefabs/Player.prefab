@@ -100,7 +100,7 @@ MonoBehaviour:
   parryVelocity: 50
   parryClass: {fileID: 8219800657043975425}
   parryBlockClass: {fileID: 7074455743074956097}
-  protoSprite: {fileID: 0}
+  protoSprite: {fileID: 7791184195541379136}
   playerHealth: {fileID: 4132084614688132038}
 --- !u!1 &1751107795560149809
 GameObject:
@@ -404,7 +404,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7074455743074956097}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 27.83, y: 0.79, z: -1.37}
   m_LocalScale: {x: 1.5063905, y: 1.5063905, z: 1.5063905}
   m_ConstrainProportionsScale: 0
@@ -637,7 +637,7 @@ Transform:
   m_GameObject: {fileID: 8219800657043975425}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.81, z: 0}
+  m_LocalPosition: {x: -0.0000000015674604, y: -0.010007948, z: 0.8299999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

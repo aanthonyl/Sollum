@@ -55,7 +55,7 @@ public class BossCharge : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // add tag to player for collision
-        if (isCharging && other.gameObject.CompareTag("ChargeTarget"))
+        if (isCharging && other.gameObject.CompareTag("Player"))
         {
             isCharging = false;
             StartRecoil();

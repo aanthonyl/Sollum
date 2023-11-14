@@ -1,16 +1,12 @@
-/*
-    Script Added by Aurora Russell
-	10/05/2023
-	// ENEMY HEALTH SYSTEM //
-*/
-
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class TreeBoss : MonoBehaviour
 {
+    //I hate copying this like this, bad hack bad hack
+    public GateKey key;
+
     // TYPES OF ENEMIES THAT CAN BE SELECTED AND CUSTOMIZED
     // Note: Do not reorder this enum, only append to the end. Weird unity quirk.
     public enum EnemyType
@@ -37,8 +33,6 @@ public class EnemyHealth : MonoBehaviour
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
-        if (sprite == null)
-            sprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
         //audioSource = GetComponent<AudioSource>();
 
         // DIFFERENT ENEMY HEALTH AMOUNTS
@@ -99,6 +93,7 @@ public class EnemyHealth : MonoBehaviour
     public void EnemyDie()
     {
         Debug.Log("ENEMY DIE");
+        key.Activate();
 
         Destroy(this.gameObject);
     }

@@ -31,7 +31,7 @@ public class Parry : MonoBehaviour
     {
         GameObject projectile = Instantiate(projectile_prefab, getShootPosition(), gameObject.transform.rotation);
         rb = projectile.GetComponent<Rigidbody>();
-        setForwardVector(mouse.worldPosition.normalized);
+        setForwardVector(this.transform.forward);
         rb.velocity = ForwardVelocity();
 
     }
