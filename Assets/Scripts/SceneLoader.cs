@@ -34,7 +34,7 @@ public class SceneLoader : MonoBehaviour
         Aboveground,
         Underground,
         Cathedral,
-        Credits
+        IntroCutScene
     }
 
     [HideInInspector] public bool crossfadeComplete = false;
