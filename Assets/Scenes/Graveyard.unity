@@ -6877,14 +6877,13 @@ MonoBehaviour:
   speakerName: {fileID: 468890833}
   speakerSprite: {fileID: 1836963360}
   continueImage: {fileID: 336551796}
-  isScrollingText: 0
   typeSpeed: 0.05
   playerMovement: {fileID: 0}
   pauseManager: {fileID: 0}
   DialogueKey: 101
   currentTrigger: {fileID: 0}
-  freezePlayerOnDialogue: 1
   dialogueActive: 0
+  inDialogueZone: 0
   invisSprite: {fileID: 21300000, guid: 6a19a04fe820476468d44000a1fcaa35, type: 3}
   speakerSprites: {fileID: 11400000, guid: 64cab72b40bbf034b8af4c209a84a5af, type: 2}
   speakerSpriteNames: []
@@ -10416,6 +10415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfaab76339c7d6c4d8cc5682abddbf4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changeSceneOnActive: 0
   nextScene: 4
 --- !u!4 &347720745
 Transform:
@@ -34620,7 +34620,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -39587,6 +39587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfaab76339c7d6c4d8cc5682abddbf4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changeSceneOnActive: 0
   nextScene: 3
 --- !u!4 &1512634755
 Transform:
@@ -52445,7 +52446,6 @@ MonoBehaviour:
   locationName: {fileID: 228432933}
   currentObjective: {fileID: 1837467068}
   playerMovement: {fileID: 0}
-  levelToLoad: Base
   invisSprite: {fileID: 21300000, guid: 6a19a04fe820476468d44000a1fcaa35, type: 3}
   locationLibrary: {fileID: 11400000, guid: dd182bc98dc36914a9db90f51848b4a6, type: 2}
   locationNames: []
