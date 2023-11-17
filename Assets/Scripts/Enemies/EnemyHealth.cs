@@ -37,6 +37,8 @@ public class EnemyHealth : MonoBehaviour
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
+        if (sprite == null)
+            sprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
         //audioSource = GetComponent<AudioSource>();
 
         // DIFFERENT ENEMY HEALTH AMOUNTS
@@ -62,6 +64,15 @@ public class EnemyHealth : MonoBehaviour
         {
             Debug.Log("ENTERED WHIP ZONE");
             TakeWhipDamage();
+        }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("PlayerProjectile"))
+        {
+            Debug.Log("HIT BY BULLET");
+            TakeWhipDamage(); //just using whip function for now
         }
     }
 
@@ -96,9 +107,9 @@ public class EnemyHealth : MonoBehaviour
     private IEnumerator FlashRed()
     {
         damageCoolDown = true;
-        //sprite.color = Color.red;
+        sprite.color = Color.red;
         yield return new WaitForSeconds(0.1f);
-        //sprite.color = Color.white;
+        sprite.color = Color.white;
         yield return new WaitForSeconds(0.8f);
         damageCoolDown = false;
     }

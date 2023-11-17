@@ -70,7 +70,7 @@ public class RespawnManager : MonoBehaviour
         }
         else
         {
-            SceneLoader.instance.Load(SceneLoader.Scene.MainMenu); 
+            SceneLoader.instance.Load(SceneLoader.Scene.MainMenu);
         }
     }
 }

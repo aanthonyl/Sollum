@@ -1,7 +1,6 @@
 using System.Collections;
 //using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class ShotProjectile : MonoBehaviour
 {
@@ -51,7 +50,7 @@ public class ShotProjectile : MonoBehaviour
             GameObject projectile = Instantiate(projectilePrefab, shootPoint.position, shootPoint.rotation);
             // You may need to set the projectile's direction and speed here.
             // projectile.GetComponent<Rigidbody>().velocity = new Vector2(direction.x*1, direction.y*1);
-            projectile.GetComponent<Rigidbody>().velocity = new Vector3(direction.x*1, direction.y*1, direction.z*1);
+            projectile.GetComponent<Rigidbody>().velocity = new Vector3(direction.x * 1, direction.y * 1, direction.z * 1);
         }
     }
 

@@ -47,7 +47,7 @@ public class EnemyStateManager : MonoBehaviour
 	[SerializeField]
 	public float pushVelocity = 50.0f;
 	[SerializeField]
-	public float stunTime = 1.0f;
+	public float stunTime = .5f;
 
 	[Header("Distances")]
 	[SerializeField]
@@ -153,6 +153,7 @@ public class EnemyStateManager : MonoBehaviour
 	*===========================================*/
 	public void SawPlayer(Transform player)
 	{
+		StopAllCoroutines();
 		isAggro = true;
 		target = player;
 		rend.color = Color.red;
@@ -165,8 +166,12 @@ public class EnemyStateManager : MonoBehaviour
 	*===========================================*/
 	private void HeardNoise(object sender, NoiseEvents.OnNoiseMadeArgs e)
 	{
+		StopAllCoroutines();
+		// Debug.Log("Recieved Event");
+		// Debug.Log(Vector3.Distance(e.noiseTrans.position, transform.position));
 		if (Vector3.Distance(e.noiseTrans.position, transform.position) - playerHeight <= maxHearingDist && !isAggro)
 		{
+			// Debug.Log("Within Distance");
 			target = e.noiseTrans;
 			SwitchState(SearchState);
 		}
@@ -177,6 +182,8 @@ public class EnemyStateManager : MonoBehaviour
 	*===========================================*/
 	public void KnockedBack(Vector3 parasolForward)
 	{
+		StopAllCoroutines();
+		agent.ResetPath();
 		rb.velocity = parasolForward * pushVelocity;
 		SwitchState(KnockedState);
 	}
@@ -201,7 +208,7 @@ public class EnemyStateManager : MonoBehaviour
 	}
 	public IEnumerator ReturnToChase()
 	{
-		yield return new WaitForSeconds(pauseSearchTime);
+		yield return new WaitForSeconds(stunTime);
 		isAggro = true;
 		SwitchState(ChaseState);
 	}
