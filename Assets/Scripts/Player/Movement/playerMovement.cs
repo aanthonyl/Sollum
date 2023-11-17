@@ -50,6 +50,7 @@ public class playerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+<<<<<<< Updated upstream
         if (Input.GetKeyDown("1")) {
             Time.timeScale -= 0.2f;
         }
@@ -65,6 +66,10 @@ public class playerMovement : MonoBehaviour
         }
         
         
+=======
+        xInput = Input.GetAxisRaw("Horizontal");
+        zInput = Input.GetAxisRaw("Vertical");
+>>>>>>> Stashed changes
         inputVector = new Vector2(xInput, zInput);
 
         inputMagnitude = inputVector.magnitude;
