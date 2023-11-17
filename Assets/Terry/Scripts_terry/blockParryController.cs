@@ -195,7 +195,7 @@ public class BlockParryController : MonoBehaviour
         col.gameObject.SetActive(true);
         attacking = true;
         bool currCanMove = pm.freezeMovement;
-        pm.freezeMovement = false;
+        pm.freezeMovement = true;
         yield return new WaitForSeconds(.3f);
         pm.freezeMovement = currCanMove;
         attacking = false;

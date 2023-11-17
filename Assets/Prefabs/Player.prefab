@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db67066510a89dadf90edcbdcfca747a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parryModeTime: 0.4
+  parryModeTime: 0.2
   blockingMovementSpeedMultiplier: 0.1
   parryVelocity: 50
   parryClass: {fileID: 8219800657043975425}
