@@ -47,7 +47,6 @@ MonoBehaviour:
   whipZone: {fileID: 1751107795560149809}
   pauseManager: {fileID: 0}
   dialogueManager: {fileID: 0}
-  WhipAttackKey: 323
   pauseOpen: 0
 --- !u!1 &1428902119550122323
 GameObject:
@@ -97,6 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parryModeTime: 0.4
+  blockingMovementSpeedMultiplier: 0
   parryVelocity: 50
   parryClass: {fileID: 8219800657043975425}
   parryBlockClass: {fileID: 7074455743074956097}
@@ -386,7 +386,6 @@ GameObject:
   - component: {fileID: 1366715677850318439}
   - component: {fileID: 3658410901615788074}
   - component: {fileID: 6306606814648962914}
-  - component: {fileID: 8476606252459049591}
   - component: {fileID: 4132084614688132038}
   - component: {fileID: 1924437308449402450}
   m_Layer: 3
@@ -547,6 +546,7 @@ MonoBehaviour:
   friction: 0
   thrust: 0
   gravity: 0
+  movementMultiplier: 0
 --- !u!114 &6306606814648962914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -561,20 +561,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knockbackTime: 0.1
   knockBackScale: 10
---- !u!114 &8476606252459049591
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7074455743074956097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9495ea2d240b6b140a58b0689f28c713, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  whip: {fileID: 6119399718429566257}
-  parasol: {fileID: 5470613004639039179}
 --- !u!114 &4132084614688132038
 MonoBehaviour:
   m_ObjectHideFlags: 0
