@@ -49,7 +49,7 @@ public class BlockParryController : MonoBehaviour
         // detecting block and parry button press
         // the parry window is a fixed amount of time where
         // the player is locked in the parry state
-        if (pm.GetCanMove())
+        if (!pm.freezeMovement)
         {
             if (Input.GetButtonDown("Block"))
             {
@@ -194,10 +194,10 @@ public class BlockParryController : MonoBehaviour
         protoSprite.color = Color.green;
         col.gameObject.SetActive(true);
         attacking = true;
-        bool currCanMove = pm.GetCanMove();
-        pm.SetCanMove(false);
+        bool currCanMove = pm.freezeMovement;
+        pm.freezeMovement = false;
         yield return new WaitForSeconds(.3f);
-        pm.SetCanMove(currCanMove);
+        pm.freezeMovement = currCanMove;
         attacking = false;
         col.gameObject.SetActive(false);
         protoSprite.color = Color.white;
