@@ -19,10 +19,12 @@ public class CameraControl : MonoBehaviour
     public float offsetY = 7;
     public float offsetZ = -15;
 
-    public bool test = false;
+    public bool test_Pan = false;
+    public bool test_Zoom = false;
     public GameObject testOBJ;
 
     private bool panReseted = true;
+    private bool coroutine_running = false;
 
     void Start()
     {
@@ -33,13 +35,16 @@ public class CameraControl : MonoBehaviour
     void Update()
     {
         //check bounds and stay within
-
-        if(test){
+        if(test_Zoom){
+            StartCoroutine(DynamicZoom(100)); //how to call zoom -> set the FOV
+            test_Zoom = false;
+        }
+        if(test_Pan){
             if(panReseted){
-                StartCoroutine(PanToGameObject(testOBJ,3.0f));
+                StartCoroutine(PanToGameObject(testOBJ,3.0f)); //how to call Pan to game object-> give it a game object and time to hold
                 panReseted = false;
             }
-        }else{
+        }else if(!coroutine_running){
 
         float camX = player.transform.position.x + offsetX;
         float camY = player.transform.position.y + offsetY;
@@ -53,31 +58,45 @@ public class CameraControl : MonoBehaviour
         camZ = camZ < minZ ? minZ : camZ;
 
         transform.position = new Vector3(camX, camY, camZ);
+
         }
 
 
     }
 
+    //call this by using StartCoroutine
     IEnumerator PanToGameObject(GameObject target, float time)
     {
-        Debug.Log("Panto game called");
-        float currtime = 0;
-        //make it smooth
+        coroutine_running = true;
         Vector3 targ = new Vector3(target.transform.position.x + offsetX, target.transform.position.y + offsetY,target.transform.position.z + offsetZ);
-        Vector3 dist = new Vector3(targ.x - transform.position.x, targ.y - transform.position.y,targ.y - transform.position.z);
-        float steps = time / Time.deltaTime;
-        Debug.Log("how many steps: " + steps);
+        Vector3 dist = new Vector3(targ.x - transform.position.x, targ.y - transform.position.y,targ.z - transform.position.z);
+        float steps = 100;
         dist = new Vector3(dist.x / steps, dist.y / steps, dist.z / steps);
-        int timecounter = 0;
-        while(transform.position.x != targ.x){
-            if(timecounter > 1000){
-                transform.position = transform.position + dist;
-                timecounter = 0;
-            }
-            timecounter++;
+        int count = 0;
+        while(count < steps){   
+            transform.position += dist;
+            count++;
+            yield return new WaitForSeconds(0.01F); 
         }
-        yield return new WaitForSeconds(time); 
+        yield return new WaitForSeconds(time);
+        count = 0;
+        while(count < steps){   
+            transform.position -= dist;
+            count++;
+            yield return new WaitForSeconds(0.01F); 
+        } 
+        coroutine_running = false;
         panReseted = true;
-        test = false;
+        test_Pan = false;
     }
+
+    //call this by using StartCoroutine
+    IEnumerator DynamicZoom(float FOV){
+        float addative = (FOV - Camera.main.fieldOfView) / 100;
+        for(int i = 0;i < 100;i++){
+            Camera.main.fieldOfView += addative;
+            yield return new WaitForSeconds(0.01F);
+        }
+    }
+
 }
