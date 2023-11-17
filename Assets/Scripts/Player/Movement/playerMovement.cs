@@ -140,9 +140,10 @@ public class playerMovement : MonoBehaviour
         if (rb.velocity.magnitude > 0) rb.AddForce(-transform.up * ms.GetFriction());
 
         //velocity limiter//
-        if (speed > maxSpeed)
+        if (speed > (maxSpeed * ms.GetMovementMultiplier()))
         {
-            float brakeSpeed = speed - maxSpeed;
+            Debug.Log("Max Speed reached");
+            float brakeSpeed = speed - (maxSpeed * ms.GetMovementMultiplier());
             Vector2 brakeVelocity = new Vector2(rb.velocity.x, rb.velocity.z).normalized * brakeSpeed;
             rb.AddForce(new Vector3(-brakeVelocity.x, 0, -brakeVelocity.y), ForceMode.Impulse);
         }
