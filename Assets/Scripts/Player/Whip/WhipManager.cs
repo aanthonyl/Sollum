@@ -15,9 +15,6 @@ public class WhipManager : MonoBehaviour
     public DialogueManager dialogueManager;
 
     // ALLOWS DEVELOPER TO SELECT KEY FROM LIST
-    [Header("Whip Attack Key")]
-    public KeyCode WhipAttackKey = KeyCode.Mouse0;
-
     private bool whipCoolDown = false;
     //[HideInInspector]
     //public bool dialogueOpen = false;
@@ -35,7 +32,7 @@ public class WhipManager : MonoBehaviour
         if (pauseManager.gamePaused == false && dialogueManager.dialogueActive == false)
         {
             // ACTIVATE WHIP ATTACK ZONE
-            if (whipZone.activeInHierarchy != true && Input.GetKeyDown(WhipAttackKey) && whipCoolDown == false)//&& dialogueOpen == false && pauseOpen == false && Input.GetKeyDown(WhipAttackKey) && whipCoolDown == false)
+            if (whipZone.activeInHierarchy != true && Input.GetButtonDown("Secondary") && whipCoolDown == false)//&& dialogueOpen == false && pauseOpen == false && Input.GetKeyDown(WhipAttackKey) && whipCoolDown == false)
             {
                 Debug.Log("START WHIP ATTACK");
                 StartCoroutine(AttackDuration());
