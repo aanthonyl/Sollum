@@ -15,7 +15,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
-        respawnPoint = GameObject.FindGameObjectWithTag("Respawn").transform;
+        //respawnPoint = GameObject.FindGameObjectWithTag("Respawn").transform;
         invincible = false;
         currentHealth = maxHealth;
     }
