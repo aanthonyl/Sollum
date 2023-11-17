@@ -1,0 +1,7 @@
+[NAME=Victoria][SPEAKERSPRITE=Victoria]Hi Captain Randy. How’s today’s catch?
+[NAME=Captain Randy][SPEAKERSPRITE=Captain Randy]Everything rots. Everything dies. Eternally, I am here, fishing.
+[NAME=Victoria][SPEAKERSPRITE=Victoria]Erm? Randy? Are you feeling alright?
+[NAME=Captain Randy][SPEAKERSPRITE=Captain Randy]My belly is full. I consume the rot and the rot consumes me. Forever and ever.
+[NAME=Captain Randy][SPEAKERSPRITE=Captain Randy]Join me.
+[NAME=Victoria][SPEAKERSPRITE=Victoria]Uh, perhaps another time?
+[NAME=Captain Randy][SPEAKERSPRITE=Captain Randy]Of course. The rot is everlasting. 
