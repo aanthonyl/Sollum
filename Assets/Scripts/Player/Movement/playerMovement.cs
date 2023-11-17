@@ -49,7 +49,6 @@ public class playerMovement : MonoBehaviour
         inputVector = new Vector2(xInput, zInput);
         inputMagnitude = inputVector.magnitude;
         forceVector = new Vector3(inputVector.x * ms.GetAcceleration(), 0, inputVector.y * ms.GetAcceleration());
-        speed = new Vector2(rb.velocity.x, rb.velocity.z).magnitude;
 
         if ((zInput != 0 || xInput != 0) && !freezeMovement)
         {
@@ -126,29 +125,36 @@ public class playerMovement : MonoBehaviour
         {
             rb.AddForce(-transform.up * ms.GetGravity());
         }
-
-        //applies movement force//
-        //rb.AddForce(forceVector); // * This needs to be connected to the freezeMovement bool to stop movement in dialogue
-
+        speed = new Vector2(rb.velocity.x, rb.velocity.z).magnitude;
         //applies deceleration when no input//
         if (inputMagnitude == 0 && speed > 0)
         {
             Vector2 decelerationVelocity = new Vector2(rb.velocity.x, rb.velocity.z).normalized * ms.GetDeceleration() * new Vector2(rb.velocity.x, rb.velocity.z).magnitude;
             rb.AddForce(new Vector3(decelerationVelocity.x, 0, decelerationVelocity.y));
         }
-        //applies movement friction//
-        if (rb.velocity.magnitude > 0) rb.AddForce(-transform.up * ms.GetFriction());
-
+        
+        speed = new Vector2(rb.velocity.x, rb.velocity.z).magnitude;
         //velocity limiter//
         if (speed > (maxSpeed * ms.GetMovementMultiplier()))
         {
             Debug.Log("Max Speed reached");
             float brakeSpeed = speed - (maxSpeed * ms.GetMovementMultiplier());
+            Debug.Log("Brake speed: " + brakeSpeed);
             Vector2 brakeVelocity = new Vector2(rb.velocity.x, rb.velocity.z).normalized * brakeSpeed;
+            Debug.Log("Brake velo: " + brakeVelocity);
+            Debug.Log("Current velo: " + rb.velocity);
             rb.AddForce(new Vector3(-brakeVelocity.x, 0, -brakeVelocity.y), ForceMode.Impulse);
+            brakeSpeed = speed - (maxSpeed * ms.GetMovementMultiplier());
+            Debug.Log("Post force velo: " + rb.velocity);
+            //brakeVelocity = new Vector2(rb.velocity.x, rb.velocity.z).normalized * brakeSpeed;
+            //rb.AddForce(new Vector3(-brakeVelocity.x, 0, -brakeVelocity.y), ForceMode.Impulse);
+            //Debug.Log("Post force velo 2: " + rb.velocity);
         }
 
+        //rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x, -(maxSpeed* ms.GetMovementMultiplier()), (maxSpeed* ms.GetMovementMultiplier())), 0, Mathf.Clamp(rb.velocity.z, -(maxSpeed* ms.GetMovementMultiplier()), (maxSpeed* ms.GetMovementMultiplier()) ));
+        //Debug.Log("Post force velo again: " + rb.velocity);
     }
+        
 
     void CheckJump()
     {

@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parryModeTime: 0.4
-  blockingMovementSpeedMultiplier: 0
+  blockingMovementSpeedMultiplier: 0.1
   parryVelocity: 50
   parryClass: {fileID: 8219800657043975425}
   parryBlockClass: {fileID: 7074455743074956097}
@@ -540,13 +540,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51e7051c23cd17c46bce8a66b705022a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 3.5
+  maxSpeed: 3
   acceleration: 100
   deceleration: -10
   friction: 0
   thrust: 0
   gravity: 0
-  movementMultiplier: 0
+  movementMultiplier: 1
 --- !u!114 &6306606814648962914
 MonoBehaviour:
   m_ObjectHideFlags: 0
