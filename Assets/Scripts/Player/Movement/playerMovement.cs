@@ -10,6 +10,7 @@ using Vector3 = UnityEngine.Vector3;
 public class playerMovement : MonoBehaviour
 {
 
+    [SerializeField] BlockParryController bpc;
     private float xInput;
     private float zInput;
     private bool grounded = true;
@@ -44,49 +45,52 @@ public class playerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        xInput = Input.GetAxis("Horizontal");
-        zInput = Input.GetAxis("Vertical");
+        xInput = Input.GetAxisRaw("Horizontal");
+        zInput = Input.GetAxisRaw("Vertical");
         inputVector = new Vector2(xInput, zInput);
         inputMagnitude = inputVector.magnitude;
         forceVector = new Vector3(inputVector.x * ms.GetAcceleration(), 0, inputVector.y * ms.GetAcceleration());
-        speed = new Vector2(rb.velocity.x, rb.velocity.z).magnitude;
 
         if ((zInput != 0 || xInput != 0) && !freezeMovement)
         {
-            if (xInput > 0)
+            if (!bpc.isAttacking()) {
+                if (xInput > 0)
             {
-                //to the right
+                //right
                 facingForward = true;
                 myAnim.SetBool("Right", true);
                 myAnim.SetBool("Left", false);
-                myAnim.SetBool("Forward", false);
-                myAnim.SetBool("Backward", false);
             }
-            else
+            else if (xInput < 0)
             {
                 //left
                 facingForward = false;
                 myAnim.SetBool("Left", true);
                 myAnim.SetBool("Right", false);
-                myAnim.SetBool("Forward", false);
-                myAnim.SetBool("Backward", false);
+            }
+            else
+            {
+                myAnim.SetBool("Left", false);
+                myAnim.SetBool("Right", false);
             }
             if (zInput > 0)
             {
-                //backwards                
-                myAnim.SetBool("Backward", true);
-                myAnim.SetBool("Left", false);
-                myAnim.SetBool("Right", false);
-                myAnim.SetBool("Forward", false);
+                //down                
+                myAnim.SetBool("Up", true);
+                myAnim.SetBool("Down", false);
+                
             }
-            if (zInput < 0)
+            else if (zInput < 0)
             {
                 //front                
-                myAnim.SetBool("Forward", true);
-                myAnim.SetBool("Backward", false);
-                myAnim.SetBool("Left", false);
-                myAnim.SetBool("Right", false);
+                myAnim.SetBool("Down", true);
+                myAnim.SetBool("Up", false);
+            } else
+            {
+                myAnim.SetBool("Up", false);
+                myAnim.SetBool("Down", false);
             }
+            }  
         }
         else
         {
@@ -96,19 +100,9 @@ public class playerMovement : MonoBehaviour
             myAnim.SetBool("Forward", false);
             myAnim.SetBool("Backward", false);
         }
-
-        /*
-            if (xInput != 0)
-            {
-                if (xInput > 0)
-                {
-                    facingForward = true;
-                }
-                else
-                {
-                    facingForward = false;
-                }
-            }*/
+        myAnim.SetBool("FacingForward", facingForward);
+        myAnim.SetBool("Attacking", bpc.isAttacking());
+        myAnim.SetBool("Blocking", bpc.isBlocking());
 
         CheckGrounded();
         CheckJump();
@@ -117,7 +111,7 @@ public class playerMovement : MonoBehaviour
     void FixedUpdate()
     {
         // Boolean for dialogue system //
-        if (!freezeMovement)
+        if (!freezeMovement && speed < maxSpeed * ms.GetMovementMultiplier() && !bpc.isAttacking())
         {
             //applies movement force//
             rb.AddForce(forceVector);
@@ -126,28 +120,34 @@ public class playerMovement : MonoBehaviour
         {
             rb.AddForce(-transform.up * ms.GetGravity());
         }
-
-        //applies movement force//
-        //rb.AddForce(forceVector); // * This needs to be connected to the freezeMovement bool to stop movement in dialogue
-
+        speed = new Vector2(rb.velocity.x, rb.velocity.z).magnitude;
         //applies deceleration when no input//
         if (inputMagnitude == 0 && speed > 0)
         {
             Vector2 decelerationVelocity = new Vector2(rb.velocity.x, rb.velocity.z).normalized * ms.GetDeceleration() * new Vector2(rb.velocity.x, rb.velocity.z).magnitude;
             rb.AddForce(new Vector3(decelerationVelocity.x, 0, decelerationVelocity.y));
         }
-        //applies movement friction//
-        if (rb.velocity.magnitude > 0) rb.AddForce(-transform.up * ms.GetFriction());
-
+        
+        speed = new Vector2(rb.velocity.x, rb.velocity.z).magnitude;
+        Debug.Log("Pre Speed: " + speed);
         //velocity limiter//
-        if (speed > maxSpeed)
+        /*if (speed > (maxSpeed * ms.GetMovementMultiplier()))
         {
-            float brakeSpeed = speed - maxSpeed;
+            Debug.Log("Max Speed reached");
+            float brakeSpeed = speed - (maxSpeed * ms.GetMovementMultiplier());
             Vector2 brakeVelocity = new Vector2(rb.velocity.x, rb.velocity.z).normalized * brakeSpeed;
-            rb.AddForce(new Vector3(-brakeVelocity.x, 0, -brakeVelocity.y), ForceMode.Impulse);
-        }
+            rb.AddForce(new Vector3(-brakeVelocity.x, 0, -brakeVelocity.y), ForceMode.Impulse); 
+        }*/
 
+        rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed * ms.GetMovementMultiplier());
+        speed = new Vector2(rb.velocity.x, rb.velocity.z).magnitude;
+        Debug.Log("Post Speed: " + speed);
+
+        //rb.velocity = Vector3.zero;
+        //rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x, -(maxSpeed* ms.GetMovementMultiplier()), (maxSpeed* ms.GetMovementMultiplier())), 0, Mathf.Clamp(rb.velocity.z, -(maxSpeed* ms.GetMovementMultiplier()), (maxSpeed* ms.GetMovementMultiplier()) ));
+        //Debug.Log("Post force velo again: " + rb.velocity);
     }
+        
 
     void CheckJump()
     {

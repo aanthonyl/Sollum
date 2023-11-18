@@ -1472,9 +1472,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parryModeTime: 0.4
+  blockingMovementSpeedMultiplier: 0
+  anim: {fileID: 0}
+  upRightHitbox: {fileID: 0}
+  upLeftHitbox: {fileID: 0}
+  rightHitbox: {fileID: 0}
+  leftHitbox: {fileID: 0}
   parryVelocity: 50
   parryClass: {fileID: 1688943313}
-  anim: {fileID: 0}
   parryBlockClass: {fileID: 172579421}
   protoSprite: {fileID: 60643758}
   playerHealth: {fileID: 172579423}
@@ -4303,6 +4308,7 @@ MonoBehaviour:
   friction: 0
   thrust: 0
   gravity: 0
+  movementMultiplier: 0
 --- !u!114 &172579429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4315,6 +4321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8359595a0cc89c4d93399ff9342cf3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bpc: {fileID: 0}
   facingForward: 1
   freezeMovement: 0
 --- !u!136 &172579430
@@ -9183,7 +9190,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.8, y: 2.8}
+  m_Size: {x: 0.9, y: 2.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -9401,7 +9408,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.2, y: 0.73333335}
+  m_Size: {x: 4.48, y: 4.48}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -11447,6 +11454,9 @@ MonoBehaviour:
   offsetX: 0
   offsetY: 3
   offsetZ: -8
+  test_Pan: 0
+  test_Zoom: 0
+  testOBJ: {fileID: 0}
 --- !u!81 &494339268
 AudioListener:
   m_ObjectHideFlags: 0
@@ -13831,7 +13841,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.2, y: 0.73333335}
+  m_Size: {x: 4.48, y: 4.48}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -53584,7 +53594,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.2, y: 0.73333335}
+  m_Size: {x: 4.48, y: 4.48}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -54664,25 +54674,21 @@ PrefabInstance:
       propertyPath: mousePosition
       value: 
       objectReference: {fileID: 1035514746}
+    - target: {fileID: 3885797848170427777, guid: 159897470cb59094199e4fe07088fee5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4132084614688132038, guid: 159897470cb59094199e4fe07088fee5, type: 3}
       propertyPath: HealthBar
       value: 
       objectReference: {fileID: 282053242}
-    - target: {fileID: 5454930143106198228, guid: 159897470cb59094199e4fe07088fee5, type: 3}
-      propertyPath: anim
-      value: 
-      objectReference: {fileID: 1684702830}
-    - target: {fileID: 5454930143106198228, guid: 159897470cb59094199e4fe07088fee5, type: 3}
-      propertyPath: protoSprite
-      value: 
-      objectReference: {fileID: 1684702829}
     - target: {fileID: 5918929646927296485, guid: 159897470cb59094199e4fe07088fee5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.63
       objectReference: {fileID: 0}
     - target: {fileID: 5918929646927296485, guid: 159897470cb59094199e4fe07088fee5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.79
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 5918929646927296485, guid: 159897470cb59094199e4fe07088fee5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -54694,15 +54700,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5918929646927296485, guid: 159897470cb59094199e4fe07088fee5, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5918929646927296485, guid: 159897470cb59094199e4fe07088fee5, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5918929646927296485, guid: 159897470cb59094199e4fe07088fee5, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5918929646927296485, guid: 159897470cb59094199e4fe07088fee5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -54725,16 +54731,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 159897470cb59094199e4fe07088fee5, type: 3}
---- !u!212 &1684702829 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 7791184195541379136, guid: 159897470cb59094199e4fe07088fee5, type: 3}
-  m_PrefabInstance: {fileID: 1684702828}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1684702830 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1924437308449402450, guid: 159897470cb59094199e4fe07088fee5, type: 3}
-  m_PrefabInstance: {fileID: 1684702828}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1685600029
 GameObject:
   m_ObjectHideFlags: 0
@@ -56930,7 +56926,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.2, y: 0.73333335}
+  m_Size: {x: 4.48, y: 4.48}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -64317,7 +64313,6 @@ MonoBehaviour:
   whipZone: {fileID: 133725180}
   pauseManager: {fileID: 0}
   dialogueManager: {fileID: 0}
-  WhipAttackKey: 323
   pauseOpen: 0
 --- !u!1 &2132074737
 GameObject:
