@@ -15,6 +15,9 @@ public class BlockParryController : MonoBehaviour
     [SerializeField] GameObject upLeftHitbox;
     [SerializeField] GameObject rightHitbox;
     [SerializeField] GameObject leftHitbox;
+    [SerializeField] GameObject downRightHitbox;
+    [SerializeField] GameObject downLeftHitbox;
+
     float currMovementSpeedMultiplier;
     bool parrying = false;
     bool attacking = false;
@@ -200,7 +203,7 @@ public class BlockParryController : MonoBehaviour
         col.gameObject.SetActive(true);
         attacking = true;
         GameObject hitbox = ActivateHitbox();
-        yield return new WaitForSeconds(1f/6f);
+        yield return new WaitForSeconds(1f/6f * 4f/3f);
         DeactivateHitbox(hitbox);
         attacking = false;
         col.gameObject.SetActive(false);
@@ -231,14 +234,20 @@ public class BlockParryController : MonoBehaviour
             if (anim.GetBool("Up")) {
                 upRightHitbox.SetActive(true);
                 return upRightHitbox;
+            } else if (anim.GetBool("Down")) {
+                 downRightHitbox.SetActive(true);
+                 return downRightHitbox;
             } else {
                 rightHitbox.SetActive(true);
-                return rightHitbox; 
+                return rightHitbox;
             }
         } else if (anim.GetBool("Left")) {
             if (anim.GetBool("Up")) {
                 upLeftHitbox.SetActive(true);
                 return upLeftHitbox;
+            } else if (anim.GetBool("Down")) {
+                downLeftHitbox.SetActive(true);
+                return downLeftHitbox;
             } else {
                 leftHitbox.SetActive(true);
                 return leftHitbox;
@@ -249,6 +258,14 @@ public class BlockParryController : MonoBehaviour
                 return upRightHitbox;
             } else {
                 upLeftHitbox.SetActive(true);
+                return upLeftHitbox;
+            }
+        } else if (anim.GetBool("Down")) {
+            if (anim.GetBool("FacingForward")) {
+                downRightHitbox.SetActive(true);
+                return upRightHitbox;
+            } else {
+                downLeftHitbox.SetActive(true);
                 return upLeftHitbox;
             }
         }

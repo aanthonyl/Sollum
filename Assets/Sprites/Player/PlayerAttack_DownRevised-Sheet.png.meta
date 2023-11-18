@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 043be27d9d10aef4599e131551feb292
+guid: 581adf6b4da636d4a91170dbe0733d8a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,32 +95,6 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -158,47 +132,73 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerAttack_up-Sheet_0
+      name: PlayerAttack_DownRevised-Sheet_0
       rect:
         serializedVersion: 2
-        x: 304
-        y: 52
-        width: 168
-        height: 152
+        x: 52
+        y: 0
+        width: 164
+        height: 148
       alignment: 9
-      pivot: {x: 0.42857143, y: 0.34210527}
+      pivot: {x: 0.5121951, y: 0.7027027}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a514feed4677dc479745d79f5049527
-      internalID: 1674728769
+      spriteID: 9c4d1d1828b8b0d4e938fa9316cf4385
+      internalID: 1061020720
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerAttack_up-Sheet_1
+      name: PlayerAttack_DownRevised-Sheet_1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 52
+        x: 308
+        y: 0
         width: 128
-        height: 128
+        height: 136
       alignment: 9
-      pivot: {x: 0.5625, y: 0.40625}
+      pivot: {x: 0.6875, y: 0.61764705}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4dca83ee3602ed42a5590ae8225e702
-      internalID: 1478035387
+      spriteID: 95f171e6d075a8543809c1fb98bae047
+      internalID: 1603607014
       vertices: []
       indices: 
       edges: []
@@ -214,8 +214,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PlayerAttack_up-Sheet_0: 1674728769
-      PlayerAttack_up-Sheet_1: 1478035387
+      PlayerAttack_DownRevised-Sheet_0: 1061020720
+      PlayerAttack_DownRevised-Sheet_1: 1603607014
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

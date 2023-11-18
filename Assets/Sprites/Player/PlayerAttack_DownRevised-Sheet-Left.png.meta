@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 043be27d9d10aef4599e131551feb292
+guid: 2b65b234784b4054582114b90768c48e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -21,7 +21,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,32 +95,6 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -158,47 +132,73 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerAttack_up-Sheet_0
+      name: PlayerAttack_DownRevised-Sheet-Left_0
       rect:
         serializedVersion: 2
-        x: 304
-        y: 52
-        width: 168
-        height: 152
+        x: 280
+        y: 64
+        width: 180
+        height: 84
       alignment: 9
-      pivot: {x: 0.42857143, y: 0.34210527}
+      pivot: {x: 0.4888889, y: 0.5714286}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a514feed4677dc479745d79f5049527
-      internalID: 1674728769
+      spriteID: 3e0ae89277147dc4b826102b3020359c
+      internalID: 2006258044
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerAttack_up-Sheet_1
+      name: PlayerAttack_DownRevised-Sheet-Left_1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 52
-        width: 128
-        height: 128
+        x: 96
+        y: 64
+        width: 116
+        height: 72
       alignment: 9
-      pivot: {x: 0.5625, y: 0.40625}
+      pivot: {x: 0.2413793, y: 0.6666667}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4dca83ee3602ed42a5590ae8225e702
-      internalID: 1478035387
+      spriteID: 618ac0c49d3f9e84a90049bc5c443f8e
+      internalID: -1787878840
       vertices: []
       indices: 
       edges: []
@@ -206,7 +206,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 259e30d5c5bb5054dafc76f99e01ac2f
     internalID: 0
     vertices: []
     indices: 
@@ -214,8 +214,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PlayerAttack_up-Sheet_0: 1674728769
-      PlayerAttack_up-Sheet_1: 1478035387
+      PlayerAttack_DownRevised-Sheet-Left_0: 2006258044
+      PlayerAttack_DownRevised-Sheet-Left_1: -1787878840
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
