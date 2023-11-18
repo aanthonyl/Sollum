@@ -10,6 +10,11 @@ public class BlockParryController : MonoBehaviour
     public float parryModeTime = 0.4f;
 
     [SerializeField] float blockingMovementSpeedMultiplier;
+    [SerializeField] Animator anim;
+    [SerializeField] GameObject upRightHitbox;
+    [SerializeField] GameObject upLeftHitbox;
+    [SerializeField] GameObject rightHitbox;
+    [SerializeField] GameObject leftHitbox;
     float currMovementSpeedMultiplier;
     bool parrying = false;
     bool attacking = false;
@@ -194,7 +199,9 @@ public class BlockParryController : MonoBehaviour
         protoSprite.color = Color.green;
         col.gameObject.SetActive(true);
         attacking = true;
+        GameObject hitbox = ActivateHitbox();
         yield return new WaitForSeconds(1f/6f);
+        DeactivateHitbox(hitbox);
         attacking = false;
         col.gameObject.SetActive(false);
         protoSprite.color = Color.white;
@@ -217,6 +224,41 @@ public class BlockParryController : MonoBehaviour
         playerHealth.SetInvincibility(false);
         ms.SetMovementMultiplier(currMovementSpeedMultiplier);
         protoSprite.color = Color.white;
+    }
+
+    GameObject ActivateHitbox() {
+        if (anim.GetBool("Right")) {
+            if (anim.GetBool("Up")) {
+                upRightHitbox.SetActive(true);
+                return upRightHitbox;
+            } else {
+                rightHitbox.SetActive(true);
+                return rightHitbox; 
+            }
+        } else if (anim.GetBool("Left")) {
+            if (anim.GetBool("Up")) {
+                upLeftHitbox.SetActive(true);
+                return upLeftHitbox;
+            } else {
+                leftHitbox.SetActive(true);
+                return leftHitbox;
+            }
+        } else if (anim.GetBool("Up")) {
+            if (anim.GetBool("FacingForward")) {
+                upRightHitbox.SetActive(true);
+                return upRightHitbox;
+            } else {
+                upLeftHitbox.SetActive(true);
+                return upLeftHitbox;
+            }
+        }
+        return null;
+    }
+
+    void DeactivateHitbox(GameObject hitbox) {
+        if (hitbox != null) {
+            hitbox.SetActive(false);
+        }
     }
 }
 

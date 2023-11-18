@@ -1473,6 +1473,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parryModeTime: 0.4
   blockingMovementSpeedMultiplier: 0
+  anim: {fileID: 0}
+  upRightHitbox: {fileID: 0}
+  upLeftHitbox: {fileID: 0}
+  rightHitbox: {fileID: 0}
+  leftHitbox: {fileID: 0}
   parryVelocity: 50
   parryClass: {fileID: 1688943313}
   parryBlockClass: {fileID: 172579421}
@@ -3990,17 +3995,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 153114120}
   m_CullTransparentMesh: 1
---- !u!114 &160684458 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5454930143106198228, guid: 159897470cb59094199e4fe07088fee5, type: 3}
-  m_PrefabInstance: {fileID: 1684702828}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db67066510a89dadf90edcbdcfca747a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &163406721
 GameObject:
   m_ObjectHideFlags: 0
@@ -54676,10 +54670,6 @@ PrefabInstance:
       propertyPath: mouseClass
       value: 
       objectReference: {fileID: 1035514746}
-    - target: {fileID: 1366715677850318439, guid: 159897470cb59094199e4fe07088fee5, type: 3}
-      propertyPath: bpc
-      value: 
-      objectReference: {fileID: 160684458}
     - target: {fileID: 2314898909241021867, guid: 159897470cb59094199e4fe07088fee5, type: 3}
       propertyPath: mousePosition
       value: 
@@ -54692,30 +54682,6 @@ PrefabInstance:
       propertyPath: HealthBar
       value: 
       objectReference: {fileID: 282053242}
-    - target: {fileID: 5454930143106198228, guid: 159897470cb59094199e4fe07088fee5, type: 3}
-      propertyPath: anim
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5454930143106198228, guid: 159897470cb59094199e4fe07088fee5, type: 3}
-      propertyPath: protoSprite
-      value: 
-      objectReference: {fileID: 1684702829}
-    - target: {fileID: 5470613004639039179, guid: 159897470cb59094199e4fe07088fee5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5918929646927296485, guid: 159897470cb59094199e4fe07088fee5, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5918929646927296485, guid: 159897470cb59094199e4fe07088fee5, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5918929646927296485, guid: 159897470cb59094199e4fe07088fee5, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 5918929646927296485, guid: 159897470cb59094199e4fe07088fee5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.63
@@ -54765,11 +54731,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 159897470cb59094199e4fe07088fee5, type: 3}
---- !u!212 &1684702829 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 7791184195541379136, guid: 159897470cb59094199e4fe07088fee5, type: 3}
-  m_PrefabInstance: {fileID: 1684702828}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1685600029
 GameObject:
   m_ObjectHideFlags: 0

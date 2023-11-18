@@ -51,9 +51,10 @@ public class playerMovement : MonoBehaviour
         inputMagnitude = inputVector.magnitude;
         forceVector = new Vector3(inputVector.x * ms.GetAcceleration(), 0, inputVector.y * ms.GetAcceleration());
 
-        if ((zInput != 0 || xInput != 0) && !freezeMovement && !bpc.isAttacking())
+        if ((zInput != 0 || xInput != 0) && !freezeMovement)
         {
-            if (xInput > 0)
+            if (!bpc.isAttacking()) {
+                if (xInput > 0)
             {
                 //right
                 facingForward = true;
@@ -89,6 +90,7 @@ public class playerMovement : MonoBehaviour
                 myAnim.SetBool("Up", false);
                 myAnim.SetBool("Down", false);
             }
+            }  
         }
         else
         {

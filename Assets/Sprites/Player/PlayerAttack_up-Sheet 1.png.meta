@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cde60b991d618b148b7be22e8cd09d2e
+guid: 043be27d9d10aef4599e131551feb292
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -165,12 +165,12 @@ TextureImporter:
       name: PlayerAttack_up-Sheet_0
       rect:
         serializedVersion: 2
-        x: 40
+        x: 304
         y: 52
         width: 168
         height: 152
       alignment: 9
-      pivot: {x: 0.5714286, y: 0.31578946}
+      pivot: {x: 0.42857143, y: 0.31578946}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -186,12 +186,12 @@ TextureImporter:
       name: PlayerAttack_up-Sheet_1
       rect:
         serializedVersion: 2
-        x: 336
+        x: 48
         y: 52
         width: 128
         height: 128
       alignment: 9
-      pivot: {x: 0.4375, y: 0.375}
+      pivot: {x: 0.5625, y: 0.375}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
