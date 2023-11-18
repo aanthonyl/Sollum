@@ -190,14 +190,11 @@ public class BlockParryController : MonoBehaviour
 
     IEnumerator Attack()
     {
-        if (attackBuffer) attackBuffer = false;   
+        if (attackBuffer) attackBuffer = false;
         protoSprite.color = Color.green;
         col.gameObject.SetActive(true);
         attacking = true;
-        bool currCanMove = pm.freezeMovement;
-        pm.freezeMovement = true;
-        yield return new WaitForSeconds(.3f);
-        pm.freezeMovement = currCanMove;
+        yield return new WaitForSeconds(1f/6f);
         attacking = false;
         col.gameObject.SetActive(false);
         protoSprite.color = Color.white;
