@@ -54674,10 +54674,6 @@ PrefabInstance:
       propertyPath: mousePosition
       value: 
       objectReference: {fileID: 1035514746}
-    - target: {fileID: 3885797848170427777, guid: 159897470cb59094199e4fe07088fee5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4132084614688132038, guid: 159897470cb59094199e4fe07088fee5, type: 3}
       propertyPath: HealthBar
       value: 
