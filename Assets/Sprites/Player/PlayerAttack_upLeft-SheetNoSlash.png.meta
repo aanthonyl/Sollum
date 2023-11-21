@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8f8ea4150f5c39a4ba6b305aaf5bcd4f
+guid: bb60129cdf9d8024ea4ae8811dbd231d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -162,43 +162,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerAttack_Left-Sheet_0
+      name: PlayerAttack_upLeft-SheetNoSlash_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 200
-        height: 112
+        x: 40
+        y: 52
+        width: 168
+        height: 152
       alignment: 9
-      pivot: {x: 0.5, y: 0.46428573}
+      pivot: {x: 0.5714286, y: 0.34210527}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98a430d811b32044690f656d80f88c31
-      internalID: 1908490898
+      spriteID: ddf5f1ab24e57b24e85439ade10bc834
+      internalID: 205443939
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerAttack_Left-Sheet_1
+      name: PlayerAttack_upLeft-SheetNoSlash_1
       rect:
         serializedVersion: 2
-        x: 232
-        y: 0
-        width: 224
-        height: 112
+        x: 336
+        y: 52
+        width: 128
+        height: 128
       alignment: 9
-      pivot: {x: 0.5357143, y: 0.46428573}
+      pivot: {x: 0.4375, y: 0.40625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00a9785ff8c196641997d32b87244e94
-      internalID: -367074478
+      spriteID: bd4856fc43214e34186150be9e5e6826
+      internalID: 671992895
       vertices: []
       indices: 
       edges: []
@@ -206,7 +206,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 34e46a1d2a56efd4c9b80fa6680377bf
     internalID: 0
     vertices: []
     indices: 
@@ -214,8 +214,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PlayerAttack_Left-Sheet_0: 1908490898
-      PlayerAttack_Left-Sheet_1: -367074478
+      PlayerAttack_upLeft-SheetNoSlash_0: 205443939
+      PlayerAttack_upLeft-SheetNoSlash_1: 671992895
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

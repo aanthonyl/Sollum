@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7bc794f58d9e78643a9f630cc8e175f1
+guid: 6adb362f9f994504f950d1cb97271078
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -107,32 +107,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Server
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -158,14 +132,40 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerBlock_Right_SpriteSheet_0
+      name: PlayerBlock_Left_SpriteSheet_0
       rect:
         serializedVersion: 2
-        x: 9
+        x: 11
         y: 2
         width: 12
         height: 26
@@ -176,38 +176,38 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5de724c51ccb4143a9b86623d722678
-      internalID: 1762690909
+      spriteID: ae67fb2b1770b714098c734569fee83d
+      internalID: -418579923
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerBlock_Right_SpriteSheet_1
+      name: PlayerBlock_Left_SpriteSheet_1
       rect:
         serializedVersion: 2
-        x: 39
+        x: 43
         y: 2
         width: 14
         height: 26
       alignment: 9
-      pivot: {x: 0.5714286, y: 0.4615385}
+      pivot: {x: 0.42857146, y: 0.4615385}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e79f20b674e6b2d47a70b563fc0db8ba
-      internalID: 641856717
+      spriteID: 42c07f76d9cfc8d4497f7413ee6f09a0
+      internalID: -621136317
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerBlock_Right_SpriteSheet_2
+      name: PlayerBlock_Left_SpriteSheet_2
       rect:
         serializedVersion: 2
-        x: 73
+        x: 75
         y: 2
         width: 12
         height: 26
@@ -218,101 +218,101 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed0e45fc6888162429f9e6ef256cda88
-      internalID: -500561032
+      spriteID: 44cc5a2ea653dc740b0769e96674968b
+      internalID: -522653992
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerBlock_Right_SpriteSheet_3
+      name: PlayerBlock_Left_SpriteSheet_3
       rect:
         serializedVersion: 2
-        x: 100
+        x: 101
         y: 2
         width: 23
         height: 23
       alignment: 9
-      pivot: {x: 0.26086956, y: 0.5217391}
+      pivot: {x: 0.73913044, y: 0.5217391}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30dd07a36d4f53e42a4ed0fb441e0db3
-      internalID: 210835415
+      spriteID: 5e2a5dded41e1f140b0297b29008c042
+      internalID: -42601643
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerBlock_Right_SpriteSheet_4
+      name: PlayerBlock_Left_SpriteSheet_4
       rect:
         serializedVersion: 2
-        x: 131
+        x: 133
+        y: 2
+        width: 23
+        height: 23
+      alignment: 9
+      pivot: {x: 0.73913044, y: 0.5217391}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb6d606de2ce31e4fb0ac0e15bafbfba
+      internalID: -1862434210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerBlock_Left_SpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 167
         y: 2
         width: 22
         height: 22
       alignment: 9
-      pivot: {x: 0.3181818, y: 0.54545456}
+      pivot: {x: 0.6818182, y: 0.54545456}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca1f12efc4e14694e96f924b3a5e1981
-      internalID: -1324829323
+      spriteID: 4bcd7c33807fa5d43ae0e438194846ac
+      internalID: -614227966
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerBlock_Right_SpriteSheet_5
+      name: PlayerBlock_Left_SpriteSheet_6
       rect:
         serializedVersion: 2
-        x: 164
+        x: 197
         y: 2
         width: 23
         height: 23
       alignment: 9
-      pivot: {x: 0.26086956, y: 0.5217391}
+      pivot: {x: 0.73913044, y: 0.5217391}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2b2a45cae4724c41ac3108cdb425ba3
-      internalID: -2136183651
+      spriteID: b4fbd6ad27aef0745bb73f8e39a09d17
+      internalID: 1197529775
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerBlock_Right_SpriteSheet_6
+      name: PlayerBlock_Left_SpriteSheet_7
       rect:
         serializedVersion: 2
-        x: 196
-        y: 2
-        width: 23
-        height: 23
-      alignment: 9
-      pivot: {x: 0.26086956, y: 0.5217391}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2776744d9961a6e4c8f7e7235a90d75e
-      internalID: -694861606
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerBlock_Right_SpriteSheet_7
-      rect:
-        serializedVersion: 2
-        x: 233
+        x: 235
         y: 2
         width: 12
         height: 26
@@ -323,38 +323,38 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 170894ab17955bd4688ce9fb0cb8b20c
-      internalID: -1983446702
+      spriteID: 139f4c314ec97d945bc56c6f2461f302
+      internalID: -46004750
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerBlock_Right_SpriteSheet_8
+      name: PlayerBlock_Left_SpriteSheet_8
       rect:
         serializedVersion: 2
-        x: 263
+        x: 267
         y: 2
         width: 14
         height: 26
       alignment: 9
-      pivot: {x: 0.5714286, y: 0.4615385}
+      pivot: {x: 0.42857146, y: 0.4615385}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 005510fd9d3943846b93de90103e5c93
-      internalID: -1660443370
+      spriteID: cf1dc01f242bd0a40a50354c4c98ab86
+      internalID: 1969978714
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerBlock_Right_SpriteSheet_9
+      name: PlayerBlock_Left_SpriteSheet_9
       rect:
         serializedVersion: 2
-        x: 297
+        x: 299
         y: 2
         width: 12
         height: 26
@@ -365,8 +365,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87e7db98d2b88784bb06d7cd1574e144
-      internalID: -1382644653
+      spriteID: 60db732d886ba3b48ba2da26b35b7687
+      internalID: 1355949573
       vertices: []
       indices: 
       edges: []
@@ -374,7 +374,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: c65d9084ac1bd0d44bf40c3f42a4422b
+    spriteID: 0609012a27a24574ca94aaae6003bb66
     internalID: 0
     vertices: []
     indices: 
@@ -382,16 +382,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PlayerBlock_Right_SpriteSheet_0: 1762690909
-      PlayerBlock_Right_SpriteSheet_1: 641856717
-      PlayerBlock_Right_SpriteSheet_2: -500561032
-      PlayerBlock_Right_SpriteSheet_3: 210835415
-      PlayerBlock_Right_SpriteSheet_4: -1324829323
-      PlayerBlock_Right_SpriteSheet_5: -2136183651
-      PlayerBlock_Right_SpriteSheet_6: -694861606
-      PlayerBlock_Right_SpriteSheet_7: -1983446702
-      PlayerBlock_Right_SpriteSheet_8: -1660443370
-      PlayerBlock_Right_SpriteSheet_9: -1382644653
+      PlayerBlock_Left_SpriteSheet_0: -418579923
+      PlayerBlock_Left_SpriteSheet_1: -621136317
+      PlayerBlock_Left_SpriteSheet_2: -522653992
+      PlayerBlock_Left_SpriteSheet_3: -42601643
+      PlayerBlock_Left_SpriteSheet_4: -1862434210
+      PlayerBlock_Left_SpriteSheet_5: -614227966
+      PlayerBlock_Left_SpriteSheet_6: 1197529775
+      PlayerBlock_Left_SpriteSheet_7: -46004750
+      PlayerBlock_Left_SpriteSheet_8: 1969978714
+      PlayerBlock_Left_SpriteSheet_9: 1355949573
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
