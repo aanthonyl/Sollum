@@ -100,6 +100,7 @@ public class DialogueManager : MonoBehaviour
     // HAULT PLAYER MOVEMENT, WHIP ATTACK, ENEMY ATTACKS, PAUSE MENU
     private void FreezePlayer()
     {
+        Debug.Log("FREEZE PLAYER HAS BEEN CALLED");
         playerMovement.freezeMovement = true;
         dialogueActive = true;
 
@@ -111,7 +112,6 @@ public class DialogueManager : MonoBehaviour
     {
         playerMovement.freezeMovement = false;
         dialogueActive = false;
-
         pauseManager.dialogueOpen = false;
     }
 

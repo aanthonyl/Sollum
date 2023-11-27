@@ -11,6 +11,7 @@ public class playerMovement : MonoBehaviour
 {
 
     [SerializeField] BlockParryController bpc;
+    [SerializeField] NewWhip nw;
     [SerializeField] float speed;
     private float xInput;
     private float zInput;
@@ -64,45 +65,38 @@ public class playerMovement : MonoBehaviour
         // Boolean for dialogue system //
         speed = rb.velocity.magnitude;
         //Debug.Log("Speed is: " + speed + ", MaxSpeed is: " + (maxSpeed * ms.GetMovementMultiplier()));
-        if (!freezeMovement && !bpc.isAttacking() && !bpc.isCoolingDown())
+        if (!freezeMovement && !bpc.isAttacking() && !bpc.isCoolingDown() && !nw.isWhipping())
         {
-            if (speed > (maxSpeed * ms.GetMovementMultiplier() - 0.001f) && speed < (maxSpeed * ms.GetMovementMultiplier() + 0.001f))
+            if (speed > (maxSpeed * ms.GetMovementMultiplier() - 0.001f) && speed < (maxSpeed * ms.GetMovementMultiplier() + 0.001f) && inputMagnitude > 0)
             {
                 rb.velocity = new Vector3(rb.velocity.magnitude * inputVector.normalized.x, 0, rb.velocity.magnitude * inputVector.normalized.y);
                 //Debug.Log("Speed is equal");
             } else if (speed < (maxSpeed * ms.GetMovementMultiplier() - 0.001f))
             {
-
                 speed = rb.velocity.magnitude;
-                //Debug.Log("Speed is: " + speed + ", MaxSpeed is: " + (maxSpeed * ms.GetMovementMultiplier()));
+                //Debug.Log("Adding force vector");
                 rb.AddForce(forceVector);
-                //Debug.Log("Force Added");
             }
         }
         if (!GetGrounded())
         {
             rb.AddForce(-transform.up * ms.GetGravity());
-
         }
         speed = rb.velocity.magnitude;
+
         //applies deceleration when no input//
-        if ((inputMagnitude == 0 || freezeMovement || bpc.isAttacking() || bpc.isCoolingDown()) && speed > 0)
+        
+        if ((inputMagnitude == 0 || freezeMovement || bpc.isAttacking() || bpc.isCoolingDown() || nw.isWhipping() || bpc.isBlocking()) && speed > 0)
         {
+            //Debug.Log("Calling deceleration");
             Vector2 decelerationVelocity = new Vector2(rb.velocity.x, rb.velocity.z).normalized * ms.GetDeceleration() * new Vector2(rb.velocity.x, rb.velocity.z).magnitude;
             rb.AddForce(new Vector3(decelerationVelocity.x, 0, decelerationVelocity.y));
         }
-        
 
-        // if (speed > (maxSpeed * ms.GetMovementMultiplier()))
-        // {
-        //     Debug.Log("Max Speed reached");
-        //     float brakeSpeed = speed - (maxSpeed * ms.GetMovementMultiplier());
-        //     Vector2 brakeVelocity = new Vector2(rb.velocity.x, rb.velocity.z).normalized * brakeSpeed;
-        //     rb.AddForce(new Vector3(-brakeVelocity.x, 0, -brakeVelocity.y), ForceMode.Impulse);
-        // }
+        if (!bpc.isBlocking()) {
+            rb.velocity = Vector3.ClampMagnitude(rb.velocity, (float)maxSpeed * (float)ms.GetMovementMultiplier());
+        }
 
-        rb.velocity = Vector3.ClampMagnitude(rb.velocity, (float)maxSpeed * (float)ms.GetMovementMultiplier());
-        //Debug.Log("rb.velocity.magnitude = " + rb.velocity.magnitude);
         if (speed < 0.00001f) {
             rb.velocity = Vector3.zero;
         }
@@ -143,7 +137,7 @@ public class playerMovement : MonoBehaviour
     {
         if ((zInput != 0 || xInput != 0) && !freezeMovement)
         {
-            if (!bpc.isAttacking() && !bpc.isCoolingDown()) {
+            if (!bpc.isAttacking() && !bpc.isCoolingDown() && !nw.isWhipping()) {
                 if (xInput > 0)
             {
                 //right
@@ -195,6 +189,7 @@ public class playerMovement : MonoBehaviour
         myAnim.SetBool("Parrying", bpc.isParrying());
         myAnim.SetBool("Blocking", bpc.isBlocking());
         myAnim.SetBool("CoolingDown", bpc.isCoolingDown());
-        
+        myAnim.SetBool("Whipping", nw.isWhipping());
+        myAnim.SetBool("WhipWindup", nw.isWindingUp());
     }
 }
