@@ -64,7 +64,7 @@ public class CreditsManager : MonoBehaviour
                 }
             }
 
-            if (batchIndex == 0)
+            if (batchIndex == 1)
             {
                 currentActivationDelay = 7.5f;
             }

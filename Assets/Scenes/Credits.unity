@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -759,7 +759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68807315af2b42547bcf46cb5509602c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 0.8
+  delayBeforeStart: 1.2
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
@@ -2614,9 +2614,7 @@ MonoBehaviour:
   - {fileID: 577892310}
   - {fileID: 1104899354}
   - {fileID: 102628053}
-  - {fileID: 759795671}
   - {fileID: 1338088285}
-  - {fileID: 430645361}
   - {fileID: 1992695013}
   - {fileID: 1402866787}
   - {fileID: 305993658}
@@ -2657,7 +2655,7 @@ MonoBehaviour:
   - {fileID: 1022776035}
   - {fileID: 1676818640}
   - {fileID: 568817823}
-  creditsBatches: 0d0000000e0000000d0000000e0000000d000000
+  creditsBatches: 0d0000000c0000000d0000000e0000000d000000
   activationDelay: 7.5
   waitTimeBetweenActivations: 0
   timeBetweenObjects: 0
@@ -4339,8 +4337,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 179.71982, y: -218}
-  m_SizeDelta: {x: 423.352, y: 393.064}
+  m_AnchoredPosition: {x: 179.71982, y: -200.912}
+  m_SizeDelta: {x: 423.352, y: 345.596}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &568817825
 MonoBehaviour:
@@ -4354,7 +4352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68807315af2b42547bcf46cb5509602c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 6
+  delayBeforeStart: 5
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
@@ -4391,7 +4389,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1.22
+    m_LineSpacing: 1.175
   m_Text: 'Anthony Hakim
 
     Anthony Liao
@@ -4990,7 +4988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68807315af2b42547bcf46cb5509602c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 2.5
+  delayBeforeStart: 2.6
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
@@ -6473,7 +6471,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -65, y: -82.75197}
+  m_AnchoredPosition: {x: -65, y: -87}
   m_SizeDelta: {x: 423.352, y: 59.953}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &985028572
@@ -6803,7 +6801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68807315af2b42547bcf46cb5509602c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 1.4
+  delayBeforeStart: 3.1
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
@@ -7074,7 +7072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68807315af2b42547bcf46cb5509602c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 0.2
+  delayBeforeStart: 1.6
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
@@ -8145,7 +8143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68807315af2b42547bcf46cb5509602c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 4
+  delayBeforeStart: 3.5
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
@@ -8954,7 +8952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68807315af2b42547bcf46cb5509602c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 0.9
+  delayBeforeStart: 1.3
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
@@ -10005,7 +10003,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -67.2802, y: -262}
+  m_AnchoredPosition: {x: -67.2802, y: -265.4}
   m_SizeDelta: {x: 423.352, y: 407.916}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1328098984
@@ -10040,7 +10038,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1.22
+    m_LineSpacing: 1.175
   m_Text: 'Kayla England
 
     Jack Mezardieu
@@ -10128,7 +10126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68807315af2b42547bcf46cb5509602c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 0.6
+  delayBeforeStart: 1.6
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
@@ -10441,7 +10439,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -67.19005, y: -223}
+  m_AnchoredPosition: {x: -67.19005, y: -225.4}
   m_SizeDelta: {x: 423.352, y: 324.262}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1352451736
@@ -12041,7 +12039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68807315af2b42547bcf46cb5509602c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 0
+  delayBeforeStart: 0.7
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
@@ -13380,7 +13378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68807315af2b42547bcf46cb5509602c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 2
+  delayBeforeStart: 2.8
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
@@ -13787,7 +13785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68807315af2b42547bcf46cb5509602c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeStart: 0
+  delayBeforeStart: 2.7
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
@@ -14856,7 +14854,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -67, y: -101.27607}
+  m_AnchoredPosition: {x: -67, y: -100}
   m_SizeDelta: {x: 423.352, y: 65.514}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2019090112
