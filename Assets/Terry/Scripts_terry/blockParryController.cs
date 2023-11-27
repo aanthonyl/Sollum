@@ -8,45 +8,46 @@ using UnityEngine;
 public class BlockParryController : MonoBehaviour
 {
     public float parryModeTime = 0.4f;
-
+    public float slashKnockback;
+    public float blockKnockback;
     [SerializeField] float blockingMovementSpeedMultiplier;
+    [SerializeField] float parryMovementSpeedMultiplier;
+    [SerializeField] float coolDownTime;
     [SerializeField] Animator anim;
     [SerializeField] GameObject upRightHitbox;
     [SerializeField] GameObject upLeftHitbox;
     [SerializeField] GameObject rightHitbox;
     [SerializeField] GameObject leftHitbox;
+    [SerializeField] GameObject downRightHitbox;
+    [SerializeField] GameObject downLeftHitbox;
+    [SerializeField] GameObject blockRightHitbox;
+    [SerializeField] GameObject blockLeftHitbox;
+    [SerializeField] GameObject blockUpHitbox;
+    [SerializeField] GameObject blockDownHitbox;
+
+    [SerializeField] PlayerAudioManager pam;
+    [SerializeField] NewWhip nw;
     float currMovementSpeedMultiplier;
     bool parrying = false;
     bool attacking = false;
+    bool coolingDown = false;
+    bool canAttack = true;
     bool blocking = false;
+    bool unblocking = false;
+    bool attackBuffer = false;
+    bool blockBuffer = false;
     public float parryVelocity = 50.0f;
     public GameObject parryClass;
-    Parry parry;
-    PlayerKnockback knockback;
-    Collider col;
-    bool attackBuffer;
-    bool blockBuffer;
     playerMovement pm;
     MovementSettings ms;
     [SerializeField] GameObject parryBlockClass;
-    // bool meleeParrySuccess = false;
-    // bool meleeBlockSuccess = false;
-
-    public SpriteRenderer protoSprite;
-
-    //Replace with developer friendly way to get this
     public PlayerHealth playerHealth;
-
 
     void Start()
     {
-        parry = parryClass.GetComponent<Parry>();
-        knockback = parryBlockClass.GetComponent<PlayerKnockback>();
-        col = transform.GetChild(0).GetComponent<Collider>();
-        col.gameObject.SetActive(false);
-        pm = transform.parent.parent.GetComponent<playerMovement>();
-        ms = transform.parent.parent.GetComponent<MovementSettings>();
-
+        pm = transform.parent.GetComponent<playerMovement>();
+        ms = transform.parent.GetComponent<MovementSettings>();
+        currMovementSpeedMultiplier = ms.GetMovementMultiplier();
     }
     void Update()
     {
@@ -56,33 +57,46 @@ public class BlockParryController : MonoBehaviour
         // the player is locked in the parry state
         if (!pm.freezeMovement)
         {
-            if (Input.GetButtonDown("Block"))
+            if (Input.GetButton("Block") && !nw.isWhipping())
             {
-                if (attacking) {
+                if ((coolingDown || !canAttack) && !attackBuffer && !blockBuffer && !blocking) {
                     blockBuffer = true;
-                } else if (!blocking) {
+                } else if (!blocking && !attacking && !coolingDown && !unblocking && !blockBuffer) {
                     Block();
                 }
             }
 
             if (Input.GetButtonUp("Block") && !parrying && blocking)
             {
-                Unblock();
+                StartCoroutine(Unblock());
             }
 
-            if (Input.GetButtonDown("Primary"))
+            if (Input.GetButtonDown("Primary") && !nw.isWhipping())
             {
-                if (parrying) {
+                if ((unblocking || coolingDown || !canAttack) && !blockBuffer && !attackBuffer && !attacking) {
                     attackBuffer = true;
-                } else if (!attacking) {
+                } else if (blocking && !parrying) {
+                    BlockCancel();
+                } else if (!attacking && !parrying && !coolingDown && canAttack && !attackBuffer) {
                     StartCoroutine(Attack());
                 }
-                
             }
 
-            if (!blocking && !attacking) protoSprite.color = Color.white;
+            BlockingHitboxes();
+
+            
         }
 
+        //Debugging Purposes
+
+        if (Input.GetKeyDown(KeyCode.Comma)) {
+            Time.timeScale -= 0.2f;
+            // Debug.Log("Decreasing Timescale");
+        }
+        if (Input.GetKeyDown(KeyCode.Period)) {
+            Time.timeScale += 0.2f;
+            // Debug.Log("Increasing Timescale");
+        }
         
 
         // checks if player is in the block or parry state when hit
@@ -90,18 +104,18 @@ public class BlockParryController : MonoBehaviour
         /*
         if ((blockPressed && enemyAttack.attacking) || (parrying && enemyAttack.attacking))
         {
-            Debug.Log("block or parry sucessful");
+            // Debug.Log("block or parry sucessful");
 
             if (!parrying)
             {
-                Debug.Log("Melee attack blocked");
+                // Debug.Log("Melee attack blocked");
                 meleeBlockSuccess = true;
                 // player blocks incoming damage?
                 // player takes reduced damage 
             }
             else if (parrying)
             {
-                Debug.Log("Melee attack parried");
+                // Debug.Log("Melee attack parried");
                 meleeParrySuccess = true;
                 // player blocks incoming damage
                 // enemy is stunned
@@ -125,14 +139,14 @@ public class BlockParryController : MonoBehaviour
     //     {
     //         if (parrying)
     //         {
-    //             Debug.Log("parried");
+    //             // Debug.Log("parried");
     //             Destroy(other.gameObject);
     //             parry.PlayerShoot();
     //             knockback.BlockParryKnockback();
     //         }
     //         else if (blockPressed)
     //         {
-    //             Debug.Log("blocked");
+    //             // Debug.Log("blocked");
     //             Destroy(other.gameObject);
     //             knockback.BlockParryKnockback();
     //         }
@@ -146,7 +160,7 @@ public class BlockParryController : MonoBehaviour
     //     }
     //     else if (other.CompareTag("Break"))
     //     {
-    //         Debug.Log("Detect");
+    //         // Debug.Log("Detect");
     //         if (attacking)
     //         {
     //             other.gameObject.GetComponent<TempBreak>().Break();
@@ -157,6 +171,10 @@ public class BlockParryController : MonoBehaviour
     public bool isAttacking()
     {
         return attacking;
+    }
+    public bool isCoolingDown()
+    {
+        return coolingDown;
     }
 
     public bool isParrying()
@@ -169,61 +187,97 @@ public class BlockParryController : MonoBehaviour
         return blocking;
     }
 
+    public bool isUnblocking()
+    {
+        return unblocking;
+    }
+
     public void ParryProj()
     {
-        parry.PlayerShoot();
+        //parry.PlayerShoot();
     }
 
     public void KnockPlayer()
     {
-        knockback.BlockParryKnockback();
+        //knockback.BlockParryKnockback();
     }
 
     IEnumerator Parry()
     {
-        protoSprite.color = Color.yellow;
+        // Debug.Log("Parry() Called.");
         parrying = true;
+        pam.PlaySound(0);
         yield return new WaitForSeconds(parryModeTime);
         parrying = false;
-        if (!Input.GetButton("Block")) Unblock();
-        if (attackBuffer) {
-            Unblock();
-            StartCoroutine(Attack());
-        }
-        if (Input.GetButton("Block")) protoSprite.color = Color.red;
+        ms.SetMovementMultiplier(blockingMovementSpeedMultiplier);
+        if (attackBuffer) BlockCancel();
+        else if (!Input.GetButton("Block")) StartCoroutine(Unblock());
     }
 
     IEnumerator Attack()
     {
-        if (attackBuffer) attackBuffer = false;
-        protoSprite.color = Color.green;
-        col.gameObject.SetActive(true);
+        // Debug.Log("Attack() Called.");
         attacking = true;
+        if (attackBuffer) attackBuffer = false;
         GameObject hitbox = ActivateHitbox();
-        yield return new WaitForSeconds(1f/6f);
+        pam.PlaySound(2);
+        yield return new WaitForSeconds(1f/6f * 4f/3f);
         DeactivateHitbox(hitbox);
+        coolingDown = true;
         attacking = false;
-        col.gameObject.SetActive(false);
-        protoSprite.color = Color.white;
-        if (blockBuffer) Block();
+        //cooling down
+        yield return new WaitForSeconds(coolDownTime);
+        coolingDown = false;
+        canAttack = false;
+        if (blockBuffer && !blocking)  {
+            Block();
+            yield return new WaitForSeconds(0.1f);
+            canAttack = true;
+            attackBuffer = false;
+        } else if (attackBuffer) {
+            yield return new WaitForSeconds(0.1f);
+            canAttack = true;
+            blockBuffer = false;
+            StartCoroutine(Attack());
+        } else {
+            yield return new WaitForSeconds(0.1f);
+            blockBuffer = false;
+            attackBuffer = false;
+            canAttack = true;
+        }
     }
 
     void Block() {
+        // Debug.Log("Block() Called.");
         if (blockBuffer) blockBuffer = false;
         blocking = true;
-        col.gameObject.SetActive(true);
         playerHealth.SetInvincibility(true);
         currMovementSpeedMultiplier = ms.GetMovementMultiplier();
-        ms.SetMovementMultiplier(blockingMovementSpeedMultiplier);
+        ms.SetMovementMultiplier(parryMovementSpeedMultiplier);
         StartCoroutine(Parry());
     }
 
-    void Unblock() {
+    IEnumerator Unblock() {
+        // Debug.Log("Unblock() Called.");
         blocking = false;
-        col.gameObject.SetActive(false);
+        unblocking = true;
+        BlockingHitboxes(true);
+        ms.SetMovementMultiplier(parryMovementSpeedMultiplier);
+        pam.PlaySound(1);
+        yield return new WaitForSeconds(16f/60f);
+        unblocking = false;
         playerHealth.SetInvincibility(false);
         ms.SetMovementMultiplier(currMovementSpeedMultiplier);
-        protoSprite.color = Color.white;
+        if (attackBuffer) StartCoroutine(Attack());
+    }
+
+    void BlockCancel() {
+        // Debug.Log("BlockCancel() Called.");
+        blocking = false;
+        BlockingHitboxes(true);
+        playerHealth.SetInvincibility(false);
+        ms.SetMovementMultiplier(currMovementSpeedMultiplier);
+        StartCoroutine(Attack());
     }
 
     GameObject ActivateHitbox() {
@@ -231,14 +285,20 @@ public class BlockParryController : MonoBehaviour
             if (anim.GetBool("Up")) {
                 upRightHitbox.SetActive(true);
                 return upRightHitbox;
+            } else if (anim.GetBool("Down")) {
+                 downRightHitbox.SetActive(true);
+                 return downRightHitbox;
             } else {
                 rightHitbox.SetActive(true);
-                return rightHitbox; 
+                return rightHitbox;
             }
         } else if (anim.GetBool("Left")) {
             if (anim.GetBool("Up")) {
                 upLeftHitbox.SetActive(true);
                 return upLeftHitbox;
+            } else if (anim.GetBool("Down")) {
+                downLeftHitbox.SetActive(true);
+                return downLeftHitbox;
             } else {
                 leftHitbox.SetActive(true);
                 return leftHitbox;
@@ -251,8 +311,21 @@ public class BlockParryController : MonoBehaviour
                 upLeftHitbox.SetActive(true);
                 return upLeftHitbox;
             }
+        } else if (anim.GetBool("Down")) {
+            if (anim.GetBool("FacingForward")) {
+                downRightHitbox.SetActive(true);
+                return downRightHitbox;
+            } else {
+                downLeftHitbox.SetActive(true);
+                return downLeftHitbox;
+            }
+        } else if (anim.GetBool("FacingForward")) {
+            rightHitbox.SetActive(true);
+            return rightHitbox;
+        } else {
+            leftHitbox.SetActive(true);
+            return leftHitbox;
         }
-        return null;
     }
 
     void DeactivateHitbox(GameObject hitbox) {
@@ -260,5 +333,47 @@ public class BlockParryController : MonoBehaviour
             hitbox.SetActive(false);
         }
     }
+
+    void BlockingHitboxes(bool deactivate = false) {
+        if (blocking) {
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("BlockRight") || anim.GetCurrentAnimatorStateInfo(0).IsName("OpenParasolRight")) {
+                if (!blockRightHitbox.activeSelf) {
+                    blockRightHitbox.SetActive(true);
+                    blockLeftHitbox.SetActive(false);
+                    blockUpHitbox.SetActive(false);
+                    blockDownHitbox.SetActive(false);
+                }
+            } else if (anim.GetCurrentAnimatorStateInfo(0).IsName("BlockLeft") || anim.GetCurrentAnimatorStateInfo(0).IsName("OpenParasolLeft")) {
+                if (!blockLeftHitbox.activeSelf) {
+                    blockRightHitbox.SetActive(false);
+                    blockLeftHitbox.SetActive(true);
+                    blockUpHitbox.SetActive(false);
+                    blockDownHitbox.SetActive(false);
+                }
+                
+            } else if (anim.GetCurrentAnimatorStateInfo(0).IsName("BlockUp") || anim.GetCurrentAnimatorStateInfo(0).IsName("OpenParasolUp")) {
+                if (!blockUpHitbox.activeSelf) {
+                    blockRightHitbox.SetActive(false);
+                    blockLeftHitbox.SetActive(false);
+                    blockUpHitbox.SetActive(true);
+                    blockDownHitbox.SetActive(false);
+                }
+            } else if (anim.GetCurrentAnimatorStateInfo(0).IsName("BlockDown") || anim.GetCurrentAnimatorStateInfo(0).IsName("OpenParasolDown")) {
+                if (!blockDownHitbox.activeSelf) {
+                    blockRightHitbox.SetActive(false);
+                    blockLeftHitbox.SetActive(false);
+                    blockUpHitbox.SetActive(false);
+                    blockDownHitbox.SetActive(true);
+                }
+            }
+        } else if (deactivate) {
+            blockRightHitbox.SetActive(false);
+            blockLeftHitbox.SetActive(false);
+            blockUpHitbox.SetActive(false);
+            blockDownHitbox.SetActive(false);
+        }
+    }
+
+    
 }
 

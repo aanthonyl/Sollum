@@ -44,15 +44,15 @@ public class EnemyHealth : MonoBehaviour
         // DIFFERENT ENEMY HEALTH AMOUNTS
         if (enemyType == EnemyType.GruntEnemy)
         {
-            enemyHealth = 20;
+            enemyHealth = 10;
         }
         else if (enemyType == EnemyType.ThrowEnemy)
         {
-            enemyHealth = 40;
+            enemyHealth = 20;
         }
         else if (enemyType == EnemyType.ShootEnemy)
         {
-            enemyHealth = 60;
+            enemyHealth = 40;
         }
         //audioSource.clip = enemyDamagedSound;
     }
@@ -92,6 +92,16 @@ public class EnemyHealth : MonoBehaviour
                 EnemyDie();
             }
             //audioSource.Play();
+        }
+    }
+
+    public void TakeDamage(float damage) {
+        if (!damageCoolDown) {
+            enemyHealth -= damage;
+            StartCoroutine(FlashRed());
+            if (enemyHealth <= 0) {
+                EnemyDie();
+            }
         }
     }
 
