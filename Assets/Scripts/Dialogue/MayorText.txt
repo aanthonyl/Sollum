@@ -1,6 +1,6 @@
 [NAME=Mayor Strickland][SPEAKERSPRITE=Mayor Strickland]Well, well, Victoria. You’ve caused quite a fuss amongst my men.
 [NAME=Victoria][SPEAKERSPRITE=Victoria]Strickland! What are you doing here?
-[NAME=Mayor Strickland][SPEAKERSPRITE=Mayor Strickland]Oh, just wanted to see you with my own eyes. I must say, I’m not impressed. You are nothing.
+[NAME=Mayor Strickland][SPEAKERSPRITE=Mayor Strickland]Oh, just wanted to see you with my own eye. I must say, I’m not impressed. You are nothing.
 [NAME=Mayor Strickland][SPEAKERSPRITE=Mayor Strickland]You can’t possibly fathom the power I wield. Give up now and your death will only be slightly excruciating.
 [NAME=Victoria][SPEAKERSPRITE=Victoria]Never! I won’t let you ruin my home!
 [NAME=Mayor Strickland][SPEAKERSPRITE=Mayor Strickland]“Let me?” Hah! My reign is inevitable. I won’t even waste my time killing you.
