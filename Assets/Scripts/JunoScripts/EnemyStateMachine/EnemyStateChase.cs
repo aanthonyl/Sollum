@@ -21,7 +21,7 @@ public class EnemyStateChase : I_EnemyBaseState
     {
         // Debug.Log("Chasing");
         //set stopping distance based on enemy type
-        stoppingDistance = 1f;
+        stoppingDistance = 1.3f;
     }
 
     /* Update State =============================

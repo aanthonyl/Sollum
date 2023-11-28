@@ -95,18 +95,21 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage) {
-        if (!damageCoolDown) {
+    public void TakeDamage(float damage)
+    {
+        if (!damageCoolDown)
+        {
             enemyHealth -= damage;
             StartCoroutine(FlashRed());
-            if (enemyHealth <= 0) {
+            if (enemyHealth <= 0)
+            {
                 EnemyDie();
             }
         }
     }
 
     // ENEMY DIES, OBJECT DESTROYED
-    public void EnemyDie()
+    public virtual void EnemyDie()
     {
         Debug.Log("ENEMY DIE");
 

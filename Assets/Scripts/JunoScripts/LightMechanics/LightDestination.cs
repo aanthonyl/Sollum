@@ -22,7 +22,7 @@ public class LightDestination : MonoBehaviour
             activated = true;
             puzzleManager.increaseActiveCount();
             lit.gameObject.SetActive(true);
-            StartCoroutine(ResetMat());
+            // StartCoroutine(ResetMat());
         }
     }
 

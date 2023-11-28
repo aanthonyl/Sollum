@@ -12,18 +12,12 @@ public class EnemySightTrigger : MonoBehaviour
         esm = transform.parent.GetComponent<EnemyStateManager>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider col)
-	{
-		//If enemy sees player, chase
-		if (col.gameObject.CompareTag("Player") && !esm.isPlayerHidden) //if what enters the collider is the player AND the player is not hidden
-		{
-			esm.SawPlayer(col.gameObject.transform);
-		}
-	}
+    {
+        //If enemy sees player, chase
+        if (col.gameObject.CompareTag("Player") && !esm.isPlayerHidden) //if what enters the collider is the player AND the player is not hidden
+        {
+            esm.SawPlayer(col.gameObject.transform);
+        }
+    }
 }
