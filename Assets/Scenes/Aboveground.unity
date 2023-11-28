@@ -53126,10 +53126,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Whip
       objectReference: {fileID: 0}
-    - target: {fileID: 6617332187500362733, guid: 159897470cb59094199e4fe07088fee5, type: 3}
-      propertyPath: startup
-      value: 0.3333333
-      objectReference: {fileID: 0}
     - target: {fileID: 7074455743074956097, guid: 159897470cb59094199e4fe07088fee5, type: 3}
       propertyPath: m_Name
       value: Player
