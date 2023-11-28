@@ -10,12 +10,14 @@ using Vector3 = UnityEngine.Vector3;
 public class playerMovement : MonoBehaviour
 {
 
+    [SerializeField] BlockParryController bpc;
+    [SerializeField] NewWhip nw;
+    [SerializeField] float speed;
     private float xInput;
     private float zInput;
-    private bool grounded = true;
+    [SerializeField] bool grounded = true;
     private Vector2 inputVector;
     private Vector3 forceVector;
-    float speed;
     float maxSpeed;
     float inputMagnitude;
     private MovementSettings ms;
@@ -28,6 +30,8 @@ public class playerMovement : MonoBehaviour
     //animator
     private Animator myAnim;
 
+    private PlayerAudioManager pam;
+
     // Added for dialogue system //
     public bool freezeMovement = false;
 
@@ -38,78 +42,20 @@ public class playerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         maxSpeed = ms.GetMaxSpeed();
         myAnim = GetComponent<Animator>();
+        pam = GetComponent<PlayerAudioManager>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        xInput = Input.GetAxis("Horizontal");
-        zInput = Input.GetAxis("Vertical");
+        xInput = Input.GetAxisRaw("Horizontal");
+        zInput = Input.GetAxisRaw("Vertical");
         inputVector = new Vector2(xInput, zInput);
         inputMagnitude = inputVector.magnitude;
         forceVector = new Vector3(inputVector.x * ms.GetAcceleration(), 0, inputVector.y * ms.GetAcceleration());
-        speed = new Vector2(rb.velocity.x, rb.velocity.z).magnitude;
 
-        if ((zInput != 0 || xInput != 0) && !freezeMovement)
-        {
-            if (xInput > 0)
-            {
-                //to the right
-                facingForward = true;
-                myAnim.SetBool("Right", true);
-                myAnim.SetBool("Left", false);
-                myAnim.SetBool("Forward", false);
-                myAnim.SetBool("Backward", false);
-            }
-            else
-            {
-                //left
-                facingForward = false;
-                myAnim.SetBool("Left", true);
-                myAnim.SetBool("Right", false);
-                myAnim.SetBool("Forward", false);
-                myAnim.SetBool("Backward", false);
-            }
-            if (zInput > 0)
-            {
-                //backwards                
-                myAnim.SetBool("Backward", true);
-                myAnim.SetBool("Left", false);
-                myAnim.SetBool("Right", false);
-                myAnim.SetBool("Forward", false);
-            }
-            if (zInput < 0)
-            {
-                //front                
-                myAnim.SetBool("Forward", true);
-                myAnim.SetBool("Backward", false);
-                myAnim.SetBool("Left", false);
-                myAnim.SetBool("Right", false);
-            }
-        }
-        else
-        {
-            //idle           
-            myAnim.SetBool("Right", false);
-            myAnim.SetBool("Left", false);
-            myAnim.SetBool("Forward", false);
-            myAnim.SetBool("Backward", false);
-        }
-
-        /*
-            if (xInput != 0)
-            {
-                if (xInput > 0)
-                {
-                    facingForward = true;
-                }
-                else
-                {
-                    facingForward = false;
-                }
-            }*/
-
+        AnimUpdate();
         CheckGrounded();
         CheckJump();
     }
@@ -117,37 +63,46 @@ public class playerMovement : MonoBehaviour
     void FixedUpdate()
     {
         // Boolean for dialogue system //
-        if (!freezeMovement)
+        speed = rb.velocity.magnitude;
+        //Debug.Log("Speed is: " + speed + ", MaxSpeed is: " + (maxSpeed * ms.GetMovementMultiplier()));
+        if (!freezeMovement && !bpc.isAttacking() && !bpc.isCoolingDown() && !nw.isWhipping())
         {
-            //applies movement force//
-            rb.AddForce(forceVector);
+            if (speed > (maxSpeed * ms.GetMovementMultiplier() - 0.001f) && speed < (maxSpeed * ms.GetMovementMultiplier() + 0.001f) && inputMagnitude > 0)
+            {
+                rb.velocity = new Vector3(rb.velocity.magnitude * inputVector.normalized.x, 0, rb.velocity.magnitude * inputVector.normalized.y);
+                //Debug.Log("Speed is equal");
+            } else if (speed < (maxSpeed * ms.GetMovementMultiplier() - 0.001f))
+            {
+                speed = rb.velocity.magnitude;
+                //Debug.Log("Adding force vector");
+                rb.AddForce(forceVector);
+            }
         }
         if (!GetGrounded())
         {
             rb.AddForce(-transform.up * ms.GetGravity());
         }
-
-        //applies movement force//
-        //rb.AddForce(forceVector); // * This needs to be connected to the freezeMovement bool to stop movement in dialogue
+        speed = rb.velocity.magnitude;
 
         //applies deceleration when no input//
-        if (inputMagnitude == 0 && speed > 0)
+        
+        if ((inputMagnitude == 0 || freezeMovement || bpc.isAttacking() || bpc.isCoolingDown() || nw.isWhipping() || bpc.isBlocking()) && speed > 0)
         {
+            //Debug.Log("Calling deceleration");
             Vector2 decelerationVelocity = new Vector2(rb.velocity.x, rb.velocity.z).normalized * ms.GetDeceleration() * new Vector2(rb.velocity.x, rb.velocity.z).magnitude;
             rb.AddForce(new Vector3(decelerationVelocity.x, 0, decelerationVelocity.y));
         }
-        //applies movement friction//
-        if (rb.velocity.magnitude > 0) rb.AddForce(-transform.up * ms.GetFriction());
 
-        //velocity limiter//
-        if (speed > maxSpeed)
-        {
-            float brakeSpeed = speed - maxSpeed;
-            Vector2 brakeVelocity = new Vector2(rb.velocity.x, rb.velocity.z).normalized * brakeSpeed;
-            rb.AddForce(new Vector3(-brakeVelocity.x, 0, -brakeVelocity.y), ForceMode.Impulse);
+        if (!bpc.isBlocking()) {
+            rb.velocity = Vector3.ClampMagnitude(rb.velocity, (float)maxSpeed * (float)ms.GetMovementMultiplier());
         }
 
+        if (speed < 0.00001f) {
+            rb.velocity = Vector3.zero;
+        }
+        speed = rb.velocity.magnitude;
     }
+        
 
     void CheckJump()
     {
@@ -168,7 +123,7 @@ public class playerMovement : MonoBehaviour
     void CheckGrounded()
     {
         RaycastHit hit;
-        grounded = Physics.Raycast(transform.position, Vector3.down, out hit, 1);
+        grounded = Physics.Raycast(transform.position, Vector3.down, out hit, 0.75f);
         Debug.DrawRay(transform.position, Vector3.down, Color.black);
         // Debug.Log(grounded);
     }
@@ -178,4 +133,63 @@ public class playerMovement : MonoBehaviour
         return grounded;
     }
 
+    public void AnimUpdate()
+    {
+        if ((zInput != 0 || xInput != 0) && !freezeMovement)
+        {
+            if (!bpc.isAttacking() && !bpc.isCoolingDown() && !nw.isWhipping()) {
+                if (xInput > 0)
+            {
+                //right
+                facingForward = true;
+                myAnim.SetBool("Right", true);
+                myAnim.SetBool("Left", false);
+            }
+            else if (xInput < 0)
+            {
+                //left
+                facingForward = false;
+                myAnim.SetBool("Left", true);
+                myAnim.SetBool("Right", false);
+            }
+            else
+            {
+                myAnim.SetBool("Left", false);
+                myAnim.SetBool("Right", false);
+            }
+            if (zInput > 0)
+            {
+                //down                
+                myAnim.SetBool("Up", true);
+                myAnim.SetBool("Down", false);
+                
+            }
+            else if (zInput < 0)
+            {
+                //front                
+                myAnim.SetBool("Down", true);
+                myAnim.SetBool("Up", false);
+            } else
+            {
+                myAnim.SetBool("Up", false);
+                myAnim.SetBool("Down", false);
+            }
+            }  
+        }
+        else
+        {
+            //idle           
+            myAnim.SetBool("Right", false);
+            myAnim.SetBool("Left", false);
+            myAnim.SetBool("Up", false);
+            myAnim.SetBool("Down", false);
+        }
+        myAnim.SetBool("FacingForward", facingForward);
+        myAnim.SetBool("Attacking", bpc.isAttacking());
+        myAnim.SetBool("Parrying", bpc.isParrying());
+        myAnim.SetBool("Blocking", bpc.isBlocking());
+        myAnim.SetBool("CoolingDown", bpc.isCoolingDown());
+        myAnim.SetBool("Whipping", nw.isWhipping());
+        myAnim.SetBool("WhipWindup", nw.isWindingUp());
+    }
 }

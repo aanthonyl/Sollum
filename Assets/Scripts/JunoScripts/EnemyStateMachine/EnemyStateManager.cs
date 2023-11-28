@@ -34,7 +34,7 @@ public class EnemyStateManager : MonoBehaviour
 
 	//Private Variables ========================================================================
 	private List<Transform> patrolPoints = new();
-	private bool isPlayerHidden = false;
+	public bool isPlayerHidden = false;
 	BoxCollider sight;
 	SpriteRenderer rend;
 	Animator anim;
@@ -113,15 +113,6 @@ public class EnemyStateManager : MonoBehaviour
 	{
 		// Debug.Log(target.name);
 		currentState.UpdateState(this);
-	}
-
-	private void OnTriggerEnter(Collider col)
-	{
-		//If enemy sees player, chase
-		if (col.gameObject.CompareTag("Player") && !isPlayerHidden) //if what enters the collider is the player AND the player is not hidden
-		{
-			SawPlayer(col.gameObject.transform);
-		}
 	}
 
 	/* SwitchState ====================================

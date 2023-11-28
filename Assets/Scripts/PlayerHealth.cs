@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     public float maxHealth = 100.0f;
-    public float currentHealth;
+    public float currentHealth = 100.0f;
 
     public Image HealthBar;
     private bool invincible;
@@ -56,7 +56,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void UpdateHealthBar()
     {
-        float fillAmount = (float)currentHealth / maxHealth;
+        float fillAmount = (float)currentHealth / (float)maxHealth;
         if (fillAmount > 1)
         {
             fillAmount = 1.0f;

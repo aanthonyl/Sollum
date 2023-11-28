@@ -19,6 +19,8 @@ TagManager:
   - Exit
   - CathedralExit
   - LightDest
+  - Whip
+  - Sightline
   layers:
   - Default
   - TransparentFX
