@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43728092, g: 0.48504543, b: 0.5653193, a: 1}
+  m_IndirectSpecularColor: {r: 0.43728074, g: 0.4850452, b: 0.5653187, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -25770,6 +25770,7 @@ GameObject:
   - component: {fileID: 1613069039}
   - component: {fileID: 1613069042}
   - component: {fileID: 1613069041}
+  - component: {fileID: 1613069043}
   m_Layer: 0
   m_Name: mayoridle
   m_TagString: Untagged
@@ -25886,6 +25887,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.98, y: 3.06, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1613069043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613069038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f559b30b5fcec294ea27ce4e0f754590, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DialogueTextFile: {fileID: 4900000, guid: d3b80a2e3c3658247932d7ac0d7e0a0a, type: 3}
+  waitTime: 0.5
+  singleUseDialogue: 1
+  hasBeenUsed: 0
 --- !u!1 &1618032988
 GameObject:
   m_ObjectHideFlags: 0
