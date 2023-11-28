@@ -16,7 +16,7 @@ public class EnemyStateKnockback : I_EnemyBaseState
     ============================================*/
     public override void EnterState(EnemyStateManager enemy)
     {
-        enemy.StartCoroutine(StopPush(enemy));
+        enemy.StartCoroutine(enemy.ReturnToChase());
     }
 
     /* Update State =============================
@@ -25,12 +25,5 @@ public class EnemyStateKnockback : I_EnemyBaseState
     public override void UpdateState(EnemyStateManager enemy)
     {
         // Debug.Log("Being Knocked Back");
-    }
-
-    IEnumerator StopPush(EnemyStateManager enemy)
-    {
-        yield return new WaitForSeconds(enemy.push_time);
-        enemy.rb.velocity = Vector3.zero;
-        enemy.StartCoroutine(enemy.ReturnToChase());
     }
 }

@@ -88,6 +88,7 @@ public class MainMenu : MonoBehaviour
         // LOAD CREDITS
         if (!gameStarting)
         {
+            SceneLoader.instance.Load(SceneLoader.Scene.Credits);
             audioSource.clip = pressButton;
             audioSource.Play();
         }
