@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d4f13146da8dce74e84f6e043ed4c1f1
+guid: 0ccce8818fc92a040a3a4c5336747240
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 15
+  spritePixelsToUnits: 50
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -70,7 +70,7 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -136,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TreeAtk_0
+      name: TreeAttack-Sheet_0
       rect:
         serializedVersion: 2
-        x: 35
-        y: 17
-        width: 53
-        height: 77
+        x: 139
+        y: 67
+        width: 214
+        height: 310
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e453da1d7a9ac44094b2725ecf3b46d
-      internalID: 507086415
+      spriteID: 0972d00312d543940a9ecda5cb2ca35d
+      internalID: 651540677
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TreeAtk_1
+      name: TreeAttack-Sheet_1
       rect:
         serializedVersion: 2
-        x: 134
-        y: 17
-        width: 56
-        height: 75
+        x: 535
+        y: 67
+        width: 227
+        height: 302
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,83 +171,83 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19893d3ed72076a48bf3b97eb1c58135
-      internalID: -1928560477
+      spriteID: 0484b5cc5743d4e4db893c7baf248cb0
+      internalID: 347017446
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TreeAtk_2
+      name: TreeAttack-Sheet_2
       rect:
         serializedVersion: 2
-        x: 231
-        y: 17
-        width: 59
-        height: 73
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 923
+        y: 67
+        width: 238
+        height: 293
+      alignment: 9
+      pivot: {x: 0.51979077, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33b54008af67f9a4ca754b08c9f37df5
-      internalID: -851749123
+      spriteID: 699f119f5b7778740946c902eb9aef34
+      internalID: -1017931763
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TreeAtk_3
+      name: TreeAttack-Sheet_3
       rect:
         serializedVersion: 2
-        x: 331
-        y: 17
-        width: 58
-        height: 72
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 1323
+        y: 67
+        width: 234
+        height: 291
+      alignment: 9
+      pivot: {x: 0.5241548, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ac39052ef4fe4d49a101918aa444191
-      internalID: -275177768
+      spriteID: 52872515721edd74e95f99dd188d7422
+      internalID: 1995371857
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TreeAtk_4
+      name: TreeAttack-Sheet_4
       rect:
         serializedVersion: 2
-        x: 431
-        y: 17
-        width: 59
-        height: 74
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 1723
+        y: 67
+        width: 238
+        height: 298
+      alignment: 9
+      pivot: {x: 0.51957333, y: 0.00000005120399}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53b7aaa7a9f5da8428366627fa1bad86
-      internalID: -1840035354
+      spriteID: 1d3f1abb25747c443a16d21ccacea4b2
+      internalID: -972906484
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TreeAtk_5
+      name: TreeAttack-Sheet_5
       rect:
         serializedVersion: 2
-        x: 515
-        y: 17
-        width: 73
-        height: 75
+        x: 2067
+        y: 251
+        width: 6
+        height: 6
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,41 +255,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2374dfcaa997727428484024137e2f84
-      internalID: 1278139163
+      spriteID: 008477a19a5895540bd3b52a935fcec6
+      internalID: 742046936
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TreeAtk_6
+      name: TreeAttack-Sheet_6
       rect:
         serializedVersion: 2
-        x: 600
-        y: 59
-        width: 20
-        height: 9
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 2099
+        y: 67
+        width: 254
+        height: 302
+      alignment: 9
+      pivot: {x: 0.5774368, y: 0.00000005052579}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc9360d03aadce94a8a57a8fd5de1b76
-      internalID: -1698682333
+      spriteID: ac4c1f7ffc296824e86d84e258b1abd6
+      internalID: -1191001858
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TreeAtk_7
+      name: TreeAttack-Sheet_7
       rect:
         serializedVersion: 2
-        x: 622
-        y: 17
-        width: 66
-        height: 75
+        x: 2487
+        y: 67
+        width: 267
+        height: 302
+      alignment: 9
+      pivot: {x: 0.5970976, y: 0.0010220105}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f647e59a77383a745a190589b6267334
+      internalID: 1021036166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeAttack-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 2086
+        y: 212
+        width: 7
+        height: 5
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -297,8 +318,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a4528de7c17b2347b30f693cadf9081
-      internalID: -1672755024
+      spriteID: c29b5303a65d39541883457fc4bc2384
+      internalID: -349903457
       vertices: []
       indices: 
       edges: []
@@ -306,7 +327,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 06721ed6652da9b498e3dace12cf5592
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -314,14 +335,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      TreeAtk_0: 507086415
-      TreeAtk_1: -1928560477
-      TreeAtk_2: -851749123
-      TreeAtk_3: -275177768
-      TreeAtk_4: -1840035354
-      TreeAtk_5: 1278139163
-      TreeAtk_6: -1698682333
-      TreeAtk_7: -1672755024
+      TreeAttack-Sheet_0: 651540677
+      TreeAttack-Sheet_1: 347017446
+      TreeAttack-Sheet_2: -1017931763
+      TreeAttack-Sheet_3: 1995371857
+      TreeAttack-Sheet_4: -972906484
+      TreeAttack-Sheet_5: 742046936
+      TreeAttack-Sheet_6: -1191001858
+      TreeAttack-Sheet_7: 1021036166
+      TreeAttack-Sheet_8: -349903457
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
