@@ -4,17 +4,34 @@ using UnityEngine;
 
 public class arm_movement : MonoBehaviour
 {
-        public float min=2f;
-        public float max=3f;
+        private float max = 11f;
+        public float speed = 2f;
+
+        public float startPos;
+        public bool forward = true;
         [SerializeField] private arm_controller armCenter;
         // Use this for initialization
         void Start () {
-            // min=transform.position.x;
-            // max=transform.position.x+3;
+            startPos = transform.position.z;
         }
         // Update is called once per frame
-        void Update () {
-            if (armCenter._currState == arm_controller.ArmState.Idle)
-                transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.PingPong(Time.time*2,max-min)+min);
+        void FixedUpdate () 
+        {
+            Move();
+        }
+
+        void Move()
+        {
+            if(armCenter._currState == arm_controller.ArmState.Idle)
+            {
+                // transform.position = new Vector3(transform.position.x, transform.position.y, Mathf.PingPong(Time.time*2,max-min)+min);
+                if(forward)
+                    transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z-speed*Time.deltaTime);
+                else
+                    transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z+speed*Time.deltaTime);
+
+                if(Mathf.Abs(transform.position.z-startPos) > max || transform.position.z > startPos)
+                    forward = !forward;
+            }
         }
 }

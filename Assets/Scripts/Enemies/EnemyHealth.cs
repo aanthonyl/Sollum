@@ -18,6 +18,7 @@ public class EnemyHealth : MonoBehaviour
         GruntEnemy,
         ThrowEnemy,
         ShootEnemy,
+        SweepEnemy
     }
     public EnemyType enemyType = new EnemyType();
 

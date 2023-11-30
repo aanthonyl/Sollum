@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Underground.unity
     guid: a92a04fade9d75f45992d0cca149f83b
+  - enabled: 1
+    path: Assets/Scenes/Gabrielle-Level 1.unity
+    guid: ae0acc49147f6374d8ecfdb79076d29c
   m_configObjects: {}

@@ -9,10 +9,10 @@ public class arm_controller : MonoBehaviour
     {
         Idle,
         Chase,
-        Attack
+        Attack,
+        Stun
     }
 
     public ArmState _currState = ArmState.Idle;
     public GameObject attackTrigger;
-
 }

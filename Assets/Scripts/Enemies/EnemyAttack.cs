@@ -18,6 +18,7 @@ public class EnemyAttack : MonoBehaviour
         GruntEnemy,
         ThrowEnemy,
         ShootEnemy,
+        SweepEnemy,
     }
     public EnemyType enemyType = new EnemyType();
 
@@ -35,6 +36,8 @@ public class EnemyAttack : MonoBehaviour
     public bool freezeAttack = false;
     public PauseManager pauseManager;
     public DialogueManager dialogueManager;
+
+    public SweepAttack sweepAttack;
 
     //private AudioSource audioSource;
     //[HideInInspector]
@@ -68,6 +71,13 @@ public class EnemyAttack : MonoBehaviour
 
             //audioSource.clip = shootAttackSound;
         }
+        else if (enemyType == EnemyType.SweepEnemy)
+        {
+            attackDamage = 60;
+            attackRange = 4.0f;
+
+            //audioSource.clip = sweepAttackSound;
+        }
     }
 
     private void Update()
@@ -78,9 +88,11 @@ public class EnemyAttack : MonoBehaviour
 
             if (distanceToPlayer <= attackRange)
             {
+                
                 // Check if enough time has passed for the next attack.
                 if (Time.time >= nextAttackTime)
                 {
+                    sweepAttack.StartAttack();
                     AttackPlayer();
 
                     nextAttackTime = Time.time + attackCooldown;

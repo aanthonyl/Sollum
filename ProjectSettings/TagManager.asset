@@ -18,6 +18,7 @@ TagManager:
   - Cathedral
   - Exit
   - CathedralExit
+  - ChargeTarget
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - Reflective
   - 
   - Walkable
-  - 
+  - Player
   - 
   - 
   - 

@@ -32,6 +32,7 @@ public class SceneLoader : MonoBehaviour
         MainMenu,
         Loading,
         Aboveground,
+        Graveyard,
         Underground,
         Cathedral,
         IntroCutScene,
@@ -168,7 +169,7 @@ public class SceneLoader : MonoBehaviour
         }
         else  // FADE OUT OF LOADING SCENE
         {
-            if (scene == Scene.Aboveground || scene == Scene.Underground || scene == Scene.Cathedral) // LOAD GAME DATA
+            if (scene == Scene.Aboveground || scene == Scene.Underground || scene == Scene.Cathedral || scene == Scene.Graveyard) // LOAD GAME DATA
             {
                 GameManager.instance.LoadGame();
 
@@ -212,7 +213,7 @@ public class SceneLoader : MonoBehaviour
 
     private IEnumerator UnloadSceneAsync(Scene scene)
     {
-        if (scene == Scene.Aboveground || scene == Scene.Underground || scene == Scene.Cathedral)
+        if (scene == Scene.Aboveground || scene == Scene.Underground || scene == Scene.Cathedral || scene == Scene.Graveyard)
         {
             GameManager.instance.SaveGame(); // SAVE GAME DATA
 
@@ -259,7 +260,7 @@ public class SceneLoader : MonoBehaviour
             {
                 EnableMainMenuButtons(true); // ENABLE MAIN MENU
             }
-            else if (GameManager.instance.currentScene == Scene.Aboveground || GameManager.instance.currentScene == Scene.Underground || GameManager.instance.currentScene == Scene.Cathedral)
+            else if (GameManager.instance.currentScene == Scene.Aboveground || GameManager.instance.currentScene == Scene.Underground || GameManager.instance.currentScene == Scene.Cathedral || GameManager.instance.currentScene == Scene.Graveyard)
             {
                 // START GAME
             }
