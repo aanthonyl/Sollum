@@ -28,14 +28,17 @@ public class BlockParryController : MonoBehaviour
     [SerializeField] PlayerAudioManager pam;
     [SerializeField] NewWhip nw;
     float currMovementSpeedMultiplier;
+    bool parryStartup = false;
     bool parrying = false;
     bool attacking = false;
+    bool attackingFromBlock = false;
     bool coolingDown = false;
     bool canAttack = true;
     bool blocking = false;
     bool unblocking = false;
     bool attackBuffer = false;
     bool blockBuffer = false;
+    int direction = 0;
     public float parryVelocity = 50.0f;
     public GameObject parryClass;
     playerMovement pm;
@@ -48,6 +51,7 @@ public class BlockParryController : MonoBehaviour
         pm = transform.parent.GetComponent<playerMovement>();
         ms = transform.parent.GetComponent<MovementSettings>();
         currMovementSpeedMultiplier = ms.GetMovementMultiplier();
+        direction = 0;
     }
     void Update()
     {
@@ -168,9 +172,17 @@ public class BlockParryController : MonoBehaviour
     //     }
     // }
 
+    public int getDirection()
+    {
+        return direction;
+    }
     public bool isAttacking()
     {
         return attacking;
+    }
+    public bool isAttackingFromBlock()
+    {
+        return attackingFromBlock;
     }
     public bool isCoolingDown()
     {
@@ -180,6 +192,10 @@ public class BlockParryController : MonoBehaviour
     public bool isParrying()
     {
         return parrying;
+    }
+    public bool parryStartingUp()
+    {
+        return parryStartup;
     }
 
     public bool isBlocking()
@@ -205,26 +221,38 @@ public class BlockParryController : MonoBehaviour
     IEnumerator Parry()
     {
         // Debug.Log("Parry() Called.");
+        parryStartup = true;
         parrying = true;
         pam.PlaySound(0);
-        yield return new WaitForSeconds(parryModeTime);
+        yield return new WaitForSeconds(0.01f);
+        parryStartup = false;
+        yield return new WaitForSeconds(parryModeTime - 0.01f);
         parrying = false;
         ms.SetMovementMultiplier(blockingMovementSpeedMultiplier);
         if (attackBuffer) BlockCancel();
         else if (!Input.GetButton("Block")) StartCoroutine(Unblock());
     }
 
-    IEnumerator Attack()
+    IEnumerator Attack(int direction = 0)
     {
         // Debug.Log("Attack() Called.");
         attacking = true;
         if (attackBuffer) attackBuffer = false;
-        GameObject hitbox = ActivateHitbox();
+        GameObject hitbox = null;
+        if (direction != 0) {
+            attackingFromBlock = true;
+            hitbox = ActivateHitbox(true, direction);
+        }
+        else {
+            attackingFromBlock = false;
+            hitbox = ActivateHitbox();
+        }
         pam.PlaySound(2);
         yield return new WaitForSeconds(1f/6f * 4f/3f);
         DeactivateHitbox(hitbox);
         coolingDown = true;
         attacking = false;
+        attackingFromBlock = false;
         //cooling down
         yield return new WaitForSeconds(coolDownTime);
         coolingDown = false;
@@ -274,14 +302,43 @@ public class BlockParryController : MonoBehaviour
     void BlockCancel() {
         // Debug.Log("BlockCancel() Called.");
         blocking = false;
-        BlockingHitboxes(true);
+        GameObject blockbox = BlockingHitboxes(true);
+        direction = 0;
+        if (blockbox == blockUpHitbox) direction = 1;
+        else if (blockbox == blockRightHitbox) direction = 2;
+        else if (blockbox == blockDownHitbox) direction = 3;
+        else if (blockbox == blockLeftHitbox) direction = 4;
         playerHealth.SetInvincibility(false);
         ms.SetMovementMultiplier(currMovementSpeedMultiplier);
-        StartCoroutine(Attack());
+        StartCoroutine(Attack(direction));
     }
 
-    GameObject ActivateHitbox() {
-        if (anim.GetBool("Right")) {
+    GameObject ActivateHitbox(bool fromBlockCancel = false, int direction = 0) {
+        if (fromBlockCancel) {
+            if (direction == 1) {
+                if (anim.GetBool("FacingForward")) {
+                    upRightHitbox.SetActive(true);
+                    return upRightHitbox;
+                } else {
+                    upLeftHitbox.SetActive(true);
+                    return upLeftHitbox;
+                }
+            } else if (direction == 2) {
+                rightHitbox.SetActive(true);
+                return rightHitbox;
+            } else if (direction == 3) {
+                if (anim.GetBool("FacingForward")) {
+                    downRightHitbox.SetActive(true);
+                    return downRightHitbox;
+                } else {
+                    downLeftHitbox.SetActive(true);
+                    return downLeftHitbox;
+                }
+            } else if (direction == 4) {
+                leftHitbox.SetActive(true);
+                return leftHitbox;
+            } else return null;
+        } else if (anim.GetBool("Right")) {
             if (anim.GetBool("Up")) {
                 upRightHitbox.SetActive(true);
                 return upRightHitbox;
@@ -334,7 +391,7 @@ public class BlockParryController : MonoBehaviour
         }
     }
 
-    void BlockingHitboxes(bool deactivate = false) {
+    GameObject BlockingHitboxes(bool deactivate = false) {
         if (blocking) {
             if (anim.GetCurrentAnimatorStateInfo(0).IsName("BlockRight") || anim.GetCurrentAnimatorStateInfo(0).IsName("OpenParasolRight")) {
                 if (!blockRightHitbox.activeSelf) {
@@ -342,6 +399,7 @@ public class BlockParryController : MonoBehaviour
                     blockLeftHitbox.SetActive(false);
                     blockUpHitbox.SetActive(false);
                     blockDownHitbox.SetActive(false);
+                    return blockRightHitbox;
                 }
             } else if (anim.GetCurrentAnimatorStateInfo(0).IsName("BlockLeft") || anim.GetCurrentAnimatorStateInfo(0).IsName("OpenParasolLeft")) {
                 if (!blockLeftHitbox.activeSelf) {
@@ -349,6 +407,7 @@ public class BlockParryController : MonoBehaviour
                     blockLeftHitbox.SetActive(true);
                     blockUpHitbox.SetActive(false);
                     blockDownHitbox.SetActive(false);
+                    return blockLeftHitbox;
                 }
                 
             } else if (anim.GetCurrentAnimatorStateInfo(0).IsName("BlockUp") || anim.GetCurrentAnimatorStateInfo(0).IsName("OpenParasolUp")) {
@@ -357,6 +416,7 @@ public class BlockParryController : MonoBehaviour
                     blockLeftHitbox.SetActive(false);
                     blockUpHitbox.SetActive(true);
                     blockDownHitbox.SetActive(false);
+                    return blockUpHitbox;
                 }
             } else if (anim.GetCurrentAnimatorStateInfo(0).IsName("BlockDown") || anim.GetCurrentAnimatorStateInfo(0).IsName("OpenParasolDown")) {
                 if (!blockDownHitbox.activeSelf) {
@@ -364,14 +424,22 @@ public class BlockParryController : MonoBehaviour
                     blockLeftHitbox.SetActive(false);
                     blockUpHitbox.SetActive(false);
                     blockDownHitbox.SetActive(true);
+                    return blockDownHitbox;
                 }
             }
         } else if (deactivate) {
+            GameObject hitbox = null;
+            if (blockRightHitbox.activeSelf) hitbox = blockRightHitbox;
+            if (blockLeftHitbox.activeSelf) hitbox = blockLeftHitbox;
+            if (blockUpHitbox.activeSelf) hitbox = blockUpHitbox;
+            if (blockDownHitbox.activeSelf) hitbox = blockDownHitbox;
             blockRightHitbox.SetActive(false);
             blockLeftHitbox.SetActive(false);
             blockUpHitbox.SetActive(false);
             blockDownHitbox.SetActive(false);
+            return hitbox;
         }
+        return null;
     }
 
     

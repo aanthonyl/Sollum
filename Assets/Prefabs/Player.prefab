@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 15
-  startup: 0.33333334
+  startup: 0.3333333
   activeTime: 0.06666667
   cooldown: 0.2
   bpc: {fileID: 5454930143106198228}
@@ -175,7 +175,7 @@ MonoBehaviour:
   parryModeTime: 0.2
   slashKnockback: 15
   blockKnockback: 10
-  blockingMovementSpeedMultiplier: 0
+  blockingMovementSpeedMultiplier: 0.2
   parryMovementSpeedMultiplier: 0
   coolDownTime: 0.1666667
   anim: {fileID: 1924437308449402450}
@@ -1400,7 +1400,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1d32765aca528cd45901d73e5f06de7d, type: 3}
   - {fileID: 8300000, guid: 3dbfc2b0344d5ef43a162d271f7a504d, type: 3}
   - {fileID: 8300000, guid: fbf1b8ada160c0e47810da191257236e, type: 3}
-  - {fileID: 8300000, guid: fbf1b8ada160c0e47810da191257236e, type: 3}
+  - {fileID: 8300000, guid: 951936e6725b2d6409cf37815e1bd24d, type: 3}
 --- !u!82 &5609525641371559295
 AudioSource:
   m_ObjectHideFlags: 0
