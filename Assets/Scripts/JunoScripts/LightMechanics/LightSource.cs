@@ -43,7 +43,7 @@ public class LightSource : MonoBehaviour
         {
 
             beam.AddLightPoint(hit.point);
-            if (hit.collider.name == "DEST")
+            if (hit.collider.CompareTag("LightDest"))
                 hit.collider.gameObject.GetComponent<LightDestination>().Activation();
             if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Reflective"))
             {

@@ -6,13 +6,14 @@ public class RespawnManager : MonoBehaviour
     public static RespawnManager instance;
 
     private Vector3 lastCheckpointPos = Vector3.zero;
-    private Transform defaultRespawnPoint;
+    public Transform defaultRespawnPoint;
     private int lastCheckpointID = -1;
 
     private void Start()
     {
         // create a default respawn point if none is set
-        defaultRespawnPoint = new GameObject("DefaultRespawnPoint").transform;
+        if (defaultRespawnPoint == null)
+            defaultRespawnPoint = new GameObject("DefaultRespawnPoint").transform;
     }
     private void Awake()
     {
@@ -70,7 +71,7 @@ public class RespawnManager : MonoBehaviour
         }
         else
         {
-            SceneLoader.instance.Load(SceneLoader.Scene.MainMenu); 
+            SceneLoader.instance.Load(SceneLoader.Scene.MainMenu);
         }
     }
 }

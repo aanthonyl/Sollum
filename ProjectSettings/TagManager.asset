@@ -18,7 +18,9 @@ TagManager:
   - Cathedral
   - Exit
   - CathedralExit
-  - ChargeTarget
+  - LightDest
+  - Whip
+  - Sightline
   layers:
   - Default
   - TransparentFX
@@ -30,7 +32,7 @@ TagManager:
   - Reflective
   - 
   - Walkable
-  - Player
+  - 
   - 
   - 
   - 
