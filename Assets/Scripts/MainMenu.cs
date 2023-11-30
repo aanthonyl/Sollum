@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -90,6 +91,7 @@ public class MainMenu : MonoBehaviour
         {
             audioSource.clip = pressButton;
             audioSource.Play();
+            SceneManager.LoadScene("Credits");
         }
     }
 
