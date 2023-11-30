@@ -92,7 +92,7 @@ public class EnemyAttack : MonoBehaviour
                 // Check if enough time has passed for the next attack.
                 if (Time.time >= nextAttackTime)
                 {
-                    sweepAttack.StartAttack();
+                    // sweepAttack.StartAttack();
                     AttackPlayer();
 
                     nextAttackTime = Time.time + attackCooldown;

@@ -32,7 +32,7 @@ public class SceneLoader : MonoBehaviour
         MainMenu,
         Loading,
         Aboveground,
-        Graveyard,
+        // Graveyard,
         Underground,
         Cathedral,
         IntroCutScene,
