@@ -26275,8 +26275,13 @@ MonoBehaviour:
   attackCooldown: 2
   blocked: 0
   parried: 1
+  staggered: 0
   touchingPlayer: 0
+  damageNextTurn: 0
+  flashTime: 0.25
   player: {fileID: 0}
+  nma: {fileID: 0}
+  sr: {fileID: 0}
   enemy: {fileID: 0}
   audioSource: {fileID: 0}
   meleeAttackSound: {fileID: 0}
@@ -28314,6 +28319,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!82 &1103312414 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4045683913477476811, guid: 159897470cb59094199e4fe07088fee5, type: 3}
+  m_PrefabInstance: {fileID: 1684702828}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1106381812
 GameObject:
   m_ObjectHideFlags: 0
@@ -52630,6 +52640,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8312667069181712988, guid: 159897470cb59094199e4fe07088fee5, type: 3}
+      propertyPath: source
+      value: 
+      objectReference: {fileID: 1103312414}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

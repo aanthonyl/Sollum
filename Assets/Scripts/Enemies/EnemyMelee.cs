@@ -5,21 +5,28 @@ using UnityEngine;
 public class EnemyMelee : MonoBehaviour
 {
     public int damage = 10;
+    private float currSpeed;
     public float attackRange = 2.0f;
     public float staggerTime = 3.0f;
     public bool drawAttackRange = false;
     public float attackCooldown = 2.0f;
     public bool blocked = false;
-    public bool parried = true;
+    public bool parried = false;
+    public bool staggered = false;
     public bool touchingPlayer = false;
+    public bool damageNextTurn = false;
     private bool isPaused = false;
 
+    [SerializeField] float flashTime = 0.25f;
+    private float flashTimeInterval;
+    private float currentFlashTime;
     public Transform player;
+    [SerializeField] UnityEngine.AI.NavMeshAgent nma;
+    [SerializeField] SpriteRenderer sr;
     [SerializeField] Transform enemy;
     private float nextAttackTime; // Time when the next attack can occur.
     [SerializeField] AudioSource audioSource;
     public AudioClip meleeAttackSound;
-
     [SerializeField] Animator anim;
     BoxCollider col;
 
@@ -33,10 +40,11 @@ public class EnemyMelee : MonoBehaviour
 
     private void Start()
     {
+        col = this.transform.GetComponent<BoxCollider>();
+        flashTimeInterval = flashTime / 0.025f;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         if (audioSource != null)
             audioSource.clip = meleeAttackSound;
-
     }
 
     private void Update()
@@ -45,7 +53,7 @@ public class EnemyMelee : MonoBehaviour
         if (!isPaused)
         {
             float distanceToPlayer = Vector3.Distance(enemy.position, player.position);
-            if  (!parried) {
+            if  (!staggered) {
                 if (distanceToPlayer <= attackRange)
                 {
                     // Check if enough time has passed for the next attack.
@@ -54,9 +62,42 @@ public class EnemyMelee : MonoBehaviour
                         AttackPlayer();
                         nextAttackTime = Time.time + attackCooldown;
                     }
-            }
+                }
             }
             
+        }
+        anim.SetBool("Staggered", staggered);
+    }
+    private void FixedUpdate()
+    {
+        if (damageNextTurn) {
+            touchingPlayer = false;
+            damageNextTurn = false;
+            if (!blocked && !parried && !staggered) {
+                Debug.Log("Doing damage");
+                player.GetComponent<PlayerHealth>().TakeDamage(damage);
+            }
+            blocked = false;
+        }
+        if (touchingPlayer) {
+            damageNextTurn = true;
+        }
+        if (parried && !staggered) {
+            Debug.Log("Starting stagger");
+            StartCoroutine(Stagger());
+        }
+        if (staggered) {
+            currentFlashTime++;
+            if (sr.color == Color.red && currentFlashTime == flashTimeInterval) {
+                sr.color = Color.white;
+                currentFlashTime = 0;
+            }
+            else if (sr.color == Color.white && currentFlashTime == flashTimeInterval) {
+                sr.color = Color.red;
+                currentFlashTime = 0;
+            }
+        } else {
+            currentFlashTime = 0;
         }
     }
 
@@ -71,41 +112,20 @@ public class EnemyMelee : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("ontriggerenter " + other.tag);
-        StartCoroutine(HandleHitbox(other));
-    }
-    private void OnTriggerExit(Collider other) {
-        
-    }
-
-    public IEnumerator Stagger() {
-        yield return new WaitForSeconds(staggerTime);
-        parried = false;
-    }
-    public IEnumerator HandleHitbox(Collider other) {
-        yield return new WaitForEndOfFrame();
-        if (other.CompareTag("Parasol"))
-        {
-            if (parried) {
-                StartCoroutine(Stagger());
-            } else if (blocked) {
-                //blocked attack
-                blocked = false;
-            }
-        } else if (other.tag == "Player") {
-            Debug.Log("touchingplayer is true");
+        if (other.tag == "Player") {
             touchingPlayer = true;
         }
     }
-    public void HandleInteraction() {
-        if (parried) {
-            StartCoroutine(Stagger());
-        } else if (!blocked && touchingPlayer) {
-            player.GetComponent<PlayerHealth>().TakeDamage(damage);
-            Debug.Log("take damage from handle interaction");
-            touchingPlayer = false;
-        } else {
-            blocked = false;
-        }
+
+    public IEnumerator Stagger() {
+        col.enabled = false;
+        parried = false;
+        staggered = true;
+        currSpeed = nma.speed;
+        nma.speed = 0;
+        yield return new WaitForSeconds(staggerTime);
+        nma.speed = currSpeed;
+        staggered = false;
     }
+    
 }

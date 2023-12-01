@@ -6,6 +6,7 @@ public class HitboxInteraction : MonoBehaviour
 {
     [SerializeField] BlockParryController bpc;
     [SerializeField] NewWhip nw;
+    [SerializeField] PlayerAudioManager pam;
     [SerializeField] GameObject player;
     [SerializeField] HitboxType type;
     [SerializeField] Direction direction;
@@ -139,6 +140,7 @@ public class HitboxInteraction : MonoBehaviour
     void Block(GameObject enemy)
     {
         Debug.Log("Block!");
+        pam.PlaySound(0);
         enemy.GetComponent<EnemyMelee>().blocked = true;
         Vector3 knockbackDirection = new Vector3(0, 0, 0);
         switch (direction)
@@ -156,7 +158,7 @@ public class HitboxInteraction : MonoBehaviour
                 knockbackDirection = new Vector3(-1, 0, 0);
                 break;
         }
-        player.GetComponent<Rigidbody>().AddForce(-knockbackDirection * bpc.blockKnockback, ForceMode.Impulse);
+        player.GetComponent<Rigidbody>().AddForce(-knockbackDirection * bpc.blockKnockback, ForceMode.Impulse);   
     }
     void BlockProjectile(GameObject projectile)
     {
@@ -178,18 +180,21 @@ public class HitboxInteraction : MonoBehaviour
                 break;
         }
         player.GetComponent<Rigidbody>().AddForce(-knockbackDirection * bpc.blockKnockback, ForceMode.Impulse);
+        pam.PlaySound(0);
         Destroy(projectile);
     }
     void Parry(GameObject enemy)
     {
         Debug.Log("Parry!");
         enemy.GetComponent<EnemyMelee>().parried = true;
+        pam.PlaySound(1);
     }
     void ParryProjectile(GameObject projectile)
     {
         Debug.Log("Parry Projectile!");
         shootPoint.PlayerShoot(-projectile.transform.forward);
         Destroy(projectile);
+        pam.PlaySound(1);
     }
     void Whip(GameObject enemy)
     {

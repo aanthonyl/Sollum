@@ -50,7 +50,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 3.49, z: 1.71}
   m_Center: {x: 0, y: 0, z: 0.83}
@@ -73,6 +73,13 @@ MonoBehaviour:
   attackCooldown: 2
   blocked: 0
   parried: 0
+  staggered: 0
+  touchingPlayer: 0
+  damageNextTurn: 0
+  flashTime: 0.125
+  player: {fileID: 0}
+  nma: {fileID: 2292617817937518840}
+  sr: {fileID: 7308501140302650423}
   enemy: {fileID: 8223779984233582598}
   audioSource: {fileID: 0}
   meleeAttackSound: {fileID: 0}
@@ -165,6 +172,16 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2233264033957407052}
   m_SourcePrefab: {fileID: 100100000, guid: 0d0bf7c179d8e1c478a2b007d6ca9806, type: 3}
+--- !u!195 &2292617817937518840 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 3291826464794364295, guid: 0d0bf7c179d8e1c478a2b007d6ca9806, type: 3}
+  m_PrefabInstance: {fileID: 3638883728424036735}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &7308501140302650423 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6274334963545355592, guid: 0d0bf7c179d8e1c478a2b007d6ca9806, type: 3}
+  m_PrefabInstance: {fileID: 3638883728424036735}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8223779984233582598 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4638519781511412089, guid: 0d0bf7c179d8e1c478a2b007d6ca9806, type: 3}

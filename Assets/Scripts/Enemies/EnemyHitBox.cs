@@ -20,13 +20,7 @@ public class EnemyHitBox : MonoBehaviour
 
     public void EnemyStopAtkCol()
     {
-        StartCoroutine(StopAttack());
-    }
-
-    public IEnumerator StopAttack() {
-        yield return new WaitForEndOfFrame();
-        enemyMelee.HandleInteraction();
         col.enabled = false;
+    }
 
     }
-}
