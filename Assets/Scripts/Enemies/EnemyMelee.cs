@@ -6,17 +6,20 @@ public class EnemyMelee : MonoBehaviour
 {
     public int damage = 10;
     public float attackRange = 2.0f;
+    public float staggerTime = 3.0f;
     public bool drawAttackRange = false;
     public float attackCooldown = 2.0f;
-
+    public bool blocked = false;
+    public bool parried = true;
     private bool isPaused = false;
 
-    private Transform player;
+    public Transform player;
+    [SerializeField] Transform enemy;
     private float nextAttackTime; // Time when the next attack can occur.
-    private AudioSource audioSource;
+    [SerializeField] AudioSource audioSource;
     public AudioClip meleeAttackSound;
 
-    public Animator anim;
+    [SerializeField] Animator anim;
     BoxCollider col;
 
     private void OnDrawGizmos()
@@ -30,8 +33,6 @@ public class EnemyMelee : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        audioSource = GetComponent<AudioSource>();
-        anim = transform.GetChild(0).GetComponent<Animator>();
         if (audioSource != null)
             audioSource.clip = meleeAttackSound;
 
@@ -42,19 +43,19 @@ public class EnemyMelee : MonoBehaviour
 
         if (!isPaused)
         {
-            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-
-            if (distanceToPlayer <= attackRange)
-            {
-                // Check if enough time has passed for the next attack.
-                if (Time.time >= nextAttackTime)
+            float distanceToPlayer = Vector3.Distance(enemy.position, player.position);
+            if  (!parried) {
+                if (distanceToPlayer <= attackRange)
                 {
-
-                    AttackPlayer();
-
-                    nextAttackTime = Time.time + attackCooldown;
-                }
+                    // Check if enough time has passed for the next attack.
+                    if (Time.time >= nextAttackTime)
+                    {
+                        AttackPlayer();
+                        nextAttackTime = Time.time + attackCooldown;
+                    }
             }
+            }
+            
         }
     }
 
@@ -69,9 +70,26 @@ public class EnemyMelee : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        
+    }
+    private void OnTriggerExit(Collider other) {
+        if (other.CompareTag("Parasol"))
         {
-            other.GetComponent<PlayerHealth>().TakeDamage(10);
+            if (parried) {
+                StartCoroutine(Stagger());
+            } else if (blocked) {
+                //blocked attack
+                blocked = false;
+            }
+        } else if (other.CompareTag("Player")) {
+            if (!parried && !blocked) {
+                player.GetComponent<PlayerHealth>().TakeDamage(10);
+            }
         }
+    }
+
+    public IEnumerator Stagger() {
+        yield return new WaitForSeconds(staggerTime);
+        parried = false;
     }
 }
