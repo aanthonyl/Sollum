@@ -19,3 +19,5 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 23f82bde05bbd5644ac0581aaecf84ee, type: 3}
   - name: Mayor Strickland
     sprite: {fileID: 21300000, guid: d9543a63e86218e4ca161cfcef56a2ad, type: 3}
+  - name: Captain Randy
+    sprite: {fileID: 21300000, guid: 6fe116c339c51de4a8cdf94f635e5aea, type: 3}

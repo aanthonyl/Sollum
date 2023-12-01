@@ -1,2 +1,1 @@
-[NAME=Canary][SPEAKERSPRITE=Canary]We better not go back inside...
-[NAME=Canary][SPEAKERSPRITE=Canary]~ Chirp chirp ~
+[NAME=Canary][SPEAKERSPRITE=Canary]*chirp chirp* (We better not go back inside...)

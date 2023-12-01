@@ -1,0 +1,945 @@
+fileFormatVersion: 2
+guid: e663eaa8c11bc5a479e0bfc10dfb10df
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GVTree-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 4048
+        width: 398
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04d0d72a58a204d44a998c24a98099dd
+      internalID: 497651707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 4048
+        width: 270
+        height: 704
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fd4ae20f4c64d346ab6eb92fc79c9f9
+      internalID: 1851537103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 3519
+        y: 4048
+        width: 182
+        height: 743
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98d9ec7a056c2e743a054bb60ab21fd2
+      internalID: -670380166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 4927
+        y: 4048
+        width: 211
+        height: 679
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7903b11710309c41b17a1193876867d
+      internalID: 982640408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 6325
+        y: 4048
+        width: 310
+        height: 590
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ec41401acaa6214c834c7a269329625
+      internalID: 422233684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 7693
+        y: 4048
+        width: 413
+        height: 566
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d244fc842e786674eb07dd2049f930a4
+      internalID: -690238007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 9135
+        y: 4048
+        width: 413
+        height: 374
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4925506d46f79804a9d7259219c525a6
+      internalID: 497802531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 3235
+        width: 261
+        height: 798
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80ff81b26ab8a334d85a46bcc59c7dbf
+      internalID: -366405021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 1718
+        y: 3235
+        width: 748
+        height: 788
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 072af3ac8cd98f7438365971f4286ca0
+      internalID: -1512951536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 3160
+        y: 3235
+        width: 743
+        height: 788
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0749cf655c774b04aa68a9c9e344d2da
+      internalID: -1619881823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 4597
+        y: 3235
+        width: 748
+        height: 788
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3b9287a86348a04ab3bbf24a82c2c74
+      internalID: 550644971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 6039
+        y: 3235
+        width: 743
+        height: 788
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 799b0622fe2933e48a80d2c33e2ea1d8
+      internalID: -1773171633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 7516
+        y: 3235
+        width: 792
+        height: 808
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd135a7d67f9249408aaa28ce56767fd
+      internalID: 1574836148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 9066
+        y: 3235
+        width: 630
+        height: 670
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6844f67321dfb54e96a3b446c36b06c
+      internalID: 249937226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 2428
+        width: 443
+        height: 605
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dab0f99923ab19b40b7ec967b2c30c10
+      internalID: -1892479128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 1969
+        y: 2428
+        width: 364
+        height: 659
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52f8ca8b61b6e00409d818928e739ed6
+      internalID: -1463318473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 3411
+        y: 2428
+        width: 359
+        height: 659
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ebc0358ae8985440882de1b5764766a
+      internalID: 2055967244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 4848
+        y: 2428
+        width: 364
+        height: 659
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2effda258dea02409f3a6af4b12045b
+      internalID: 1976738501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 6290
+        y: 2428
+        width: 364
+        height: 659
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5333648afcd02da46a6be5f8c9bf4b63
+      internalID: 1692723676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 7732
+        y: 2428
+        width: 360
+        height: 659
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 835e7006f14af1f47be329d385f91178
+      internalID: -206665116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 9169
+        y: 2428
+        width: 365
+        height: 659
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cfcc46168e48504db7bc257e06dce40
+      internalID: 2123328940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 1615
+        width: 359
+        height: 660
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e989b2b40cc86e5469e109ab4739deff
+      internalID: -523189556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 1969
+        y: 1615
+        width: 364
+        height: 660
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85d2ba7dcdd421348b40b5e83b4ef7b6
+      internalID: 1397221199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 3411
+        y: 1615
+        width: 359
+        height: 660
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d564c20b3ef83004d8eecc5924f71aaf
+      internalID: -277529391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 4848
+        y: 1615
+        width: 364
+        height: 660
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 033547ef9a4ac124aa06bfa32365c937
+      internalID: -1255492655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 6290
+        y: 1615
+        width: 364
+        height: 660
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a9d7284649cf5b4bbbecc2852579fbe
+      internalID: 686339276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 7732
+        y: 1615
+        width: 360
+        height: 660
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65b9de5bdb16215498708eb6d0d94bfb
+      internalID: 483710779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 9169
+        y: 1615
+        width: 365
+        height: 660
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b166b8a841acc14c84e293154d5f7b0
+      internalID: -620286603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 808
+        width: 359
+        height: 659
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d636405ff09b84648b5acd46da8ecc69
+      internalID: -814222125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 1969
+        y: 808
+        width: 364
+        height: 659
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faa198d721e4ec441802c849c9185e24
+      internalID: 243510288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 3411
+        y: 808
+        width: 359
+        height: 659
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55ca9fe79927f8047b6cef98649e4ddb
+      internalID: 463888213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 4848
+        y: 808
+        width: 364
+        height: 659
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40ba68457cb690b468758ec3939ac69b
+      internalID: -825427036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_36
+      rect:
+        serializedVersion: 2
+        x: 6315
+        y: 808
+        width: 310
+        height: 512
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a8039f8affc09145b8a6d7c7bcb26d2
+      internalID: 210520433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_37
+      rect:
+        serializedVersion: 2
+        x: 7831
+        y: 808
+        width: 187
+        height: 359
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5427aec89716d74d99eddc463938c6d
+      internalID: 1149589843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 9219
+        y: 808
+        width: 290
+        height: 472
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 104301fcbf4863442a4ef87165a1d506
+      internalID: 1628206074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 0
+        width: 398
+        height: 576
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d9f8b9b512f8d147b90c8a24c36b548
+      internalID: -247711558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GVTree-Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 1969
+        y: 0
+        width: 398
+        height: 699
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37eb0a6347eea5b4f9c6647704c61b93
+      internalID: 356969144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5985219801d127041882b01f5c84b4e3
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      GVTree-Sheet_0: 497651707
+      GVTree-Sheet_1: 1851537103
+      GVTree-Sheet_10: -1619881823
+      GVTree-Sheet_11: 550644971
+      GVTree-Sheet_12: -1773171633
+      GVTree-Sheet_13: 1574836148
+      GVTree-Sheet_14: -1075341273
+      GVTree-Sheet_15: -462596353
+      GVTree-Sheet_16: 249937226
+      GVTree-Sheet_17: -1812655512
+      GVTree-Sheet_18: -1892479128
+      GVTree-Sheet_19: -1463318473
+      GVTree-Sheet_2: -670380166
+      GVTree-Sheet_20: 2055967244
+      GVTree-Sheet_21: 1976738501
+      GVTree-Sheet_22: 1692723676
+      GVTree-Sheet_23: -206665116
+      GVTree-Sheet_24: 2123328940
+      GVTree-Sheet_25: -523189556
+      GVTree-Sheet_26: 1397221199
+      GVTree-Sheet_27: -277529391
+      GVTree-Sheet_28: -1255492655
+      GVTree-Sheet_29: 686339276
+      GVTree-Sheet_3: 982640408
+      GVTree-Sheet_30: 483710779
+      GVTree-Sheet_31: -620286603
+      GVTree-Sheet_32: -814222125
+      GVTree-Sheet_33: 243510288
+      GVTree-Sheet_34: 463888213
+      GVTree-Sheet_35: -825427036
+      GVTree-Sheet_36: 210520433
+      GVTree-Sheet_37: 1149589843
+      GVTree-Sheet_38: 1628206074
+      GVTree-Sheet_39: -247711558
+      GVTree-Sheet_4: 422233684
+      GVTree-Sheet_40: 356969144
+      GVTree-Sheet_5: -690238007
+      GVTree-Sheet_6: 497802531
+      GVTree-Sheet_7: -366405021
+      GVTree-Sheet_8: -1512951536
+      GVTree-Sheet_9: -1037498965
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
