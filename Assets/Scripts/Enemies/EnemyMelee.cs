@@ -11,6 +11,7 @@ public class EnemyMelee : MonoBehaviour
     public float attackCooldown = 2.0f;
     public bool blocked = false;
     public bool parried = true;
+    public bool touchingPlayer = false;
     private bool isPaused = false;
 
     public Transform player;
@@ -70,9 +71,19 @@ public class EnemyMelee : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        Debug.Log("ontriggerenter " + other.tag);
+        StartCoroutine(HandleHitbox(other));
     }
     private void OnTriggerExit(Collider other) {
+        
+    }
+
+    public IEnumerator Stagger() {
+        yield return new WaitForSeconds(staggerTime);
+        parried = false;
+    }
+    public IEnumerator HandleHitbox(Collider other) {
+        yield return new WaitForEndOfFrame();
         if (other.CompareTag("Parasol"))
         {
             if (parried) {
@@ -81,15 +92,20 @@ public class EnemyMelee : MonoBehaviour
                 //blocked attack
                 blocked = false;
             }
-        } else if (other.CompareTag("Player")) {
-            if (!parried && !blocked) {
-                player.GetComponent<PlayerHealth>().TakeDamage(10);
-            }
+        } else if (other.tag == "Player") {
+            Debug.Log("touchingplayer is true");
+            touchingPlayer = true;
         }
     }
-
-    public IEnumerator Stagger() {
-        yield return new WaitForSeconds(staggerTime);
-        parried = false;
+    public void HandleInteraction() {
+        if (parried) {
+            StartCoroutine(Stagger());
+        } else if (!blocked && touchingPlayer) {
+            player.GetComponent<PlayerHealth>().TakeDamage(damage);
+            Debug.Log("take damage from handle interaction");
+            touchingPlayer = false;
+        } else {
+            blocked = false;
+        }
     }
 }

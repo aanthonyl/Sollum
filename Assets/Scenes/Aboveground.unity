@@ -10635,6 +10635,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 105760955}
     m_Modifications:
+    - target: {fileID: 1923922169993719278, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
+      propertyPath: isPlayerHidden
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2339426425684941591, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
       propertyPath: m_Name
       value: Enemy Variant - Cultist
@@ -26266,8 +26270,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   attackRange: 2
+  staggerTime: 3
   drawAttackRange: 0
   attackCooldown: 2
+  blocked: 0
+  parried: 1
+  touchingPlayer: 0
+  player: {fileID: 0}
+  enemy: {fileID: 0}
+  audioSource: {fileID: 0}
   meleeAttackSound: {fileID: 0}
   anim: {fileID: 0}
 --- !u!114 &995341035
