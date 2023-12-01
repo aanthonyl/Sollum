@@ -7,7 +7,7 @@ public class GateAnim : MonoBehaviour
     public bool locked = false;
     public Animator myAnimR;
     public Animator myAnimL;
-
+    public AudioSource creak;
 
 
     // Update is called once per frame
@@ -15,6 +15,7 @@ public class GateAnim : MonoBehaviour
     {
         if (!locked)
         {
+            creak.Play();
             myAnimR.SetBool("isGate", true);
             myAnimL.SetBool("isGate", true);
         }
