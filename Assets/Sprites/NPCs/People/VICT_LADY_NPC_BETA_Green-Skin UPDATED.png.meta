@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d4f13146da8dce74e84f6e043ed4c1f1
+guid: 6ee80d594792cd442b265509082f205d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 15
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -136,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TreeAtk_0
+      name: VICT_LADY_NPC_BETA_Green-Skin UPDATED_0
       rect:
         serializedVersion: 2
-        x: 35
-        y: 17
-        width: 53
-        height: 77
+        x: 10
+        y: 1
+        width: 15
+        height: 21
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e453da1d7a9ac44094b2725ecf3b46d
-      internalID: 507086415
+      spriteID: 808f5b28c3d6a67429c85674e197fcdc
+      internalID: -983419968
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TreeAtk_1
+      name: VICT_LADY_NPC_BETA_Green-Skin UPDATED_1
       rect:
         serializedVersion: 2
-        x: 134
-        y: 17
-        width: 56
-        height: 75
+        x: 42
+        y: 1
+        width: 14
+        height: 20
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19893d3ed72076a48bf3b97eb1c58135
-      internalID: -1928560477
+      spriteID: 0d48b9ec2a658c240a3eeca32d48cb88
+      internalID: 76215280
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TreeAtk_2
+      name: VICT_LADY_NPC_BETA_Green-Skin UPDATED_2
       rect:
         serializedVersion: 2
-        x: 231
-        y: 17
-        width: 59
-        height: 73
+        x: 74
+        y: 1
+        width: 15
+        height: 21
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,113 +192,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33b54008af67f9a4ca754b08c9f37df5
-      internalID: -851749123
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TreeAtk_3
-      rect:
-        serializedVersion: 2
-        x: 331
-        y: 17
-        width: 58
-        height: 72
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5ac39052ef4fe4d49a101918aa444191
-      internalID: -275177768
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TreeAtk_4
-      rect:
-        serializedVersion: 2
-        x: 431
-        y: 17
-        width: 59
-        height: 74
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 53b7aaa7a9f5da8428366627fa1bad86
-      internalID: -1840035354
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TreeAtk_5
-      rect:
-        serializedVersion: 2
-        x: 515
-        y: 17
-        width: 73
-        height: 75
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2374dfcaa997727428484024137e2f84
-      internalID: 1278139163
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TreeAtk_6
-      rect:
-        serializedVersion: 2
-        x: 600
-        y: 59
-        width: 20
-        height: 9
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bc9360d03aadce94a8a57a8fd5de1b76
-      internalID: -1698682333
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TreeAtk_7
-      rect:
-        serializedVersion: 2
-        x: 622
-        y: 17
-        width: 66
-        height: 75
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0a4528de7c17b2347b30f693cadf9081
-      internalID: -1672755024
+      spriteID: dfd8f2f64d3d09d4eb627c20777158dd
+      internalID: -495650084
       vertices: []
       indices: 
       edges: []
@@ -306,7 +201,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 06721ed6652da9b498e3dace12cf5592
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -314,14 +209,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      TreeAtk_0: 507086415
-      TreeAtk_1: -1928560477
-      TreeAtk_2: -851749123
-      TreeAtk_3: -275177768
-      TreeAtk_4: -1840035354
-      TreeAtk_5: 1278139163
-      TreeAtk_6: -1698682333
-      TreeAtk_7: -1672755024
+      VICT_LADY_NPC_BETA_Green-Skin UPDATED_0: -983419968
+      VICT_LADY_NPC_BETA_Green-Skin UPDATED_1: 76215280
+      VICT_LADY_NPC_BETA_Green-Skin UPDATED_2: -495650084
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

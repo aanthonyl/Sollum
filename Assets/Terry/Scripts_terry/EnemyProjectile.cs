@@ -13,6 +13,7 @@ public class EnemyProjectile : MonoBehaviour
     float moveSpeed = 10.0f;
     Vector3 forwardVector;
     Rigidbody rb;
+    Animator anim;
     bool shooting = false;
     Vector3 getShootPosition() { return shootPositionObj.transform.position; }
     Vector3 ForwardVelocity() { return forwardVector * moveSpeed; }
@@ -24,6 +25,11 @@ public class EnemyProjectile : MonoBehaviour
         {
             Gizmos.DrawWireSphere(transform.position, aggroRadius);
         }
+    }
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
     }
 
     void EnemyShoot()
@@ -45,8 +51,9 @@ public class EnemyProjectile : MonoBehaviour
 
     IEnumerator Shoot()
     {
+        if (anim != null)
+            anim.SetTrigger("Shoot");
         shooting = true;
-        EnemyShoot();
         yield return new WaitForSeconds(3f);
         shooting = false;
     }
