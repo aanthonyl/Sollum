@@ -12,10 +12,12 @@ public class EnemyMelee : MonoBehaviour
     private bool isPaused = false;
 
     private Transform player;
-    private Animator anim;
     private float nextAttackTime; // Time when the next attack can occur.
     private AudioSource audioSource;
     public AudioClip meleeAttackSound;
+
+    public Animator anim;
+    BoxCollider col;
 
     private void OnDrawGizmos()
     {
@@ -62,13 +64,14 @@ public class EnemyMelee : MonoBehaviour
             audioSource.Play();
         //attack animation
         if (anim != null)
-            anim.SetTrigger("EnemyAttacks");
-        PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
-        if (playerHealth != null)
-        {
-            playerHealth.TakeDamage(damage);
-        }
+            anim.SetTrigger("Attack");
     }
 
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            other.GetComponent<PlayerHealth>().TakeDamage(10);
+        }
+    }
 }

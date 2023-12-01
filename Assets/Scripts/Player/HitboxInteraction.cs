@@ -9,6 +9,7 @@ public class HitboxInteraction : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] HitboxType type;
     [SerializeField] Direction direction;
+    [SerializeField] Parry shootPoint;
 
     enum Direction
     {
@@ -145,6 +146,8 @@ public class HitboxInteraction : MonoBehaviour
     void Parry(GameObject enemy)
     {
         Debug.Log("Parry!");
+        shootPoint.PlayerShoot(enemy.transform.position - player.transform.position);
+        Destroy(enemy.gameObject);
     }
     void Whip(GameObject enemy)
     {
