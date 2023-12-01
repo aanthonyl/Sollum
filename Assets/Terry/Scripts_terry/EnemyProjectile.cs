@@ -8,6 +8,8 @@ public class EnemyProjectile : MonoBehaviour
     public GameObject shootPositionObj, projectile_prefab;
     public bool trackPlayer = false;
     public GameObject player;
+    public bool drawAggroRadius = false;
+    public float aggroRadius = 5f;
     float moveSpeed = 10.0f;
     Vector3 forwardVector;
     Rigidbody rb;
@@ -15,6 +17,14 @@ public class EnemyProjectile : MonoBehaviour
     Vector3 getShootPosition() { return shootPositionObj.transform.position; }
     Vector3 ForwardVelocity() { return forwardVector * moveSpeed; }
     public void setForwardVector(Vector3 targetDirection) { forwardVector = targetDirection.normalized; }
+
+    private void OnDrawGizmos()
+    {
+        if (drawAggroRadius)
+        {
+            Gizmos.DrawWireSphere(transform.position, aggroRadius);
+        }
+    }
 
     void EnemyShoot()
     {
@@ -29,7 +39,7 @@ public class EnemyProjectile : MonoBehaviour
 
     void Update()
     {
-        if (!shooting)
+        if (!shooting && Vector3.Distance(player.transform.position, transform.position) <= aggroRadius)
             StartCoroutine(Shoot());
     }
 

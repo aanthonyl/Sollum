@@ -37,20 +37,22 @@ public class EnemyHealth : MonoBehaviour
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
+        if (sprite == null)
+            sprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
         //audioSource = GetComponent<AudioSource>();
 
         // DIFFERENT ENEMY HEALTH AMOUNTS
         if (enemyType == EnemyType.GruntEnemy)
         {
-            enemyHealth = 20;
+            enemyHealth = 10;
         }
         else if (enemyType == EnemyType.ThrowEnemy)
         {
-            enemyHealth = 40;
+            enemyHealth = 20;
         }
         else if (enemyType == EnemyType.ShootEnemy)
         {
-            enemyHealth = 60;
+            enemyHealth = 40;
         }
         //audioSource.clip = enemyDamagedSound;
     }
@@ -62,6 +64,15 @@ public class EnemyHealth : MonoBehaviour
         {
             Debug.Log("ENTERED WHIP ZONE");
             TakeWhipDamage();
+        }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("PlayerProjectile"))
+        {
+            Debug.Log("HIT BY BULLET");
+            TakeWhipDamage(); //just using whip function for now
         }
     }
 
@@ -84,8 +95,21 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
+    public void TakeDamage(float damage)
+    {
+        if (!damageCoolDown)
+        {
+            enemyHealth -= damage;
+            StartCoroutine(FlashRed());
+            if (enemyHealth <= 0)
+            {
+                EnemyDie();
+            }
+        }
+    }
+
     // ENEMY DIES, OBJECT DESTROYED
-    public void EnemyDie()
+    public virtual void EnemyDie()
     {
         Debug.Log("ENEMY DIE");
 
@@ -96,9 +120,9 @@ public class EnemyHealth : MonoBehaviour
     private IEnumerator FlashRed()
     {
         damageCoolDown = true;
-        //sprite.color = Color.red;
+        sprite.color = Color.red;
         yield return new WaitForSeconds(0.1f);
-        //sprite.color = Color.white;
+        sprite.color = Color.white;
         yield return new WaitForSeconds(0.8f);
         damageCoolDown = false;
     }

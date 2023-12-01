@@ -87,7 +87,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.35006294, g: 0.46226418, b: 0.30744928, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 2698121650311201279}
   - component: {fileID: 4765785475300616680}
   - component: {fileID: -4501714103497507095}
+  - component: {fileID: 1794640590430584996}
   m_Layer: 3
   m_Name: EnemyProjectile
   m_TagString: EnemyProjectile
@@ -192,3 +193,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4dd26cee614d0942b120186c1854e83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1794640590430584996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8462127569867068774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 845ef36ac63bb6f41b91d3f0c6f93baa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 0
+  attackDamage: 0
+  attackRange: 0
+  attackCooldown: 2
+  nextAttackTime: 0
+  freezeAttack: 0
+  pauseManager: {fileID: 0}
+  dialogueManager: {fileID: 0}

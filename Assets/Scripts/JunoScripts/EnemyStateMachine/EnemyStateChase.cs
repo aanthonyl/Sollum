@@ -21,7 +21,7 @@ public class EnemyStateChase : I_EnemyBaseState
     {
         // Debug.Log("Chasing");
         //set stopping distance based on enemy type
-        stoppingDistance = 0f;
+        stoppingDistance = 1.3f;
     }
 
     /* Update State =============================
@@ -32,7 +32,8 @@ public class EnemyStateChase : I_EnemyBaseState
         distToPlayer = Vector3.Distance(enemy.agent.transform.position, enemy.target.position) - enemy.playerHeight;
         if (distToPlayer > stoppingDistance)
         {
-            enemy.agent.destination = enemy.target.position; //move towards player
+            Vector3 playerToEnemy = enemy.transform.position - enemy.target.position;
+            enemy.agent.destination = enemy.target.position + playerToEnemy.normalized * stoppingDistance; //move towards player
         }
 
         if (distToPlayer >= enemy.loseAggroDist)

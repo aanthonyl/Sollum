@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/Dialogue/Dock.txt.meta
 guid: 2b137ff0ef39af84681518ba7dd5f70e
 TextScriptImporter:
+========
+guid: 8d64f668b2547d845a6e105f983f9e72
+DefaultImporter:
+>>>>>>>> main:Assets/Scenes/JunoAboveGround.unity.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
