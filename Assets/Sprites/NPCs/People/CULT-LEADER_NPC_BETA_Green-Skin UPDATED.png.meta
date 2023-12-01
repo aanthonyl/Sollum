@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a565184bec4c9a243902b117e55d7c2d
+guid: 8361fb1d84ba7f24abfa7ccede4bb803
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -136,106 +136,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TentacultistAtk-Sheet_0
+      name: CULT-LEADER_NPC_BETA_Green-Skin UPDATED_0
       rect:
         serializedVersion: 2
-        x: 72
-        y: 44
-        width: 84
-        height: 152
+        x: 12
+        y: 1
+        width: 8
+        height: 31
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: deea3e0b8817f53478da58eab85d15ea
-      internalID: 1599971849
+      spriteID: 3fd8fa105124ea649b9a5d916ef55d4e
+      internalID: -1531464607
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TentacultistAtk-Sheet_1
+      name: CULT-LEADER_NPC_BETA_Green-Skin UPDATED_1
       rect:
         serializedVersion: 2
-        x: 324
-        y: 44
-        width: 88
-        height: 156
+        x: 44
+        y: 1
+        width: 10
+        height: 31
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ba3b74b2d595c347869e472f5afd729
-      internalID: 970573315
+      spriteID: 4cfbc025588452d45a7eac4450c0f171
+      internalID: 1046259133
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TentacultistAtk-Sheet_2
+      name: CULT-LEADER_NPC_BETA_Green-Skin UPDATED_2
       rect:
         serializedVersion: 2
-        x: 572
-        y: 48
-        width: 124
-        height: 156
-      alignment: 9
-      pivot: {x: 0.44068417, y: 0.5}
+        x: 76
+        y: 1
+        width: 12
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42d83aaf2f6702f4c833d89e1ce47bb8
-      internalID: -2093856709
+      spriteID: f83e0db43abf63e40bd93fb41d44131b
+      internalID: -210621759
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TentacultistAtk-Sheet_3
+      name: CULT-LEADER_NPC_BETA_Green-Skin UPDATED_3
       rect:
         serializedVersion: 2
-        x: 832
-        y: 52
-        width: 172
-        height: 160
-      alignment: 9
-      pivot: {x: 0.30994576, y: 0.49744615}
+        x: 104
+        y: 1
+        width: 12
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b70f9a14d6429ba4c820f807b2983a9d
-      internalID: -1098059067
+      spriteID: a416085491996754892bdc267b6d3471
+      internalID: 1682118508
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TentacultistAtk-Sheet_4
+      name: CULT-LEADER_NPC_BETA_Green-Skin UPDATED_4
       rect:
         serializedVersion: 2
-        x: 1084
-        y: 40
-        width: 156
-        height: 160
-      alignment: 9
-      pivot: {x: 0.34545898, y: 0.49999994}
+        x: 140
+        y: 1
+        width: 8
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1665269834c29643bdbde353ef5e712
-      internalID: 1471150194
+      spriteID: 3c77ba6ffcc53934ea5d455054044428
+      internalID: -1262802261
       vertices: []
       indices: 
       edges: []
@@ -251,11 +251,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      TentacultistAtk-Sheet_0: 1599971849
-      TentacultistAtk-Sheet_1: 970573315
-      TentacultistAtk-Sheet_2: -2093856709
-      TentacultistAtk-Sheet_3: -1098059067
-      TentacultistAtk-Sheet_4: 1471150194
+      CULT-LEADER_NPC_BETA_Green-Skin UPDATED_0: -1531464607
+      CULT-LEADER_NPC_BETA_Green-Skin UPDATED_1: 1046259133
+      CULT-LEADER_NPC_BETA_Green-Skin UPDATED_2: -210621759
+      CULT-LEADER_NPC_BETA_Green-Skin UPDATED_3: 1682118508
+      CULT-LEADER_NPC_BETA_Green-Skin UPDATED_4: -1262802261
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

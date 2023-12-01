@@ -31,6 +31,8 @@ public class EnemyHealth : MonoBehaviour
     private float playerWhipDamage = 10;
     private bool damageCoolDown = false;
 
+
+
     //private AudioSource audioSource;
     //public AudioClip enemyDamagedSound;
 
@@ -59,41 +61,41 @@ public class EnemyHealth : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+
         // ENTERED WHIP ATTACK TRIGGER
-        if (other.gameObject.name == "WhipAttackZone")
-        {
-            Debug.Log("ENTERED WHIP ZONE");
-            TakeWhipDamage();
-        }
+        // if (other.gameObject.name == "WhipAttackZone")
+        // {
+        //     // Debug.Log("ENTERED WHIP ZONE");
+        //     TakeWhipDamage();
+        // }
     }
 
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("PlayerProjectile"))
         {
-            Debug.Log("HIT BY BULLET");
-            TakeWhipDamage(); //just using whip function for now
+            TakeDamage(10); //just using whip function for now
         }
     }
 
     // ENEMY TAKES DAMAGE AND DIES IF HEALTH HITS 0
-    public void TakeWhipDamage()
-    {
-        if (damageCoolDown == false)
-        {
-            Debug.Log("ENEMY TAKE WHIP DAMAGE");
+    // public void TakeWhipDamage()
+    // {
+    //     if (damageCoolDown == false)
+    //     {
+    //         Debug.Log("ENEMY TAKE WHIP DAMAGE");
 
-            enemyHealth -= playerWhipDamage;
+    //         enemyHealth -= playerWhipDamage;
 
-            StartCoroutine(FlashRed());
+    //         StartCoroutine(FlashRed());
 
-            if (enemyHealth <= 0)
-            {
-                EnemyDie();
-            }
-            //audioSource.Play();
-        }
-    }
+    //         if (enemyHealth <= 0)
+    //         {
+    //             EnemyDie();
+    //         }
+    //         //audioSource.Play();
+    //     }
+    // }
 
     public void TakeDamage(float damage)
     {
@@ -111,8 +113,6 @@ public class EnemyHealth : MonoBehaviour
     // ENEMY DIES, OBJECT DESTROYED
     public virtual void EnemyDie()
     {
-        Debug.Log("ENEMY DIE");
-
         Destroy(this.gameObject);
     }
 

@@ -36,6 +36,8 @@ public class EnemyAttack : MonoBehaviour
     public PauseManager pauseManager;
     public DialogueManager dialogueManager;
 
+
+
     //private AudioSource audioSource;
     //[HideInInspector]
     //public AudioClip meleeAttackSound, throwAttackSound, shootAttackSound;
@@ -94,10 +96,5 @@ public class EnemyAttack : MonoBehaviour
         Debug.Log("ENEMY ATTACK PLAYER");
         //audioSource.Play();
 
-        PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
-        if (playerHealth != null)
-        {
-            playerHealth.TakeDamage(attackDamage);
-        }
     }
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a565184bec4c9a243902b117e55d7c2d
+guid: 84d7b152cf6d7bb4ca065df10ad927e0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -136,106 +136,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TentacultistAtk-Sheet_0
+      name: VICT_GENT_NPC_BETA_Green-Skin UPDATED_0
       rect:
         serializedVersion: 2
-        x: 72
-        y: 44
-        width: 84
-        height: 152
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 12
+        y: 0
+        width: 9
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: deea3e0b8817f53478da58eab85d15ea
-      internalID: 1599971849
+      spriteID: 9a535f8d17272a84ba5adc3c61342f4a
+      internalID: -135279067
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TentacultistAtk-Sheet_1
+      name: VICT_GENT_NPC_BETA_Green-Skin UPDATED_1
       rect:
         serializedVersion: 2
-        x: 324
-        y: 44
-        width: 88
-        height: 156
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 44
+        y: 0
+        width: 9
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ba3b74b2d595c347869e472f5afd729
-      internalID: 970573315
+      spriteID: fb54062babc471c49b500e0cfd1ae76c
+      internalID: 86265219
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TentacultistAtk-Sheet_2
+      name: VICT_GENT_NPC_BETA_Green-Skin UPDATED_2
       rect:
         serializedVersion: 2
-        x: 572
-        y: 48
-        width: 124
-        height: 156
-      alignment: 9
-      pivot: {x: 0.44068417, y: 0.5}
+        x: 76
+        y: 0
+        width: 9
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42d83aaf2f6702f4c833d89e1ce47bb8
-      internalID: -2093856709
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TentacultistAtk-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 832
-        y: 52
-        width: 172
-        height: 160
-      alignment: 9
-      pivot: {x: 0.30994576, y: 0.49744615}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b70f9a14d6429ba4c820f807b2983a9d
-      internalID: -1098059067
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TentacultistAtk-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 1084
-        y: 40
-        width: 156
-        height: 160
-      alignment: 9
-      pivot: {x: 0.34545898, y: 0.49999994}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e1665269834c29643bdbde353ef5e712
-      internalID: 1471150194
+      spriteID: ced535d7e1b26614d888a794f1212833
+      internalID: 889540628
       vertices: []
       indices: 
       edges: []
@@ -251,11 +209,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      TentacultistAtk-Sheet_0: 1599971849
-      TentacultistAtk-Sheet_1: 970573315
-      TentacultistAtk-Sheet_2: -2093856709
-      TentacultistAtk-Sheet_3: -1098059067
-      TentacultistAtk-Sheet_4: 1471150194
+      VICT_GENT_NPC_BETA_Green-Skin UPDATED_0: -135279067
+      VICT_GENT_NPC_BETA_Green-Skin UPDATED_1: 86265219
+      VICT_GENT_NPC_BETA_Green-Skin UPDATED_2: 889540628
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
