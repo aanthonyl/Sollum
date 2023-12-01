@@ -13,6 +13,7 @@ public class CreditsManager : MonoBehaviour
     public float timeBetweenObjects = 0.5f;
     public float textPrintSpeed = 0.05f;
     private Text textComponent;
+    public GameObject flowerUI, logoUI, thnxText;
 
     private void Start()
     {
@@ -52,6 +53,10 @@ public class CreditsManager : MonoBehaviour
                     }
 
                 }
+                else
+                {
+                    EndCredits();
+                }
             }
 
             yield return new WaitForSeconds(currentActivationDelay);
@@ -76,9 +81,20 @@ public class CreditsManager : MonoBehaviour
             {
                 currentActivationDelay = 15f;
             }
+            else if (batchIndex >= 4)
+            {
+                EndCredits();
+            }
 
             yield return new WaitForSeconds(waitTimeBetweenActivations);
         }
+    }
+
+    private void EndCredits()
+    {
+        logoUI.SetActive(false);
+        flowerUI.SetActive(false);
+        thnxText.SetActive(true);
     }
 
     private IEnumerator PrintText(Text textComponent)

@@ -86,16 +86,14 @@ public class playerMovement : MonoBehaviour
 
         //applies deceleration when no input//
         
-        if ((inputMagnitude == 0 || freezeMovement || bpc.isAttacking() || bpc.isCoolingDown() || nw.isWhipping() || bpc.isBlocking()) && speed > 0)
+        if ((inputMagnitude == 0 || freezeMovement || bpc.isAttacking() || bpc.isCoolingDown() || nw.isWhipping()) && speed > 0)
         {
             //Debug.Log("Calling deceleration");
             Vector2 decelerationVelocity = new Vector2(rb.velocity.x, rb.velocity.z).normalized * ms.GetDeceleration() * new Vector2(rb.velocity.x, rb.velocity.z).magnitude;
             rb.AddForce(new Vector3(decelerationVelocity.x, 0, decelerationVelocity.y));
         }
 
-        if (!bpc.isBlocking()) {
-            rb.velocity = Vector3.ClampMagnitude(rb.velocity, (float)maxSpeed * (float)ms.GetMovementMultiplier());
-        }
+        rb.velocity = Vector3.ClampMagnitude(rb.velocity, (float)maxSpeed * (float)ms.GetMovementMultiplier());
 
         if (speed < 0.00001f) {
             rb.velocity = Vector3.zero;
@@ -186,10 +184,29 @@ public class playerMovement : MonoBehaviour
         }
         myAnim.SetBool("FacingForward", facingForward);
         myAnim.SetBool("Attacking", bpc.isAttacking());
+        myAnim.SetBool("AttackingFromBlock", bpc.isAttackingFromBlock());
         myAnim.SetBool("Parrying", bpc.isParrying());
+        myAnim.SetBool("ParryStartup", bpc.parryStartingUp());
         myAnim.SetBool("Blocking", bpc.isBlocking());
         myAnim.SetBool("CoolingDown", bpc.isCoolingDown());
         myAnim.SetBool("Whipping", nw.isWhipping());
         myAnim.SetBool("WhipWindup", nw.isWindingUp());
+        myAnim.SetInteger("Direction", bpc.getDirection());
+        if (xInput != 0) {
+             if (myAnim.GetCurrentAnimatorStateInfo(0).IsName("BlockWalkLeft")) {
+                myAnim.SetFloat("Horizontal", -xInput);
+            } else {
+                myAnim.SetFloat("Horizontal", xInput);
+            }
+            
+        }
+        if (zInput != 0) {
+            if (myAnim.GetCurrentAnimatorStateInfo(0).IsName("BlockWalkDown")) {
+                myAnim.SetFloat("Vertical", -zInput);
+            } else {
+                myAnim.SetFloat("Vertical", zInput);
+            }
+        }
+        
     }
 }
