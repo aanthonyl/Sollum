@@ -52,9 +52,11 @@ public class RespawnManager : MonoBehaviour
         // add death animation
         yield return new WaitForSeconds(3.0f);
 
-        if (lastCheckpointPos != Vector3.zero && player != null)
+        //if (lastCheckpointPos != Vector3.zero && player != null) // Commented out so it wouldn't go to main menu if player dies in the first region
+        //{
+        if (player != null)
         {
-            Vector3 respawnPosition = lastCheckpointPos != Vector3.zero ? lastCheckpointPos : defaultRespawnPoint.position;
+                Vector3 respawnPosition = lastCheckpointPos != Vector3.zero ? lastCheckpointPos : defaultRespawnPoint.position;
             player.transform.position = lastCheckpointPos;
             Debug.Log("Player respawned");
 
