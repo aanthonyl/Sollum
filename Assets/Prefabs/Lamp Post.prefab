@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3653695714450093868}
   - component: {fileID: 8767029416564966273}
   - component: {fileID: 6736462282105036267}
+  - component: {fileID: 7702077741377957823}
   m_Layer: 0
   m_Name: Lamp Post
   m_TagString: Untagged
@@ -26,9 +27,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 302449538168536420}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -16.388, y: 1.27, z: -3.076}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.85858, y: 0.85858, z: 0.85858}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 511995548964578819}
@@ -108,6 +109,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.1367225, y: 3.5852666, z: 0}
   m_Center: {x: -0.0021253568, y: -0.34069985, z: 0.099999994}
+--- !u!208 &7702077741377957823
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302449538168536420}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.067, y: 2.1330001, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &563163682328578527
 GameObject:
   m_ObjectHideFlags: 0
