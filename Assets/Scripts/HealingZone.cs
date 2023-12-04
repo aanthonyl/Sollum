@@ -12,7 +12,7 @@ public class HealingZone : MonoBehaviour
     public bool isPaused = false;
 
     private Light light;
-
+    private AudioSource source;
     //public AudioSource audioSource;
 
 
@@ -20,6 +20,7 @@ public class HealingZone : MonoBehaviour
     private void Start()
     {
         Debug.Log("Start");
+        source = GameObject.Find("Audio_Fountain").GetComponent<AudioSource>();
         light = GameObject.Find("Fountain_Light").GetComponent<Light>();
         light.enabled = false;
     }
@@ -30,7 +31,7 @@ public class HealingZone : MonoBehaviour
         {
             light.enabled = true;
             isHealing = true;
-
+            source.Play();
             Debug.Log("onTriggerEnter");
 
             //audioSource.Play();
@@ -45,6 +46,7 @@ public class HealingZone : MonoBehaviour
             light.enabled = false;
             Debug.Log("OnTriggerExit");
             isHealing = false;
+            source.Stop();
             //audioSource.Stop();
         }
     }
