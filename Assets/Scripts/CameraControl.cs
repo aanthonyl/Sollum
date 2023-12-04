@@ -31,6 +31,7 @@ public class CameraControl : MonoBehaviour
         //set the angle of the camera looking down in the start, shouldn't be changed except possibly boss fights
         transform.rotation = Quaternion.Euler(new Vector3(23,0,0)); //26.83f
         Camera.main.fieldOfView = 80;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
