@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5775308131657714537}
   - component: {fileID: 3291826464794364295}
   - component: {fileID: 8659139535316554920}
-  - component: {fileID: 2716896302587588490}
   - component: {fileID: 8956211248482595160}
   - component: {fileID: 2939949496262493329}
   - component: {fileID: 3235195610363887345}
@@ -139,27 +138,6 @@ CapsuleCollider:
   m_Height: 1.0504545
   m_Direction: 1
   m_Center: {x: 0, y: 0.4747728, z: 0}
---- !u!65 &2716896302587588490
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2410755412135605838}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 2.53, y: 0.8496055, z: 3.68}
-  m_Center: {x: -0.07572343, y: 0.5751965, z: 0.5700552}
 --- !u!54 &8956211248482595160
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -227,9 +205,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   attackRange: 2
+  staggerTime: 3
   drawAttackRange: 1
   attackCooldown: 2
+  blocked: 0
+  parried: 1
   meleeAttackSound: {fileID: 0}
+  anim: {fileID: 0}
 --- !u!114 &260419822668711686
 MonoBehaviour:
   m_ObjectHideFlags: 0
