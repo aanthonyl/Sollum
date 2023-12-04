@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 13367815014a46d40aabb637056ed89e
+guid: f1dcfa25b60605748847f04fc3998f52
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 200
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -81,7 +81,33 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -110,106 +136,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boss_Arm_Idle-Sheet_0
+      name: TreeProjectile-Sheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1024
-        height: 1024
+        x: 36
+        y: 36
+        width: 56
+        height: 60
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40564657414413d49888e026e36ad890
-      internalID: -149583445
+      spriteID: eb09f1803bd86604695840cba79e7ca6
+      internalID: -444861023
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Arm_Idle-Sheet_1
+      name: TreeProjectile-Sheet_1
       rect:
         serializedVersion: 2
-        x: 1024
-        y: 0
-        width: 1024
-        height: 1024
+        x: 168
+        y: 40
+        width: 52
+        height: 52
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ca09b4606e04584fba01829559f5008
-      internalID: -1709848363
+      spriteID: e4331cb06556aef4d8534e7beaecf45b
+      internalID: 1465082343
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Arm_Idle-Sheet_2
+      name: TreeProjectile-Sheet_2
       rect:
         serializedVersion: 2
-        x: 2048
-        y: 0
-        width: 1024
-        height: 1024
+        x: 292
+        y: 44
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3425e2e30b2ff848b3576438708356e
-      internalID: -2131393510
+      spriteID: e9a99e980319cf34c97310e3d6ab594f
+      internalID: 1416214743
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Arm_Idle-Sheet_3
+      name: TreeProjectile-Sheet_3
       rect:
         serializedVersion: 2
-        x: 3072
-        y: 0
-        width: 1024
-        height: 1024
+        x: 416
+        y: 44
+        width: 56
+        height: 52
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4229337b9b7da5441bd875c47e4b0fe7
-      internalID: 2082966463
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss_Arm_Idle-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 4096
-        y: 0
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d737744f98d8b904a883d62cd1a18f62
-      internalID: -1584233009
+      spriteID: 71d4b2076a7513240b0dfaddee4ec8aa
+      internalID: 1622905003
       vertices: []
       indices: 
       edges: []
@@ -217,7 +222,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 6b84ccf948445ca468533419c0825dd2
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -225,11 +230,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Boss_Arm_Idle-Sheet_0: -149583445
-      Boss_Arm_Idle-Sheet_1: -1709848363
-      Boss_Arm_Idle-Sheet_2: -2131393510
-      Boss_Arm_Idle-Sheet_3: 2082966463
-      Boss_Arm_Idle-Sheet_4: -1584233009
+      TreeProjectile-Sheet_0: 1107983992
+      TreeProjectile-Sheet_1: 1186714067
+      TreeProjectile-Sheet_2: 273385659
+      TreeProjectile-Sheet_3: 1688203007
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

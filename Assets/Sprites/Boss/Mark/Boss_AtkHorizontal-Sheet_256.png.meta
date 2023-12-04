@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 13367815014a46d40aabb637056ed89e
+guid: 7fef0630deb6a894ba7a2c05f1fb9567
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 200
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -110,106 +110,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boss_Arm_Idle-Sheet_0
+      name: Boss_AtkHorizontal-Sheet_256_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1024
-        height: 1024
+        width: 512
+        height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40564657414413d49888e026e36ad890
-      internalID: -149583445
+      spriteID: 0e5449592f9e2a746881c05157fab22b
+      internalID: -244296823
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Arm_Idle-Sheet_1
+      name: Boss_AtkHorizontal-Sheet_256_1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82785eb187ba34a428698ed6d65f3c07
+      internalID: -1836904473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_AtkHorizontal-Sheet_256_2
       rect:
         serializedVersion: 2
         x: 1024
         y: 0
-        width: 1024
-        height: 1024
+        width: 512
+        height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ca09b4606e04584fba01829559f5008
-      internalID: -1709848363
+      spriteID: 828523a5bdfebf6409b2735ff56090bc
+      internalID: -1023231068
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Arm_Idle-Sheet_2
+      name: Boss_AtkHorizontal-Sheet_256_3
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 808b931461e13c14cb1eb8dd2f266e03
+      internalID: 1783313632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_AtkHorizontal-Sheet_256_4
       rect:
         serializedVersion: 2
         x: 2048
         y: 0
-        width: 1024
-        height: 1024
+        width: 512
+        height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3425e2e30b2ff848b3576438708356e
-      internalID: -2131393510
+      spriteID: 480c9d59a1ebf964ab46b0cad55eb6d8
+      internalID: -1455318239
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Arm_Idle-Sheet_3
+      name: Boss_AtkHorizontal-Sheet_256_5
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 512
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 473164210e7b1c545ac1bffb38cba34d
+      internalID: 1246747486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss_AtkHorizontal-Sheet_256_6
       rect:
         serializedVersion: 2
         x: 3072
         y: 0
-        width: 1024
-        height: 1024
+        width: 512
+        height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4229337b9b7da5441bd875c47e4b0fe7
-      internalID: 2082966463
+      spriteID: e561c2040eabbcc48adc14f56c29f498
+      internalID: 888547400
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss_Arm_Idle-Sheet_4
+      name: Boss_AtkHorizontal-Sheet_256_7
       rect:
         serializedVersion: 2
-        x: 4096
+        x: 3584
         y: 0
-        width: 1024
-        height: 1024
+        width: 512
+        height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d737744f98d8b904a883d62cd1a18f62
-      internalID: -1584233009
+      spriteID: a4d91530d85fa6043a0b9564b8009b01
+      internalID: 147857707
       vertices: []
       indices: 
       edges: []
@@ -217,7 +280,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 6b84ccf948445ca468533419c0825dd2
+    spriteID: 943f419da5a0a2a4eb25eebb2dbd41a7
     internalID: 0
     vertices: []
     indices: 
@@ -225,11 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Boss_Arm_Idle-Sheet_0: -149583445
-      Boss_Arm_Idle-Sheet_1: -1709848363
-      Boss_Arm_Idle-Sheet_2: -2131393510
-      Boss_Arm_Idle-Sheet_3: 2082966463
-      Boss_Arm_Idle-Sheet_4: -1584233009
+      Boss_AtkHorizontal-Sheet_256_0: -244296823
+      Boss_AtkHorizontal-Sheet_256_1: -1836904473
+      Boss_AtkHorizontal-Sheet_256_2: -1023231068
+      Boss_AtkHorizontal-Sheet_256_3: 1783313632
+      Boss_AtkHorizontal-Sheet_256_4: -1455318239
+      Boss_AtkHorizontal-Sheet_256_5: 1246747486
+      Boss_AtkHorizontal-Sheet_256_6: 888547400
+      Boss_AtkHorizontal-Sheet_256_7: 147857707
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

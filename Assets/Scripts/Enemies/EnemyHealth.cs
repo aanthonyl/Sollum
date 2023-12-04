@@ -18,7 +18,8 @@ public class EnemyHealth : MonoBehaviour
         GruntEnemy,
         ThrowEnemy,
         ShootEnemy,
-        SweepEnemy
+        SweepEnemy,
+        Boss
     }
     public EnemyType enemyType = new EnemyType();
 
@@ -54,6 +55,10 @@ public class EnemyHealth : MonoBehaviour
         else if (enemyType == EnemyType.ShootEnemy)
         {
             enemyHealth = 40;
+        }
+        else if (enemyType == EnemyType.Boss)
+        {
+            enemyHealth = 50;
         }
         //audioSource.clip = enemyDamagedSound;
     }
