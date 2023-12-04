@@ -192,6 +192,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MinDistance: 1.25
   MaxDistance: 3
-  Speed: 4
+  Speed: 7
   playerHeightOffset: 1
   Player: {fileID: 0}
