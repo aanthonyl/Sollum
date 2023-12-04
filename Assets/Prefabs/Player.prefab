@@ -68,9 +68,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpc: {fileID: 5454930143106198228}
   nw: {fileID: 6617332187500362733}
+  pam: {fileID: 8312667069181712988}
   player: {fileID: 7074455743074956097}
   type: 1
   direction: 180
+  shootPoint: {fileID: 0}
 --- !u!1 &1008226173010340863
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,6 +139,8 @@ GameObject:
   m_Component:
   - component: {fileID: 312652578028578994}
   - component: {fileID: 5454930143106198228}
+  - component: {fileID: 4045683913477476811}
+  - component: {fileID: 8312667069181712988}
   m_Layer: 3
   m_Name: Parasol
   m_TagString: Parasol
@@ -173,9 +177,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parryModeTime: 0.2
-  slashKnockback: 15
+  slashKnockback: 10
   blockKnockback: 10
   blockingMovementSpeedMultiplier: 0.2
+  blockingDeceleration: -5
   parryMovementSpeedMultiplier: 0
   coolDownTime: 0.1666667
   anim: {fileID: 1924437308449402450}
@@ -195,6 +200,118 @@ MonoBehaviour:
   parryClass: {fileID: 8219800657043975425}
   parryBlockClass: {fileID: 7074455743074956097}
   playerHealth: {fileID: 4132084614688132038}
+--- !u!82 &4045683913477476811
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428902119550122323}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -3930423099864169673, guid: edeb8b052a1a1a44dbbe6b62ca5b4c81, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &8312667069181712988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428902119550122323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea15f7e17bf50e84dbe5b435aaaec4e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 0}
+  audioClips:
+  - {fileID: 8300000, guid: 47c1225dd4823b046b490574ece475c6, type: 3}
+  - {fileID: 8300000, guid: 514fcc02b37ff864c8ca326c3934cbf4, type: 3}
 --- !u!1 &2123147655735535855
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,9 +380,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpc: {fileID: 5454930143106198228}
   nw: {fileID: 6617332187500362733}
+  pam: {fileID: 8312667069181712988}
   player: {fileID: 7074455743074956097}
   type: 1
   direction: 0
+  shootPoint: {fileID: 0}
 --- !u!1 &2159735133579321026
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,9 +487,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpc: {fileID: 5454930143106198228}
   nw: {fileID: 6617332187500362733}
+  pam: {fileID: 8312667069181712988}
   player: {fileID: 7074455743074956097}
   type: 2
   direction: 215
+  shootPoint: {fileID: 0}
 --- !u!1 &2782699730957550748
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,9 +560,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpc: {fileID: 5454930143106198228}
   nw: {fileID: 6617332187500362733}
+  pam: {fileID: 8312667069181712988}
   player: {fileID: 7074455743074956097}
   type: 0
   direction: 135
+  shootPoint: {fileID: 0}
 --- !u!1 &2922029178240912608
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,9 +633,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpc: {fileID: 5454930143106198228}
   nw: {fileID: 6617332187500362733}
+  pam: {fileID: 8312667069181712988}
   player: {fileID: 7074455743074956097}
   type: 2
   direction: 315
+  shootPoint: {fileID: 0}
 --- !u!1 &3045992622784330066
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,9 +706,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpc: {fileID: 5454930143106198228}
   nw: {fileID: 6617332187500362733}
+  pam: {fileID: 8312667069181712988}
   player: {fileID: 7074455743074956097}
   type: 2
   direction: 135
+  shootPoint: {fileID: 0}
 --- !u!1 &3322814150766892952
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,9 +779,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpc: {fileID: 5454930143106198228}
   nw: {fileID: 6617332187500362733}
+  pam: {fileID: 8312667069181712988}
   player: {fileID: 7074455743074956097}
   type: 0
   direction: 315
+  shootPoint: {fileID: 0}
 --- !u!1 &3645699989493244168
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,9 +852,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpc: {fileID: 5454930143106198228}
   nw: {fileID: 6617332187500362733}
+  pam: {fileID: 8312667069181712988}
   player: {fileID: 7074455743074956097}
   type: 1
   direction: 90
+  shootPoint: {fileID: 0}
 --- !u!1 &3966432330401116014
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,9 +960,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpc: {fileID: 5454930143106198228}
   nw: {fileID: 6617332187500362733}
+  pam: {fileID: 8312667069181712988}
   player: {fileID: 7074455743074956097}
   type: 2
   direction: 45
+  shootPoint: {fileID: 0}
 --- !u!1 &5350579455532113207
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,9 +1033,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpc: {fileID: 5454930143106198228}
   nw: {fileID: 6617332187500362733}
+  pam: {fileID: 8312667069181712988}
   player: {fileID: 7074455743074956097}
   type: 1
   direction: 270
+  shootPoint: {fileID: 0}
 --- !u!1 &5438559749168030644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1040,9 +1175,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpc: {fileID: 5454930143106198228}
   nw: {fileID: 6617332187500362733}
+  pam: {fileID: 8312667069181712988}
   player: {fileID: 7074455743074956097}
   type: 2
   direction: 270
+  shootPoint: {fileID: 0}
 --- !u!1 &6450287701555042101
 GameObject:
   m_ObjectHideFlags: 0
@@ -1148,9 +1285,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpc: {fileID: 5454930143106198228}
   nw: {fileID: 6617332187500362733}
+  pam: {fileID: 8312667069181712988}
   player: {fileID: 7074455743074956097}
   type: 0
   direction: 45
+  shootPoint: {fileID: 0}
 --- !u!1 &7074455743074956097
 GameObject:
   m_ObjectHideFlags: 0
@@ -1327,7 +1466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51e7051c23cd17c46bce8a66b705022a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 7
+  maxSpeed: 4
   acceleration: 100
   deceleration: -10
   friction: 0
@@ -1565,9 +1704,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpc: {fileID: 5454930143106198228}
   nw: {fileID: 6617332187500362733}
+  pam: {fileID: 8312667069181712988}
   player: {fileID: 7074455743074956097}
   type: 0
   direction: 215
+  shootPoint: {fileID: 0}
 --- !u!1 &7795879929198664749
 GameObject:
   m_ObjectHideFlags: 0
@@ -1636,9 +1777,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpc: {fileID: 5454930143106198228}
   nw: {fileID: 6617332187500362733}
+  pam: {fileID: 8312667069181712988}
   player: {fileID: 7074455743074956097}
   type: 2
   direction: 90
+  shootPoint: {fileID: 0}
 --- !u!1 &8219800657043975425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1754,9 +1897,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpc: {fileID: 5454930143106198228}
   nw: {fileID: 6617332187500362733}
+  pam: {fileID: 8312667069181712988}
   player: {fileID: 7074455743074956097}
   type: 0
   direction: 270
+  shootPoint: {fileID: 0}
 --- !u!1 &8527452223017178664
 GameObject:
   m_ObjectHideFlags: 0
@@ -1825,6 +1970,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpc: {fileID: 5454930143106198228}
   nw: {fileID: 6617332187500362733}
+  pam: {fileID: 8312667069181712988}
   player: {fileID: 7074455743074956097}
   type: 0
   direction: 90
+  shootPoint: {fileID: 0}

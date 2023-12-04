@@ -11,6 +11,7 @@ public class BlockParryController : MonoBehaviour
     public float slashKnockback;
     public float blockKnockback;
     [SerializeField] float blockingMovementSpeedMultiplier;
+    [SerializeField] float blockingDeceleration;
     [SerializeField] float parryMovementSpeedMultiplier;
     [SerializeField] float coolDownTime;
     [SerializeField] Animator anim;
@@ -28,6 +29,7 @@ public class BlockParryController : MonoBehaviour
     [SerializeField] PlayerAudioManager pam;
     [SerializeField] NewWhip nw;
     float currMovementSpeedMultiplier;
+    float currDeceleration;
     bool parryStartup = false;
     bool parrying = false;
     bool attacking = false;
@@ -279,8 +281,9 @@ public class BlockParryController : MonoBehaviour
         // Debug.Log("Block() Called.");
         if (blockBuffer) blockBuffer = false;
         blocking = true;
-        playerHealth.SetInvincibility(true);
         currMovementSpeedMultiplier = ms.GetMovementMultiplier();
+        currDeceleration = ms.GetDeceleration();
+        ms.SetDeceleration(blockingDeceleration);
         ms.SetMovementMultiplier(parryMovementSpeedMultiplier);
         StartCoroutine(Parry());
     }
@@ -293,8 +296,8 @@ public class BlockParryController : MonoBehaviour
         ms.SetMovementMultiplier(parryMovementSpeedMultiplier);
         pam.PlaySound(1);
         yield return new WaitForSeconds(16f/60f);
+        ms.SetDeceleration(currDeceleration);
         unblocking = false;
-        playerHealth.SetInvincibility(false);
         ms.SetMovementMultiplier(currMovementSpeedMultiplier);
         if (attackBuffer) StartCoroutine(Attack());
     }
@@ -308,7 +311,7 @@ public class BlockParryController : MonoBehaviour
         else if (blockbox == blockRightHitbox) direction = 2;
         else if (blockbox == blockDownHitbox) direction = 3;
         else if (blockbox == blockLeftHitbox) direction = 4;
-        playerHealth.SetInvincibility(false);
+        ms.SetDeceleration(currDeceleration);
         ms.SetMovementMultiplier(currMovementSpeedMultiplier);
         StartCoroutine(Attack(direction));
     }

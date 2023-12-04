@@ -6,6 +6,7 @@ public class HitboxInteraction : MonoBehaviour
 {
     [SerializeField] BlockParryController bpc;
     [SerializeField] NewWhip nw;
+    [SerializeField] PlayerAudioManager pam;
     [SerializeField] GameObject player;
     [SerializeField] HitboxType type;
     [SerializeField] Direction direction;
@@ -45,7 +46,7 @@ public class HitboxInteraction : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.tag == "Enemy")
+        if (collider.tag == "EnemyAttack")
         {
             GameObject enemy = collider.gameObject;
             if (type == HitboxType.Block)
@@ -59,7 +60,9 @@ public class HitboxInteraction : MonoBehaviour
                     Block(enemy);
                 }
             }
-            else if (type == HitboxType.Slash)
+        } else if (collider.tag == "Enemy") {
+            GameObject enemy = collider.gameObject;
+            if (type == HitboxType.Slash)
             {
                 if (bpc.isAttacking())
                 {
@@ -73,10 +76,6 @@ public class HitboxInteraction : MonoBehaviour
                     Whip(enemy);
                 }
             }
-            else if (type == HitboxType.ReflectedProjectile)
-            {
-                Shoot(enemy);
-            }
         }
         else if (collider.tag == "Break")
         {
@@ -85,6 +84,22 @@ public class HitboxInteraction : MonoBehaviour
             {
                 Break(breakableObject);
             }
+        } else if (collider.tag == "EnemyProjectile") {
+            GameObject projectile = collider.gameObject;
+            if (type == HitboxType.Block) {
+                if (bpc.isParrying()) {
+                    ParryProjectile(projectile);
+                } else if (bpc.isBlocking()) {
+                    BlockProjectile(projectile);
+                }
+            }
+        }
+    }
+
+    void OnTriggerExit(Collider collider) {
+        if (collider.tag == "EnemyAttack") {
+            GameObject enemy = collider.gameObject;
+            Unblock(enemy);
         }
     }
 
@@ -125,6 +140,29 @@ public class HitboxInteraction : MonoBehaviour
     void Block(GameObject enemy)
     {
         Debug.Log("Block!");
+        pam.PlaySound(0);
+        enemy.GetComponent<EnemyMelee>().blocked = true;
+        Vector3 knockbackDirection = new Vector3(0, 0, 0);
+        switch (direction)
+        {
+            case Direction.North:
+                knockbackDirection = new Vector3(0, 0, 1);
+                break;
+            case Direction.East:
+                knockbackDirection = new Vector3(1, 0, 0);
+                break;
+            case Direction.South:
+                knockbackDirection = new Vector3(0, 0, -1);
+                break;
+            case Direction.West:
+                knockbackDirection = new Vector3(-1, 0, 0);
+                break;
+        }
+        player.GetComponent<Rigidbody>().AddForce(-knockbackDirection * bpc.blockKnockback, ForceMode.Impulse);   
+    }
+    void BlockProjectile(GameObject projectile)
+    {
+        Debug.Log("Block Projectile!");
         Vector3 knockbackDirection = new Vector3(0, 0, 0);
         switch (direction)
         {
@@ -142,26 +180,34 @@ public class HitboxInteraction : MonoBehaviour
                 break;
         }
         player.GetComponent<Rigidbody>().AddForce(-knockbackDirection * bpc.blockKnockback, ForceMode.Impulse);
+        pam.PlaySound(0);
+        Destroy(projectile);
     }
     void Parry(GameObject enemy)
     {
         Debug.Log("Parry!");
-        shootPoint.PlayerShoot(enemy.transform.position - player.transform.position);
-        Destroy(enemy.gameObject);
+        enemy.GetComponent<EnemyMelee>().parried = true;
+        pam.PlaySound(1);
+    }
+    void ParryProjectile(GameObject projectile)
+    {
+        Debug.Log("Parry Projectile!");
+        shootPoint.PlayerShoot(-projectile.transform.forward);
+        Destroy(projectile);
+        pam.PlaySound(1);
     }
     void Whip(GameObject enemy)
     {
         Debug.Log("Whip!");
         enemy.GetComponent<EnemyHealth>().TakeDamage(nw.GetDamage());
     }
-    void Shoot(GameObject enemy)
-    {
-
-    }
-
     void Break(GameObject breakableObject)
     {
         breakableObject.GetComponent<TempBreak>().Break();
+    }
+
+    void Unblock(GameObject enemy) {
+        enemy.GetComponent<EnemyMelee>().blocked = false;
     }
 
 }
