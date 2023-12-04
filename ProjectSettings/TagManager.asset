@@ -21,6 +21,7 @@ TagManager:
   - LightDest
   - Whip
   - Sightline
+  - EnemyAttack
   layers:
   - Default
   - TransparentFX

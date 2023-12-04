@@ -1,3 +1,2 @@
-[NAME=Victoria][SPEAKERSPRITE=Victoria]Oh gosh what a horrible smell.. We must definitely be in the sewers.
-[NAME=Fitzwilliam][SPEAKERSPRITE=Canary]*chirp?* I think we are close to being able to escape we should hurry.
-[NAME=Victoria][SPEAKERSPRITE=Victoria]Yes, of course, let's continue. 
+[NAME=Victoria][SPEAKERSPRITE=Victoria]Eugh. That smell! Please let this be worth it.
+[NAME=Fitzwilliam][SPEAKERSPRITE=Canary]*chirp!* (It'll all be worth it once we escape. Let's keep going).

@@ -1,0 +1,2 @@
+[NAME=Fitzwilliam][SPEAKERSPRITE=Canary]*chirp...* (I hear enemies ahead...It seems like too many to fight.)
+[NAME=Fitzwilliam][SPEAKERSPRITE=Canary]*chirp...* (We should break boxes to draw their attention so we can sneak by!)

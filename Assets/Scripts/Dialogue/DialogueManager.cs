@@ -90,7 +90,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     private void Update()
-    {   
+    {
         if (inDialogueZone)
         {
             if (Input.GetKeyDown(DialogueKey))
@@ -126,7 +126,7 @@ public class DialogueManager : MonoBehaviour
     // HAULT PLAYER MOVEMENT, WHIP ATTACK, ENEMY ATTACKS, PAUSE MENU
     private void FreezePlayer()
     {
-        Debug.Log("FREEZE PLAYER HAS BEEN CALLED");
+        // Debug.Log("FREEZE PLAYER HAS BEEN CALLED");
         playerMovement.freezeMovement = true;
         dialogueActive = true;
 
@@ -155,7 +155,7 @@ public class DialogueManager : MonoBehaviour
 
         // FREEZE PLAYER
         FreezePlayer();
-        Debug.Log("FreezePlayer() HAS BEEN CALLED FROM DialogueManager.cs");
+        // Debug.Log("FreezePlayer() HAS BEEN CALLED FROM DialogueManager.cs");
 
         // STORES DIALOGUE FROM DIALOGUE TRIGGER
         inputStream = dialogue;
@@ -184,7 +184,7 @@ public class DialogueManager : MonoBehaviour
                 // ENDS DIALOGUE
                 inputStream.Dequeue();
                 EndDialogue();
-                Debug.Log("END DIALOGUE");
+                // Debug.Log("END DIALOGUE");
             }
             else if (inputStream.Peek().Contains("[NAME="))
             {
