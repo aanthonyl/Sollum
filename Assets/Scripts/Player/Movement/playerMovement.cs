@@ -92,9 +92,9 @@ public class playerMovement : MonoBehaviour
             Vector2 decelerationVelocity = new Vector2(rb.velocity.x, rb.velocity.z).normalized * ms.GetDeceleration() * new Vector2(rb.velocity.x, rb.velocity.z).magnitude;
             rb.AddForce(new Vector3(decelerationVelocity.x, 0, decelerationVelocity.y));
         }
-
-        rb.velocity = Vector3.ClampMagnitude(rb.velocity, (float)maxSpeed * (float)ms.GetMovementMultiplier());
-
+        if (inputMagnitude != 0) {
+            rb.velocity = Vector3.ClampMagnitude(rb.velocity, (float)maxSpeed * (float)ms.GetMovementMultiplier());
+        }
         if (speed < 0.00001f) {
             rb.velocity = Vector3.zero;
         }

@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class EnemyHitBox : MonoBehaviour
 {
-    BoxCollider col;
+    [SerializeField] BoxCollider col;
+    
+    EnemyMelee enemyMelee;
     private void Start()
     {
-        col = transform.parent.GetComponent<BoxCollider>();
+        enemyMelee = col.gameObject.GetComponent<EnemyMelee>();
     }
 
     public void EnemyStartAtk()
@@ -20,4 +22,5 @@ public class EnemyHitBox : MonoBehaviour
     {
         col.enabled = false;
     }
-}
+
+    }
