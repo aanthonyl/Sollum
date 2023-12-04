@@ -8,6 +8,7 @@ public class RespawnManager : MonoBehaviour
     private Vector3 lastCheckpointPos = Vector3.zero;
     public Transform defaultRespawnPoint;
     private int lastCheckpointID = -1;
+    public GameObject fadeIn;
 
     private void Start()
     {
@@ -49,8 +50,12 @@ public class RespawnManager : MonoBehaviour
 
     public IEnumerator RespawnPlayer(GameObject player)
     {
+        PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+
         // add death animation
-        yield return new WaitForSeconds(3.0f);
+        fadeIn.SetActive(true);
+        yield return new WaitForSeconds(1.0f);
+        playerHealth.isDead = true;
 
         //if (lastCheckpointPos != Vector3.zero && player != null) // Commented out so it wouldn't go to main menu if player dies in the first region
         //{
@@ -61,7 +66,7 @@ public class RespawnManager : MonoBehaviour
             Debug.Log("Player respawned");
 
             // reset player health
-            PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+            //PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
                 playerHealth.ResetHealth();
@@ -75,5 +80,8 @@ public class RespawnManager : MonoBehaviour
         {
             SceneLoader.instance.Load(SceneLoader.Scene.MainMenu);
         }
+        yield return new WaitForSeconds(1.0f);
+        fadeIn.SetActive(false);
+        playerHealth.isDead = true;
     }
 }
