@@ -6,11 +6,9 @@ using UnityEngine;
 public class EnemyHitBox : MonoBehaviour
 {
     [SerializeField] BoxCollider col;
-    
-    EnemyMelee enemyMelee;
     private void Start()
     {
-        enemyMelee = col.gameObject.GetComponent<EnemyMelee>();
+        col = this.transform.parent.GetComponent<BoxCollider>();
     }
 
     public void EnemyStartAtk()
@@ -23,4 +21,4 @@ public class EnemyHitBox : MonoBehaviour
         col.enabled = false;
     }
 
-    }
+}

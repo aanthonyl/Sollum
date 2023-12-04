@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyMelee : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class EnemyMelee : MonoBehaviour
     public Transform player;
     [SerializeField] UnityEngine.AI.NavMeshAgent nma;
     [SerializeField] SpriteRenderer sr;
-    [SerializeField] Transform enemy;
+    // [SerializeField] Transform enemy;
     private float nextAttackTime; // Time when the next attack can occur.
     [SerializeField] AudioSource audioSource;
     public AudioClip meleeAttackSound;
@@ -40,6 +41,10 @@ public class EnemyMelee : MonoBehaviour
 
     private void Start()
     {
+        nma = GetComponent<NavMeshAgent>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        sr = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        anim = this.transform.GetChild(0).GetComponent<Animator>();
         col = this.transform.GetComponent<BoxCollider>();
         flashTimeInterval = flashTime / 0.025f;
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -52,8 +57,9 @@ public class EnemyMelee : MonoBehaviour
 
         if (!isPaused)
         {
-            float distanceToPlayer = Vector3.Distance(enemy.position, player.position);
-            if  (!staggered) {
+            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+            if (!staggered)
+            {
                 if (distanceToPlayer <= attackRange)
                 {
                     // Check if enough time has passed for the next attack.
@@ -64,39 +70,48 @@ public class EnemyMelee : MonoBehaviour
                     }
                 }
             }
-            
+
         }
         anim.SetBool("Staggered", staggered);
     }
     private void FixedUpdate()
     {
-        if (damageNextTurn) {
+        if (damageNextTurn)
+        {
             touchingPlayer = false;
             damageNextTurn = false;
-            if (!blocked && !parried && !staggered) {
+            if (!blocked && !parried && !staggered)
+            {
                 Debug.Log("Doing damage");
                 player.GetComponent<PlayerHealth>().TakeDamage(damage);
             }
             blocked = false;
         }
-        if (touchingPlayer) {
+        if (touchingPlayer)
+        {
             damageNextTurn = true;
         }
-        if (parried && !staggered) {
+        if (parried && !staggered)
+        {
             Debug.Log("Starting stagger");
             StartCoroutine(Stagger());
         }
-        if (staggered) {
+        if (staggered)
+        {
             currentFlashTime++;
-            if (sr.color == Color.red && currentFlashTime == flashTimeInterval) {
+            if (sr.color == Color.red && currentFlashTime == flashTimeInterval)
+            {
                 sr.color = Color.white;
                 currentFlashTime = 0;
             }
-            else if (sr.color == Color.white && currentFlashTime == flashTimeInterval) {
+            else if (sr.color == Color.white && currentFlashTime == flashTimeInterval)
+            {
                 sr.color = Color.red;
                 currentFlashTime = 0;
             }
-        } else {
+        }
+        else
+        {
             currentFlashTime = 0;
         }
     }
@@ -112,12 +127,14 @@ public class EnemyMelee : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player") {
+        if (other.tag == "Player")
+        {
             touchingPlayer = true;
         }
     }
 
-    public IEnumerator Stagger() {
+    public IEnumerator Stagger()
+    {
         col.enabled = false;
         parried = false;
         staggered = true;
@@ -127,5 +144,5 @@ public class EnemyMelee : MonoBehaviour
         nma.speed = currSpeed;
         staggered = false;
     }
-    
+
 }
