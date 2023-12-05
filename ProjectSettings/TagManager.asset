@@ -21,7 +21,11 @@ TagManager:
   - LightDest
   - Whip
   - Sightline
+<<<<<<< Updated upstream
   - EnemyAttack
+=======
+  - Phone
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX

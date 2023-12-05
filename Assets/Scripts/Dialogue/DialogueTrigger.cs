@@ -7,6 +7,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DialogueTrigger : MonoBehaviour
 {
@@ -22,9 +23,15 @@ public class DialogueTrigger : MonoBehaviour
     [HideInInspector]
     public bool hasBeenUsed = false;
 
+    private AudioSource source;
+
     private void Start()
     {
         manager = FindObjectOfType<DialogueManager>();
+        if (SceneManager.GetActiveScene().name == "Aboveground")
+        {
+            source = GameObject.Find("Phone_Booth_Audio").GetComponent<AudioSource>();
+        }
     }
 
     // START DIALOGUE //
@@ -74,6 +81,10 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (collider.gameObject.tag == "Player" && !hasBeenUsed)
         {
+            if (SceneManager.GetActiveScene().name == "Aboveground")
+            {
+                source.Stop();
+            }
             manager.currentTrigger = this;
             TriggerDialogue();
             Debug.Log("DIALOGUE TRIGGERED");
