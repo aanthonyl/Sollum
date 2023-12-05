@@ -61,7 +61,7 @@ public class RespawnManager : MonoBehaviour
         //{
         if (player != null)
         {
-                Vector3 respawnPosition = lastCheckpointPos != Vector3.zero ? lastCheckpointPos : defaultRespawnPoint.position;
+            Vector3 respawnPosition = lastCheckpointPos != Vector3.zero ? lastCheckpointPos : defaultRespawnPoint.position;
             player.transform.position = lastCheckpointPos;
             Debug.Log("Player respawned");
 
@@ -82,6 +82,6 @@ public class RespawnManager : MonoBehaviour
         }
         yield return new WaitForSeconds(1.0f);
         fadeIn.SetActive(false);
-        playerHealth.isDead = true;
+        playerHealth.isDead = false;
     }
 }

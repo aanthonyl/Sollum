@@ -196,6 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae181562b56e39d4eb3ee4c9da22e01a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  col: {fileID: 0}
 --- !u!1001 &8631757306026834084
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -276,7 +277,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Variant - Cultist
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 450069557637597508, guid: bd303b1d70c93ea42997a3507573b8ad, type: 3}
     m_RemovedGameObjects:
     - {fileID: 8939782492774892805, guid: bd303b1d70c93ea42997a3507573b8ad, type: 3}
     m_AddedGameObjects:
@@ -286,8 +288,28 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 647555445759524850, guid: bd303b1d70c93ea42997a3507573b8ad, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5005354973731176310}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6137824234724866314, guid: bd303b1d70c93ea42997a3507573b8ad, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8855297149948479532}
   m_SourcePrefab: {fileID: 100100000, guid: bd303b1d70c93ea42997a3507573b8ad, type: 3}
+--- !u!1 &2515197815715758510 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6137824234724866314, guid: bd303b1d70c93ea42997a3507573b8ad, type: 3}
+  m_PrefabInstance: {fileID: 8631757306026834084}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8855297149948479532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2515197815715758510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45b6d4de03fa195498945e3651a60f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8004398845142166712 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1792291769252205596, guid: bd303b1d70c93ea42997a3507573b8ad, type: 3}

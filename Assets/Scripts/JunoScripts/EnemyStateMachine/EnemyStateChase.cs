@@ -13,6 +13,7 @@ public class EnemyStateChase : I_EnemyBaseState
 
     float stoppingDistance;
     float distToPlayer;
+    PlayerHealth playerHealth;
 
     /* Enter State =============================
     *   - When the state is entered, what happens?
@@ -22,6 +23,10 @@ public class EnemyStateChase : I_EnemyBaseState
         // Debug.Log("Chasing");
         //set stopping distance based on enemy type
         stoppingDistance = 1.3f;
+        if (enemy.target.gameObject.CompareTag("Player"))
+        {
+            playerHealth = enemy.target.gameObject.GetComponent<PlayerHealth>();
+        }
     }
 
     /* Update State =============================
@@ -29,6 +34,11 @@ public class EnemyStateChase : I_EnemyBaseState
     ============================================*/
     public override void UpdateState(EnemyStateManager enemy)
     {
+        if (playerHealth.isDead == true)
+        {
+            enemy.StartCoroutine(enemy.ReturnToPatrol());
+        }
+
         distToPlayer = Vector3.Distance(enemy.agent.transform.position, enemy.target.position) - enemy.playerHeight;
         if (distToPlayer > stoppingDistance)
         {

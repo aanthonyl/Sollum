@@ -167,7 +167,7 @@ public class EnemyStateManager : MonoBehaviour
 	*===========================================*/
 	private void HeardNoise(object sender, NoiseEvents.OnNoiseMadeArgs e)
 	{
-		// StopAllCoroutines();
+		StopAllCoroutines();
 		// Debug.Log("Recieved Event");
 		// Debug.Log(Vector3.Distance(e.noiseTrans.position, transform.position));
 		if (Vector3.Distance(e.noiseTrans.position, transform.position) - playerHeight <= maxHearingDist && !isAggro)
@@ -175,6 +175,10 @@ public class EnemyStateManager : MonoBehaviour
 			// Debug.Log("Within Distance");
 			target = e.noiseTrans;
 			SwitchState(SearchState);
+		}
+		else
+		{
+			StartCoroutine(ReturnToPatrol());
 		}
 	}
 

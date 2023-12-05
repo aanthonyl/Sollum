@@ -219,6 +219,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Variant - Cultist (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3594676289749544569, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
+      propertyPath: enemyHealth
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5005354973731176310, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
       propertyPath: m_LocalPosition.x
       value: -41.33
@@ -6767,7 +6771,7 @@ Transform:
   m_GameObject: {fileID: 285966133}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.940001, y: -2.6899996, z: -8.74}
+  m_LocalPosition: {x: -4.17, y: -2.6899996, z: -8.74}
   m_LocalScale: {x: 3.228724, y: 3.7887704, z: 36.30486}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10400,6 +10404,73 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &473405918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 473405921}
+  - component: {fileID: 473405920}
+  - component: {fileID: 473405919}
+  m_Layer: 0
+  m_Name: RespawnCheckpoint1 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &473405919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473405918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49b7ef1a9db240d47841b93b52c403ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointID: 1
+--- !u!65 &473405920
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473405918}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &473405921
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473405918}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 51.95, y: 0.58, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 20.765}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &475739912
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15710,6 +15781,7 @@ RectTransform:
   - {fileID: 2091774401}
   - {fileID: 755959556}
   - {fileID: 1207439408}
+  - {fileID: 1502015539}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -18362,6 +18434,73 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &845668766
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 845668767}
+  - component: {fileID: 845668768}
+  - component: {fileID: 845668769}
+  m_Layer: 0
+  m_Name: RespawnCheckpoint1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &845668767
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845668766}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7, y: 0.58, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 20.765}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &845668768
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845668766}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &845668769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845668766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49b7ef1a9db240d47841b93b52c403ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointID: 0
 --- !u!1001 &851925231
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24411,10 +24550,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 105760955}
     m_Modifications:
-    - target: {fileID: 2233264033957407052, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2339426425684941591, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
       propertyPath: m_Name
       value: Enemy Variant - Cultist (8)
@@ -24693,6 +24828,10 @@ PrefabInstance:
     - target: {fileID: 2339426425684941591, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
       propertyPath: m_Name
       value: Enemy Variant - Cultist (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594676289749544569, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
+      propertyPath: enemyHealth
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8004398845142166712, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25515,6 +25654,73 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2572525a36cd054ebf17f8d149f930b, type: 3}
+--- !u!1 &930683995
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 930683998}
+  - component: {fileID: 930683997}
+  - component: {fileID: 930683996}
+  m_Layer: 0
+  m_Name: RespawnCheckpoint1 (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &930683996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930683995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49b7ef1a9db240d47841b93b52c403ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointID: 2
+--- !u!65 &930683997
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930683995}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &930683998
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930683995}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 96.15, y: 0.58, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 20.765}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &932134971
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27447,7 +27653,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 38.08, y: 0.54, z: 10.53}
-  m_LocalScale: {x: 0.7196692, y: 3.6945658, z: 36.888786}
+  m_LocalScale: {x: 0.7196692, y: 3.6945658, z: 212.71182}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 44272708}
@@ -51705,6 +51911,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Variant - Cultist (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 3594676289749544569, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
+      propertyPath: enemyHealth
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8004398845142166712, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.59
@@ -53749,6 +53959,68 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1502015538
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 688590537}
+    m_Modifications:
+    - target: {fileID: 3578017847034368853, guid: 1c98c254a6f3ba746ad6dc774bacbd0e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 150.89485
+      objectReference: {fileID: 0}
+    - target: {fileID: 3578017847034368853, guid: 1c98c254a6f3ba746ad6dc774bacbd0e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -15.591477
+      objectReference: {fileID: 0}
+    - target: {fileID: 3578017847034368853, guid: 1c98c254a6f3ba746ad6dc774bacbd0e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.35462
+      objectReference: {fileID: 0}
+    - target: {fileID: 3578017847034368853, guid: 1c98c254a6f3ba746ad6dc774bacbd0e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3578017847034368853, guid: 1c98c254a6f3ba746ad6dc774bacbd0e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3578017847034368853, guid: 1c98c254a6f3ba746ad6dc774bacbd0e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3578017847034368853, guid: 1c98c254a6f3ba746ad6dc774bacbd0e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3578017847034368853, guid: 1c98c254a6f3ba746ad6dc774bacbd0e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3578017847034368853, guid: 1c98c254a6f3ba746ad6dc774bacbd0e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3578017847034368853, guid: 1c98c254a6f3ba746ad6dc774bacbd0e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6954346395741950700, guid: 1c98c254a6f3ba746ad6dc774bacbd0e, type: 3}
+      propertyPath: m_Name
+      value: Respawn
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1c98c254a6f3ba746ad6dc774bacbd0e, type: 3}
+--- !u!4 &1502015539 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3578017847034368853, guid: 1c98c254a6f3ba746ad6dc774bacbd0e, type: 3}
+  m_PrefabInstance: {fileID: 1502015538}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1505730149
 GameObject:
   m_ObjectHideFlags: 0
@@ -57188,6 +57460,10 @@ PrefabInstance:
     - target: {fileID: 2339426425684941591, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
       propertyPath: m_Name
       value: Enemy Variant - Cultist (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3594676289749544569, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
+      propertyPath: enemyHealth
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5005354973731176310, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
       propertyPath: m_LocalPosition.x
@@ -63038,8 +63314,8 @@ Transform:
   m_GameObject: {fileID: 1962398914}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 44.67, y: 1.25, z: 15.69}
-  m_LocalScale: {x: 1.7526083, y: 1.7526083, z: 41.467186}
+  m_LocalPosition: {x: 44.67, y: 1.25, z: 21.47}
+  m_LocalScale: {x: 1.7526083, y: 1.7526083, z: 305.39468}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 44272708}
@@ -64818,7 +65094,7 @@ Transform:
   m_GameObject: {fileID: 2045684916}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 69.9, y: 0.31049788, z: 1.06}
+  m_LocalPosition: {x: 96.17, y: 0.31049788, z: 1.88}
   m_LocalScale: {x: 3.7931, y: 3.7931, z: 3.7931}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -67461,3 +67737,6 @@ SceneRoots:
   - {fileID: 929124564}
   - {fileID: 1845655108}
   - {fileID: 719979098}
+  - {fileID: 845668767}
+  - {fileID: 473405921}
+  - {fileID: 930683998}

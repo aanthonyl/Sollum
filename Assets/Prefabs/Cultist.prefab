@@ -210,6 +210,14 @@ MonoBehaviour:
   attackCooldown: 2
   blocked: 0
   parried: 1
+  staggered: 0
+  touchingPlayer: 0
+  damageNextTurn: 0
+  flashTime: 0.25
+  player: {fileID: 0}
+  nma: {fileID: 0}
+  sr: {fileID: 0}
+  audioSource: {fileID: 0}
   meleeAttackSound: {fileID: 0}
   anim: {fileID: 0}
 --- !u!114 &260419822668711686
@@ -224,8 +232,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e5ebe09b7537904c82966d82215eb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyType: 0
-  enemyHealth: 10
+  enemyType: 1
+  sprite: {fileID: 0}
+  enemyHealth: 20
 --- !u!1 &4695601511967809714
 GameObject:
   m_ObjectHideFlags: 0
