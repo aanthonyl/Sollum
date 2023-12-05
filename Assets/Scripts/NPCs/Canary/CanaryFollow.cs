@@ -26,7 +26,7 @@ public class CanaryFollow : MonoBehaviour
 
     private void Start()
     {
-        source = GameObject.Find("").GetComponent<AudioSource>();
+        source = transform.GetChild(0).GetComponent<AudioSource>();
     }
 
     void Update()
