@@ -2519,7 +2519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f559b30b5fcec294ea27ce4e0f754590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DialogueTextFile: {fileID: 4900000, guid: 4f936aa9d94454dae99c30309976e2e4, type: 3}
+  DialogueTextFile: {fileID: 4900000, guid: dde1cd49db2a20341bcdceb795c31c79, type: 3}
   waitTime: 0.5
   singleUseDialogue: 1
   hasBeenUsed: 0
