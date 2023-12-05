@@ -1,12 +1,5 @@
 [NAME=Mayor Strickland][SPEAKERSPRITE=Mayor Strickland]Victoria. I’m surprised you’ve made it this far. Perhaps you are not nothing. You are less than nothing.
 [NAME=Victoria][SPEAKERSPRITE=Victoria]Enough, Stickland. Get out of the way.
 [NAME=Mayor Strickland][SPEAKERSPRITE=Mayor Strickland]You’re in no place to make commands. Surrender the plant or suffer.
-[NAME=Victoria][SPEAKERSPRITE=Victoria]Why?! Why are you doing this?
-[NAME=Mayor Strickland][SPEAKERSPRITE=Mayor Strickland]Humanity is hellbent on destroying this world. I am simply bringing about its end on my terms.
-[NAME=Victoria][SPEAKERSPRITE=Victoria]The world won’t end because of you. Nature will adapt and survive. As will humanity.
-[NAME=Mayor Strickland][SPEAKERSPRITE=Mayor Strickland]Hah! Only a fool denies the inevitable.
-[NAME=Victoria][SPEAKERSPRITE=Victoria]Then I am a fool.
-[NAME=Victoria][SPEAKERSPRITE=Victoria]If the world’s end is inevitable, why not let me go? There’s no point in wasting your precious energy on me.
-[NAME=Mayor Strickland][SPEAKERSPRITE=Mayor Strickland]I see you, Victoria. Your trickery won’t work on me.
-[NAME=Mayor Strickland][SPEAKERSPRITE=Mayor Strickland]That being said, your death is inevitable. It matters not whether you die here or with the rest of humanity.
-[NAME=Mayor Strickland][SPEAKERSPRITE=Mayor Strickland]Begone from my sight.
+[NAME=Victoria][SPEAKERSPRITE=Victoria]Never!
+[NAME=Mayor Strickland][SPEAKERSPRITE=Mayor Strickland]Then you’ve chosen your fate.
