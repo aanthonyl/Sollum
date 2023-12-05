@@ -12,7 +12,7 @@ public class Boss_Audio : MonoBehaviour
     void Start()
     {
         source1 = GameObject.Find("Main Camera").GetComponent<AudioSource>();
-        source2 = GameObject.Find("MayorBoss").GetComponent<AudioSource>();
+        source2 = GetComponent<AudioSource>();
 
     }
 
