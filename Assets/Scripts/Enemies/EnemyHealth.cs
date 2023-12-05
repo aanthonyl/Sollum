@@ -68,6 +68,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+
         // ENTERED WHIP ATTACK TRIGGER
         if (other.gameObject.name == "WhipAttackZone") {
             Debug.Log("ENTERED WHIP ZONE");

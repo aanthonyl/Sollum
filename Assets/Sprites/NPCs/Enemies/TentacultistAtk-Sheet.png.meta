@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 50
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -134,7 +134,112 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: TentacultistAtk-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 44
+        width: 84
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: deea3e0b8817f53478da58eab85d15ea
+      internalID: 1599971849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TentacultistAtk-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 44
+        width: 88
+        height: 156
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ba3b74b2d595c347869e472f5afd729
+      internalID: 970573315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TentacultistAtk-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 48
+        width: 124
+        height: 156
+      alignment: 9
+      pivot: {x: 0.44068417, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42d83aaf2f6702f4c833d89e1ce47bb8
+      internalID: -2093856709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TentacultistAtk-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 52
+        width: 172
+        height: 160
+      alignment: 9
+      pivot: {x: 0.30994576, y: 0.49744615}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b70f9a14d6429ba4c820f807b2983a9d
+      internalID: -1098059067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TentacultistAtk-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1084
+        y: 40
+        width: 156
+        height: 160
+      alignment: 9
+      pivot: {x: 0.34545898, y: 0.49999994}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1665269834c29643bdbde353ef5e712
+      internalID: 1471150194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -145,7 +250,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      TentacultistAtk-Sheet_0: 1599971849
+      TentacultistAtk-Sheet_1: 970573315
+      TentacultistAtk-Sheet_2: -2093856709
+      TentacultistAtk-Sheet_3: -1098059067
+      TentacultistAtk-Sheet_4: 1471150194
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

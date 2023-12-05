@@ -10,7 +10,8 @@ public class PlayerHealth : MonoBehaviour
 
     public Image HealthBar;
     private bool invincible;
-    private bool isDead = false;
+    [HideInInspector]
+    public bool isDead = false;
 
     private void Start()
     {
@@ -26,14 +27,16 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {
+        Debug.Log("Taking damage");
         if (!invincible)
         {
+
             // Reduce the player's health by the damage amount.
             currentHealth -= damageAmount;
             UpdateHealthBar();
         }
 
-        if (currentHealth <= 0)
+        if (currentHealth <= 30) //Set to 30 to work around player not dying for 3 hits after meter is empty
         {
             Debug.Log("Die");
             Die();

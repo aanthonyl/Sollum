@@ -130,6 +130,7 @@ public class EnemyStateManager : MonoBehaviour
 	*===========================================*/
 	public void SwitchState(I_EnemyBaseState state)
 	{
+		Debug.Log(state);
 		currentState = state; //update current state to whatever the next state is
 		currentState.EnterState(this); //Set state for gameobject
 	}
@@ -166,7 +167,7 @@ public class EnemyStateManager : MonoBehaviour
 	*===========================================*/
 	private void HeardNoise(object sender, NoiseEvents.OnNoiseMadeArgs e)
 	{
-		StopAllCoroutines();
+		// StopAllCoroutines();
 		// Debug.Log("Recieved Event");
 		// Debug.Log(Vector3.Distance(e.noiseTrans.position, transform.position));
 		if (Vector3.Distance(e.noiseTrans.position, transform.position) - playerHeight <= maxHearingDist && !isAggro)

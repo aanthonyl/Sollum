@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6395609944214752782}
-  - component: {fileID: 188294752865414893}
+  - component: {fileID: 8867432421800649847}
   m_Layer: 0
   m_Name: NoiseEvents
   m_TagString: NoiseEvents
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &188294752865414893
+--- !u!114 &8867432421800649847
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,6 +41,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5305997126558685346}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: febc53f63cc694bf584706169457e0e2, type: 3}
+  m_Script: {fileID: 11500000, guid: c4e68426791506e478eb8be3f5d42d0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

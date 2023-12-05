@@ -21,6 +21,14 @@ public class CanaryFollow : MonoBehaviour
     private float moveX;
     private float moveY;
 
+    //audio
+    private AudioSource source;
+
+    private void Start()
+    {
+        source = transform.GetChild(0).GetComponent<AudioSource>();
+    }
+
     void Update()
     {
         // AXIS 
