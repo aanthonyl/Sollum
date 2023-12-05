@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: -4501714103497507095}
   - component: {fileID: 1794640590430584996}
   - component: {fileID: 1899606995150004602}
+  - component: {fileID: 8370747009080677596}
   m_Layer: 3
   m_Name: EnemyProjectile
   m_TagString: EnemyProjectile
@@ -249,3 +250,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 10
+--- !u!114 &8370747009080677596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8462127569867068774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148a359c303d75148ae22487fe02bb59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

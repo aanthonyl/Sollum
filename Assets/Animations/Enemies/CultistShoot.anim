@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SlimeAtk
+  m_Name: CultistShoot
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,25 +21,21 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 44496539, guid: a7a5bd1ce2b15754b9dac2bb91224c09, type: 3}
+      value: {fileID: 1599971849, guid: a565184bec4c9a243902b117e55d7c2d, type: 3}
     - time: 0.083333336
-      value: {fileID: 503363805, guid: a7a5bd1ce2b15754b9dac2bb91224c09, type: 3}
+      value: {fileID: 970573315, guid: a565184bec4c9a243902b117e55d7c2d, type: 3}
     - time: 0.16666667
-      value: {fileID: 1148874339, guid: a7a5bd1ce2b15754b9dac2bb91224c09, type: 3}
+      value: {fileID: -2093856709, guid: a565184bec4c9a243902b117e55d7c2d, type: 3}
     - time: 0.25
-      value: {fileID: 891715714, guid: a7a5bd1ce2b15754b9dac2bb91224c09, type: 3}
+      value: {fileID: -1098059067, guid: a565184bec4c9a243902b117e55d7c2d, type: 3}
     - time: 0.33333334
-      value: {fileID: -1309900289, guid: a7a5bd1ce2b15754b9dac2bb91224c09, type: 3}
-    - time: 0.41666666
-      value: {fileID: 503363805, guid: a7a5bd1ce2b15754b9dac2bb91224c09, type: 3}
-    - time: 0.5
-      value: {fileID: 44496539, guid: a7a5bd1ce2b15754b9dac2bb91224c09, type: 3}
+      value: {fileID: 1471150194, guid: a565184bec4c9a243902b117e55d7c2d, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 12
+  m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -56,19 +52,17 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 44496539, guid: a7a5bd1ce2b15754b9dac2bb91224c09, type: 3}
-    - {fileID: 503363805, guid: a7a5bd1ce2b15754b9dac2bb91224c09, type: 3}
-    - {fileID: 1148874339, guid: a7a5bd1ce2b15754b9dac2bb91224c09, type: 3}
-    - {fileID: 891715714, guid: a7a5bd1ce2b15754b9dac2bb91224c09, type: 3}
-    - {fileID: -1309900289, guid: a7a5bd1ce2b15754b9dac2bb91224c09, type: 3}
-    - {fileID: 503363805, guid: a7a5bd1ce2b15754b9dac2bb91224c09, type: 3}
-    - {fileID: 44496539, guid: a7a5bd1ce2b15754b9dac2bb91224c09, type: 3}
+    - {fileID: 1599971849, guid: a565184bec4c9a243902b117e55d7c2d, type: 3}
+    - {fileID: 970573315, guid: a565184bec4c9a243902b117e55d7c2d, type: 3}
+    - {fileID: -2093856709, guid: a565184bec4c9a243902b117e55d7c2d, type: 3}
+    - {fileID: -1098059067, guid: a565184bec4c9a243902b117e55d7c2d, type: 3}
+    - {fileID: 1471150194, guid: a565184bec4c9a243902b117e55d7c2d, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5833333
+    m_StopTime: 0.35000002
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -89,14 +83,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.25
-    functionName: EnemyStartAtk
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.33333334
-    functionName: EnemyStopAtkCol
+    functionName: EnemyShoot
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

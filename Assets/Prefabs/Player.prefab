@@ -72,7 +72,7 @@ MonoBehaviour:
   player: {fileID: 7074455743074956097}
   type: 1
   direction: 180
-  shootPoint: {fileID: 0}
+  shootPoint: {fileID: 2314898909241021867}
 --- !u!1 &1008226173010340863
 GameObject:
   m_ObjectHideFlags: 0
@@ -83,7 +83,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6378187659850916035}
   - component: {fileID: 6617332187500362733}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: WhipManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 5454930143106198228}
   - component: {fileID: 4045683913477476811}
   - component: {fileID: 8312667069181712988}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Parasol
   m_TagString: Parasol
   m_Icon: {fileID: 0}
@@ -308,7 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea15f7e17bf50e84dbe5b435aaaec4e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  source: {fileID: 0}
+  source: {fileID: 4045683913477476811}
   audioClips:
   - {fileID: 8300000, guid: 47c1225dd4823b046b490574ece475c6, type: 3}
   - {fileID: 8300000, guid: 514fcc02b37ff864c8ca326c3934cbf4, type: 3}
@@ -384,7 +384,7 @@ MonoBehaviour:
   player: {fileID: 7074455743074956097}
   type: 1
   direction: 0
-  shootPoint: {fileID: 0}
+  shootPoint: {fileID: 2314898909241021867}
 --- !u!1 &2159735133579321026
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,7 +491,7 @@ MonoBehaviour:
   player: {fileID: 7074455743074956097}
   type: 2
   direction: 215
-  shootPoint: {fileID: 0}
+  shootPoint: {fileID: 2314898909241021867}
 --- !u!1 &2782699730957550748
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,7 +564,7 @@ MonoBehaviour:
   player: {fileID: 7074455743074956097}
   type: 0
   direction: 135
-  shootPoint: {fileID: 0}
+  shootPoint: {fileID: 2314898909241021867}
 --- !u!1 &2922029178240912608
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,7 +637,7 @@ MonoBehaviour:
   player: {fileID: 7074455743074956097}
   type: 2
   direction: 315
-  shootPoint: {fileID: 0}
+  shootPoint: {fileID: 2314898909241021867}
 --- !u!1 &3045992622784330066
 GameObject:
   m_ObjectHideFlags: 0
@@ -710,7 +710,7 @@ MonoBehaviour:
   player: {fileID: 7074455743074956097}
   type: 2
   direction: 135
-  shootPoint: {fileID: 0}
+  shootPoint: {fileID: 2314898909241021867}
 --- !u!1 &3322814150766892952
 GameObject:
   m_ObjectHideFlags: 0
@@ -783,7 +783,7 @@ MonoBehaviour:
   player: {fileID: 7074455743074956097}
   type: 0
   direction: 315
-  shootPoint: {fileID: 0}
+  shootPoint: {fileID: 2314898909241021867}
 --- !u!1 &3645699989493244168
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,7 +856,7 @@ MonoBehaviour:
   player: {fileID: 7074455743074956097}
   type: 1
   direction: 90
-  shootPoint: {fileID: 0}
+  shootPoint: {fileID: 2314898909241021867}
 --- !u!1 &3966432330401116014
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,7 +964,7 @@ MonoBehaviour:
   player: {fileID: 7074455743074956097}
   type: 2
   direction: 45
-  shootPoint: {fileID: 0}
+  shootPoint: {fileID: 2314898909241021867}
 --- !u!1 &5350579455532113207
 GameObject:
   m_ObjectHideFlags: 0
@@ -1037,7 +1037,7 @@ MonoBehaviour:
   player: {fileID: 7074455743074956097}
   type: 1
   direction: 270
-  shootPoint: {fileID: 0}
+  shootPoint: {fileID: 2314898909241021867}
 --- !u!1 &5438559749168030644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1084,7 +1084,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2726464883513771535}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Whip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1179,7 +1179,7 @@ MonoBehaviour:
   player: {fileID: 7074455743074956097}
   type: 2
   direction: 270
-  shootPoint: {fileID: 0}
+  shootPoint: {fileID: 2314898909241021867}
 --- !u!1 &6450287701555042101
 GameObject:
   m_ObjectHideFlags: 0
@@ -1289,7 +1289,7 @@ MonoBehaviour:
   player: {fileID: 7074455743074956097}
   type: 0
   direction: 45
-  shootPoint: {fileID: 0}
+  shootPoint: {fileID: 2314898909241021867}
 --- !u!1 &7074455743074956097
 GameObject:
   m_ObjectHideFlags: 0
@@ -1309,7 +1309,7 @@ GameObject:
   - component: {fileID: 1924437308449402450}
   - component: {fileID: 4958087823983323482}
   - component: {fileID: 5609525641371559295}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1466,7 +1466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51e7051c23cd17c46bce8a66b705022a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 4
+  maxSpeed: 5
   acceleration: 100
   deceleration: -10
   friction: 0
@@ -1709,7 +1709,7 @@ MonoBehaviour:
   player: {fileID: 7074455743074956097}
   type: 0
   direction: 215
-  shootPoint: {fileID: 0}
+  shootPoint: {fileID: 2314898909241021867}
 --- !u!1 &7795879929198664749
 GameObject:
   m_ObjectHideFlags: 0
@@ -1782,7 +1782,7 @@ MonoBehaviour:
   player: {fileID: 7074455743074956097}
   type: 2
   direction: 90
-  shootPoint: {fileID: 0}
+  shootPoint: {fileID: 2314898909241021867}
 --- !u!1 &8219800657043975425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1793,7 +1793,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4499214814829956636}
   - component: {fileID: 2314898909241021867}
-  m_Layer: 3
+  m_Layer: 7
   m_Name: ShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1902,7 +1902,7 @@ MonoBehaviour:
   player: {fileID: 7074455743074956097}
   type: 0
   direction: 270
-  shootPoint: {fileID: 0}
+  shootPoint: {fileID: 2314898909241021867}
 --- !u!1 &8527452223017178664
 GameObject:
   m_ObjectHideFlags: 0
@@ -1975,4 +1975,4 @@ MonoBehaviour:
   player: {fileID: 7074455743074956097}
   type: 0
   direction: 90
-  shootPoint: {fileID: 0}
+  shootPoint: {fileID: 2314898909241021867}

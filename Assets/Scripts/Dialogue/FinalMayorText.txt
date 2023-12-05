@@ -1,0 +1,19 @@
+[NAME=Mayor Strickland][SPEAKERSPRITE=Mayor Strickland]Victoria~
+[NAME=Victoria][SPEAKERSPRITE=Victoria]Strickland.
+[NAME=Mayor Strickland][SPEAKERSPRITE=Mayor Strickland]There's no hope for this world you know. I don't know why you're still going.
+[NAME=Victoria][SPEAKERSPRITE=Victoria]Why? Why are you doing this?
+[NAME=Mayor Strickland][SPEAKERSPRITE=Mayor Strickland]This world has created horrible things Victoria.
+[NAME=Mayor Strickland][SPEAKERSPRITE=Mayor Strickland]Hatred, war, the only way to salvation...
+[NAME=Mayor Strickland][SPEAKERSPRITE=Mayor Strickland]...Is to start over.
+[NAME=Victoria][SPEAKERSPRITE=Victoria]What?
+[NAME=Mayor Strickland][SPEAKERSPRITE=Mayor Strickland]Don't you get it? We are not able to save ourselves, we have to commune with outside sources. The Great Old ones.
+[NAME=Victoria][SPEAKERSPRITE=Victoria]No! That's wrong! We have to try!
+[NAME=Victoria][SPEAKERSPRITE=Victoria]We can keep the good alive, you can't just give up Strickland!
+[NAME=Mayor Strickland][SPEAKERSPRITE=Mayor Strickland]How naive...
+[NAME=Mayor Strickland][SPEAKERSPRITE=Mayor Strickland]My masters move forces greater than our entire reality, without lifting a PINKY!
+[NAME=Mayor Strickland][SPEAKERSPRITE=Mayor Strickland]...or tentacle.
+[NAME=Victoria][SPEAKERSPRITE=Victoria]Is that supposed to scare me?
+[NAME=Mayor Strickland][SPEAKERSPRITE=Mayor Strickland]It should.
+[NAME=Mayor Strickland][SPEAKERSPRITE=Mayor Strickland]Tell you what Victoria, I'm curious how far you think all that hope will get you.
+[NAME=Mayor Strickland][SPEAKERSPRITE=Mayor Strickland]Start running, I'll even give you a head start.
+

@@ -1,0 +1,2 @@
+[NAME=Canary][SPEAKERSPRITE=Canary]Who left this key here?
+[NAME=Canary][SPEAKERSPRITE=Canary]It doesn't matter right now, we have to go! ~ Chirp chirp ~

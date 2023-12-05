@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HitboxInteraction : MonoBehaviour
@@ -202,7 +203,7 @@ public class HitboxInteraction : MonoBehaviour
     void ParryProjectile(GameObject projectile)
     {
         Debug.Log("Parry Projectile!");
-        shootPoint.PlayerShoot(-projectile.transform.forward);
+        shootPoint.PlayerShoot(projectile.GetComponent<ProjectileInfo>().getSender().position - transform.position);
         Destroy(projectile);
         pam.PlaySound(1);
     }

@@ -16,7 +16,6 @@ public class KillBullet : MonoBehaviour
         {
             StopAllCoroutines();
             Destroy(this.gameObject);
-
         }
     }
 
