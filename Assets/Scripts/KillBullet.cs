@@ -10,6 +10,16 @@ public class KillBullet : MonoBehaviour
         StartCoroutine(KILL());
     }
 
+    private void OnCollisionEnter(Collision other)
+    {
+        if ((gameObject.name.Equals("EnemyProjectile") && other.collider.CompareTag("Player")) || (gameObject.name.Equals("PlayerProjectile") && other.collider.CompareTag("Enemy")))
+        {
+            StopAllCoroutines();
+            Destroy(this.gameObject);
+
+        }
+    }
+
     IEnumerator KILL()
     {
         yield return new WaitForSeconds(2f);
