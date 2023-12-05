@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465788, g: 0.49641287, b: 0.5748173, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5224,6 +5224,12 @@ MonoBehaviour:
   waitTime: 0.5
   singleUseDialogue: 1
   hasBeenUsed: 0
+  enterZoom: 1
+  exitZoom: 1
+  ZoomVals:
+  - {x: 108.57, y: 1.9, z: -2.52}
+  - {x: 15, y: 0, z: 0}
+  - {x: 60, y: 0, z: 100}
 --- !u!212 &207858331
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5409,6 +5415,12 @@ MonoBehaviour:
   waitTime: 0.5
   singleUseDialogue: 1
   hasBeenUsed: 0
+  enterZoom: 0
+  exitZoom: 0
+  ZoomVals:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
 --- !u!212 &221782701
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8543,6 +8555,12 @@ MonoBehaviour:
   waitTime: 0.5
   singleUseDialogue: 1
   hasBeenUsed: 0
+  enterZoom: 0
+  exitZoom: 0
+  ZoomVals:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
 --- !u!212 &363978584
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10983,7 +11001,7 @@ GameObject:
   - component: {fileID: 494339272}
   - component: {fileID: 494339274}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: Main Camera 1
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11014,6 +11032,7 @@ MonoBehaviour:
   test_Pan: 0
   test_Zoom: 0
   testOBJ: {fileID: 0}
+  skipahead: 0
 --- !u!81 &494339268
 AudioListener:
   m_ObjectHideFlags: 0
@@ -11081,13 +11100,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 494339266}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19080894, y: 0, z: 0, w: 0.9816273}
+  m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
   m_LocalPosition: {x: 2.6961656, y: 4.4053373, z: -7.2449226}
   m_LocalScale: {x: 2.7775445, y: 2.7775447, z: 2.7775447}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 22, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
 --- !u!82 &494339271
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13682,6 +13701,12 @@ MonoBehaviour:
   waitTime: 0.5
   singleUseDialogue: 1
   hasBeenUsed: 0
+  enterZoom: 0
+  exitZoom: 0
+  ZoomVals:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
 --- !u!212 &600763932
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13968,6 +13993,12 @@ MonoBehaviour:
   waitTime: 0.5
   singleUseDialogue: 1
   hasBeenUsed: 0
+  enterZoom: 0
+  exitZoom: 0
+  ZoomVals:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
 --- !u!212 &615701661
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15378,6 +15409,12 @@ MonoBehaviour:
   waitTime: 0.5
   singleUseDialogue: 1
   hasBeenUsed: 0
+  enterZoom: 1
+  exitZoom: 1
+  ZoomVals:
+  - {x: 66.78, y: 3.4, z: -5.5}
+  - {x: 18, y: 0, z: 0}
+  - {x: 69, y: 0, z: 50}
 --- !u!212 &673175305
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18206,6 +18243,12 @@ MonoBehaviour:
   waitTime: 0.5
   singleUseDialogue: 1
   hasBeenUsed: 0
+  enterZoom: 0
+  exitZoom: 0
+  ZoomVals:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
 --- !u!212 &812067929
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -26734,6 +26777,12 @@ MonoBehaviour:
   waitTime: 0.5
   singleUseDialogue: 1
   hasBeenUsed: 0
+  enterZoom: 1
+  exitZoom: 1
+  ZoomVals:
+  - {x: 5.6, y: 7.8, z: -7.58}
+  - {x: 26, y: 0, z: 0}
+  - {x: 80, y: 2, z: 200}
 --- !u!212 &954695622
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -49455,6 +49504,12 @@ MonoBehaviour:
   waitTime: 0.5
   singleUseDialogue: 1
   hasBeenUsed: 0
+  enterZoom: 0
+  exitZoom: 0
+  ZoomVals:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
 --- !u!212 &1329689643
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -49516,7 +49571,7 @@ Transform:
   m_GameObject: {fileID: 1329689640}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 42.01, y: 0.71, z: 0.28}
+  m_LocalPosition: {x: 42.36, y: 0.71, z: 0.28}
   m_LocalScale: {x: 1.7526083, y: 1.7526083, z: 41.467186}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -54269,6 +54324,12 @@ MonoBehaviour:
   waitTime: 0.5
   singleUseDialogue: 1
   hasBeenUsed: 0
+  enterZoom: 1
+  exitZoom: 1
+  ZoomVals:
+  - {x: 32.48, y: 1.5, z: -4.37}
+  - {x: 0, y: 0, z: 0}
+  - {x: 45, y: 1, z: 100}
 --- !u!212 &1571290504
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -57642,6 +57703,12 @@ MonoBehaviour:
   waitTime: 0.5
   singleUseDialogue: 1
   hasBeenUsed: 0
+  enterZoom: 0
+  exitZoom: 0
+  ZoomVals:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
 --- !u!212 &1715975285
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -61002,8 +61069,8 @@ Transform:
   m_GameObject: {fileID: 1916982739}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2.5}
-  m_LocalScale: {x: 127.94092, y: 0.0778564, z: 14.7293415}
+  m_LocalPosition: {x: -14.2, y: 0, z: 2.5}
+  m_LocalScale: {x: 155.84, y: 0.0778564, z: 14.7293415}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 44272708}
@@ -62270,6 +62337,12 @@ MonoBehaviour:
   waitTime: 0.5
   singleUseDialogue: 1
   hasBeenUsed: 0
+  enterZoom: 1
+  exitZoom: 1
+  ZoomVals:
+  - {x: 120.5, y: 5.9, z: -6.5}
+  - {x: 24.5, y: 7.5, z: 0}
+  - {x: 80, y: 0, z: 100}
 --- !u!212 &1962398917
 SpriteRenderer:
   m_ObjectHideFlags: 0
