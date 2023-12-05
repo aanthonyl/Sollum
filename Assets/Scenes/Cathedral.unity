@@ -400,7 +400,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -463897213
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a09764b852439664db8d629a57a37a5b, type: 3}
   m_Color: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 1}
@@ -2835,14 +2835,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 335268761757236158, guid: c43c2c31c40c84d4cb0806dde52b212a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.396
-      objectReference: {fileID: 0}
-    - target: {fileID: 335268761757236158, guid: c43c2c31c40c84d4cb0806dde52b212a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.29
-      objectReference: {fileID: 0}
     - target: {fileID: 2856516395205339086, guid: c43c2c31c40c84d4cb0806dde52b212a, type: 3}
       propertyPath: m_Name
       value: candles group (28)
