@@ -31,64 +31,88 @@ public class EnemyHealth : MonoBehaviour
     private float playerWhipDamage = 10;
     private bool damageCoolDown = false;
 
+
+
     //private AudioSource audioSource;
     //public AudioClip enemyDamagedSound;
 
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
+        if (sprite == null)
+            sprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
         //audioSource = GetComponent<AudioSource>();
 
         // DIFFERENT ENEMY HEALTH AMOUNTS
         if (enemyType == EnemyType.GruntEnemy)
         {
-            enemyHealth = 20;
+            enemyHealth = 10;
         }
         else if (enemyType == EnemyType.ThrowEnemy)
         {
-            enemyHealth = 40;
+            enemyHealth = 20;
         }
         else if (enemyType == EnemyType.ShootEnemy)
         {
-            enemyHealth = 60;
+            enemyHealth = 40;
         }
         //audioSource.clip = enemyDamagedSound;
     }
 
     public void OnTriggerEnter(Collider other)
     {
+
         // ENTERED WHIP ATTACK TRIGGER
-        if (other.gameObject.name == "WhipAttackZone")
+        // if (other.gameObject.name == "WhipAttackZone")
+        // {
+        //     // Debug.Log("ENTERED WHIP ZONE");
+        //     TakeWhipDamage();
+        // }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("PlayerProjectile"))
         {
-            Debug.Log("ENTERED WHIP ZONE");
-            TakeWhipDamage();
+            TakeDamage(10); //just using whip function for now
         }
     }
 
     // ENEMY TAKES DAMAGE AND DIES IF HEALTH HITS 0
-    public void TakeWhipDamage()
+    // public void TakeWhipDamage()
+    // {
+    //     if (damageCoolDown == false)
+    //     {
+    //         Debug.Log("ENEMY TAKE WHIP DAMAGE");
+
+    //         enemyHealth -= playerWhipDamage;
+
+    //         StartCoroutine(FlashRed());
+
+    //         if (enemyHealth <= 0)
+    //         {
+    //             EnemyDie();
+    //         }
+    //         //audioSource.Play();
+    //     }
+    // }
+
+    public void TakeDamage(float damage)
     {
-        if (damageCoolDown == false)
+        if (!damageCoolDown)
         {
-            Debug.Log("ENEMY TAKE WHIP DAMAGE");
-
-            enemyHealth -= playerWhipDamage;
-
+            enemyHealth -= damage;
             StartCoroutine(FlashRed());
-
             if (enemyHealth <= 0)
             {
                 EnemyDie();
             }
-            //audioSource.Play();
         }
     }
 
     // ENEMY DIES, OBJECT DESTROYED
-    public void EnemyDie()
+    public virtual void EnemyDie()
     {
-        Debug.Log("ENEMY DIE");
-
         Destroy(this.gameObject);
     }
 
@@ -96,9 +120,9 @@ public class EnemyHealth : MonoBehaviour
     private IEnumerator FlashRed()
     {
         damageCoolDown = true;
-        //sprite.color = Color.red;
+        sprite.color = Color.red;
         yield return new WaitForSeconds(0.1f);
-        //sprite.color = Color.white;
+        sprite.color = Color.white;
         yield return new WaitForSeconds(0.8f);
         damageCoolDown = false;
     }

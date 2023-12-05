@@ -41,7 +41,7 @@ public class EnemyStatePatrol : I_EnemyBaseState
 
 		// Debug.Log(Vector3.Distance(enemy.agent.transform.position, enemy.target.position));
 		//Once at at target point...
-		if (isPatrolling && Vector3.Distance(enemy.transform.position, enemy.target.position) - enemy.playerHeight < 1)
+		if (isPatrolling && Vector3.Distance(enemy.transform.position, enemy.target.position) < 1)
 		{
 			isPatrolling = false;
 			if (!stationary)

@@ -19,19 +19,22 @@ public class Parry : MonoBehaviour
 
     Vector3 getShootPosition() { return shootPositionObj.transform.position; }
     Vector3 ForwardVelocity() { return forwardVector * moveSpeed; }
-    public void setForwardVector(Vector3 targetDirection) { forwardVector = targetDirection; }
+    public void setForwardVector(Vector3 targetDirection) { forwardVector = targetDirection.normalized; }
 
     void Start()
     {
-        mousePosition = GameObject.Find("MousePosition");
         mouse = mousePosition.GetComponent<MousePosition>();
     }
 
-    public void PlayerShoot()
+    public void PlayerShoot(Vector3 returnDir)
     {
         GameObject projectile = Instantiate(projectile_prefab, getShootPosition(), gameObject.transform.rotation);
         rb = projectile.GetComponent<Rigidbody>();
-        setForwardVector(mouse.worldPosition.normalized);
+        //setForwardVector(mouse.worldPosition.normalized);
+        setForwardVector(returnDir);
+
+        Debug.Log("test Projectile Forward Vector: " + mouse.worldPosition);
+        Debug.Log("test Mouse World Position: " + projectile.transform.position);
         rb.velocity = ForwardVelocity();
 
     }
