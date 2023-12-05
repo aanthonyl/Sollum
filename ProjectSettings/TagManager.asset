@@ -3,7 +3,19 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Sewer
+  - Phone
+  - Cathedral
+  - Break
+  - Enemy
+  - Sightline
+  - NoiseEvents
+  - Parasol
+  - Whip
+  - PlayerProjectile
+  - Exit
+  - LightDest
   layers:
   - Default
   - TransparentFX
@@ -12,7 +24,7 @@ TagManager:
   - Water
   - UI
   - 
-  - 
+  - Reflective
   - 
   - 
   - 

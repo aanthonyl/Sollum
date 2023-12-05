@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43728057, g: 0.48504484, b: 0.56531847, a: 1}
+  m_IndirectSpecularColor: {r: 0.43728092, g: 0.48504543, b: 0.5653193, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3955,7 +3955,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7074455743074956097, guid: 159897470cb59094199e4fe07088fee5, type: 3}
       propertyPath: m_Name
-      value: Player (1)
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7074455743074956097, guid: 159897470cb59094199e4fe07088fee5, type: 3}
       propertyPath: m_Layer
@@ -18901,6 +18901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae181562b56e39d4eb3ee4c9da22e01a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  col: {fileID: 0}
 --- !u!95 &1092758967
 Animator:
   serializedVersion: 5
@@ -22827,8 +22828,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   attackRange: 2
+  staggerTime: 3
   drawAttackRange: 0
   attackCooldown: 2
+  blocked: 0
+  parried: 0
+  staggered: 0
+  touchingPlayer: 0
+  damageNextTurn: 0
+  flashTime: 0.25
+  player: {fileID: 0}
+  nma: {fileID: 0}
+  sr: {fileID: 0}
+  audioSource: {fileID: 0}
   meleeAttackSound: {fileID: 0}
   anim: {fileID: 0}
 --- !u!114 &1271048107
@@ -35220,8 +35232,7 @@ Transform:
   m_LocalPosition: {x: 39.685577, y: -0.7111001, z: -5.772937}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1259663679}
+  m_Children: []
   m_Father: {fileID: 1896396466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1852604625
@@ -40228,85 +40239,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!195 &5477828774180860170
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4674591017923219139}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.6000001
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1.4666668
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!114 &5560272302605400254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2342402009587128383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae181562b56e39d4eb3ee4c9da22e01a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  col: {fileID: 0}
---- !u!114 &5570525860238100092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4674591017923219139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc8f2b9058185064aaec68d516a66628, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 10
-  attackRange: 2
-  staggerTime: 3
-  drawAttackRange: 0
-  attackCooldown: 2
-  blocked: 0
-  parried: 0
-  staggered: 0
-  touchingPlayer: 0
-  damageNextTurn: 0
-  flashTime: 0.25
-  player: {fileID: 0}
-  nma: {fileID: 0}
-  sr: {fileID: 0}
-  audioSource: {fileID: 0}
-  meleeAttackSound: {fileID: 0}
-  anim: {fileID: 0}
---- !u!4 &6084227938496517394
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2342402009587128383}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.97, z: 0}
-  m_LocalScale: {x: -0.7, y: 0.70832, z: 0.70832}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2446747278089044468}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6477601023507587395
 GameObject:
   m_ObjectHideFlags: 0
