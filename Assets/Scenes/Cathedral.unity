@@ -880,6 +880,12 @@ MonoBehaviour:
   waitTime: 0.5
   singleUseDialogue: 1
   hasBeenUsed: 0
+  enterZoom: 1
+  exitZoom: 1
+  ZoomVals:
+  - {x: 9.32, y: 3.81, z: 8.4}
+  - {x: 15, y: 0, z: 0}
+  - {x: 60, y: 0, z: 100}
 --- !u!212 &253109125
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2517,6 +2523,12 @@ MonoBehaviour:
   waitTime: 0.5
   singleUseDialogue: 1
   hasBeenUsed: 0
+  enterZoom: 0
+  exitZoom: 0
+  ZoomVals:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
 --- !u!212 &758773477
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3302,6 +3314,12 @@ MonoBehaviour:
   waitTime: 0.5
   singleUseDialogue: 1
   hasBeenUsed: 0
+  enterZoom: 0
+  exitZoom: 0
+  ZoomVals:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
 --- !u!212 &943403565
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3546,7 +3564,7 @@ GameObject:
   - component: {fileID: 1011485789}
   - component: {fileID: 1011485791}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: Main Camera 1
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3577,6 +3595,7 @@ MonoBehaviour:
   test_Pan: 0
   test_Zoom: 0
   testOBJ: {fileID: 0}
+  skipahead: 0
 --- !u!81 &1011485786
 AudioListener:
   m_ObjectHideFlags: 0
@@ -4667,6 +4686,12 @@ MonoBehaviour:
   waitTime: 0.5
   singleUseDialogue: 1
   hasBeenUsed: 0
+  enterZoom: 0
+  exitZoom: 0
+  ZoomVals:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
 --- !u!212 &1335988887
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7141,6 +7166,12 @@ MonoBehaviour:
   waitTime: 0.5
   singleUseDialogue: 1
   hasBeenUsed: 0
+  enterZoom: 0
+  exitZoom: 0
+  ZoomVals:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
 --- !u!212 &2047342819
 SpriteRenderer:
   m_ObjectHideFlags: 0

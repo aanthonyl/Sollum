@@ -155,8 +155,6 @@ public class CameraControl : MonoBehaviour
             Camera.main.fieldOfView += addative;
             yield return new WaitForSeconds(0.01F);
             if(Camera.main.fieldOfView > FOV - 0.5 && Camera.main.fieldOfView < FOV + 0.5){
-                coroutine_running = false;
-                skipahead = false;
                 yield break;
             }
         }
@@ -170,7 +168,6 @@ public class CameraControl : MonoBehaviour
             transform.rotation = Quaternion.Euler(new Vector3(transform.localRotation.eulerAngles.x + addativex,transform.localRotation.eulerAngles.y + addativey,transform.localRotation.eulerAngles.z + addativez));
             yield return new WaitForSeconds(0.01F);
             if (transform.localRotation.eulerAngles.x > x - 0.5 && transform.localRotation.eulerAngles.x < x + 0.5){
-                skipahead = false;
                 yield break;
             }
         }
