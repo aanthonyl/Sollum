@@ -32,7 +32,7 @@ public class EnemyProjectile : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    void EnemyShoot()
+    public void EnemyShoot()
     {
         GameObject projectile = Instantiate(projectile_prefab, getShootPosition(), Quaternion.identity);
         rb = projectile.GetComponent<Rigidbody>();

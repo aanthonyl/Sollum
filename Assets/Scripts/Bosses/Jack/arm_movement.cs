@@ -43,7 +43,7 @@ public class arm_movement : MonoBehaviour
                     revUp = 0f;
                     break;
                 case arm_controller.ArmState.Attack:
-                    Debug.Log("Be Still");
+                    // Debug.Log("Be Still");
                     break;
                 case arm_controller.ArmState.Chase:
                     // Lag Behind the Player
@@ -53,7 +53,7 @@ public class arm_movement : MonoBehaviour
                     // transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(transform.localPosition.x, transform.localPosition.y, player.localPosition.z), revUp);
                     break;
                 default:
-                    Debug.Log("Movement Default");
+                    // Debug.Log("Movement Default");
                     break;
             }
 

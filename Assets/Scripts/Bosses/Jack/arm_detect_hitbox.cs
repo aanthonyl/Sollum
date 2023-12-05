@@ -5,15 +5,29 @@ using UnityEngine;
 public class arm_detect_hitbox : MonoBehaviour
 {
     public arm_controller armControl;
-    public GameObject armAttack;
+    // public GameObject armAttack;
+
+    private void Start()
+    {
+        armControl = GetComponentInParent<arm_controller>();
+    }
     void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player") && armControl._currState != arm_controller.ArmState.Stun)
+        // if(other.CompareTag("Player") && armControl._currState != arm_controller.ArmState.Stun)
+        // {
+        //     // Debug.Log("Start Trigger Attack!");
+        //     armControl._currState = arm_controller.ArmState.Attack;
+        //     // armAttack.SetActive(true);
+        // }
+
+        if(other.CompareTag("Player") && armControl._currState == arm_controller.ArmState.Idle && !armControl.attackCoolDown)
         {
-            // Debug.Log("Start Trigger Attack!");
+            // Debug.Log("Player Trigger?");
             armControl._currState = arm_controller.ArmState.Attack;
-            // armAttack.SetActive(true);
+            armControl.attackCoolDown = true;
         }
+
+
     }
 
     // void OnTriggerExit(Collider other)
