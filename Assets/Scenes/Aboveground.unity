@@ -10667,7 +10667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61410e3113d176a47aab47dc34c8f96a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1937806483}
   minX: -999
   maxX: 999
   minY: 0
@@ -61902,6 +61902,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.1799998, y: 1.8757865, z: 0.13945617}
   m_Center: {x: 0.00000009754603, y: -0.7271086, z: -0.03027169}
+--- !u!1 &1937806483 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7074455743074956097, guid: 159897470cb59094199e4fe07088fee5, type: 3}
+  m_PrefabInstance: {fileID: 1196105519}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1940054113
 GameObject:
   m_ObjectHideFlags: 0
