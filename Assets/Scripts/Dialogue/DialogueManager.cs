@@ -121,6 +121,7 @@ public class DialogueManager : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         defrosted = true;
+        camref.GetComponent<CameraControl>().skipahead = false;
     }
 
     // HAULT PLAYER MOVEMENT, WHIP ATTACK, ENEMY ATTACKS, PAUSE MENU
