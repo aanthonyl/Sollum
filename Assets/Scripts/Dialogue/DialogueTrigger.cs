@@ -7,7 +7,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class DialogueTrigger : MonoBehaviour
 {
@@ -22,16 +21,19 @@ public class DialogueTrigger : MonoBehaviour
     public bool singleUseDialogue = false; // Set true if they should be able to enter dialogue again
     [HideInInspector]
     public bool hasBeenUsed = false;
-
-    private AudioSource source;
+    public bool enterZoom = false;
+    public bool exitZoom = false;
+    public Vector3[] ZoomVals = new Vector3[3];
+    
+    private GameObject hpbar;
+    private GameObject camref;
+    private bool once = true;
 
     private void Start()
     {
         manager = FindObjectOfType<DialogueManager>();
-        if (SceneManager.GetActiveScene().name == "Aboveground")
-        {
-            source = GameObject.Find("Phone_Booth_Audio").GetComponent<AudioSource>();
-        }
+        hpbar = GameObject.Find("Canvas/HealthBar");
+        camref = GameObject.Find("Main Camera 1");
     }
 
     // START DIALOGUE //
@@ -39,7 +41,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         ReadTextFile(); // Loads in the text file
         manager.inDialogueZone = true;
-        manager.StartDialogue(dialogue); // Accesses Dialogue Manager and Starts Dialogue
+        manager.StartDialogue(dialogue, exitZoom); // Accesses Dialogue Manager and Starts Dialogue
     }
 
     // LOAD TEXT FILE //
@@ -81,22 +83,33 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (collider.gameObject.tag == "Player" && !hasBeenUsed)
         {
-            if (SceneManager.GetActiveScene().name == "Aboveground")
-            {
-                source.Stop();
-            }
             manager.currentTrigger = this;
             TriggerDialogue();
             Debug.Log("DIALOGUE TRIGGERED");
+            hpbar.SetActive(false);
+            if(enterZoom){
+                StartCoroutine(camref.GetComponent<CameraControl>().PanToPositionHold(ZoomVals[0],ZoomVals[2].z));
+                StartCoroutine(camref.GetComponent<CameraControl>().DynamicRotation(ZoomVals[1].x,ZoomVals[1].y,ZoomVals[1].z, ZoomVals[2].z));
+                StartCoroutine(camref.GetComponent<CameraControl>().DynamicZoom(ZoomVals[2].x, ZoomVals[2].z));
+
+            }
+            
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && once)
         {
             manager.inDialogueZone = false;
-            manager.EndDialogue();
+            //manager.EndDialogue();
+            //hpbar.SetActive(true);
+            /*if(exitZoom && once){
+                StartCoroutine(camref.GetComponent<CameraControl>().PanToPlayer());
+                StartCoroutine(camref.GetComponent<CameraControl>().DynamicRotation(15,0,0));
+                StartCoroutine(camref.GetComponent<CameraControl>().DynamicZoom(60));
+                once = false;
+            } */
         }
     }
 }

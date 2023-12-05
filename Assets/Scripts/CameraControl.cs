@@ -15,9 +15,9 @@ public class CameraControl : MonoBehaviour
     public float minZ = -22;
     public float maxZ = 10;
 
-    public float offsetX = 0;
-    public float offsetY = 7;
-    public float offsetZ = -15;
+    public float offsetX = 0; // 6.54f;
+    public float offsetY = 7; // 8.49f;
+    public float offsetZ = -15; //-7.6f;
 
     public bool test_Pan = false;
     public bool test_Zoom = false;
@@ -25,20 +25,21 @@ public class CameraControl : MonoBehaviour
 
     private bool panReseted = true;
     private bool coroutine_running = false;
+    public bool skipahead = false;
 
     void Start()
     {
         //set the angle of the camera looking down in the start, shouldn't be changed except possibly boss fights
-        transform.rotation = Quaternion.Euler(new Vector3(15, 0, 0));
+        transform.rotation = Quaternion.Euler(new Vector3(15,0,0)); //26.83f
+        Camera.main.fieldOfView = 60;
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
     {
         //check bounds and stay within
-        if (test_Zoom)
-        {
-            StartCoroutine(DynamicZoom(100)); //how to call zoom -> set the FOV
+        if(test_Zoom){
+            //StartCoroutine(DynamicZoom(100, 100)); //how to call zoom -> set the FOV
             test_Zoom = false;
         }
         if (test_Pan)
@@ -98,15 +99,103 @@ public class CameraControl : MonoBehaviour
         test_Pan = false;
     }
 
-    //call this by using StartCoroutine
-    IEnumerator DynamicZoom(float FOV)
+     public IEnumerator PanToPlayer()
     {
-        float addative = (FOV - Camera.main.fieldOfView) / 100;
-        for (int i = 0; i < 100; i++)
-        {
+        coroutine_running = true;
+        Vector3 targ = new Vector3(player.transform.position.x + offsetX, player.transform.position.y + offsetY,player.transform.position.z + offsetZ);
+        Vector3 dist = new Vector3(targ.x - transform.position.x, targ.y - transform.position.y,targ.z - transform.position.z);
+        dist = new Vector3(dist.x / 50, dist.y / 50, dist.z / 50);
+        int count = 0;
+        while(count < 50){   
+            transform.position += dist;
+            count++;
+            yield return new WaitForSeconds(0.01F); 
+        }
+        coroutine_running = false;
+        panReseted = true;
+        test_Pan = false;
+    }
+
+    public IEnumerator PanToPositionHold(Vector3 targ, float _steps)
+    {
+        
+            coroutine_running = true;
+            Vector3 dist = new Vector3(targ.x - transform.position.x, targ.y - transform.position.y,targ.z - transform.position.z);
+            float steps = _steps;
+            dist = new Vector3(dist.x / steps, dist.y / steps, dist.z / steps);
+            int count = 0;
+            while(count < steps){   
+                if(!skipahead){
+                    transform.position += dist;   
+                    yield return new WaitForSeconds(0.01F); 
+                }
+                count++;
+            }
+            //coroutine_running = false;
+            //panReseted = true;
+            //test_Pan = false;
+    }
+
+    //call this by using StartCoroutine
+    public IEnumerator DynamicZoom(float FOV, float steps){
+        int i = 0;
+        float addative = (FOV - Camera.main.fieldOfView) / steps;
+        while(i < steps){
+            if(!skipahead){
+                Camera.main.fieldOfView += addative;
+                yield return new WaitForSeconds(0.01F);
+            }
+            i++;
+        }
+    }
+
+    public IEnumerator DynamicZoomBack(float FOV){
+        float addative = (FOV - Camera.main.fieldOfView) / 50;
+        for(int i = 0;i < 50;i++){
             Camera.main.fieldOfView += addative;
             yield return new WaitForSeconds(0.01F);
+            if(Camera.main.fieldOfView > FOV - 0.5 && Camera.main.fieldOfView < FOV + 0.5){
+                coroutine_running = false;
+                skipahead = false;
+                yield break;
+            }
         }
+        skipahead = false;
+    }
+    public IEnumerator DynamicRotationBack(float x, float y, float z){
+        float addativex = (x - transform.localRotation.eulerAngles.x) / 50;
+        float addativey = (y - transform.localRotation.eulerAngles.y) / 50;
+        float addativez = (z - transform.localRotation.eulerAngles.z) / 50;
+        for(int i = 0;i < 50;i++){
+            transform.rotation = Quaternion.Euler(new Vector3(transform.localRotation.eulerAngles.x + addativex,transform.localRotation.eulerAngles.y + addativey,transform.localRotation.eulerAngles.z + addativez));
+            yield return new WaitForSeconds(0.01F);
+            if (transform.localRotation.eulerAngles.x > x - 0.5 && transform.localRotation.eulerAngles.x < x + 0.5){
+                skipahead = false;
+                yield break;
+            }
+        }
+    }
+    
+    public IEnumerator DynamicRotation(float x, float y, float z, float steps){
+        float addativex = (x - transform.localRotation.eulerAngles.x) / steps;
+        float addativey = (y - transform.localRotation.eulerAngles.y) / steps;
+        float addativez = (z - transform.localRotation.eulerAngles.z) / steps;
+        int i = 0;
+        while(i < steps){
+            if(!skipahead){
+                transform.rotation = Quaternion.Euler(new Vector3(transform.localRotation.eulerAngles.x + addativex,transform.localRotation.eulerAngles.y + addativey,transform.localRotation.eulerAngles.z + addativez));
+                yield return new WaitForSeconds(0.01F);
+            }
+            i++;
+        }
+
+    }
+
+    IEnumerator SetOffset(float x, float y, float z){
+        offsetX = x;
+        offsetY = y;
+        offsetZ = z;
+        yield return new WaitForSeconds(0.01F);
     }
 
 }

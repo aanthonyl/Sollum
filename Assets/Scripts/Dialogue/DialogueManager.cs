@@ -63,8 +63,20 @@ public class DialogueManager : MonoBehaviour
     [HideInInspector]
     public List<string> speakerSpriteNames;
 
+    //camera stuff
+    private GameObject camref;
+    private GameObject hpbar;
+    private bool exitZoom;
+    private bool waitfreeze = false;
+    private bool defrosted = false;
+
     private void Start()
     {
+        //camera scripts
+        hpbar = GameObject.Find("Canvas/HealthBar");
+        camref = GameObject.Find("Main Camera 1");
+
+
         // ACCESS PLAYER MOVEMENT, WHIP ATTACK, PAUSE MENU, ENEMY ATTACK FOR FREEZE MOVEMENT
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<playerMovement>();
         pauseManager = GameObject.Find("PauseManager").GetComponent<PauseManager>();
@@ -95,6 +107,20 @@ public class DialogueManager : MonoBehaviour
                 }
             }
         }
+        if(waitfreeze){  
+            StartCoroutine(WaitDefrost(1.1f));
+            waitfreeze = false;
+        }
+        if(defrosted){
+            UnFreezePlayer();
+            defrosted = false;
+        }
+    }
+
+    private IEnumerator WaitDefrost(float time)
+    {
+        yield return new WaitForSeconds(time);
+        defrosted = true;
     }
 
     // HAULT PLAYER MOVEMENT, WHIP ATTACK, ENEMY ATTACKS, PAUSE MENU
@@ -110,14 +136,17 @@ public class DialogueManager : MonoBehaviour
     // RESTORE PLAYER MOVEMENT, WHIP ATTACK, ENEMY ATTACKS
     private void UnFreezePlayer()
     {
+        hpbar.SetActive(true);
         playerMovement.freezeMovement = false;
         dialogueActive = false;
         pauseManager.dialogueOpen = false;
+        waitfreeze = false;
     }
 
     // STARTS DIALOGUE
-    public void StartDialogue(Queue<string> dialogue)
+    public void StartDialogue(Queue<string> dialogue, bool zoom)
     {
+        exitZoom = zoom;
         // CLEARS THE SPEAKER
         speakerSprite.sprite = invisSprite;
 
@@ -226,9 +255,17 @@ public class DialogueManager : MonoBehaviour
         DialogueUI.SetActive(false);
 
         isTyping = false;
+        if(exitZoom){ 
+            waitfreeze = true;
+            camref.GetComponent<CameraControl>().skipahead = true;
+            StartCoroutine(camref.GetComponent<CameraControl>().PanToPlayer());
+            StartCoroutine(camref.GetComponent<CameraControl>().DynamicRotationBack(15,0,0));
+            StartCoroutine(camref.GetComponent<CameraControl>().DynamicZoomBack(60));
+        }else{
+            UnFreezePlayer();
+        }
 
-        UnFreezePlayer();
-        // Debug.Log("UnFreezePlayer() HAS BEEN CALLED FROM DialogueManager");
+        //Debug.Log("UnFreezePlayer() HAS BEEN CALLED FROM DialogueManager");
 
         if (currentTrigger.singleUseDialogue)
         {
