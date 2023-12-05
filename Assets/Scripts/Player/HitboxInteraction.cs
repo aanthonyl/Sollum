@@ -60,7 +60,9 @@ public class HitboxInteraction : MonoBehaviour
                     Block(enemy);
                 }
             }
-        } else if (collider.tag == "Enemy") {
+        }
+        else if (collider.tag == "Enemy")
+        {
             GameObject enemy = collider.gameObject;
             if (type == HitboxType.Slash)
             {
@@ -84,20 +86,49 @@ public class HitboxInteraction : MonoBehaviour
             {
                 Break(breakableObject);
             }
-        } else if (collider.tag == "EnemyProjectile") {
+        }
+        else if (collider.tag == "EnemyProjectile")
+        {
             GameObject projectile = collider.gameObject;
-            if (type == HitboxType.Block) {
-                if (bpc.isParrying()) {
+            if (type == HitboxType.Block)
+            {
+                ParryProjectile(projectile);
+                if (bpc.isParrying())
+                {
                     ParryProjectile(projectile);
-                } else if (bpc.isBlocking()) {
+                }
+                else if (bpc.isBlocking())
+                {
                     BlockProjectile(projectile);
                 }
             }
         }
     }
 
-    void OnTriggerExit(Collider collider) {
-        if (collider.tag == "EnemyAttack") {
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.collider.tag == "EnemyProjectile")
+        {
+            GameObject projectile = other.collider.gameObject;
+            if (type == HitboxType.Block)
+            {
+                ParryProjectile(projectile);
+                if (bpc.isParrying())
+                {
+                    ParryProjectile(projectile);
+                }
+                else if (bpc.isBlocking())
+                {
+                    BlockProjectile(projectile);
+                }
+            }
+        }
+    }
+
+    void OnTriggerExit(Collider collider)
+    {
+        if (collider.tag == "EnemyAttack")
+        {
             GameObject enemy = collider.gameObject;
             Unblock(enemy);
         }
@@ -158,7 +189,7 @@ public class HitboxInteraction : MonoBehaviour
                 knockbackDirection = new Vector3(-1, 0, 0);
                 break;
         }
-        player.GetComponent<Rigidbody>().AddForce(-knockbackDirection * bpc.blockKnockback, ForceMode.Impulse);   
+        player.GetComponent<Rigidbody>().AddForce(-knockbackDirection * bpc.blockKnockback, ForceMode.Impulse);
     }
     void BlockProjectile(GameObject projectile)
     {
@@ -206,7 +237,8 @@ public class HitboxInteraction : MonoBehaviour
         breakableObject.GetComponent<TempBreak>().Break();
     }
 
-    void Unblock(GameObject enemy) {
+    void Unblock(GameObject enemy)
+    {
         enemy.GetComponent<EnemyMelee>().blocked = false;
     }
 

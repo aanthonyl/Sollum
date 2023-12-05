@@ -16,6 +16,7 @@ TagManager:
   - PlayerProjectile
   - Exit
   - LightDest
+  - EnemyProjectile
   layers:
   - Default
   - TransparentFX

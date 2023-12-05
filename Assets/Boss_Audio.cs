@@ -11,9 +11,8 @@ public class Boss_Audio : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        source1 = GameObject.Find("Main Camera").GetComponent<AudioSource>();
+        source1 = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioSource>();
         source2 = GameObject.Find("MayorBoss").GetComponent<AudioSource>();
-
     }
 
     private void OnTriggerEnter(Collider other)
@@ -39,5 +38,5 @@ public class Boss_Audio : MonoBehaviour
         source1.Pause();
 
     }
-   
+
 }

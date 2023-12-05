@@ -3,7 +3,7 @@
 [NAME=Victoria][SPEAKERSPRITE=Victoria]That monster! He will regret this. I am going to stop him.
 [NAME=Fitzwilliam][SPEAKERSPRITE=Canary]*chirp!* (Victoria, wait! We need to be cautious. We cannot take down the mayor all by ourselves.)
 [NAME=Victoria][SPEAKERSPRITE=Victoria]Of course we can. He is just one man.
-[NAME=Fitzwilliam][SPEAKERSPRITE=Canary]chirp…* (Think for a moment. We are way out of our depth. We need to take this plant and get out of here.) 
+[NAME=Fitzwilliam][SPEAKERSPRITE=Canary]*chirp!* (Think for a moment. We are way out of our depth. We need to take this plant and get out of here.) 
 [NAME=Victoria][SPEAKERSPRITE=Victoria] *sigh* You are right, Fitz. The Cathedral should be empty by now. Let us pass through there.
 [NAME=Fitzwilliam][SPEAKERSPRITE=Canary]*chirp!* Press left click to swing your whip/parasol. You can switch between parasol and whip with F. 
 [NAME=Fitzwilliam][SPEAKERSPRITE=Canary]When you have the parasol equipped, press right click to block and parry!

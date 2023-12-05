@@ -14,9 +14,15 @@ public class Damager : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+            AttackPlayer(other.collider);
+    }
+
     private void AttackPlayer(Collider player)
     {
-        Debug.Log("ENEMY ATTACK PLAYER");
+        // Debug.Log("ENEMY ATTACK PLAYER");
         //audioSource.Play();
 
         PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();

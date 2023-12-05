@@ -24,7 +24,7 @@ public class DialogueTrigger : MonoBehaviour
     public bool enterZoom = false;
     public bool exitZoom = false;
     public Vector3[] ZoomVals = new Vector3[3];
-    
+
     private GameObject hpbar;
     private GameObject camref;
     private bool once = true;
@@ -85,15 +85,16 @@ public class DialogueTrigger : MonoBehaviour
         {
             manager.currentTrigger = this;
             TriggerDialogue();
-            Debug.Log("DIALOGUE TRIGGERED");
+            // Debug.Log("DIALOGUE TRIGGERED");
             hpbar.SetActive(false);
-            if(enterZoom){
-                StartCoroutine(camref.GetComponent<CameraControl>().PanToPositionHold(ZoomVals[0],ZoomVals[2].z));
-                StartCoroutine(camref.GetComponent<CameraControl>().DynamicRotation(ZoomVals[1].x,ZoomVals[1].y,ZoomVals[1].z, ZoomVals[2].z));
+            if (enterZoom)
+            {
+                StartCoroutine(camref.GetComponent<CameraControl>().PanToPositionHold(ZoomVals[0], ZoomVals[2].z));
+                StartCoroutine(camref.GetComponent<CameraControl>().DynamicRotation(ZoomVals[1].x, ZoomVals[1].y, ZoomVals[1].z, ZoomVals[2].z));
                 StartCoroutine(camref.GetComponent<CameraControl>().DynamicZoom(ZoomVals[2].x, ZoomVals[2].z));
 
             }
-            
+
         }
     }
 

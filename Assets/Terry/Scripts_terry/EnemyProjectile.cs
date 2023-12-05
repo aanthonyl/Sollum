@@ -34,7 +34,11 @@ public class EnemyProjectile : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
-        source = GameObject.Find("Throw_Audio").GetComponent<AudioSource>();
+        if (anim == null)
+            anim = transform.GetChild(0).GetComponent<Animator>();
+        GameObject findingAudio = GameObject.Find("ThrowAudio");
+        if (findingAudio != null)
+            source = findingAudio.GetComponent<AudioSource>();
     }
 
     void EnemyShoot()
@@ -66,7 +70,8 @@ public class EnemyProjectile : MonoBehaviour
     IEnumerator DelayAudio()
     {
         yield return new WaitForSeconds(1f);
-        source.Play();
+        if (source != null)
+            source.Play();
 
     }
 }

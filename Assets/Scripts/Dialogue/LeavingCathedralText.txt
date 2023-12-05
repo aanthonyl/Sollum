@@ -1,11 +1,11 @@
 [NAME=Victoria][SPEAKERSPRITE=Victoria]...
 [NAME=Fitzwilliam][SPEAKERSPRITE=Canary]*chirp?* (Victoria? Are you alright?)
-[NAME=Victoria][SPEAKERSPRITE=Victoria]Yes…it’s just a lot. I need to do this, but I don’t think I can.
-[NAME=Fitzwilliam][SPEAKERSPRITE=Canary]*chirp* (You can. We don’t need to defeat Strickland, we just need to escape.)
-[NAME=Victoria][SPEAKERSPRITE=Victoria]I’m not sure if things can keep going this way. I fight Strickland’s endless forces, but I only have so much energy.
-[NAME=Fitzwilliam][SPEAKERSPRITE=Canary]*chirp* (Gather your strength, Victoria. If we don’t do this, the world is doomed.)
+[NAME=Victoria][SPEAKERSPRITE=Victoria]Yes, it's just a lot. I need to do this, but I don't think I can.
+[NAME=Fitzwilliam][SPEAKERSPRITE=Canary]*chirp* (You can. We don't need to defeat Strickland, we just need to escape.)
+[NAME=Victoria][SPEAKERSPRITE=Victoria]I'm not sure if things can keep going this way. I fight Strickland's endless forces, but I only have so much energy.
+[NAME=Fitzwilliam][SPEAKERSPRITE=Canary]*chirp* (Gather your strength, Victoria. If we don't do this, the world is doomed.)
 [NAME=Victoria][SPEAKERSPRITE=Victoria]...
 [NAME=Victoria][SPEAKERSPRITE=Victoria]...
-[NAME=Victoria][SPEAKERSPRITE=Victoria]Alright. I’m ready.
+[NAME=Victoria][SPEAKERSPRITE=Victoria]Alright. I'm ready.
 [NAME=Fitzwilliam][SPEAKERSPRITE=Canary]Press Space to move to the graveyard. We should hopefully be able to avoid most of
-[NAME=Fitzwilliam][SPEAKERSPRITE=Canary]Strickland’s forces by going through the sewers.
+[NAME=Fitzwilliam][SPEAKERSPRITE=Canary]Strickland's forces by going through the sewers.
