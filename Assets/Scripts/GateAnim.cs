@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class GateAnim : MonoBehaviour
 {
-    public bool locked = false;
+    public bool locked = true;
     private Animator myAnimR;
     private Animator myAnimL;
     private AudioSource creak;
+    //private 
     bool isPlayed = false;
     
     private void Start()
@@ -15,13 +16,14 @@ public class GateAnim : MonoBehaviour
         myAnimR = GameObject.Find("FenceGateR").GetComponent<Animator>();
         myAnimL = GameObject.Find("FenceGateL").GetComponent<Animator>();
         creak = GameObject.Find("Fence_Audio").GetComponent<AudioSource>();
+
         
     }
     // Update is called once per frame
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player" && (isPlayed == false))
-        {
+        {            
             if (!locked)
             {
                 creak.Play();
