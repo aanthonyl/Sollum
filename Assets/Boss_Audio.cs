@@ -11,7 +11,7 @@ public class Boss_Audio : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        source1 = GameObject.Find("Main Camera").GetComponent<AudioSource>();
+        source1 = GameObject.Find("Main Camera 1").GetComponent<AudioSource>();
         source2 = GetComponent<AudioSource>();
 
     }
