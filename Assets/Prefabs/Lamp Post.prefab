@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5753117483568308452
 Transform:
   m_ObjectHideFlags: 0
@@ -208,7 +208,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 511995548964578819}
   - component: {fileID: 5443613656827068708}
   m_Layer: 0
-  m_Name: Left Light
+  m_Name: Main Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -245,7 +245,7 @@ Transform:
   m_GameObject: {fileID: 2610744204185759986}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7009651, y: -0, z: -0, w: 0.71319556}
-  m_LocalPosition: {x: -0.636, y: 0.952, z: -0.016}
+  m_LocalPosition: {x: 0.002, y: 1.47, z: -0.016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -263,13 +263,13 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.8392157, b: 0, a: 1}
-  m_Intensity: 5
-  m_Range: 4.91
-  m_SpotAngle: 75
+  m_Intensity: 6
+  m_Range: 7
+  m_SpotAngle: 63.5
   m_InnerSpotAngle: 7
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -302,10 +302,10 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
