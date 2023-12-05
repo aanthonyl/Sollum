@@ -3,40 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Break
-  - Walkable
-  - NoiseEvents
-  - Tool
-  - EnemyTool
-  - EnemyProjectile
-  - PlayerProjectile
-  - Managers
-  - Enemy
-  - Parasol
-  - Sewer
-  - Cathedral
-  - Exit
-  - CathedralExit
-  - LightDest
-  - Whip
-  - Sightline
-<<<<<<< Updated upstream
-  - EnemyAttack
-=======
-  - Phone
->>>>>>> Stashed changes
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Gameplay
+  - 
   - Water
   - UI
   - 
-  - Reflective
   - 
-  - Walkable
+  - 
+  - 
   - 
   - 
   - 
@@ -62,13 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: assets
-    uniqueID: 3831070083
-    locked: 0
-  - name: map
-    uniqueID: 2848837715
-    locked: 0
-  - name: particle
-    uniqueID: 1017196315
     locked: 0

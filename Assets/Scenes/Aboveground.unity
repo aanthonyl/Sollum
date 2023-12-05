@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465788, g: 0.49641287, b: 0.5748173, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -41629,10 +41629,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1428902119550122323, guid: 159897470cb59094199e4fe07088fee5, type: 3}
+      propertyPath: m_TagString
+      value: PlayerProjectile
+      objectReference: {fileID: 0}
     - target: {fileID: 2314898909241021867, guid: 159897470cb59094199e4fe07088fee5, type: 3}
       propertyPath: mousePosition
       value: 
       objectReference: {fileID: 1035514746}
+    - target: {fileID: 3658410901615788074, guid: 159897470cb59094199e4fe07088fee5, type: 3}
+      propertyPath: maxSpeed
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4132084614688132038, guid: 159897470cb59094199e4fe07088fee5, type: 3}
       propertyPath: HealthBar
       value: 
