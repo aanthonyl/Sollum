@@ -18,11 +18,12 @@ public class TreeBoss : EnemyHealth
     public override void EnemyDie()
     {
         source.Play();
-        Debug.Log("ENEMY DIE");
-        anim.SetBool("isDead",true);
+        // Debug.Log("ENEMY DIE");
+        anim.SetBool("isDead", true);
         StartCoroutine(DelayDestory());
     }
-    IEnumerator DelayDestory() {
+    IEnumerator DelayDestory()
+    {
         yield return new WaitForSeconds(3);
         key.Activate();
         Destroy(this.gameObject);

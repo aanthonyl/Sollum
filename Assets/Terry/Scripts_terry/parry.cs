@@ -10,7 +10,7 @@ using UnityEngine;
 public class Parry : MonoBehaviour
 {
     public GameObject shootPositionObj, projectile_prefab;
-    float moveSpeed = 10.0f;
+    float moveSpeed = 20.0f;
     Vector3 forwardVector;
     public GameObject mousePosition;
     Rigidbody rb;
@@ -33,8 +33,8 @@ public class Parry : MonoBehaviour
         //setForwardVector(mouse.worldPosition.normalized);
         setForwardVector(returnDir);
 
-        Debug.Log("test Projectile Forward Vector: " + mouse.worldPosition);
-        Debug.Log("test Mouse World Position: " + projectile.transform.position);
+        // Debug.Log("test Projectile Forward Vector: " + mouse.worldPosition);
+        // Debug.Log("test Mouse World Position: " + projectile.transform.position);
         rb.velocity = ForwardVelocity();
 
     }

@@ -19,7 +19,6 @@ public class HealingZone : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Start");
         source = GameObject.Find("Audio_Fountain").GetComponent<AudioSource>();
         light = GameObject.Find("Fountain_Light").GetComponent<Light>();
         light.enabled = false;
@@ -32,7 +31,7 @@ public class HealingZone : MonoBehaviour
             light.enabled = true;
             isHealing = true;
             source.Play();
-            Debug.Log("onTriggerEnter");
+            // Debug.Log("onTriggerEnter");
 
             //audioSource.Play();
         }
@@ -44,7 +43,7 @@ public class HealingZone : MonoBehaviour
         if (col.gameObject.CompareTag("Player") && isPaused == false)
         {
             light.enabled = false;
-            Debug.Log("OnTriggerExit");
+            // Debug.Log("OnTriggerExit");
             isHealing = false;
             source.Stop();
             //audioSource.Stop();
@@ -55,7 +54,7 @@ public class HealingZone : MonoBehaviour
     {
         if (isHealing && col.CompareTag("Player") && isPaused == false)
         {
-            Debug.Log("OnTriggerStay");
+            // Debug.Log("OnTriggerStay");
 
             PlayerHealth playerHealth = col.GetComponent<PlayerHealth>();
             if (playerHealth != null)

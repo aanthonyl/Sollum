@@ -21,7 +21,7 @@ public class EnemyHealth : MonoBehaviour
     }
     public EnemyType enemyType = new EnemyType();
 
-    private SpriteRenderer sprite;
+    public SpriteRenderer sprite;
 
     [Header("Health Stats")]
     [Tooltip("Updates Automatically")]

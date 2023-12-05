@@ -92,27 +92,6 @@ public class HitboxInteraction : MonoBehaviour
             GameObject projectile = collider.gameObject;
             if (type == HitboxType.Block)
             {
-                ParryProjectile(projectile);
-                if (bpc.isParrying())
-                {
-                    ParryProjectile(projectile);
-                }
-                else if (bpc.isBlocking())
-                {
-                    BlockProjectile(projectile);
-                }
-            }
-        }
-    }
-
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.collider.tag == "EnemyProjectile")
-        {
-            GameObject projectile = other.collider.gameObject;
-            if (type == HitboxType.Block)
-            {
-                ParryProjectile(projectile);
                 if (bpc.isParrying())
                 {
                     ParryProjectile(projectile);
