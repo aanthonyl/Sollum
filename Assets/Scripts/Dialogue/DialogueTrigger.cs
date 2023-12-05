@@ -33,7 +33,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         manager = FindObjectOfType<DialogueManager>();
         hpbar = GameObject.Find("Canvas/HealthBar");
-        camref = GameObject.Find("Main Camera");
+        camref = GameObject.Find("Main Camera 1");
     }
 
     // START DIALOGUE //

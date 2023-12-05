@@ -74,7 +74,7 @@ public class DialogueManager : MonoBehaviour
     {
         //camera scripts
         hpbar = GameObject.Find("Canvas/HealthBar");
-        camref = GameObject.Find("Main Camera");
+        camref = GameObject.Find("Main Camera 1");
 
 
         // ACCESS PLAYER MOVEMENT, WHIP ATTACK, PAUSE MENU, ENEMY ATTACK FOR FREEZE MOVEMENT
@@ -257,6 +257,7 @@ public class DialogueManager : MonoBehaviour
         isTyping = false;
         if(exitZoom){ 
             waitfreeze = true;
+            camref.GetComponent<CameraControl>().skipahead = true;
             StartCoroutine(camref.GetComponent<CameraControl>().PanToPlayer());
             StartCoroutine(camref.GetComponent<CameraControl>().DynamicRotationBack(15,0,0));
             StartCoroutine(camref.GetComponent<CameraControl>().DynamicZoomBack(60));
