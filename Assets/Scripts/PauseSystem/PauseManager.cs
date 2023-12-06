@@ -22,6 +22,8 @@ public class PauseManager : MonoBehaviour
     [Header("UI Elements")]
     [Tooltip("Pause UI")]
     public GameObject PauseUI;
+    [Tooltip("Controls UI")]
+    public GameObject controlsUI;
     [Tooltip("Image of Location")]
     public Image locationSprite;
     [Tooltip("Name of Location")]
@@ -59,6 +61,8 @@ public class PauseManager : MonoBehaviour
     public bool dialogueOpen = false;
     [HideInInspector]
     public bool gamePaused = false;
+    [HideInInspector]
+    public bool controlsActive = false;
 
     // STORES DIALOGUE
     private Queue<string> inputStream = new Queue<string>();
@@ -86,9 +90,14 @@ public class PauseManager : MonoBehaviour
             ActivatePause();
         }
         // DISABLES PAUSE UI
-        else if (Input.GetKeyDown(PauseKey) && pauseActive == true)
+        else if (Input.GetKeyDown(PauseKey) && pauseActive == true && controlsActive == false)
         {
             ContinueButton();
+        }
+        else if (Input.GetKeyDown(PauseKey) && controlsActive == true)
+        {
+            controlsUI.SetActive(false);
+            controlsActive = false;
         }
     }
 
@@ -213,6 +222,13 @@ public class PauseManager : MonoBehaviour
         // Access save system
         GameManager.instance.SaveGame(); // SAVE GAME
     }
+
+    public void ControlsButton()
+    {
+        controlsUI.SetActive(true);
+        controlsActive = true;
+    }
+
     // SCENE CHANGE TO START MENU
     public void MainMenuButton()
     {
