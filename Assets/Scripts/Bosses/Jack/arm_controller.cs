@@ -45,7 +45,7 @@ public class arm_controller : MonoBehaviour
 
     public void Update()
     {
-        switch(_currState)
+        switch (_currState)
         {
             case ArmState.Idle:
                 break;
@@ -78,7 +78,7 @@ public class arm_controller : MonoBehaviour
         //     _currState = ArmState.Attack;
         //     attackCoolDown = true;
         // }
-        if(other.CompareTag("Parasol") && _currState == ArmState.Idle && !stunCoolDown && attackCoolDown)
+        if (other.CompareTag("Parasol") && _currState == ArmState.Idle && !stunCoolDown && attackCoolDown)
         {
             // Debug.Log("Stun Contact");
             _currState = ArmState.Stun;
@@ -89,7 +89,7 @@ public class arm_controller : MonoBehaviour
     private void AttackRoutine()
     {
         // Debug.Log("Start Attack");
-        if(!initiatedAttack)
+        if (!initiatedAttack)
         {
             StartCoroutine(AttackLeadUp());
         }
@@ -120,7 +120,8 @@ public class arm_controller : MonoBehaviour
         // Arm_Anim.attackFollowThru();
         // Arm_Anim.AttackFollow();
         anim.AttackFollow();
-        attackSound.Play();
+        if (attackSound != null)
+            attackSound.Play();
         yield return new WaitForSeconds(attackDuration);
         // End Hitbox
         // Debug.Log("Finished Attack");
@@ -144,7 +145,7 @@ public class arm_controller : MonoBehaviour
     {
         yield return new WaitForSeconds(attackCoolDownTimer);
         attackCoolDown = false;
-        if(!initiatedStun)
+        if (!initiatedStun)
             // Arm_Anim.idle();
             // Arm_Anim.Idle();
             anim.Idle(); // ensure is set to Idle
@@ -153,7 +154,7 @@ public class arm_controller : MonoBehaviour
     private void StunRoutine()
     {
         // Play Stun Animation
-        if(!initiatedStun)
+        if (!initiatedStun)
         {
             initiatedStun = true;
             // Arm_Anim.stun();
