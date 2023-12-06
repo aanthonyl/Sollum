@@ -1,3 +1,10 @@
+/*
+	Script Added by Aurora Russell
+	11/01/2023
+	// TYPEWRITER TEXT EFFECT //
+*/
+
+
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -5,7 +12,7 @@ using TMPro;
 
 public class Typewriter : MonoBehaviour
 {
-
+	// SCRIPT TO BE PLACED ON TEXT OBJECT
 	Text _text;
 	string writer;
 
@@ -14,12 +21,8 @@ public class Typewriter : MonoBehaviour
 	[SerializeField] string leadingChar = "";
 	[SerializeField] bool leadingCharBeforeDelay = false;
 
-	[HideInInspector]
-	public CreditManager creditsManager;
-
 	void Start()
 	{
-		creditsManager = GameObject.Find("CreditsManager").GetComponent<CreditManager>();
 
 		_text = GetComponent<Text>()!;
 
@@ -54,24 +57,5 @@ public class Typewriter : MonoBehaviour
 		{
 			_text.text = _text.text.Substring(0, _text.text.Length - leadingChar.Length);
 		}
-
-		/*
-		if (production)
-		{
-			creditsManager.ProductionNext(creditsNumber);
-		}
-		else if (design)
-		{
-			creditsManager.DesignNext(creditsNumber);
-		}
-		else if (art)
-		{
-			creditsManager.ArtNext(creditsNumber);
-		}
-		else if (engineering)
-		{
-			creditsManager.EngineeringNext(creditsNumber);
-		}
-		*/
 	}
 }
