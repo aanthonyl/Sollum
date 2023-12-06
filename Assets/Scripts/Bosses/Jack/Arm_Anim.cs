@@ -64,6 +64,13 @@ public class Arm_Anim : MonoBehaviour
     public void AttackVuln()
     {
         ChangeState("armAttackVulnerable");
+        StartCoroutine(CanaryDelay());
+    }
+
+    private IEnumerator CanaryDelay()
+    {
+        yield return new WaitForSeconds(.2f);
+        Canary_Warning.warning();
     }
 
     public void Stun()
