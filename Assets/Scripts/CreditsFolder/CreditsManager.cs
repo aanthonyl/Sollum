@@ -112,7 +112,7 @@ public class CreditsManager : MonoBehaviour
 
     private IEnumerator BackToMenu()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(15);
         SceneManager.LoadScene("MainMenu");
     }
 }
