@@ -11,7 +11,7 @@ public class arm_detect_hitbox : MonoBehaviour
     {
         armControl = GetComponentInParent<arm_controller>();
     }
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
         // if(other.CompareTag("Player") && armControl._currState != arm_controller.ArmState.Stun)
         // {
