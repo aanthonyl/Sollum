@@ -9,6 +9,7 @@ public class GateKey : MonoBehaviour
     public DialogueTrigger foundKey;
     private GameObject gateAnimObj;
     private Image keyUI;
+
     private void Start()
     {
         gateAnimObj = GameObject.Find("GateAnimTrigger");
