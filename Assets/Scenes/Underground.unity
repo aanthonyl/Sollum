@@ -905,6 +905,7 @@ GameObject:
   - component: {fileID: 56056355}
   - component: {fileID: 56056354}
   - component: {fileID: 56056353}
+  - component: {fileID: 56056356}
   m_Layer: 0
   m_Name: Scene Change TEST (1)
   m_TagString: Untagged
@@ -940,7 +941,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 56056352}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfaab76339c7d6c4d8cc5682abddbf4a, type: 3}
   m_Name: 
@@ -962,6 +963,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &56056356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56056352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de2b58cf2dc6fc1489c69a4d6ed75f85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelToLoad: OutroCutScene
+  inExitZone: 0
 --- !u!1001 &56345678
 PrefabInstance:
   m_ObjectHideFlags: 0
