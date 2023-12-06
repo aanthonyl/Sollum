@@ -113,10 +113,10 @@ public class GameManager : MonoBehaviour
 
             public void EnableContinue()
             {
-                if(enableContinue)
-                {
-                    MainMenu.instance.continueButton.SetActive(true);
-                }
+                // if(enableContinue)
+                // {
+                //     MainMenu.instance.continueButton.SetActive(true);
+                // }
             }
 
         #endregion

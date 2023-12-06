@@ -92,7 +92,8 @@ public class MainMenu : MonoBehaviour
             SceneLoader.instance.Load(SceneLoader.Scene.Credits);
             audioSource.clip = pressButton;
             audioSource.Play();
-            SceneManager.LoadScene("Credits");
+            audioSource.loop = false;
+            // SceneManager.LoadScene("Credits");
         }
     }
 
