@@ -96,20 +96,20 @@ public class EnemyMelee : MonoBehaviour
             Debug.Log("Starting stagger");
             StartCoroutine(Stagger());
         }
-        if (staggered)
-        {
-            currentFlashTime++;
-            if (sr.color == Color.red && currentFlashTime == flashTimeInterval)
-            {
-                sr.color = Color.white;
-                currentFlashTime = 0;
-            }
-            else if (sr.color == Color.white && currentFlashTime == flashTimeInterval)
-            {
-                sr.color = Color.red;
-                currentFlashTime = 0;
-            }
-        }
+        // if (staggered)
+        // {
+        //     currentFlashTime++;
+        //     if (sr.color == Color.red && currentFlashTime == flashTimeInterval)
+        //     {
+        //         sr.color = Color.white;
+        //         currentFlashTime = 0;
+        //     }
+        //     else if (sr.color == Color.white && currentFlashTime == flashTimeInterval)
+        //     {
+        //         sr.color = Color.red;
+        //         currentFlashTime = 0;
+        //     }
+        // }
         else
         {
             currentFlashTime = 0;
