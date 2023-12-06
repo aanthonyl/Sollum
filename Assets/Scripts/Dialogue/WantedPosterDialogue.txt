@@ -1,0 +1,3 @@
+[NAME=Victoria][SPEAKERSPRITE=Victoria]...That was fast
+[NAME=Victoria][SPEAKERSPRITE=Victoria]I should hurry up and get out of here.
+

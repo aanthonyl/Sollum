@@ -1,0 +1,3 @@
+[NAME=Victoria][SPEAKERSPRITE=Victoria]I remember when this was filled with plants.
+[NAME=Victoria][SPEAKERSPRITE=Victoria]Now the one I carry is all that's left...
+
