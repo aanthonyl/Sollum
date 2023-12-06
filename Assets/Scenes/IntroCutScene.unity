@@ -1656,7 +1656,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Narrator: \u201C\""
+  m_text: "Narrator: \u201CWith Strickland defeated, Victoria takes the plant overseas.
+    Perhaps she will find a way to reverse the damage Strickland caused. She hopes
+    with all her being that the world she loves can be saved.\""
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b8afe3ce973fef04c82f306bcea42959, type: 2}
   m_sharedMaterial: {fileID: 1713182500383599300, guid: b8afe3ce973fef04c82f306bcea42959, type: 2}
