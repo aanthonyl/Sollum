@@ -12,9 +12,23 @@ using UnityEngine.SceneManagement;
 public class LevelToLoad : MonoBehaviour
 {
 	public string levelToLoad;
+	public bool inExitZone = false;
 
-	public void LoadLevel(string levelToLoad)
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && inExitZone == true)
+        {
+            SceneManager.LoadScene(levelToLoad);
+        }
+    }
+
+    public void LoadLevel(string levelToLoad)
 	{
 		SceneManager.LoadScene(levelToLoad);
 	}
+
+    private void OnTriggerEnter(Collider other)
+    {
+		inExitZone = true;
+    }
 }

@@ -19,6 +19,12 @@ public class CutsceneManager : MonoBehaviour
 
     private int currentIndex = 0;
     private bool isFading = false;
+    private bool toCredits = false;
+
+    private void Start()
+    {
+        StartCoroutine(Fade(fadeScreen.GetComponent<Image>(), 1, 0, fadeDuration));
+    }
 
     void Update()
     {
@@ -34,6 +40,12 @@ public class CutsceneManager : MonoBehaviour
         {
             StartCoroutine(TransitionToNextSlide());
         }
+    }
+
+    public void ToCredits()
+    {
+        toCredits = true;
+        StartCoroutine(Fade(fadeScreen.GetComponent<Image>(), 0, 1, fadeDuration));
     }
 
     IEnumerator TransitionToNextSlide()
@@ -80,5 +92,10 @@ public class CutsceneManager : MonoBehaviour
         }
 
         image.color = targetColor;
+
+        if(toCredits == true)
+        {
+            SceneManager.LoadScene("Credits");
+        }
     }
 }
