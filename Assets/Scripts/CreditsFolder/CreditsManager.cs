@@ -1,7 +1,15 @@
+/*
+	Script Added by Aurora Russell
+	11/01/2023
+	// MANAGES CREDITS UI //
+*/
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CreditsManager : MonoBehaviour
 {
@@ -13,10 +21,19 @@ public class CreditsManager : MonoBehaviour
     public float timeBetweenObjects = 0.5f;
     public float textPrintSpeed = 0.05f;
     private Text textComponent;
+    public GameObject lastTextObject;
 
     private void Start()
     {
         StartCoroutine(ActivateObjects());
+    }
+
+    private void Update()
+    {
+        if(lastTextObject.activeInHierarchy == true)
+        {
+            StartCoroutine(BackToMenu());
+        }
     }
 
     private IEnumerator ActivateObjects()
@@ -91,5 +108,11 @@ public class CreditsManager : MonoBehaviour
             textComponent.text += c;
             yield return new WaitForSeconds(textPrintSpeed);
         }
+    }
+
+    private IEnumerator BackToMenu()
+    {
+        yield return new WaitForSeconds(10);
+        SceneManager.LoadScene("MainMenu");
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -300,7 +300,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &40180415
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,7 +562,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &70457405
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,7 +662,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &102628053
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,7 +760,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &104248712
 GameObject:
   m_ObjectHideFlags: 0
@@ -991,7 +987,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!114 &122844097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1135,7 +1130,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &141599075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1862,7 +1856,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &289520606
 GameObject:
   m_ObjectHideFlags: 0
@@ -2040,7 +2033,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &305847815
 GameObject:
   m_ObjectHideFlags: 0
@@ -2229,7 +2221,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &308553860
 GameObject:
   m_ObjectHideFlags: 0
@@ -2402,7 +2393,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &315055742
 GameObject:
   m_ObjectHideFlags: 0
@@ -2662,6 +2652,7 @@ MonoBehaviour:
   waitTimeBetweenActivations: 0
   timeBetweenObjects: 0
   textPrintSpeed: 0.03
+  lastTextObject: {fileID: 568817823}
 --- !u!1 &362714779
 GameObject:
   m_ObjectHideFlags: 0
@@ -2833,7 +2824,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &380286785
 GameObject:
   m_ObjectHideFlags: 0
@@ -3240,7 +3230,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &424633518
 GameObject:
   m_ObjectHideFlags: 0
@@ -3491,7 +3480,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!114 &430645364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3632,7 +3620,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &451712691
 GameObject:
   m_ObjectHideFlags: 0
@@ -3958,7 +3945,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &521181345
 GameObject:
   m_ObjectHideFlags: 0
@@ -4186,7 +4172,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &556891367
 GameObject:
   m_ObjectHideFlags: 0
@@ -4358,7 +4343,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!114 &568817826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4510,7 +4494,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &583845114
 GameObject:
   m_ObjectHideFlags: 0
@@ -4994,7 +4977,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &696175682
 GameObject:
   m_ObjectHideFlags: 0
@@ -5171,7 +5153,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &743573578
 GameObject:
   m_ObjectHideFlags: 0
@@ -5382,7 +5363,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &801502183
 GameObject:
   m_ObjectHideFlags: 0
@@ -5560,7 +5540,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &817497138
 GameObject:
   m_ObjectHideFlags: 0
@@ -5658,7 +5637,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &827075088
 GameObject:
   m_ObjectHideFlags: 0
@@ -5759,7 +5737,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &834165919
 GameObject:
   m_ObjectHideFlags: 0
@@ -6436,7 +6413,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &985028570
 GameObject:
   m_ObjectHideFlags: 0
@@ -6534,7 +6510,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &1001312458
 GameObject:
   m_ObjectHideFlags: 0
@@ -6708,7 +6683,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &1009972316
 GameObject:
   m_ObjectHideFlags: 0
@@ -6807,7 +6781,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &1013715508
 GameObject:
   m_ObjectHideFlags: 0
@@ -6906,7 +6879,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &1020654906
 GameObject:
   m_ObjectHideFlags: 0
@@ -7078,7 +7050,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &1030418437
 GameObject:
   m_ObjectHideFlags: 0
@@ -7175,7 +7146,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &1036112839
 GameObject:
   m_ObjectHideFlags: 0
@@ -7231,7 +7201,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!114 &1036112842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7603,7 +7572,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &1076803052
 GameObject:
   m_ObjectHideFlags: 0
@@ -7793,7 +7761,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!114 &1088584319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7892,7 +7859,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!114 &1104899357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8149,7 +8115,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!114 &1138098366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8602,7 +8567,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &1179793939
 GameObject:
   m_ObjectHideFlags: 0
@@ -8658,7 +8622,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!114 &1179793942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8958,7 +8921,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &1205395405
 GameObject:
   m_ObjectHideFlags: 0
@@ -9207,7 +9169,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &1223577943
 GameObject:
   m_ObjectHideFlags: 0
@@ -9468,7 +9429,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &1242979024
 GameObject:
   m_ObjectHideFlags: 0
@@ -9566,7 +9526,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &1253387348
 GameObject:
   m_ObjectHideFlags: 0
@@ -9744,7 +9703,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &1305315493
 GameObject:
   m_ObjectHideFlags: 0
@@ -10077,7 +10035,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &1338088285
 GameObject:
   m_ObjectHideFlags: 0
@@ -10132,7 +10089,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!114 &1338088288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10271,7 +10227,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &1348724586
 GameObject:
   m_ObjectHideFlags: 0
@@ -10508,7 +10463,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &1402866787
 GameObject:
   m_ObjectHideFlags: 0
@@ -10564,7 +10518,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!114 &1402866790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10853,7 +10806,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &1443719815
 GameObject:
   m_ObjectHideFlags: 0
@@ -10949,6 +10901,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 357338307}
+  - {fileID: 1561274777}
   - {fileID: 174124062}
   - {fileID: 1043414674}
   - {fileID: 1076803053}
@@ -11063,7 +11016,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &1455421303
 GameObject:
   m_ObjectHideFlags: 0
@@ -11480,7 +11432,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &1495055849
 GameObject:
   m_ObjectHideFlags: 0
@@ -11860,7 +11811,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &1540007697
 GameObject:
   m_ObjectHideFlags: 0
@@ -12045,7 +11995,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &1553791682
 GameObject:
   m_ObjectHideFlags: 0
@@ -12101,7 +12050,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!114 &1553791685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12143,6 +12091,81 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1553791682}
+  m_CullTransparentMesh: 1
+--- !u!1 &1561274776
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1561274777}
+  - component: {fileID: 1561274779}
+  - component: {fileID: 1561274778}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1561274777
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561274776}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1443719819}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.0050049, y: 0.0011597}
+  m_SizeDelta: {x: 1920, y: 1079.6}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1561274778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561274776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 2c8a167f3b039c14c9d1cbdceb63d983, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1561274779
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561274776}
   m_CullTransparentMesh: 1
 --- !u!1 &1574444557
 GameObject:
@@ -12473,7 +12496,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &1646560451
 GameObject:
   m_ObjectHideFlags: 0
@@ -12827,7 +12849,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &1687448566
 GameObject:
   m_ObjectHideFlags: 0
@@ -12964,7 +12985,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!114 &1690740415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13384,7 +13404,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &1853532399
 GameObject:
   m_ObjectHideFlags: 0
@@ -13481,7 +13500,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &1857235558
 GameObject:
   m_ObjectHideFlags: 0
@@ -13578,7 +13596,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &1862063212
 GameObject:
   m_ObjectHideFlags: 0
@@ -13791,7 +13808,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &1913075151
 GameObject:
   m_ObjectHideFlags: 0
@@ -14253,7 +14269,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &1959051935
 GameObject:
   m_ObjectHideFlags: 0
@@ -14500,7 +14515,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!114 &1992695016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14639,7 +14653,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &2004695413
 GameObject:
   m_ObjectHideFlags: 0
@@ -14917,7 +14930,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &2023931007
 GameObject:
   m_ObjectHideFlags: 0
@@ -15652,7 +15664,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!1 &2138354478
 GameObject:
   m_ObjectHideFlags: 0
@@ -15708,7 +15719,6 @@ MonoBehaviour:
   timeBtwChars: 0.1
   leadingChar: 
   leadingCharBeforeDelay: 0
-  creditsManager: {fileID: 0}
 --- !u!114 &2138354481
 MonoBehaviour:
   m_ObjectHideFlags: 0

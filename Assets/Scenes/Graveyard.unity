@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8874,7 +8874,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9622642, g: 0.9332147, b: 0.8841937, a: 1}
+  m_Color: {r: 0.9622642, g: 0.9332147, b: 0.8841937, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8908,7 +8908,7 @@ RectTransform:
   m_GameObject: {fileID: 336551796}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.46, y: 0.46, z: 0.46}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1019506290}
@@ -26342,11 +26342,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parryModeTime: 0.4
+  slashKnockback: 0
+  blockKnockback: 0
+  blockingMovementSpeedMultiplier: 0
+  parryMovementSpeedMultiplier: 0
+  coolDownTime: 0
+  anim: {fileID: 0}
+  upRightHitbox: {fileID: 0}
+  upLeftHitbox: {fileID: 0}
+  rightHitbox: {fileID: 0}
+  leftHitbox: {fileID: 0}
+  downRightHitbox: {fileID: 0}
+  downLeftHitbox: {fileID: 0}
+  blockRightHitbox: {fileID: 0}
+  blockLeftHitbox: {fileID: 0}
+  blockUpHitbox: {fileID: 0}
+  blockDownHitbox: {fileID: 0}
+  pam: {fileID: 0}
+  nw: {fileID: 0}
   parryVelocity: 50
   parryClass: {fileID: 720066997}
-  anim: {fileID: 0}
   parryBlockClass: {fileID: 1313554696}
-  protoSprite: {fileID: 1065988337}
   playerHealth: {fileID: 1313554698}
 --- !u!212 &1065988337
 SpriteRenderer:
@@ -28972,8 +28988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d13bd9f22bfe4f1fa69f0dfd7e6fbaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackTime: 0.1
-  knockBackScale: 10
+  knockbackScale: 0
 --- !u!114 &1313554702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28992,6 +29007,7 @@ MonoBehaviour:
   friction: 0
   thrust: 0
   gravity: 0
+  movementMultiplier: 0
 --- !u!114 &1313554703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29004,6 +29020,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8359595a0cc89c4d93399ff9342cf3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bpc: {fileID: 0}
+  nw: {fileID: 0}
+  speed: 0
+  grounded: 1
   facingForward: 1
   freezeMovement: 0
 --- !u!136 &1313554704
@@ -34634,7 +34654,6 @@ MonoBehaviour:
   whipZone: {fileID: 1802045379}
   pauseManager: {fileID: 0}
   dialogueManager: {fileID: 0}
-  WhipAttackKey: 323
   pauseOpen: 0
 --- !u!1 &1762532710
 GameObject:
@@ -43738,6 +43757,9 @@ MonoBehaviour:
   offsetX: 0
   offsetY: 3
   offsetZ: -8
+  test_Pan: 0
+  test_Zoom: 0
+  testOBJ: {fileID: 0}
 --- !u!81 &2087901299
 AudioListener:
   m_ObjectHideFlags: 0

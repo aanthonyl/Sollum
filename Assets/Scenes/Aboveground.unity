@@ -1472,16 +1472,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parryModeTime: 0.4
+  slashKnockback: 0
+  blockKnockback: 0
   blockingMovementSpeedMultiplier: 0
+  parryMovementSpeedMultiplier: 0
+  coolDownTime: 0
   anim: {fileID: 0}
   upRightHitbox: {fileID: 0}
   upLeftHitbox: {fileID: 0}
   rightHitbox: {fileID: 0}
   leftHitbox: {fileID: 0}
+  downRightHitbox: {fileID: 0}
+  downLeftHitbox: {fileID: 0}
+  blockRightHitbox: {fileID: 0}
+  blockLeftHitbox: {fileID: 0}
+  blockUpHitbox: {fileID: 0}
+  blockDownHitbox: {fileID: 0}
+  pam: {fileID: 0}
+  nw: {fileID: 0}
   parryVelocity: 50
   parryClass: {fileID: 1688943313}
   parryBlockClass: {fileID: 172579421}
-  protoSprite: {fileID: 60643758}
   playerHealth: {fileID: 172579423}
 --- !u!212 &60643758
 SpriteRenderer:
@@ -4288,8 +4299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d13bd9f22bfe4f1fa69f0dfd7e6fbaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackTime: 0.1
-  knockBackScale: 10
+  knockbackScale: 0
 --- !u!114 &172579428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4322,6 +4332,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bpc: {fileID: 0}
+  nw: {fileID: 0}
+  speed: 0
+  grounded: 1
   facingForward: 1
   freezeMovement: 0
 --- !u!136 &172579430
@@ -5948,6 +5961,7 @@ MonoBehaviour:
   loseAggroDist: 5
   agent: {fileID: 240553485}
   target: {fileID: 0}
+  isPlayerHidden: 0
   rb: {fileID: 0}
   push_time: 0.1
   pushVelocity: 50
@@ -27473,6 +27487,7 @@ MonoBehaviour:
   loseAggroDist: 5
   agent: {fileID: 995341040}
   target: {fileID: 0}
+  isPlayerHidden: 0
   rb: {fileID: 0}
   push_time: 0.1
   pushVelocity: 50
@@ -56056,6 +56071,7 @@ MonoBehaviour:
   loseAggroDist: 5
   agent: {fileID: 1739003746}
   target: {fileID: 0}
+  isPlayerHidden: 0
   rb: {fileID: 0}
   push_time: 0.1
   pushVelocity: 50
@@ -57873,6 +57889,7 @@ MonoBehaviour:
   loseAggroDist: 5
   agent: {fileID: 1810931962}
   target: {fileID: 0}
+  isPlayerHidden: 0
   rb: {fileID: 0}
   push_time: 0.1
   pushVelocity: 50
@@ -64536,7 +64553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9622642, g: 0.9332147, b: 0.8841937, a: 1}
+  m_Color: {r: 0.9622642, g: 0.9332147, b: 0.8841937, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -64570,7 +64587,7 @@ RectTransform:
   m_GameObject: {fileID: 2143406982}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.46, y: 0.46, z: 0.46}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1657904848}
