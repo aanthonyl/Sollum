@@ -43,8 +43,12 @@ public class EnemyMelee : MonoBehaviour
     {
         nma = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        sr = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
-        anim = this.transform.GetChild(0).GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
+        if (sr == null)
+            sr = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
+        if (anim == null)
+            anim = this.transform.GetChild(0).GetComponent<Animator>();
         col = this.transform.GetComponent<BoxCollider>();
         flashTimeInterval = flashTime / 0.025f;
         player = GameObject.FindGameObjectWithTag("Player").transform;
