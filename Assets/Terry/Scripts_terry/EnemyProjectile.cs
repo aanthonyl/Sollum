@@ -41,7 +41,7 @@ public class EnemyProjectile : MonoBehaviour
             source = findingAudio.GetComponent<AudioSource>();
     }
 
-    void EnemyShoot()
+    public void EnemyShoot()
     {
         GameObject projectile = Instantiate(projectile_prefab, getShootPosition(), Quaternion.identity);
         projectile.GetComponent<ProjectileInfo>().setSender(transform);

@@ -116,7 +116,7 @@ public class EnemyMelee : MonoBehaviour
         }
     }
 
-    private void AttackPlayer()
+    public void AttackPlayer()
     {
         if (audioSource != null)
             audioSource.Play();

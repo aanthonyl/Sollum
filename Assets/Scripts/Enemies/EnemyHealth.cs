@@ -18,10 +18,12 @@ public class EnemyHealth : MonoBehaviour
         GruntEnemy,
         ThrowEnemy,
         ShootEnemy,
+        SweepEnemy,
+        Boss
     }
     public EnemyType enemyType = new EnemyType();
 
-    public SpriteRenderer sprite;
+    private SpriteRenderer sprite;
 
     [Header("Health Stats")]
     [Tooltip("Updates Automatically")]
@@ -31,7 +33,7 @@ public class EnemyHealth : MonoBehaviour
     private float playerWhipDamage = 10;
     private bool damageCoolDown = false;
 
-
+    [SerializeField] private Boss boss;
 
     //private AudioSource audioSource;
     //public AudioClip enemyDamagedSound;
@@ -56,6 +58,11 @@ public class EnemyHealth : MonoBehaviour
         {
             enemyHealth = 40;
         }
+        else if (enemyType == EnemyType.Boss)
+        {
+            enemyHealth = 100;
+            Debug.Log("Boss Health: " + enemyHealth);
+        }
         //audioSource.clip = enemyDamagedSound;
     }
 
@@ -63,49 +70,64 @@ public class EnemyHealth : MonoBehaviour
     {
 
         // ENTERED WHIP ATTACK TRIGGER
-        // if (other.gameObject.name == "WhipAttackZone")
-        // {
-        //     // Debug.Log("ENTERED WHIP ZONE");
-        //     TakeWhipDamage();
-        // }
+        if (other.gameObject.name == "WhipAttackZone") {
+            Debug.Log("ENTERED WHIP ZONE");
+            TakeWhipDamage();
+        }
     }
 
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("PlayerProjectile"))
         {
-            TakeDamage(10); //just using whip function for now
+            Debug.Log("HIT BY BULLET");
+            TakeWhipDamage(); //just using whip function for now
         }
     }
 
     // ENEMY TAKES DAMAGE AND DIES IF HEALTH HITS 0
-    // public void TakeWhipDamage()
-    // {
-    //     if (damageCoolDown == false)
-    //     {
-    //         Debug.Log("ENEMY TAKE WHIP DAMAGE");
+    public void TakeWhipDamage()
+    {
+        if (damageCoolDown == false)
+        {
+            Debug.Log("ENEMY TAKE WHIP DAMAGE");
 
-    //         enemyHealth -= playerWhipDamage;
+            enemyHealth -= playerWhipDamage;
 
-    //         StartCoroutine(FlashRed());
+            StartCoroutine(FlashRed());
 
-    //         if (enemyHealth <= 0)
-    //         {
-    //             EnemyDie();
-    //         }
-    //         //audioSource.Play();
-    //     }
-    // }
+            if (enemyHealth <= 0)
+            {
+                EnemyDie();
+            }
+            //audioSource.Play();
+        }
+    }
 
     public void TakeDamage(float damage)
     {
         if (!damageCoolDown)
         {
-            enemyHealth -= damage;
-            StartCoroutine(FlashRed());
-            if (enemyHealth <= 0)
+            // Hijack logic for the boss
+            if(enemyType == EnemyType.Boss)
             {
-                EnemyDie();
+                Debug.Log("Boss Damage Routine");
+                boss.TakeDamage(damage);
+            }
+
+            /*
+                Allows Damage to occur for normal enemies
+                Will only deal damage to the boss,
+                    when both arms are stunned
+            */
+            if(enemyType != EnemyType.Boss || boss.stunCount == 2)
+            {
+                enemyHealth -= damage;
+                StartCoroutine(FlashRed());
+                if (enemyHealth <= 0)
+                {
+                    EnemyDie();
+                }
             }
         }
     }
@@ -113,6 +135,8 @@ public class EnemyHealth : MonoBehaviour
     // ENEMY DIES, OBJECT DESTROYED
     public virtual void EnemyDie()
     {
+        Debug.Log("ENEMY DIE");
+
         Destroy(this.gameObject);
     }
 
