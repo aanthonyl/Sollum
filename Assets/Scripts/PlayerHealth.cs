@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public float maxHealth = 100.0f;
     public float currentHealth = 100.0f;
+    SpriteRenderer sprite;
 
     public Image HealthBar;
     private bool invincible;
@@ -15,6 +16,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
+        sprite = GetComponent<SpriteRenderer>();
         //respawnPoint = GameObject.FindGameObjectWithTag("Respawn").transform;
         invincible = false;
         currentHealth = maxHealth;
@@ -30,10 +32,10 @@ public class PlayerHealth : MonoBehaviour
         // Debug.Log("Taking damage");
         if (!invincible)
         {
-
             // Reduce the player's health by the damage amount.
             currentHealth -= damageAmount;
             UpdateHealthBar();
+            StartCoroutine(FlashRed());
         }
 
         if (currentHealth <= 30) //Set to 30 to work around player not dying for 3 hits after meter is empty
@@ -65,6 +67,16 @@ public class PlayerHealth : MonoBehaviour
         }
 
         HealthBar.fillAmount = fillAmount;
+    }
+
+    private IEnumerator FlashRed()
+    {
+        invincible = true;
+        sprite.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        sprite.color = Color.white;
+        yield return new WaitForSeconds(0.8f);
+        invincible = false;
     }
 
     private void Die()

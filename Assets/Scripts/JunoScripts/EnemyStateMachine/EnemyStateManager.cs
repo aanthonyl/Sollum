@@ -130,7 +130,6 @@ public class EnemyStateManager : MonoBehaviour
 	*===========================================*/
 	public void SwitchState(I_EnemyBaseState state)
 	{
-		Debug.Log(state);
 		currentState = state; //update current state to whatever the next state is
 		currentState.EnterState(this); //Set state for gameobject
 	}
@@ -157,7 +156,7 @@ public class EnemyStateManager : MonoBehaviour
 		StopAllCoroutines();
 		isAggro = true;
 		target = player;
-		rend.color = Color.red;
+		// rend.color = Color.red;
 		SwitchState(ChaseState);
 	}
 
@@ -206,7 +205,7 @@ public class EnemyStateManager : MonoBehaviour
 	public IEnumerator ReturnToPatrol()
 	{
 		yield return new WaitForSeconds(pauseSearchTime);
-		rend.color = Color.white;
+		// rend.color = Color.white;
 		isAggro = false;
 		SwitchState(PatrolState);
 	}

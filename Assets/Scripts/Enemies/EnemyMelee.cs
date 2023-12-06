@@ -43,8 +43,12 @@ public class EnemyMelee : MonoBehaviour
     {
         nma = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        sr = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
-        anim = this.transform.GetChild(0).GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
+        if (sr == null)
+            sr = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
+        if (anim == null)
+            anim = this.transform.GetChild(0).GetComponent<Animator>();
         col = this.transform.GetComponent<BoxCollider>();
         flashTimeInterval = flashTime / 0.025f;
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -96,20 +100,20 @@ public class EnemyMelee : MonoBehaviour
             Debug.Log("Starting stagger");
             StartCoroutine(Stagger());
         }
-        if (staggered)
-        {
-            currentFlashTime++;
-            if (sr.color == Color.red && currentFlashTime == flashTimeInterval)
-            {
-                sr.color = Color.white;
-                currentFlashTime = 0;
-            }
-            else if (sr.color == Color.white && currentFlashTime == flashTimeInterval)
-            {
-                sr.color = Color.red;
-                currentFlashTime = 0;
-            }
-        }
+        // if (staggered)
+        // {
+        //     currentFlashTime++;
+        //     if (sr.color == Color.red && currentFlashTime == flashTimeInterval)
+        //     {
+        //         sr.color = Color.white;
+        //         currentFlashTime = 0;
+        //     }
+        //     else if (sr.color == Color.white && currentFlashTime == flashTimeInterval)
+        //     {
+        //         sr.color = Color.red;
+        //         currentFlashTime = 0;
+        //     }
+        // }
         else
         {
             currentFlashTime = 0;

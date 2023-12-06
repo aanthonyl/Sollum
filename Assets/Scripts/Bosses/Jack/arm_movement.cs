@@ -24,7 +24,9 @@ public class arm_movement : MonoBehaviour
             Move();
         }
 
-        void Move()
+    void Move()
+    {
+        switch (armCenter._currState)
         {
             switch(armCenter._currState)
             {
