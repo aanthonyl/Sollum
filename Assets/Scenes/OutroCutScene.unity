@@ -680,6 +680,7 @@ MonoBehaviour:
   - {fileID: 910689020}
   fadeScreen: {fileID: 166832888}
   fadeDuration: 1
+  isOutro: 1
 --- !u!1 &1397570999
 GameObject:
   m_ObjectHideFlags: 0

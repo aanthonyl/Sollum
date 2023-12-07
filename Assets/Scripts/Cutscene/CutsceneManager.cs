@@ -16,6 +16,7 @@ public class CutsceneManager : MonoBehaviour
     public GameObject[] slides;
     public GameObject fadeScreen;
     public float fadeDuration = 1.0f;
+    public bool isOutro = false;
 
     private int currentIndex = 0;
     private bool isFading = false;
@@ -52,11 +53,14 @@ public class CutsceneManager : MonoBehaviour
     {
         isFading = true;
 
-        // Fade in
-        yield return StartCoroutine(Fade(fadeScreen.GetComponent<Image>(), 0, 1, fadeDuration));
+        if(!isOutro)
+        {
+            // Fade in
+            yield return StartCoroutine(Fade(fadeScreen.GetComponent<Image>(), 0, 1, fadeDuration));
 
-        // Deactivate current object
-        slides[currentIndex].SetActive(false);
+            // Deactivate current object
+            slides[currentIndex].SetActive(false);
+        }
 
         // Increment index
         currentIndex++;
@@ -65,7 +69,15 @@ public class CutsceneManager : MonoBehaviour
         if (currentIndex >= slides.Length)
         {
             // Transition to a different scene
-            SceneLoader.instance.Load(SceneLoader.Scene.Aboveground);
+            if(isOutro)
+            {
+                SceneLoader.instance.Load(SceneLoader.Scene.Credits);
+            }
+            else
+            {
+                SceneLoader.instance.Load(SceneLoader.Scene.Aboveground);
+            }
+
             yield break;
         }
 
