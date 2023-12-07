@@ -65,7 +65,7 @@ public class CutsceneManager : MonoBehaviour
         if (currentIndex >= slides.Length)
         {
             // Transition to a different scene
-            SceneManager.LoadScene("Aboveground");
+            SceneLoader.instance.Load(SceneLoader.Scene.Aboveground);
             yield break;
         }
 
@@ -95,7 +95,7 @@ public class CutsceneManager : MonoBehaviour
 
         if(toCredits == true)
         {
-            SceneManager.LoadScene("Credits");
+            SceneLoader.instance.Load(SceneLoader.Scene.Credits);
         }
     }
 }
