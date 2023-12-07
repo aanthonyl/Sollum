@@ -160,7 +160,7 @@ public class arm_controller : MonoBehaviour
             // Arm_Anim.Stun();
             anim.Stun();
             boss.stunCount++;
-            StartCoroutine(StunTimer());
+            // StartCoroutine(StunTimer());
         }
     }
 
