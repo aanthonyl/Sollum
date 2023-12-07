@@ -1,0 +1,3 @@
+[NAME=Victoria][SPEAKERSPRITE=Victoria]Maybe, when this is all over, you can relax like that.
+[NAME=Canary][SPEAKERSPRITE=Canary]One day... but our mission comes first!
+[NAME=Canary][SPEAKERSPRITE=Canary]~ Chirp chirp ~

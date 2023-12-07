@@ -1,2 +1,2 @@
-[NAME=Victoria][SPEAKERSPRITE=Victoria]Ugh,what an awful stench. Piles of dead fish crowd the dock.
-[NAME=Victoria][SPEAKERSPRITE=Victoria]Several fish have been stripped to the bone, their meat eaten by someone.
+[NAME=Victoria][SPEAKERSPRITE=Victoria]Ugh,what an awful stench.
+[NAME=Narrator][SPEAKERSPRITE=]Piles of dead fish crowd the dock. Several fish have been stripped to the bone, their meat eaten by someone.

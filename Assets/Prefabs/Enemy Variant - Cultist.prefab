@@ -95,6 +95,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6105789370598786196, guid: 0d0bf7c179d8e1c478a2b007d6ca9806, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7249545274192651815, guid: 0d0bf7c179d8e1c478a2b007d6ca9806, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.05
@@ -215,15 +219,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1792291769252205596, guid: bd303b1d70c93ea42997a3507573b8ad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.86217
+      value: 8.25
       objectReference: {fileID: 0}
     - target: {fileID: 1792291769252205596, guid: bd303b1d70c93ea42997a3507573b8ad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.6017196
+      value: -3.076
       objectReference: {fileID: 0}
     - target: {fileID: 1792291769252205596, guid: bd303b1d70c93ea42997a3507573b8ad, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.24963
+      value: 6.67
       objectReference: {fileID: 0}
     - target: {fileID: 1792291769252205596, guid: bd303b1d70c93ea42997a3507573b8ad, type: 3}
       propertyPath: m_LocalRotation.w
@@ -292,14 +296,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6137824234724866314, guid: bd303b1d70c93ea42997a3507573b8ad, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8855297149948479532}
+      addedObject: {fileID: 307275221271939261}
   m_SourcePrefab: {fileID: 100100000, guid: bd303b1d70c93ea42997a3507573b8ad, type: 3}
 --- !u!1 &2515197815715758510 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6137824234724866314, guid: bd303b1d70c93ea42997a3507573b8ad, type: 3}
   m_PrefabInstance: {fileID: 8631757306026834084}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8855297149948479532
+--- !u!114 &307275221271939261
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

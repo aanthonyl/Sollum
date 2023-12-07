@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // Example Projectile class for the enemy
 // Primarily for testing
@@ -34,17 +35,15 @@ public class EnemyProjectile : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
-        if (anim == null)
-            anim = transform.GetChild(0).GetComponent<Animator>();
-        GameObject findingAudio = GameObject.Find("ThrowAudio");
-        if (findingAudio != null)
-            source = findingAudio.GetComponent<AudioSource>();
+        if (SceneManager.GetActiveScene().name == "Graveyard")
+        {
+            source = GameObject.Find("Throw_Audio").GetComponent<AudioSource>();
+        }
     }
 
     void EnemyShoot()
     {
         GameObject projectile = Instantiate(projectile_prefab, getShootPosition(), Quaternion.identity);
-        projectile.GetComponent<ProjectileInfo>().setSender(transform);
         rb = projectile.GetComponent<Rigidbody>();
         if (trackPlayer)
             setForwardVector(player.transform.position - shootPositionObj.transform.position);
@@ -70,9 +69,10 @@ public class EnemyProjectile : MonoBehaviour
     }
     IEnumerator DelayAudio()
     {
-        yield return new WaitForSeconds(1f);
-        if (source != null)
+        if (SceneManager.GetActiveScene().name == "Graveyard")
+        {
+            yield return new WaitForSeconds(1f);
             source.Play();
-
+        }
     }
 }
