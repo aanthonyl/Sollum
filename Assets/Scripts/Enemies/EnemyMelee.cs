@@ -76,7 +76,7 @@ public class EnemyMelee : MonoBehaviour
             }
 
         }
-        anim.SetBool("Staggered", staggered);
+        if(anim != null) anim.SetBool("Staggered", staggered);
     }
     private void FixedUpdate()
     {

@@ -42,6 +42,9 @@ public class Arm_Anim : MonoBehaviour
     {
         if(currState == newState) return;
 
+        if(newState == "armIdle" && currState == "armStun" || newState == "armAttackVulnerable")
+            StartCoroutine(CanaryDelay());
+
         anim.Play(newState);
         currState = newState;
     }
@@ -64,7 +67,7 @@ public class Arm_Anim : MonoBehaviour
     public void AttackVuln()
     {
         ChangeState("armAttackVulnerable");
-        StartCoroutine(CanaryDelay());
+        // StartCoroutine(CanaryDelay());
     }
 
     private IEnumerator CanaryDelay()
