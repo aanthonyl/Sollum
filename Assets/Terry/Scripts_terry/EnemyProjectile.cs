@@ -44,6 +44,7 @@ public class EnemyProjectile : MonoBehaviour
     void EnemyShoot()
     {
         GameObject projectile = Instantiate(projectile_prefab, getShootPosition(), Quaternion.identity);
+        projectile.GetComponent<ProjectileInfo>().setSender(transform);
         rb = projectile.GetComponent<Rigidbody>();
         if (trackPlayer)
             setForwardVector(player.transform.position - shootPositionObj.transform.position);
@@ -75,4 +76,6 @@ public class EnemyProjectile : MonoBehaviour
             source.Play();
         }
     }
+
+
 }

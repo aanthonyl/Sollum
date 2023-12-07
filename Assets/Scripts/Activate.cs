@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,9 @@ using UnityEngine;
 public class Activate : MonoBehaviour
 {
     public GameObject objectToAppear;
+    public Animator anim;
+    public string animVariable;
+    public bool triggerAnim = false;
 
     private void Start()
     {
@@ -19,6 +23,9 @@ public class Activate : MonoBehaviour
 
     public void Appear()
     {
-        objectToAppear.SetActive(true);
+        if (triggerAnim && animVariable != null)
+            anim.SetBool(animVariable, true);
+        else
+            objectToAppear.SetActive(true);
     }
 }

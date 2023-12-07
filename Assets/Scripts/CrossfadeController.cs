@@ -4,56 +4,57 @@ public class CrossfadeController : MonoBehaviour
 {
     #region Variables
 
-        #region Singleton
+    #region Singleton
 
-            public static CrossfadeController instance = null;
+    public static CrossfadeController instance = null;
 
-        #endregion
+    #endregion
 
-        #region Components
+    #region Components
 
-            private Animator animator;
+    private Animator animator;
 
-        #endregion
+    #endregion
 
     #endregion
 
     #region Built-in Methods
 
-        private void Awake()
+    private void Awake()
+    {
+        if (instance == null)
         {
-            if(instance == null)
-            {
-                instance = this;
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-
-            animator = GetComponent<Animator>();
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        animator = GetComponent<Animator>();
+    }
 
     #endregion
 
     #region Custom Methods
 
-        public void FadeIn(float crossfadeLength)
-        {
-            animator.speed = 1 / crossfadeLength;
-            animator.Play("Fade-In");
-        }
+    public void FadeIn(float crossfadeLength)
+    {
+        animator.speed = 1 / crossfadeLength;
+        animator.Play("Fade-In");
+    }
 
-        public void FadeOut(float crossfadeLength)
-        {
-            animator.speed = 1 / crossfadeLength;
-            animator.Play("Fade-Out");
-        }
+    public void FadeOut(float crossfadeLength)
+    {
+        animator.speed = 1 / crossfadeLength;
+        animator.Play("Fade-Out");
+    }
 
-        private void CrossfadeComplete()
-        {
-            SceneLoader.instance.crossfadeComplete = true;  
-        }
+    private void CrossfadeComplete()
+    {
+        SceneLoader.instance.crossfadeComplete = true;
+    }
 
     #endregion
 }

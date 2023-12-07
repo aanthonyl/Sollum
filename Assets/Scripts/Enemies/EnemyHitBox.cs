@@ -8,8 +8,7 @@ public class EnemyHitBox : MonoBehaviour
     [SerializeField] BoxCollider col;
     private void Start()
     {
-        if (col == null)
-            col = transform.parent.GetComponent<BoxCollider>();
+        col.enabled = false;
     }
 
     public void EnemyStartAtk()

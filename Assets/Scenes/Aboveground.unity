@@ -219,14 +219,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Variant - Cultist (5)
       objectReference: {fileID: 0}
-    - target: {fileID: 5005354973731176310, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -41.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 5005354973731176310, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 5.54
-      objectReference: {fileID: 0}
     - target: {fileID: 8004398845142166712, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
       propertyPath: m_LocalPosition.x
       value: 32.55
@@ -267,25 +259,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8128057296619679596, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -37.64
-      objectReference: {fileID: 0}
-    - target: {fileID: 8128057296619679596, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 5.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 8223779984233582598, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -39.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 8223779984233582598, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 5.36
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 332044589815373750, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
@@ -6647,7 +6622,7 @@ Transform:
   m_GameObject: {fileID: 285966133}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.940001, y: -2.6899996, z: -8.74}
+  m_LocalPosition: {x: -3.44, y: -2.6899996, z: -8.74}
   m_LocalScale: {x: 3.228724, y: 3.7887704, z: 36.30486}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8611,7 +8586,7 @@ PrefabInstance:
       objectReference: {fileID: 1069394562}
     - target: {fileID: 8124740583835986334, guid: 2508a92d2d6ac65499332edcdebd5cab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.039999
+      value: 23.25
       objectReference: {fileID: 0}
     - target: {fileID: 8124740583835986334, guid: 2508a92d2d6ac65499332edcdebd5cab, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8619,7 +8594,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8124740583835986334, guid: 2508a92d2d6ac65499332edcdebd5cab, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.17000079
+      value: 0.94
       objectReference: {fileID: 0}
     - target: {fileID: 8124740583835986334, guid: 2508a92d2d6ac65499332edcdebd5cab, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14509,7 +14484,7 @@ PrefabInstance:
       objectReference: {fileID: 1069394562}
     - target: {fileID: 8124740583835986334, guid: 2508a92d2d6ac65499332edcdebd5cab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.919998
+      value: 24.129997
       objectReference: {fileID: 0}
     - target: {fileID: 8124740583835986334, guid: 2508a92d2d6ac65499332edcdebd5cab, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14517,7 +14492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8124740583835986334, guid: 2508a92d2d6ac65499332edcdebd5cab, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.32999992
+      value: 0.43999934
       objectReference: {fileID: 0}
     - target: {fileID: 8124740583835986334, guid: 2508a92d2d6ac65499332edcdebd5cab, type: 3}
       propertyPath: m_LocalRotation.w
@@ -17101,6 +17076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseKey: 27
   PauseUI: {fileID: 2091774400}
+  controlsUI: {fileID: 0}
   locationSprite: {fileID: 1178354394}
   locationName: {fileID: 1320770536}
   currentObjective: {fileID: 1240631556}
@@ -17111,6 +17087,7 @@ MonoBehaviour:
   hideOtherUI: {fileID: 1207439407}
   dialogueOpen: 0
   gamePaused: 0
+  controlsActive: 0
 --- !u!1 &759597050
 GameObject:
   m_ObjectHideFlags: 0
@@ -24421,6 +24398,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Variant - Cultist (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 2339426425684941591, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8004398845142166712, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.25
@@ -24694,6 +24675,10 @@ PrefabInstance:
     - target: {fileID: 2339426425684941591, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
       propertyPath: m_Name
       value: Enemy Variant - Cultist (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2339426425684941591, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8004398845142166712, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28276,7 +28261,7 @@ PrefabInstance:
       objectReference: {fileID: 1069394562}
     - target: {fileID: 8124740583835986334, guid: 2508a92d2d6ac65499332edcdebd5cab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.68
+      value: 22.89
       objectReference: {fileID: 0}
     - target: {fileID: 8124740583835986334, guid: 2508a92d2d6ac65499332edcdebd5cab, type: 3}
       propertyPath: m_LocalPosition.y
@@ -28284,7 +28269,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8124740583835986334, guid: 2508a92d2d6ac65499332edcdebd5cab, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.41
+      value: 0.35999927
       objectReference: {fileID: 0}
     - target: {fileID: 8124740583835986334, guid: 2508a92d2d6ac65499332edcdebd5cab, type: 3}
       propertyPath: m_LocalRotation.w
@@ -41797,7 +41782,7 @@ PrefabInstance:
       objectReference: {fileID: 282053242}
     - target: {fileID: 5918929646927296485, guid: 159897470cb59094199e4fe07088fee5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.21
+      value: 5.48
       objectReference: {fileID: 0}
     - target: {fileID: 5918929646927296485, guid: 159897470cb59094199e4fe07088fee5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -52069,6 +52054,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Variant - Cultist (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 2339426425684941591, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8004398845142166712, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.59
@@ -57698,6 +57687,10 @@ PrefabInstance:
     - target: {fileID: 2339426425684941591, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
       propertyPath: m_Name
       value: Enemy Variant - Cultist (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2339426425684941591, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5005354973731176310, guid: e81edb636e6040149b261a2cd53fbb33, type: 3}
       propertyPath: m_LocalPosition.x

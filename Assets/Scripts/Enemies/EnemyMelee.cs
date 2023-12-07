@@ -65,7 +65,7 @@ public class EnemyMelee : MonoBehaviour
                     // Check if enough time has passed for the next attack.
                     if (Time.time >= nextAttackTime)
                     {
-                        AttackPlayer();
+                        damageNextTurn = true;
                         nextAttackTime = Time.time + attackCooldown;
                     }
                 }
@@ -82,14 +82,9 @@ public class EnemyMelee : MonoBehaviour
             damageNextTurn = false;
             if (!blocked && !parried && !staggered)
             {
-                Debug.Log("Doing damage");
-                player.GetComponent<PlayerHealth>().TakeDamage(damage);
+                AttackPlayer();
             }
             blocked = false;
-        }
-        if (touchingPlayer)
-        {
-            damageNextTurn = true;
         }
         if (parried && !staggered)
         {
