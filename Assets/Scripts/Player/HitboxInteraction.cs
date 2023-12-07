@@ -145,8 +145,10 @@ public class HitboxInteraction : MonoBehaviour
                 knockbackDirection = new Vector3(-0.5f, 0, 0.5f);
                 break;
         }
-        enemy.GetComponent<Rigidbody>().AddForce(knockbackDirection * bpc.slashKnockback, ForceMode.Impulse);
-        enemy.GetComponent<EnemyStateManager>().KnockedBack(); //Enemy is stunned for an amount of time. (Removed knock back forces from state manager :) )
+        if (enemy.GetComponent<Rigidbody>() != null)
+            enemy.GetComponent<Rigidbody>().AddForce(knockbackDirection * bpc.slashKnockback, ForceMode.Impulse);
+        if (enemy.GetComponent<EnemyStateManager>() != null)
+            enemy.GetComponent<EnemyStateManager>().KnockedBack(); //Enemy is stunned for an amount of time. (Removed knock back forces from state manager :) )
     }
     void Block(GameObject enemy)
     {
