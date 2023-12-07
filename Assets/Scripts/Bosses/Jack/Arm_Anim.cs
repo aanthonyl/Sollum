@@ -40,7 +40,7 @@ public class Arm_Anim : MonoBehaviour
 
     private void ChangeState(string newState)
     {
-        if(currState == newState) return;
+        if (currState == newState) return;
 
         if(newState == "armIdle" && currState == "armStun" || newState == "armAttackVulnerable")
             StartCoroutine(CanaryDelay());
@@ -73,7 +73,7 @@ public class Arm_Anim : MonoBehaviour
     private IEnumerator CanaryDelay()
     {
         yield return new WaitForSeconds(.2f);
-        Canary_Warning.warning();
+        // Canary_Warning.warning();
     }
 
     public void Stun()
