@@ -36,7 +36,8 @@ public class SceneLoader : MonoBehaviour
         Cathedral,
         IntroCutScene,
         Credits,
-        Graveyard
+        Graveyard,
+        OutroCutScene
     }
 
     [HideInInspector] public bool crossfadeComplete = false;
